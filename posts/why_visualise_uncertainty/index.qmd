@@ -1,5 +1,5 @@
 ---
-title: "Do You Have a Good Reason to Ignore Uncertainty, or are You Just Being Lazy?"
+title: "Do You Have a Good Reason to Ignore Uncertainty? Check If I Approve of Your Reason Below"
 author: "Harriet Mason"
 date: "2023-02-25T00:00:00Z"
 lastMod: "2023-02-25T00:00:00Z"
