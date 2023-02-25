@@ -44,6 +44,5 @@ format:
     css: styles.css
     toc: true
     from: markdown+emoji
-
-
-
+ #   reference-location: margin
+  #  citation-location: margin
