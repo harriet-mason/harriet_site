@@ -1,19 +1,49 @@
 project:
   type: website
 
+execute: 
+  freeze: auto
+
+bibliography: references.bib
+
 website:
-  title: "harriet_site"
+  title: "Harriet Mason"
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - index.qmd
+      - sidebar:research
+      - sidebar:teaching
+      - href: posts/index.qmd
+        text: Blog Posts
+      
+  sidebar:
+    - id: research
+      style: "floating"
+      title: "Research"
+      contents:
+        - section: "PhD program"
+          contents:
+            - research/meetings.qmd
+            - research/ideas.qmd
+        - section: "General"
+          contents: 
+            - research/talks.qmd
+    
+    - id: teaching
+      title: "Teaching"
+      contents:
+        - teaching/ETC3250.qmd
+        - teaching/ETC3580.qmd
+        
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    from: markdown+emoji
 
-editor: visual
+
 

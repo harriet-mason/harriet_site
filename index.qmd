@@ -1,11 +1,9 @@
 ---
-title: "harriet_site"
+title: "About"
+callout-icon: false
+callout-appearance: "simple"
 ---
 
-This is a Quarto website.
+# Hello
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+This is a convenient website where I can put all the work I need to share with others. Don't snoop in the sections that aren't for you.
