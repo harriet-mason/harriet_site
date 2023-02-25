@@ -13,14 +13,14 @@ tags:
   - statistics
 ---
 
-## The Wombat Conference
+# The Wombat Conference
 Recently I went to a conference with the central topic of visualising data. The conference was great and it was the first time i have ever been able to understand most of most of the speaches. Usually I just stare at the speaker's slides and wonder if I am the only one who has no idea what they are talking about. There was one overwhelming sentiment shared by all the speakers that seemed a little disastrous to my research. Speaker after speaker went to the podium, started their speach, and said they didn't visualize uncertainty (except keynote speaker but I was late and missed it). As a PhD student whose research centers on visualising uncertatiny, this could be seen as a bit of a spanner thrown into my work. I will admit that it became a running joke in my notes, to see how long until the speaker either admitted they don't visualise uncertainty, or just outright dismissed it as feasible in their work. I started to wonder if living in the woods and carving sticks would be a more fruitful career than what I was currently doing. I have since spoken about this to multiple friends who have admonished those who openly reject visualising uncertainty, but I actually repsect the honesty. In trying to improve uncertainty visualisations, I have noticed that uncertainty is rarely visualised and there must be a reason for it that goes beyond "the current methods aren't good". We can all sit here and say "we should visualise uncertainty" but the reality is, nobody actually does and everyone has some reasoning for it that outweighs misrepresenting our results. Even if I spend months working on a new way to visualise uncertainty, without understand why nobody does it, my work would be born to live in a frame on my mothers wall, read only by myself and examiners, and used by nobody.
 
 <center>
 ![](wombatfeels.jpeg)
 </center>
 
-## When to NOT Visualise Uncertainty
+# When to NOT Visualise Uncertainty
 When I was in high school, my fancy private school paid a lot of money to have a speaker come in and talk to my cohort about communicating statistics. To get his point across the speaker gave an example on smoking. His speech went something like this:
 
 "People are really bad at applying probabilities to themselves, especially when the probability relates to something bad. That means that if the government wants people to stop smoking to decrease the burden on the health care system, they can't communicate it through probability. I'm sure that everyone in this room thinks that if you smoke it is certain that you will eventually get cancer and die, that is quite frankly not the case. The reality is, even if you smoke you actually only have about a 1% chance of getting lung cancer. Obviously it also leads to other diseases and a lower quality of life, but it is a far cry away from  it being certain you will get cancer and die. The reason it is communicated with uncertainty is that we don't want anyone to smoke, and we achieve that by communicaing with certainty even if it is a misrepresentation of reality."
@@ -40,7 +40,7 @@ Most people think the reason nobody visualises uncertainty is a lack of trust in
 
 Prior to reading into it I suspected that the reason authors did not visualise uncertainty was because there were just not enough good and intuitive methods. I would be unsurprised if this was a widely held belief. Now that I have read some research one it, I actually think its just that people are incentivised not to. The problem is not the available methods or the audience, its human psychology. This is not to say that if someone says current methods are lacking they are always making up an excuse (for example, visualsing uncertainty on maps is very difficult) but it just highly likely that they are. Below I will go though the most common reasons cited for failling to express uncertainty, and why they are lacking once you engage in the literature. Then you might see what I mean.
 
-## The Excuses (and The Rebuttals)
+# The Excuses (and The Rebuttals)
   
 There is a large amount of literature providing new ways to visualise uncertainty and showing its effectiveness, but much less on why people don't do it. I am going to focus on the reasons provided in "Why Authors Don't Visualize Uncertainty" by Jessica Hullman because this is one of the few detailled reviews I could find that actually did a structured interview with visualisation authors to find out if they visualised uncertainty and why they would chose not to [@Hullman2020a]. 
 
@@ -52,72 +52,84 @@ The paper discussed a mirriad of reasons provided by the authors to explain why 
 
 I want to make it clear that majority of those interviewed or surveyed for Hullman's paper agreed that expressing uncertainty is important and should be done more often [@Hullman2020a]. As a matter of fact, some people agreed that failing to visualize uncertainty is tantamount to fraud [@Hullman2020a]. Despite this, only a quater of respondents included uncertainty in 50% or more of their visualisations [@Hullman2020a].  This means people are convinced that visualising uncertainty is important from a moral standpoint, but they have still been able to provide self sufficient reasoning that allows them to avoid doing it. That doesn't mean the reasoning provided follows consistent and sound logic. For example, at least one interviewee from Hullmans survery claimed that expertise implies that the signal being conveyed is significant, but also said they would omit uncertainty if it obfuscated the message they were trying to convey [@Hullman2020a]. Even some authors who were capable of calculating and and representing uncertainty well did not do it, and were unable to provide a self-satifying reason why. The clear friction in the explanations below are obvious but for the time being I will ignore it and take each claim at face value. At the end I will discuss the clear overarching issue of backward justification.
 
---------------------
+## Don't Want to Overwhelm
+The common theme among these reasons seems to be a belief that uncertainty is secondary to estimations. The argument speaks to an unspoken belief of those that work with data, that the uncertainty associated with an estimate (the noise) only exists to hide the estimate itself (the signal). From this view, uncertainty is only seen as additional or hindering information, therefore despite its alleged importance, when simplifying a plot uncertainty the first thing to go. Below are some examples of these reasonings.
 
+### Clutter
+#### Reason 
+When showing a graphic for a short period of time (such as on TV) you can only present one idea per graphic, and uncertainty will clutter the visualisation.  
+
+#### Rebuttal  
+If you can only show one idea, why not show the uncertainty? For example, something as simple as presenting a range instead of a point estimate would give an idea of central location as well as degree of uncertainty.
+
+People being unable to make quick decision's using uncertainty may not even be true. A study that got participants to account for uncertainty in bus arrival times showed laypeople have ability to make fast and accurate decisions that accounted for uncertainty that was displayed on a small screen [@Kay2016].
+
+### Audience Understanding
+#### Reason
+The general public does not understand randomness so including uncertainty will only confuse the audience.
+
+#### Rebuttal
+This statement has two halves that are technically true if you constrain it. For example, the statements "the general public does not have a *full and detailled* understanding of the philosophical arguments behind uncertainty" and "*some* people struggle with uncertainty" are both true. What does not seem to be true is the statement above.
+
+First, lets address if the general population can understand uncertainty. I think blanket yes/no conclusions about whether or not uncertainty was understood ignore the intricacies of understanding uncertainty that comes through in the research. The general gist seems to be this. Can laypeople interpret uncertainty in a way that is consistent with frequentist philosiphy? No [Hoekstra2014]. Can laypeople reliably translate an error bar plot to an equivalent hypothesis test? No [@Bella2005]. Can laypeople read an uncertainty plot and make accurate and efficient decisions factoring the uncertainty into their choices? Yes [@Kay2016] [@Fernandes2018]. Additionally, while some people may have a lower baseline than the general public, most people get better at understanding uncertainty plots the more they are exposed to them [@Kay2016].
+
+Refusing to express uncertainty because people dont understand them, prevents people from improving in their ability to understand the plots, causing those that may not be able to understand uncertainty to continue to be bad at it.
+
+### Complicates Descision Making
+#### Reason
+Uncertainty confuses people and makes it harder for them to make decisions. Because of cognitive overload we want to be careful about conveying important information. 
+
+#### Rebuttal
+Removing uncertainty makes the decision making process easier in the same way presenting no choices does. Artificially. Very often there are ways to simplify other aspects of the design without sacrificing uncertainty information. 
+
+I think this argument also comes from a misunderstanding of who the decision makers should be in some cases. When presenting evacuation information and you are worried about confusing a general audience, the Government may choose to present a simple "yes or no" threshold. Here, it is not that uncertainty was omitted, but rather the descision maker has been changed.
+
+### Common Knowledge
+#### Reason
+The presence of uncertainty is common knowledge and does not need to be explicitly stated. Sometimes I 
+
+#### Rebuttal
+How much uncertainty is the actual issue at hand. A vague reference to some uncertainty is quite frankly nonsense. While authors typically prefer to express uncertainty in vague terms and will use reasons such as the one above to justify it, decision makers prefer uncertainty in precise quantitative terms [@Erev_1990], [@Olson_1997].
+
+### People Dont like it
+#### Reason
+People cannot tolerate uncertainty and it creates negative feelings.
+
+#### Rebuttal
+This is true, however it is not a reason to avoid visualising uncertainty.
+
+## Don't know how to calculate or Don't have Access to Info
+### Multiple Sources of Uncertainty
+#### Reason
+
+Sometimes there are multiple layers of uncertainty which are too hard to communicate so it is ignored.
+
+#### Rebuttal
+
+#### Reason: Prescision
+Fear that uncertainty will imply unwarranted prescision in estimates 
+#### Rebuttal
+
+### Don't Want to Seem Questionable
 #### Reason: Expertise  
-Some intervieees claimed that the uncertainty would add little to the plot because they only present statistically significant findings and the audience trusts their expertise.
-
-One participant in Hullman's study said "Most people will trust the doctor, not necessarily because the information itself was trustworthy, but because the doctor was." when referencing why a certain level of expertise allows one to omit uncertainty [@Hullman2020a].
+Some intervieees claimed that the uncertainty would add little to the plot because they only present statistically significant findings and the audience trusts their expertise.One participant in Hullman's study said "Most people will trust the doctor, not necessarily because the information itself was trustworthy, but because the doctor was." when referencing why a certain level of expertise allows one to omit uncertainty [@Hullman2020a].
 
 #### Rebuttal  
 I personally wish my doctor would give me probabilities and I have spent hours complaining to friends about the ones that don't. To make descisious about risk that *others* are taking on because *you* are an expert is wildly infantilising. I broke my finger when my usual GP was on leave and had to see someone else who said it was "probably nothing to worry about" and sent me home without an x-ray.  I wish he had communicated the amount of uncertainty about that because I had to get a $5000 hand surgery 3 months later to correct his mistake.  Because the uncertainty about his decision and the costs associated with an incorrect descision was not communicated to me, I took on a much higher risk than I was comfortable with. Significance is arbitrary, and communicating uncertainty around that value is necessary for the people making the descisions.
 
---------------------
+This is just an annecdote but there is evidence that general audiences feel the same.
 
-#### Reason: Clutter  
-When showing a graphic for a short period of time (such as on TV) you can only present one idea per graphic, and uncertainty will clutter the visualisation.  
-
-#### Rebuttal  
-I find this reason interesting, because it implies a hierarchy where the estimate is above the uncertainty. It leads me to wonder, if you can only show one idea, why not show the uncertainty? Something as simple as presenting a range instead of a point estimate would give an idea of central location as well as degree of uncertainty in a lot of cases. 
-
-I think the clutter argument speaks to an unspoken belief of those that work with data, that the uncertainty associated with an estimate (the noise) only exists to hide the estimate itself (the signal). From this view, uncertainty is only seen as additional or hindering information, therefore despite its alleged importance, when simplifying a plot uncertainty the first thing to go.  
-
-People being unable to make quick decision's using uncertainty may not even be true. **Maybe bus example but there might be a better one?**
-Uncertainty can also be used to convey adjacent information. In forecasting the uncertinty visualisation adds to the plot, i.e. it lets you know what is data and what is a forecast from a model, I suspect it is frequently done in this area for this reason.
-
-#### Reason: Audience Understanding
-The general public does not understand randomness so including uncertainty will only confuse the audience.
-
-#### Rebuttal
-This statement has two halves that are technically true if you constrain it. For example, the statements "the general public does not understand *the difference between freuqentist and baysian statistics*" and "*some* people struggle with uncertainty" are both true. What is not true is the statement above. It seems to arrive at this statement, half of two correct statements were combined to make one incorrect statement.
-
-First, lets address if the general population can understand uncertainty. I think blanket yes/no conclusions about whether or not uncertainty was understood ignore the intricacies of understanding uncertainty that comes through in the research. The general gist seems to be this. Can laypeople interpret uncertainty in a way that is consistent with frequentist philosiphy? No [Hoekstra2014]. Can laypeople reliably translate an error bar plot to an equivalent hypothesis test? No [@Bella2005]. Can laypeople read an uncertainty plot and make accurate and efficient decisions factoring the uncertainty into their choices? Yes [@Kay2016] [@Fernandes2018].
-
-While *some* people struggling with uncertainty, the *population* as a whole does not.  My previous housemate told us the fire hazards she created were not a problem because "The house has never cught However, the population as a whole does not. There are at least two studies showing laypeople cant make time constrained, acuate, choices with an uncertainty diagram small enough to fit on their phone screen when factoring in bus arrival times [@Kay2016] [@Fernandes2018]. Additionally, people got better at understanding the uncertainty plots the more they used them [@Kay2016]. Some participants had a lower baseline that the general public (the people that do not undertand uncertainty) but most showed an improvement in decision making as the study went on. This indicates that laypeople have the ability to learn and improve their ability to incorporate uncertainty information. Refusing to express uncertainty because people dont understand them, prevents people from improving in their ability to understand the plots, causing those that may not be able to understand uncertainty to continue to be bad at it.
-
-#### Reason: Trust with the Audience (current)
+#### Reason: Trust with the Audience
 Communicating uncertainty will result in people trusting our results less rather than more. 
 
 #### Rebuttal
 This just isn't true. There are a few studies indicating that people trust visualisations that express uncertainty more than those that don't. Multiple participants from Hullman's study seemed to equate "trust" with "not being questioned" which I would argue are not equivalent. Many believed that you could only visualise uncertainty after you had trust with the audience, stating that if you visualise your uncertainty prior to that "someone will inevitably ask, 'how did you get these numbers?'".
-
-
-#### Reason: Complicates Descision Making
-Uncertainty confuses people and makes it harder for them to make decisions. Because of cognative overload we want to be careful about conveying important information (floods & sick dog examples). 
-
-#### Rebuttal
-Removing uncertainty makes the descision making process easier in the same way presenting no choices does. Artificially. (alternative presenting a threshold decision (yes/maybe/no for evacuations)
-
-
-#### Reason: Multiple Sources of Uncertainty
-Sometimes there are multiple layers of uncertainty which are too hard to communicate so it is ignored.
-
-#### Rebuttal
 
 #### Reason: Fraud
 Not visualising uncertainty on purpose to misrepresent findings. This one is more difficult to police because even making a selection (before visualisations are even made) introduces bias.
 
 #### Rebuttal
 This is something people would never admit to if everyone cared about scientific integrity, but unfortunately this is well documented too. Hullman's paper quotes an interviewee justifying not showing unvertainty in their visualisations because it hid the signal since the "data wasn't reliable and uncertainty seemed too big". Here I think about the scene from the Big Short, where Steve Carell's character asks his colleague why the real estate agents who are openly committing fraud are confessing, to which his colleagues tell them that they are actually bragging.
-
-#### Reason: Prescision
-Fear that uncertainty will imply unwarranted prescision in estimates
-
-#### Reason: Common Knowledge
-A tendancy to think that the presence of uncertainty is common knowldge
-
-#### Reason: People Dont like it
-People cannot tollerate uncertainty and it creates negative feelings.
 
 ## Why do I think people dont visualise uncertainty?
 They don't want to. This does not mean everyone who doesn't visualise uncertainty is evil. Widespread issues like this are almost universally created by systematic problems and norms. But the rationale provided by the participants in these studies **reek** of back justification. Hullman herself notices this, claiming in her paper "It is worth noting that many authors seemed confident in stating rationales, as though they perceived them to be truths that do not require examples to demonstrate. It is possible that rationales for omission represent ingrained beliefs more than conclusions authors have drawn from concrete experiences attempting to convey uncertainty" [@Hullman2020a]. I took this as a fancy academic way of saying "I think these people are full of it and are making up random reasons to justify why their actions don't reflect their beliefs". 
@@ -133,6 +145,7 @@ I want to clarify that I don't think people are avoiding visualsing uncertainty 
 I think there are several conflicting sentiments and norms creating this issue.
 
 ## Unplaced comments
+- Additionally, a well done uncertainty visualisation can also give be used to convey adjacent information. In forecasting the uncertinty visualisation adds to the plot, i.e. it lets you know what is data and what is a forecast from a model, I suspect it is frequently done in this area for this reason.
 - estimates do not require as much thinking as uncertainty. You may assume a normal distribution and identical appearance between your sample and forecst implicitly when you do an estimate, but you make these things explicit when you present uncertainty. I wonder if people are unaware that they are making these assumptions when they produce estimates.
 - People draw an uncertainty bound around data that does not have any uncertainty expression if they are aware that it is only an estimate. In the absence of any uncertainty estimates it would be interesting to see where people naturally draw their uncertainty bounds (if they are at a level of significance) and what impacts them.
 - This reminds me of unbiassed vs consistent estimators. Even the estimators themselves have been selected on the principal that a low variance is better than a high variance reguardless of the point prediction.

@@ -4,6 +4,4 @@ callout-icon: false
 callout-appearance: "simple"
 ---
 
-# Hello
-
 This is a convenient website where I can put all the work I need to share with others. Don't snoop in the sections that aren't for you.
