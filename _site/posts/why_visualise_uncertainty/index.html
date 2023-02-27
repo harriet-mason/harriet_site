@@ -9,7 +9,7 @@
 <meta name="author" content="Harriet Mason">
 <meta name="dcterms.date" content="2023-02-25">
 
-<title>Harriet Mason - Do You Have a Good Reason to Ignore Uncertainty, or are You Just Being Lazy?</title>
+<title>Harriet Mason - Do You Have a Good Reason to Ignore Uncertainty? Check If I Approve of Your Reason Below</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -175,6 +175,7 @@ div.csl-indent {
   <li><a href="#dont-know-how-to-calculate-or-dont-have-access-to-info" id="toc-dont-know-how-to-calculate-or-dont-have-access-to-info" class="nav-link" data-scroll-target="#dont-know-how-to-calculate-or-dont-have-access-to-info">Don’t know how to calculate or Don’t have Access to Info</a>
   <ul class="collapse">
   <li><a href="#multiple-sources-of-uncertainty" id="toc-multiple-sources-of-uncertainty" class="nav-link" data-scroll-target="#multiple-sources-of-uncertainty">Multiple Sources of Uncertainty</a></li>
+  <li><a href="#prescision" id="toc-prescision" class="nav-link" data-scroll-target="#prescision">Prescision</a></li>
   <li><a href="#dont-want-to-seem-questionable" id="toc-dont-want-to-seem-questionable" class="nav-link" data-scroll-target="#dont-want-to-seem-questionable">Don’t Want to Seem Questionable</a></li>
   </ul></li>
   <li><a href="#why-do-i-think-people-dont-visualise-uncertainty" id="toc-why-do-i-think-people-dont-visualise-uncertainty" class="nav-link" data-scroll-target="#why-do-i-think-people-dont-visualise-uncertainty">Why do I think people dont visualise uncertainty?</a></li>
@@ -192,7 +193,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Do You Have a Good Reason to Ignore Uncertainty, or are You Just Being Lazy?</h1>
+<h1 class="title">Do You Have a Good Reason to Ignore Uncertainty? Check If I Approve of Your Reason Below</h1>
   <div class="quarto-categories">
     <div class="quarto-category">data visualisation</div>
     <div class="quarto-category">statistics</div>
@@ -325,10 +326,14 @@ div.csl-indent {
 </section>
 <section id="rebuttal-5" class="level4">
 <h4 class="anchored" data-anchor-id="rebuttal-5">Rebuttal</h4>
+<p>I honestly am happy to take an claim of incompetence in good faith. Also, the details of uncertainty and the assumptions we have to make around them can be confusing, so much so that it is the next blog post topic. I don’t think this is a good reason to ignore the uncertainty all together because if something is worth doing, its worth doing badly. Whenever I have no idea what I’m doing I just estimate my uncertainty with bootstrapping or assume a normal distribution. I will probably continue to do this until one of my supervisors reads this post and tells me that is bad practice. In which case I will update this to reflect whatever they suggest.</p>
 </section>
-<section id="reason-prescision" class="level4">
-<h4 class="anchored" data-anchor-id="reason-prescision">Reason: Prescision</h4>
-<p>Fear that uncertainty will imply unwarranted prescision in estimates #### Rebuttal</p>
+</section>
+<section id="prescision" class="level3">
+<h3 class="anchored" data-anchor-id="prescision">Prescision</h3>
+<section id="reason-6" class="level4">
+<h4 class="anchored" data-anchor-id="reason-6">Reason</h4>
+<p>Fear that uncertainty will imply unwarranted precision in estimates #### Rebuttal I think this excuse is interesting because it ignores the entire principal of an estimate. An estimate is an effort to put a number on something uncertain. I suspect that authors see some uncertainty visualization, such as confidence intervals, to be a death sentence if the actual outcome is outside them. An estimate is a ball park, people don’t actually expect the true number to be exactly the estimate, but people DO expect an outcome to be inside a confidence interval. That is the whole point of them. I havent suggested a plot in any of the other sections, but I think this is the one case where a specific plot could fix the issue. A hypothetical outcome plot never gives a firm number on the uncertainty but gives people a “vibe” of possible outcomes. This way you can express uncertainty without giving any precision at all, and in some contexts conveys uncertainty better than other methods <span class="citation" data-cites="Kale">(<a href="#ref-Kale" role="doc-biblioref">Kale et al., n.d.</a>)</span> <span class="citation" data-cites="Hullman2015">(<a href="#ref-Hullman2015" role="doc-biblioref">Hullman, Resnick, and Adar 2015</a>)</span>. You can even get a version that includes at least one highly disastrous outcome so you don’t get fired.</p>
 </section>
 </section>
 <section id="dont-want-to-seem-questionable" class="level3">
@@ -413,6 +418,12 @@ Fernandes, Michael, Logan Walls, Sean Munson, Jessica Hullman, and Matthew Kay. 
 </div>
 <div id="ref-Hullman2020a" class="csl-entry" role="doc-biblioentry">
 Hullman, Jessica. 2020. <span>“<span class="nocase">Why Authors Don’t Visualize Uncertainty</span>.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 26 (1): 130–39. <a href="https://doi.org/10.1109/TVCG.2019.2934287">https://doi.org/10.1109/TVCG.2019.2934287</a>.
+</div>
+<div id="ref-Hullman2015" class="csl-entry" role="doc-biblioentry">
+Hullman, Jessica, Paul Resnick, and Eytan Adar. 2015. <span>“<span class="nocase">Hypothetical outcome plots outperform error bars and violin plots for inferences about reliability of variable ordering</span>.”</span> <em>PLoS ONE</em> 10 (11). <a href="https://doi.org/10.1371/journal.pone.0142444">https://doi.org/10.1371/journal.pone.0142444</a>.
+</div>
+<div id="ref-Kale" class="csl-entry" role="doc-biblioentry">
+Kale, Alex, Francis Nguyen, Matthew Kay, and Jessica Hullman. n.d. <span>“<span class="nocase">Hypothetical Outcome Plots Help Untrained Observers Judge Trends in Ambiguous Data</span>.”</span> <a href="https://www.nytimes.com/interactive/2017/11/28/upshot/what-the-tax-">https://www.nytimes.com/interactive/2017/11/28/upshot/what-the-tax-</a>.
 </div>
 <div id="ref-Kay2016" class="csl-entry" role="doc-biblioentry">
 Kay, Matthew, Tara Kola, Jessica R. Hullman, and Sean A. Munson. 2016. <span>“<span class="nocase">When (ish) is my bus? User-centered visualizations of uncertainty in everyday, mobile predictive systems</span>.”</span> <em>Conference on Human Factors in Computing Systems - Proceedings</em>, 5092–5103. <a href="https://doi.org/10.1145/2858036.2858558">https://doi.org/10.1145/2858036.2858558</a>.

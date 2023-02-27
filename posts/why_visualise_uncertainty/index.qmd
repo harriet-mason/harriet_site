@@ -101,17 +101,20 @@ This is true, however it is not a reason to avoid visualising uncertainty.
 ## Don't know how to calculate or Don't have Access to Info
 ### Multiple Sources of Uncertainty
 #### Reason
-
 Sometimes there are multiple layers of uncertainty which are too hard to communicate so it is ignored.
 
 #### Rebuttal
+I honestly am happy to take an claim of incompetence in good faith. Also, the details of uncertainty and the assumptions we have to make around them can be confusing, so much so that it is the next blog post topic. I don't think this is a good reason to ignore the uncertainty all together because if something is worth doing, its worth doing badly. Whenever I have no idea what I'm doing I just estimate my uncertainty with bootstrapping or assume a normal distribution. I will probably continue to do this until one of my supervisors reads this post and tells me that is bad practice. In which case I will update this to reflect whatever they suggest.
 
-#### Reason: Prescision
-Fear that uncertainty will imply unwarranted prescision in estimates 
+### Prescision 
+#### Reason
+Fear that uncertainty will imply unwarranted precision in estimates 
 #### Rebuttal
+I think this excuse is interesting because it ignores the entire principal of an estimate. An estimate is an effort to put a number on something uncertain. I suspect that authors see some uncertainty visualization, such as confidence intervals, to be a death sentence if the actual outcome is outside them. An estimate is a ball park, people don't actually expect the true number to be exactly the estimate, but people DO expect an outcome to be inside a confidence interval. That is the whole point of them. I havent suggested a plot in any of the other sections, but I think this is the one case where a specific plot could fix the issue. A hypothetical outcome plot never gives a firm number on the uncertainty but gives people a "vibe" of possible outcomes. This way you can express uncertainty without giving any precision at all, and in some contexts conveys uncertainty better than other methods [@Kale] [@Hullman2015]. You can even get a version that includes at least one highly disastrous outcome so you don't get fired.
 
-### Don't Want to Seem Questionable
-#### Reason: Expertise  
+## Don't Want to Seem Questionable
+### Expertise  
+#### Reason
 Some intervieees claimed that the uncertainty would add little to the plot because they only present statistically significant findings and the audience trusts their expertise.One participant in Hullman's study said "Most people will trust the doctor, not necessarily because the information itself was trustworthy, but because the doctor was." when referencing why a certain level of expertise allows one to omit uncertainty [@Hullman2020a].
 
 #### Rebuttal  
