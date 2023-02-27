@@ -339,54 +339,26 @@ Personally, I think people comiting fraud and then justifying it with
 some obvious backwards logic won't be fixed with "how can we better
 educate you on uncertainty" but rather "how can we convince you to go to
 a therapist so you are better at understanding your own motivations".
-Reguardless I will address each argument I have come accross even though my heart isn't in it.
+Regardless I will address each argument I have come accross even though my heart isn't in it.
 
 ### Expertise
-
 #### Reason
-
-Some intervieees claimed that the uncertainty would add little to the
-plot because they only present statistically significant findings and
-the audience trusts their expertise.One participant in Hullman's study
-said "Most people will trust the doctor, not necessarily because the
-information itself was trustworthy, but because the doctor was." when
-referencing why a certain level of expertise allows one to omit
-uncertainty [@Hullman2020a].
+Some interviees claimed that the uncertainty would add little to the plot because the audience knew that the author would only present statistically significant findings and the audience trusts their expertise.One participant in Hullman's study said "Most people will trust the doctor, not necessarily because the information itself was trustworthy, but because the doctor was." when referencing why a certain level of expertise allows one to omit uncertainty [@Hullman2020a].
 
 #### Rebuttal
-
-I personally wish my doctor would give me probabilities and I have spent
-hours complaining to friends about the ones that don't. To make
-descisious about risk that *others* are taking on because *you* are an
-expert is wildly infantilising. I broke my finger when my usual GP was
-on leave and had to see someone else who said it was "probably nothing
-to worry about" and sent me home without an x-ray. I wish he had
-communicated the amount of uncertainty about that because I had to get a
-\$5000 hand surgery 3 months later to correct his mistake. Because the
+I personally wish my doctor would give me probabilities and I have spent hours complaining to friends about the ones that don't. To make descisious about risk that *others* are taking on because *you* are an expert is wildly infantilising. I broke my finger when my usual GP was on leave and had to see someone else who said it was "probably nothing to worry about" and sent me home without an x-ray. I wish he had communicated the amount of uncertainty about that because I had to get a \$5000 hand surgery 3 months later to correct his mistake. Because the
 uncertainty about his decision and the costs associated with an
-incorrect descision was not communicated to me, I took on a much higher
-risk than I was comfortable with. Significance is arbitrary, and
-communicating uncertainty around that value is necessary for the people
-making the descisions.
+incorrect decision was not communicated to me, I took on a much higher risk than I was comfortable with. Significance is arbitrary, and communicating uncertainty around that value is necessary for the people making the descisions. This is just an annecdote but there is evidence that general audiences feel the same.
 
-This is just an annecdote but there is evidence that general audiences
-feel the same.
+This excuse is similar to the "complicates descision making" reasoning in that the goal is to take on a god like position that not only calculates the statistical risk, but then decides how much of that risk the stakeholders are willing to take on. Any trustworthiness is artificially created through obfuscation of facts.  
 
-#### Reason: Trust with the Audience
-
-Communicating uncertainty will result in people trusting our results
-less rather than more.
-
+### Trust with the Audience
+#### Reason
+Communicating uncertainty will result in people trusting our results less rather than more.
 #### Rebuttal
+This just isn't true. Hullman herself points out in her paper that there was a strange consensus that the participants seemed to think trust was a precursor to displaying uncertainty and not the other way around. I personally suspect people would trust visualisations that express uncertainty more than those that didn't (and I'm sure there are some papers out there on this that I can't be bothered to find right now) however I also haven't seen any evidence to the contrary.
 
-This just isn't true. There are a few studies indicating that people
-trust visualisations that express uncertainty more than those that
-don't. Multiple participants from Hullman's study seemed to equate
-"trust" with "not being questioned" which I would argue are not
-equivalent. Many believed that you could only visualise uncertainty
-after you had trust with the audience, stating that if you visualise
-your uncertainty prior to that "someone will inevitably ask, 'how did
-you get these numbers?'".
+Additionally, this reasoning seems to also be used to hide a more sinister motivation. Multiple participants from Hullman's study seemed to equate "trust" with "not being questioned" two statements that only a total egomaniac would think are equivalent. Many believed that you could only visualise uncertainty after you had established trust with the audience, stating that if you visualise your uncertainty prior to that "someone will inevitably ask, 'how did you get these numbers?'". A question I would argue is completely reasonable and justified. I just thing that if you comit fraud in response to your colleagues asking you reasonable questions, your fix is a personality one.
 
 #### Reason: Fraud
 
