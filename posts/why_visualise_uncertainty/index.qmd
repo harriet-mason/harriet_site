@@ -335,7 +335,7 @@ scene from the Big Short, where Steve Carell's character asks his
 colleague why real estate agents would openly commit to fraud. His
 colleague responds by letting him know they are actually bragging.
 
-![](image-1217252454.png)
+<center>![](image-1217252454.png)</center>
 
 Personally, I think people committing fraud and then justifying it with
 some obvious backwards logic won't be fixed with "how can we better
