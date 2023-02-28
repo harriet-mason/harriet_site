@@ -1,8 +1,31 @@
 ---
-title: "Meeting Notes"
-editor: visual
+title: "Meetings"
+listing:
+  - id: old-meetings
+    contents: old-meetings/*.pdf
+    type: table
+    sort: "title desc"
 ---
 
-## Supervision meetings
+# Supervisor Meetings
+## 2023 March 2nd
+  
+#### General
+- I made this website to store information and posts and stuff. It keeps everything together which I like.
+  
+#### Uncertainty Literature Review
+- Finished writing the first blog post and published it here under "posts"
+  
+#### Experiemnts
+- Made a list of experiment ideas from the "why people don't visualise uncertainty" topic which is on the website.
+- Added some other experiment ideas for future sections (although I haven't read that much literature on the topics so I am not sure if they are good ideas or not)
+  
+#### CassowaryR
+- Made the hex sticker and added it to the repo (finally)
+  
+#### Meetings comments and notes
 
-
+  
+## 2022-2023 February 9th
+::: {#old-meetings}
+:::

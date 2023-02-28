@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Harriet Mason - Meeting Notes</title>
+<title>Harriet Mason - Meetings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,7 +60,37 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-old-meetings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-filename','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-filename-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-filename","listing-file-modified"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-old-meetings'] = new List('listing-old-meetings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -91,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">PhD program</li>
         <li>
     <a class="dropdown-item" href="../research/meetings.html">
- <span class="dropdown-text">Meeting Notes</span></a>
+ <span class="dropdown-text">Meetings</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../research/ideas.html">
@@ -131,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Meeting Notes</h1>
+      <h1 class="quarto-secondary-nav-title">Meetings</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -154,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../research/meetings.html" class="sidebar-item-text sidebar-link active">Meeting Notes</a>
+  <a href="../research/meetings.html" class="sidebar-item-text sidebar-link active">Meetings</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,7 +220,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#supervision-meetings" id="toc-supervision-meetings" class="nav-link active" data-scroll-target="#supervision-meetings">Supervision meetings</a></li>
+  <li><a href="#supervisor-meetings" id="toc-supervisor-meetings" class="nav-link active" data-scroll-target="#supervisor-meetings">Supervisor Meetings</a>
+  <ul class="collapse">
+  <li><a href="#march-2nd" id="toc-march-2nd" class="nav-link" data-scroll-target="#march-2nd">2023 March 2nd</a></li>
+  <li><a href="#february-9th" id="toc-february-9th" class="nav-link" data-scroll-target="#february-9th">2022-2023 February 9th</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Meeting Notes</h1>
+<h1 class="title d-none d-lg-block">Meetings</h1>
 </div>
 
 
@@ -212,10 +248,192 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="supervision-meetings" class="level2">
-<h2 class="anchored" data-anchor-id="supervision-meetings">Supervision meetings</h2>
+<section id="supervisor-meetings" class="level1">
+<h1>Supervisor Meetings</h1>
+<section id="march-2nd" class="level2">
+<h2 class="anchored" data-anchor-id="march-2nd">2023 March 2nd</h2>
+<section id="general" class="level4">
+<h4 class="anchored" data-anchor-id="general">General</h4>
+<ul>
+<li>I made this website to store information and posts and stuff. It keeps everything together which I like.</li>
+</ul>
+</section>
+<section id="uncertainty-literature-review" class="level4">
+<h4 class="anchored" data-anchor-id="uncertainty-literature-review">Uncertainty Literature Review</h4>
+<ul>
+<li>Finished writing the first blog post and published it here under “posts”</li>
+</ul>
+</section>
+<section id="experiemnts" class="level4">
+<h4 class="anchored" data-anchor-id="experiemnts">Experiemnts</h4>
+<ul>
+<li>Made a list of experiment ideas from the “why people don’t visualise uncertainty” topic which is on the website.</li>
+<li>Added some other experiment ideas for future sections (although I haven’t read that much literature on the topics so I am not sure if they are good ideas or not)</li>
+</ul>
+</section>
+<section id="cassowaryr" class="level4">
+<h4 class="anchored" data-anchor-id="cassowaryr">CassowaryR</h4>
+<ul>
+<li>Made the hex sticker and added it to the repo (finally)</li>
+</ul>
+</section>
+<section id="meetings-comments-and-notes" class="level4">
+<h4 class="anchored" data-anchor-id="meetings-comments-and-notes">Meetings comments and notes</h4>
+</section>
+</section>
+<section id="february-9th" class="level2">
+<h2 class="anchored" data-anchor-id="february-9th">2022-2023 February 9th</h2>
+<div id="listing-old-meetings" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-old-meetings-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-old-meetings'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-filename-sort" data-direction="asc">
+          File Name
+        </option>
+         <option value="listing-file-modified-sort" data-direction="asc">
+          Modified - Oldest
+        </option>
+         <option value="listing-file-modified-sort" data-direction="desc">
+          Modified - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-filename-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">File Name</a>
+</th>
+<th>
+<a class="sort" data-sort="listing-file-modified-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Modified</a>
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-file-modified-sort="1677553006636" data-listing-filename-sort="2022-05-25.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-05-25.pdf" class="filename">2022-05-25.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 1:56:46 PM
+</td>
+</tr>
+<tr data-index="1" data-listing-file-modified-sort="1677553139733" data-listing-filename-sort="2022-06-02.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-06-02.pdf" class="filename">2022-06-02.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 1:58:59 PM
+</td>
+</tr>
+<tr data-index="2" data-listing-file-modified-sort="1677553177230" data-listing-filename-sort="2022-06-16.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-06-16.pdf" class="filename">2022-06-16.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 1:59:37 PM
+</td>
+</tr>
+<tr data-index="3" data-listing-file-modified-sort="1677553208478" data-listing-filename-sort="2022-06-23.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-06-23.pdf" class="filename">2022-06-23.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:00:08 PM
+</td>
+</tr>
+<tr data-index="4" data-listing-file-modified-sort="1677553346878" data-listing-filename-sort="2022-06-30.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-06-30.pdf" class="filename">2022-06-30.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:02:26 PM
+</td>
+</tr>
+<tr data-index="5" data-listing-file-modified-sort="1677553378694" data-listing-filename-sort="2022-07-28.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-07-28.pdf" class="filename">2022-07-28.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:02:58 PM
+</td>
+</tr>
+<tr data-index="6" data-listing-file-modified-sort="1677553400427" data-listing-filename-sort="2022-08-04.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-08-04.pdf" class="filename">2022-08-04.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:03:20 PM
+</td>
+</tr>
+<tr data-index="7" data-listing-file-modified-sort="1677553479026" data-listing-filename-sort="2022-12-15.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-12-15.pdf" class="filename">2022-12-15.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:04:39 PM
+</td>
+</tr>
+<tr data-index="8" data-listing-file-modified-sort="1677553495612" data-listing-filename-sort="2022-12-21.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2022-12-21.pdf" class="filename">2022-12-21.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:04:55 PM
+</td>
+</tr>
+<tr data-index="9" data-listing-file-modified-sort="1677553513687" data-listing-filename-sort="2023-01-17.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2023-01-17.pdf" class="filename">2023-01-17.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:05:13 PM
+</td>
+</tr>
+<tr data-index="10" data-listing-file-modified-sort="1677553547929" data-listing-filename-sort="2023-01-26.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2023-01-26.pdf" class="filename">2023-01-26.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:05:47 PM
+</td>
+</tr>
+<tr data-index="11" data-listing-file-modified-sort="1677553565172" data-listing-filename-sort="2023-02-02.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2023-02-02.pdf" class="filename">2023-02-02.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:06:05 PM
+</td>
+</tr>
+<tr data-index="12" data-listing-file-modified-sort="1677553588059" data-listing-filename-sort="2023-02-09.pdf">
+<td class="listing-filename">
+<a href="../research/old-meetings/2023-02-09.pdf" class="filename">2023-02-09.pdf</a>
+</td>
+<td class="listing-file-modified">
+2/28/23, 2:06:28 PM
+</td>
+</tr>
+</tbody>
+
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 
 
+
+</section>
 </section>
 
 </main> <!-- /main -->
