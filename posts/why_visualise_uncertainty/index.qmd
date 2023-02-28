@@ -164,6 +164,9 @@ associated with an estimate (the noise) only exists to hide the estimate
 itself (the signal). From this view, uncertainty is only seen as
 additional or hindering information, therefore despite its alleged
 importance, when simplifying a plot uncertainty the first thing to go.
+
+<center>![How I presume visualisation authors see a distribution](estimate.jpeg)</center>
+
 Below are some examples of these reasonings.
 
 ### Clutter
@@ -276,12 +279,10 @@ laziness, a fear of being wrong, or a general lack of desire to do
 something. I know because I do it. I think the term to describe this
 that the young socially awake kids use is "weaponised incompetence". It
 is when someone pretends to be incompetent so they don't have to do
-things they don't want to do (such as visualizing uncertainty). If
-someone genuinely cannot or is anxious about estimate uncertainty in
-*any* capacity, get a different job. I'm afraid of flying and I don't
-understand how planes work, I think people would be shocked if I turned
-out to work in aviation. Obviously this is not true for everyone but I
-will focus on the people who are using this to cover up something else.
+things they don't want to do (such as visualizing uncertainty). The tactic was used by my asshole housemate to avoid unpacking the dishwasher for over a year. Using incompetence as an excuse to not do something doesn't fly too well when you remember, *you can just learn to do the thing you don't know how to do*. If someone genuinely cannot or is anxious about estimating uncertainty in *any* capacity, call me crazy, but I think working with uncertainty was not the best choice of career path.
+
+
+<center>![Actually maybe my housemate was just a huge asshole](housechat.jpeg)</center>
 
 ### Multiple Sources of Uncertainty
 
@@ -389,6 +390,8 @@ understand it is a more advanced idea, and you are smarter for knowing it. Of co
 lost on a few researchers. A man asking for directions to the train station in gibberish is also difficult to understand, but he is unlikely to stand in front of a multivariate calculus lecture and brag about still being lost.
 
 Very often, while reading papers, I am floored by how difficult some academics are to understand. The papers have become more comprehensive as I understood the field more, but even so, many papers still leave me confused. If the research put out by academia is so difficult to comprehend it is even inaccessible to the people in it, I wonder what the point of our research is.  
+
+<center>![This is your brain on academic research](academicbrain.jpeg)</center>
 
 I want to clarify that I don't think people are avoiding visualising uncertainty because its more prestigious to avoid doing it. However, I do think visualising uncertainty, and visualisation as a whole have
 become caught up in the scientific quest for prestige through gatekeeping the field with poor communication.
