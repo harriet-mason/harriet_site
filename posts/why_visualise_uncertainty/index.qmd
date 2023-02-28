@@ -1,5 +1,5 @@
 ---
-title: "Do You Have a Good Reason to Ignore Uncertainty? Check If I Approve of Your Reason Below"
+title: "Do You Have a Good Reason to Ignore Uncertainty? Check if I Approve of Your Reason Below"
 author: "Harriet Mason"
 date: "2023-02-25T00:00:00Z"
 lastMod: "2023-02-25T00:00:00Z"
@@ -155,7 +155,7 @@ the time being I will ignore it and take each claim at face value. At
 the end I will discuss the clear overarching issue of backward
 justification.
 
-## Don't Want to Overwhelm
+## Authors Don't Want to Overwhelm the Audience
 
 The common theme among these reasons seems to be a belief that
 uncertainty is secondary to estimations. The argument speaks to an
@@ -269,7 +269,7 @@ People cannot tolerate uncertainty and it creates negative feelings.
 This is true, however it is not a reason to avoid visualising
 uncertainty.
 
-## Don't know how to calculate or Don't have Access to Info
+## Authors Don't Know How to Calculate Uncertainty or Don't have Access to the Information to do so.
 
 This section is basically a tour of using incompetence to cover up
 laziness, a fear of being wrong, or a general lack of desire to do
@@ -308,7 +308,9 @@ reflect whatever they suggest.
 #### Reason
 
 Fear that uncertainty will imply unwarranted precision in estimates
-\#### Rebuttal I think this excuse is interesting because it ignores the
+
+#### Rebuttal 
+I think this excuse is interesting because it ignores the
 entire principal of an estimate. An estimate is an effort to put a
 number on something uncertain. I suspect that authors see some
 uncertainty visualization, such as confidence intervals, to be a death
@@ -325,7 +327,7 @@ than other methods [@Kale] [@Hullman2015]. You can even get a version
 that includes at least one highly disastrous outcome so you don't get
 fired.
 
-## Don't Want to Seem Questionable
+## Authors Don't Want Their Work to Seem Questionable
 
 This sections is bascially the "I'm comitting fraud but I have convinced
 myself that I'm not comitting fraud" section. This makes me think of the
@@ -355,6 +357,7 @@ This excuse is similar to the "complicates descision making" reasoning in that t
 ### Trust with the Audience
 #### Reason
 Communicating uncertainty will result in people trusting our results less rather than more.
+  
 #### Rebuttal
 This just isn't true. Hullman herself points out in her paper that there was a strange consensus that the participants seemed to think trust was a precursor to displaying uncertainty and not the other way around. I personally suspect people would trust visualisations that express uncertainty more than those that didn't (and I'm sure there are some papers out there on this that I can't be bothered to find right now) however I also haven't seen any evidence to the contrary.
 
@@ -363,7 +366,7 @@ Additionally, this reasoning seems to also be used to hide a more sinister motiv
 ### Fraud
 #### Reason
 I am not visualising uncertainty on purpose to misrepresent findings. Hullman's paper quotes an interviewee justifying not showing uncertainty in their visualisations because it hid the signal since the "data wasn't reliable and uncertainty seemed too big".
-
+  
 #### Rebuttal
 I have literally been asked to commit fraud in interviews, and when I pointed out to the interviewer that they were asking their new employee to commit fraud, I did not get a call back. I don't know how else you could describe "playing with the numbers until you find one that looks good and showing those", but apparently they felt like "fraud" was not fitting. 
 
@@ -371,136 +374,25 @@ In statistics the truth is already blurry, that is the whole point of the field.
 
 Ultimately I am not sure how to reason with someone knowingly or unknowingly performing fraud. The issue could be a general issue of a lack of integrity in the community as a whole, and considering someone was willing to ask me to do fraud at the interview stage of a hiring process, I would not be surprised. In general I think the only way to handle cases of outright fraud is to try and incentivise honest and open displays of data. Not only within organisations, but within the data community as a whole. 
 
-## Why do I think people dont visualise uncertainty?
+## Why do I think People Don't Visualise Uncertainty?
+I personally think all these excuses are an effort to use someone's incompetence (the audiences or their own) to justify not having to do something they don't want to do.
 
-They don't want to. This does not mean everyone who doesn't visualise
-uncertainty is evil. Widespread issues like this are almost universally
-created by systematic problems and norms. But the rationale provided by
-the participants in these studies **reek** of back justification.
-Hullman herself notices this, claiming in her paper "It is worth noting
-that many authors seemed confident in stating rationales, as though they
-perceived them to be truths that do not require examples to demonstrate.
-It is possible that rationales for omission represent ingrained beliefs
-more than conclusions authors have drawn from concrete experiences
-attempting to convey uncertainty" [@Hullman2020a]. I took this as a
-fancy academic way of saying "I think these people are full of it and
-are making up random reasons to justify why their actions don't reflect
-their beliefs".
+This does not mean everyone who doesn't visualise uncertainty is evil. Widespread issues like this are almost universally created by systematic problems and norms. But the rationale provided by the participants in these studies **reek** of back justification. Hullman herself notices this, claiming in her paper 
 
-This is not to say I have a poor view of the participants in the study.
-I think they are normal people doing what people do. Rather, I think
-that discussing the results with an absence of acknowledgement of the
-human psycology that got us there is disengenous in of itself. Back
-justifying is frighteningly common and almost a natural way for the
-brain to operate.
+> "It is worth noting that many authors seemed confident in stating rationales, as though they perceived them to be truths that do not require examples to demonstrate. It is possible that rationales for omission represent ingrained beliefs more than conclusions authors have drawn from concrete experiences attempting to convey uncertainty" [@Hullman2020a]. 
 
-Some have suggested the refusal to visualise uncertainty results from a
-norm that people refuse to admit. I have to agree with this sentiment.
-From personal experience visualisation as a whole seems to be generally
-looked down upon in science. There is a large focus on "what is there"
-and evidence and less on "is the communicated in a way that is easy to
-understand". As a matter of fact, I think there is often an effort to
-purporsely make research harder to understand. I need to read papers for
-my PhD and often I am floored by how difficult some papers are to
-understand, even though I am at a level where a paper within my field
-should not leave me confused. I also think of lecturers during my
-undergrad gloating to students about high fail rates and difficulty of
-the course. Obviously there is a prestige to doing something so
-complicated others struggle to understand it. When you hear that the
-proof for the Poincare conjecture (the only millenium prize problem to
-be solved) could only be understood by experts meeting at a conference
-and understanding the work in groups over several days, it inspires an
-idea of godlike intelligence. Therefore, if something is hard to
-understand it is a more advanced idea, and you are smarter for knowing
-it. Of course, something can be hard to understand because it is poorly
-communicated, not only because it is difficult, but that seems to be
-lost on a few researchers. A man asking for directions to the train
-station in gibberish is also difficult to understand, but he is unlikely
-to stand in front of a multivariate calculus lecture and brag about
-still being lost.
+I took this as a fancy academic way of saying "I think these people are full of it and are making up random reasons to justify why their actions don't reflect their beliefs". This is not to say I have a poor view of the participants in the study. I think they are normal people doing what people do. Rather, I think that discussing the results with an absence of acknowledgement of the human psycology that got us there is disengenous in of itself. Authors are likely reacting to unstated norms in the field that are so accepted they don't even question themselves when they create a visualisation that doesn't include uncertainty.
 
-I want to clarify that I don't think people are avoiding visualsing
-uncertainty because its more prestigious to avoid doing it. However, I
-do think visualising uncertainty, and visualisation as a whole have
-become caught up in the scientific quest for prestige through
-gatekeeping the field with poor communication.
+From personal experience visualisation as a whole seems to be generally looked down upon in science. There is a large focus on facts and much less of a focus on communcations. I sometimes wonder if there is an effort to purporsely make research harder to understand. I don't think I am entirely off the mark considering I have many memories of my undergraduate lecturers d gloating to students about high fail rates and difficulty of their course. Obviously there is a prestige to doing something so complicated others struggle to understand it. When you hear that the
+proof for the Poincare conjecture (the only millenium prize problem to be solved) could only be understood by experts meeting at a conference and understanding the work in groups over several days, it inspires an idea of godlike intelligence. Therefore, if something is hard to
+understand it is a more advanced idea, and you are smarter for knowing it. Of course, something can be hard to understand because it is poorly communicated, not only because it is difficult, but that seems to be
+lost on a few researchers. A man asking for directions to the train station in gibberish is also difficult to understand, but he is unlikely to stand in front of a multivariate calculus lecture and brag about still being lost.
 
-# Solutions
+Very often, while reading papers, I am floored by how difficult some academics are to understand. The papers have become more comprehensivle as I understood the field more, but even so, many papers still leave me confused. If the research put out by accademia is so difficult to comprehend it is even inaccessible to the people in it, I wonder what the point of our research is.  
 
-I think there are several conflicting sentiments and norms creating this
-issue.
+I want to clarify that I don't think people are avoiding visualsing uncertainty because its more prestigious to avoid doing it. However, I do think visualising uncertainty, and visualisation as a whole have
+become caught up in the scientific quest for prestige through gatekeeping the field with poor communication.
 
-## Unplaced comments
-
--   Additionally, a well done uncertainty visualisation can also give be
-    used to convey adjacent information. In forecasting the uncertinty
-    visualisation adds to the plot, i.e. it lets you know what is data
-    and what is a forecast from a model, I suspect it is frequently done
-    in this area for this reason.
--   estimates do not require as much thinking as uncertainty. You may
-    assume a normal distribution and identical appearance between your
-    sample and forecst implicitly when you do an estimate, but you make
-    these things explicit when you present uncertainty. I wonder if
-    people are unaware that they are making these assumptions when they
-    produce estimates.
--   People draw an uncertainty bound around data that does not have any
-    uncertainty expression if they are aware that it is only an
-    estimate. In the absence of any uncertainty estimates it would be
-    interesting to see where people naturally draw their uncertainty
-    bounds (if they are at a level of significance) and what impacts
-    them.
--   This reminds me of unbiassed vs consistent estimators. Even the
-    estimators themselves have been selected on the principal that a low
-    variance is better than a high variance reguardless of the point
-    prediction.
--   Think of how to test assertions vs rebuttals -- Ask people (maybe
-    done) when someone uses uncertainty what do you think of (what does
-    it mean) -- Is there uncertainty in this plot (what is it) if none
-    what would be an addition to the plot to convey it
--   I wonder if I visualise uncertainty in forecasting models more
-    because 1) the model gives a clear divide of no uncertainty (in the
-    data) and the uncertainty (in the model). Also it is the default. --
-    software developers should include uncertainty as a default
--   Danger of using visualisation to determine signal strength (without
-    uncertainty) in that LDA paper
--   The secondary nature of the uncertainty aspect of models and
-    estimates is evidenced by the fact that they are not as immediately
-    and widely available as measures of central tendancy.
--   I think the issue of "fraud" and "people don't understand
-    uncertainty" are actually connected. There are many incentives to
-    represent work as more certain than it is. For every single instance
-    where a point prediction is appropriate, a range could also suffice.
-    They are similar in the amount of information to process, but people
-    opt for a point rather than a range. In some instances it might be
-    confusing to give a range (like temperature) but
--   incentivise visualising uncertainty. Make the best and easiest to
-    understand visualisation the one that includes uncertainty. The
-    forecast plot makes it clear where the data ends and the forecast
-    starts, adding additional information that is adjacent to the
-    uncertainty and gives a second incentive for visualising the
-    uncertainty.
--   Saying "it will happen" vs "it has a 10% chance of happening" is not
-    only for not trusting the audience, it is more about speaking to
-    individual vs group. If you speak to a large enough number of
-    people, the uncertainy disappears. It is not "you have a 10% chance
-    of getting cancer" and becomes "10 of you will get cancer".
--   I wonder if the visualisations have the same issue as electoral
-    systems. If an electoral system is too simple, highly educated
-    people don't vote because they don't respect the process, if it is
-    too complicated, poorly educated people don't vote because they
-    don't understand it. Making an electoral system is a constant
-    ballancing act between these two forces and I think making a good
-    visualisation is the same.
--   Better communication aroud the estimates themsevles. "nobody
-    experiences the average"
--   James Goldie: uncertainty is confusing to audiences so it is
-    skipped. instead we select cases where the pattern is clear and
-    discuss uncertainty only if it is relevant.
--   Casey Briggs: we provide trend forecasts instead of predictions
-    because we dont convey uncertainty
--   Liam Mannix: Predictions that don't come true make the public lose
-    confidence.
--   Michael Lyndmore: From my experience, policy makers hate
-    uncertainty, so it is taken out.
+There is a common theme in Hullmans paper of authors seeing uncertainty as a chip in their armour, a posibility to expose something they don't know and they hide it. Authors don't think audiences can understand uncertainty, so they make it completely inaccessible. Authors are afraid they don't know how to compute uncertainty, so instead of doing it badly, they ignore it. Authors are afraid of being questioned when they show the uncertainty, so they hide it. There are a lot of field wide issues that seem to be coming into play when authors are choosing not to visualise uncertainty and it becomes impossible to pin down a single reason. Authors don't have to give me their honesty, but they do need to give it to themselves, so the next time you sit down to make a visualisation, be honest with yourself about why you are ignoring the uncertainty. 
 
 # References
