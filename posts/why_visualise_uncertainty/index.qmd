@@ -360,19 +360,16 @@ This just isn't true. Hullman herself points out in her paper that there was a s
 
 Additionally, this reasoning seems to also be used to hide a more sinister motivation. Multiple participants from Hullman's study seemed to equate "trust" with "not being questioned" two statements that only a total egomaniac would think are equivalent. Many believed that you could only visualise uncertainty after you had established trust with the audience, stating that if you visualise your uncertainty prior to that "someone will inevitably ask, 'how did you get these numbers?'". A question I would argue is completely reasonable and justified. I just thing that if you comit fraud in response to your colleagues asking you reasonable questions, your fix is a personality one.
 
-#### Reason: Fraud
-
-Not visualising uncertainty on purpose to misrepresent findings. This
-one is more difficult to police because even making a selection (before
-visualisations are even made) introduces bias.
+### Fraud
+#### Reason
+I am not visualising uncertainty on purpose to misrepresent findings. Hullman's paper quotes an interviewee justifying not showing uncertainty in their visualisations because it hid the signal since the "data wasn't reliable and uncertainty seemed too big".
 
 #### Rebuttal
+I have literally been asked to commit fraud in interviews, and when I pointed out to the interviewer that they were asking their new employee to commit fraud, I did not get a call back. I don't know how else you could describe "playing with the numbers until you find one that looks good and showing those", but apparently they felt like "fraud" was not fitting. 
 
-This is something people would never admit to if everyone cared about
-scientific integrity, but unfortunately this is well documented too.
-Hullman's paper quotes an interviewee justifying not showing unvertainty
-in their visualisations because it hid the signal since the "data wasn't
-reliable and uncertainty seemed too big".
+In statistics the truth is already blurry, that is the whole point of the field. What people don't seem to understand is that the methods around statistics need to be pretty rigorous because the final result is slightly blurry. Even innocent selections at an initial stage can unknowlingly introduce bias in the final results. The numbers are not ironclad, but highly sensitive to the choices made by the statistician, which is why avoidance of fraud should be a high priority. Going 2km over the speed limit when you are certain of your speed is one thing, going 2km over the speed limit when you have a pretty good reason to suspect your speedometer could already be out by 10km/hour is another. 
+
+Ultimately I am not sure how to reason with someone knowingly or unknowingly performing fraud. The issue could be a general issue of a lack of integrity in the community as a whole, and considering someone was willing to ask me to do fraud at the interview stage of a hiring process, I would not be surprised. In general I think the only way to handle cases of outright fraud is to try and incentivise honest and open displays of data. Not only within organisations, but within the data community as a whole. 
 
 ## Why do I think people dont visualise uncertainty?
 
