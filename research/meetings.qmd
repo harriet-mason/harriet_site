@@ -22,6 +22,7 @@ listing:
   
 #### CassowaryR
 - Made the hex sticker and added it to the repo (finally)
+- The build and stuff work locally on my computer, but fail in the github actions. They all have the same error and I don't know what it means.
   
 #### Meetings comments and notes
 
