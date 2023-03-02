@@ -1,0 +1,28 @@
+---
+title: "What do we mean when we talk about uncertainty?"
+author: "Harriet Mason"
+date: "2023-03-11T00:00:00Z"
+lastMod: "2023-03-11T00:00:00Z"
+categories:
+  - data visualisation
+  - statistics
+tags:
+  - data visualisation
+  - statistics
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## High Variance Lifestyles
+Recently I asked my doctor if I could be put on some kind of mood stabilisers. Last month my housemate moved out creating a lot of stress and every time I have to engage with her I am flooded with anger. Over the past few weeks, she hit my dog, hit me in the face with a plate (which resulted in the police being called to the house), stole some of our stuff, refused to sign the lease transfer documents, left a large amount of broken furniture at the house,  ghosted us after moving out despite owing us over $700 in rent and bills (and leaving all that furniture here), set fire to the mantle and refused to fix it, constantly posted on social media (where many of our friends can see) saying *WE* were the ones who did all these things, and tried to convince the person who *WE* found to take over her lease to not move in. At one point the house discussion turned to asking if it would be easier to just kill her and deal with the police than continue to deal with her. Upon hearing this my doctor said he didn't think I needed mood stabilizers because someone terrorizing your place of living and stealing your things and assulting you are things any reasonable person would be upset about and he doesn't think mood stabilisers would help. While I somewhat agree, seeing her message the new housemate saying she "wants this to be over and done with already" because we have been dragging this out, while I have been begging her to get the rest of her furniture from the house and sign the lease transfer form should not be enough to send me into a two day rage. I also made the point that for most people, a conflict this agressive would be a once off occurence. For me it is weekly, and while I understand it is extreme, at some point I have to be able to work at a job. I have found that I am unable to let people "coax" in my life. If my friend is hanging out with a known sexual assulter, you either stop or we have a blow up argument. If my housemate has spent a year and a half doing 5% of the housework, I will not clean up after her and grumble, I will make her do her portion of the work even if it means making the house a living nightmare. If someone I meet at a party is a rude selfish asshole I will tell them and explain in detail why. I rarely meet people with a personality as strong as mine (which is both a virtue and a vice) and I have never been one to smile and say something is fine when it isn't. I would also rather cut off my arm than give my nightmare housemate 20 dollars. This is not because I am trying to get back at her or get revenge, it is not something I can consciously control. I literally could not physically do it. This is incredibly long winded but I'm getting there. My point is, this conflict which would seem completely out of the ordinary to most people is a regular occurence for me. As a matter of fact, it would be easier to count the days I *wasnt* in a to the death stand off with someone than when I was. So, while it is normal to be consumed with anger by these situations, at some point, I have to work at my job and cook food and walk my dog. These events are random but they are not uncommon, so how do I manage them? If my plan for emotional regulation is "your mood will stay in a healthy range so long as you never have a life consuming conflict with someone again" then I am back where I currently am, which is more days outside the healthy ranges than days inside. The amount of randomness in my mood would be overwhelming even if I *was* able to account for these events. There are life disrupting events I can't even anticipate the posibility of on top of these, so my mood instability is probably even greater than I think it is. In a lot of ways, I think of my struggles to contain my mood as similar to my struggles to estimate uncertainty.
+
+## Sources of Uncertainty
+In order to communicate uncertainty, you first need to be able to calculate it. When we have an estimate and we need to construct a confidence interval around it, however this is not as straight a shot as we might think. When I try to think about estimating a true confidence interval, accounting for every possible random event, I become so overwhelmed it gives me anxiety. When I make a confidence interval, what information do I account for? What do I do about the randomness I know about but can't quantify? What about the randomness that is out there, waiting for me, that I can't even consider, or imagine? 
+
+Lets make this easier. If I use the fable package to  have some time series data, and I make some forecast, 
+* Incorrect model or distribution
+* Measurement errors
+* Sampling error
+* Events outside the sample
+* Black Swan Events (pandemic)

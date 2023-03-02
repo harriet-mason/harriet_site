@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harriet Mason">
+<meta name="dcterms.date" content="2023-03-11">
+
+<title>Harriet Mason - What do we mean when we talk about uncertainty?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Harriet Mason</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li class="dropdown-header">PhD program</li>
+        <li>
+    <a class="dropdown-item" href="../../research/meetings.html">
+ <span class="dropdown-text">Meetings</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../research/ideas.html">
+ <span class="dropdown-text">Research Ideas</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">General</li>
+        <li>
+    <a class="dropdown-item" href="../../research/talks.html">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../../teaching/ETC3250.html">
+ <span class="dropdown-text">ETC3250: Introduction to Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../teaching/ETC3580.html">
+ <span class="dropdown-text">ETC3580: Advanced Statistical Modelling</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">
+ <span class="menu-text">Blog Posts</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#high-variance-lifestyles" id="toc-high-variance-lifestyles" class="nav-link active" data-scroll-target="#high-variance-lifestyles">High Variance Lifestyles</a></li>
+  <li><a href="#sources-of-uncertainty" id="toc-sources-of-uncertainty" class="nav-link" data-scroll-target="#sources-of-uncertainty">Sources of Uncertainty</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">What do we mean when we talk about uncertainty?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data visualisation</div>
+    <div class="quarto-category">statistics</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harriet Mason </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 11, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="high-variance-lifestyles" class="level2">
+<h2 class="anchored" data-anchor-id="high-variance-lifestyles">High Variance Lifestyles</h2>
+<p>Recently I asked my doctor if I could be put on some kind of mood stabilisers. Last month my housemate moved out creating a lot of stress and every time I have to engage with her I am flooded with anger. Over the past few weeks, she hit my dog, hit me in the face with a plate (which resulted in the police being called to the house), stole some of our stuff, refused to sign the lease transfer documents, left a large amount of broken furniture at the house, ghosted us after moving out despite owing us over $700 in rent and bills (and leaving all that furniture here), set fire to the mantle and refused to fix it, constantly posted on social media (where many of our friends can see) saying <em>WE</em> were the ones who did all these things, and tried to convince the person who <em>WE</em> found to take over her lease to not move in. At one point the house discussion turned to asking if it would be easier to just kill her and deal with the police than continue to deal with her. Upon hearing this my doctor said he didn’t think I needed mood stabilizers because someone terrorizing your place of living and stealing your things and assulting you are things any reasonable person would be upset about and he doesn’t think mood stabilisers would help. While I somewhat agree, seeing her message the new housemate saying she “wants this to be over and done with already” because we have been dragging this out, while I have been begging her to get the rest of her furniture from the house and sign the lease transfer form should not be enough to send me into a two day rage. I also made the point that for most people, a conflict this agressive would be a once off occurence. For me it is weekly, and while I understand it is extreme, at some point I have to be able to work at a job. I have found that I am unable to let people “coax” in my life. If my friend is hanging out with a known sexual assulter, you either stop or we have a blow up argument. If my housemate has spent a year and a half doing 5% of the housework, I will not clean up after her and grumble, I will make her do her portion of the work even if it means making the house a living nightmare. If someone I meet at a party is a rude selfish asshole I will tell them and explain in detail why. I rarely meet people with a personality as strong as mine (which is both a virtue and a vice) and I have never been one to smile and say something is fine when it isn’t. I would also rather cut off my arm than give my nightmare housemate 20 dollars. This is not because I am trying to get back at her or get revenge, it is not something I can consciously control. I literally could not physically do it. This is incredibly long winded but I’m getting there. My point is, this conflict which would seem completely out of the ordinary to most people is a regular occurence for me. As a matter of fact, it would be easier to count the days I <em>wasnt</em> in a to the death stand off with someone than when I was. So, while it is normal to be consumed with anger by these situations, at some point, I have to work at my job and cook food and walk my dog. These events are random but they are not uncommon, so how do I manage them? If my plan for emotional regulation is “your mood will stay in a healthy range so long as you never have a life consuming conflict with someone again” then I am back where I currently am, which is more days outside the healthy ranges than days inside. The amount of randomness in my mood would be overwhelming even if I <em>was</em> able to account for these events. There are life disrupting events I can’t even anticipate the posibility of on top of these, so my mood instability is probably even greater than I think it is. In a lot of ways, I think of my struggles to contain my mood as similar to my struggles to estimate uncertainty.</p>
+</section>
+<section id="sources-of-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="sources-of-uncertainty">Sources of Uncertainty</h2>
+<p>In order to communicate uncertainty, you first need to be able to calculate it. When we have an estimate and we need to construct a confidence interval around it, however this is not as straight a shot as we might think. When I try to think about estimating a true confidence interval, accounting for every possible random event, I become so overwhelmed it gives me anxiety. When I make a confidence interval, what information do I account for? What do I do about the randomness I know about but can’t quantify? What about the randomness that is out there, waiting for me, that I can’t even consider, or imagine?</p>
+<p>Lets make this easier. If I use the fable package to have some time series data, and I make some forecast, * Incorrect model or distribution * Measurement errors * Sampling error * Events outside the sample * Black Swan Events (pandemic)</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
