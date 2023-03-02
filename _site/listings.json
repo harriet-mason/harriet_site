@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/research/meetings.html",
+    "items": []
+  },
+  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/what_is_uncertainty/index.html",
@@ -24,10 +28,6 @@
   },
   {
     "listing": "/teaching/ETC3250.html",
-    "items": []
-  },
-  {
-    "listing": "/research/meetings.html",
     "items": []
   }
 ]

@@ -14,7 +14,7 @@ listing:
 - I made this website to store information and posts and stuff. It keeps everything together which I like.
   
 #### Uncertainty Literature Review
-- Finished writing the first blog post and published it here under "posts"
+- Finished writing the first blog post and published it under "posts"
   
 #### Experiemnts
 - Made a list of experiment ideas from the "why people don't visualise uncertainty" topic which is on the website.

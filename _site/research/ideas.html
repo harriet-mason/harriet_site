@@ -190,8 +190,20 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#experiments" id="toc-experiments" class="nav-link active" data-scroll-target="#experiments">Experiments</a>
   <ul class="collapse">
-  <li><a href="#why-people-dont-visualise" id="toc-why-people-dont-visualise" class="nav-link" data-scroll-target="#why-people-dont-visualise">Why People don’t Visualise</a></li>
-  <li><a href="#unplaced-comments" id="toc-unplaced-comments" class="nav-link" data-scroll-target="#unplaced-comments">Unplaced comments</a></li>
+  <li><a href="#why-people-dont-visualise-ideas" id="toc-why-people-dont-visualise-ideas" class="nav-link" data-scroll-target="#why-people-dont-visualise-ideas">Why people don’t visualise ideas</a>
+  <ul class="collapse">
+  <li><a href="#automatic-infintesimally-small-confidence-intervals" id="toc-automatic-infintesimally-small-confidence-intervals" class="nav-link" data-scroll-target="#automatic-infintesimally-small-confidence-intervals">Automatic infintesimally small confidence intervals</a></li>
+  <li><a href="#alternative-reasons-to-visualise-uncertainty" id="toc-alternative-reasons-to-visualise-uncertainty" class="nav-link" data-scroll-target="#alternative-reasons-to-visualise-uncertainty">Alternative reasons to visualise uncertainty</a></li>
+  <li><a href="#cognative-overload" id="toc-cognative-overload" class="nav-link" data-scroll-target="#cognative-overload">Cognative Overload</a></li>
+  <li><a href="#presented-with-just-uncertainty" id="toc-presented-with-just-uncertainty" class="nav-link" data-scroll-target="#presented-with-just-uncertainty">Presented with just uncertainty</a></li>
+  <li><a href="#how-much-uncertainty-can-people-understand" id="toc-how-much-uncertainty-can-people-understand" class="nav-link" data-scroll-target="#how-much-uncertainty-can-people-understand">How much uncertainty can people understand</a></li>
+  </ul></li>
+  <li><a href="#design-of-uncertainty-visualisation-ideas" id="toc-design-of-uncertainty-visualisation-ideas" class="nav-link" data-scroll-target="#design-of-uncertainty-visualisation-ideas">Design of uncertainty visualisation ideas</a>
+  <ul class="collapse">
+  <li><a href="#forecast-uncertainty-implies-path-probability-instead-of-pointwise." id="toc-forecast-uncertainty-implies-path-probability-instead-of-pointwise." class="nav-link" data-scroll-target="#forecast-uncertainty-implies-path-probability-instead-of-pointwise.">Forecast uncertainty implies path probability instead of pointwise.</a></li>
+  </ul></li>
+  <li><a href="#benched-ideas" id="toc-benched-ideas" class="nav-link" data-scroll-target="#benched-ideas">Benched ideas</a></li>
+  <li><a href="#not-yet-thought-out-ideas" id="toc-not-yet-thought-out-ideas" class="nav-link" data-scroll-target="#not-yet-thought-out-ideas">Not yet thought out ideas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -218,29 +230,126 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="experiments" class="level1">
 <h1>Experiments</h1>
-<section id="why-people-dont-visualise" class="level2">
-<h2 class="anchored" data-anchor-id="why-people-dont-visualise">Why People don’t Visualise</h2>
-</section>
-<section id="unplaced-comments" class="level2">
-<h2 class="anchored" data-anchor-id="unplaced-comments">Unplaced comments</h2>
+<section id="why-people-dont-visualise-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="why-people-dont-visualise-ideas">Why people don’t visualise ideas</h2>
+<section id="automatic-infintesimally-small-confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="automatic-infintesimally-small-confidence-intervals">Automatic infintesimally small confidence intervals</h3>
 <ul>
-<li>Additionally, a well done uncertainty visualisation can also give be used to convey adjacent information. In forecasting the uncertinty visualisation adds to the plot, i.e.&nbsp;it lets you know what is data and what is a forecast from a model, I suspect it is frequently done in this area for this reason.</li>
-<li>estimates do not require as much thinking as uncertainty. You may assume a normal distribution and identical appearance between your sample and forecst implicitly when you do an estimate, but you make these things explicit when you present uncertainty. I wonder if people are unaware that they are making these assumptions when they produce estimates.</li>
-<li>People draw an uncertainty bound around data that does not have any uncertainty expression if they are aware that it is only an estimate. In the absence of any uncertainty estimates it would be interesting to see where people naturally draw their uncertainty bounds (if they are at a level of significance) and what impacts them.</li>
-<li>This reminds me of unbiassed vs consistent estimators. Even the estimators themselves have been selected on the principal that a low variance is better than a high variance reguardless of the point prediction.</li>
-<li>Think of how to test assertions vs rebuttals – Ask people (maybe done) when someone uses uncertainty what do you think of (what does it mean) – Is there uncertainty in this plot (what is it) if none what would be an addition to the plot to convey it</li>
-<li>I wonder if I visualise uncertainty in forecasting models more because 1) the model gives a clear divide of no uncertainty (in the data) and the uncertainty (in the model). Also it is the default. – software developers should include uncertainty as a default</li>
-<li>Danger of using visualisation to determine signal strength (without uncertainty) in that LDA paper</li>
-<li>The secondary nature of the uncertainty aspect of models and estimates is evidenced by the fact that they are not as immediately and widely available as measures of central tendancy.</li>
-<li>I think the issue of “fraud” and “people don’t understand uncertainty” are actually connected. There are many incentives to represent work as more certain than it is. For every single instance where a point prediction is appropriate, a range could also suffice. They are similar in the amount of information to process, but people opt for a point rather than a range. In some instances it might be confusing to give a range (like temperature) but</li>
-<li>incentivise visualising uncertainty. Make the best and easiest to understand visualisation the one that includes uncertainty. The forecast plot makes it clear where the data ends and the forecast starts, adding additional information that is adjacent to the uncertainty and gives a second incentive for visualising the uncertainty.</li>
-<li>Saying “it will happen” vs “it has a 10% chance of happening” is not only for not trusting the audience, it is more about speaking to individual vs group. If you speak to a large enough number of people, the uncertainy disappears. It is not “you have a 10% chance of getting cancer” and becomes “10 of you will get cancer”.</li>
-<li>I wonder if the visualisations have the same issue as electoral systems. If an electoral system is too simple, highly educated people don’t vote because they don’t respect the process, if it is too complicated, poorly educated people don’t vote because they don’t understand it. Making an electoral system is a constant ballancing act between these two forces and I think making a good visualisation is the same.</li>
-<li>Better communication aroud the estimates themsevles. “nobody experiences the average”</li>
+<li>Idea
+<ul>
+<li>Some of the people in Jessica Hullman’s paper said they dont visualise uncertainty because everyone knows there is a level of assumed uncertainty in plots.</li>
+<li>Jessica then shows a couple plots and points out that this “presumed” level of uncertainty could imply significance or not.</li>
+<li>My sister had a book on pregnancy that presented a bar plot counting the average number of drinks a mother had and showed that the trend. I am not sure my sister was even aware there should be uncertainty in the plot. Additionally, the actual <em>practical significance</em> between the number of drinks was literally almost nothing, but Eloise still spoke about the difference as clear. I think the text around the plot did not help this (the author spoke about the differences as though they were clear cut).</li>
+<li>I also had a conversation with my a friend about why I didn’t think eating wheat grass would cure Chrones disease and I said I suspected there was no statistical significance on that, and she said “it didn’t matter how small the effect was, if it could help at all it was worth trying”.</li>
+<li>This makes me feel that in the absence of explicit uncertainty, people assume significance and almost infinitesimal confidence intervals. I feel like this translates naturally from the natural human use of anecdotal evidence.</li>
+<li>In general, I don’t think we are designed to see a difference between statistical and economic significance and the two are either conflated, or a measured difference in the average is taken as evidence of statistical significance.<br>
+</li>
+<li>I actually think laypeople might still say value A is better than value B even if they have clearly overlapping confidence intervals.</li>
+</ul></li>
+<li>Additional considerations
+<ul>
+<li>Jessica’s paper also discusses several other ideas that would influence this assumption of significance.</li>
+<li>She discusses plot design features such as omitted data orthe scale of the y-axis, that would lead to different assumptions of significance. She gave an example of the GDP of several countries and explains that one country looks to have a particularly strange GDP, however scaling the y-axis so the difference is less noticiable, or including many more countries would probably eliminate this assumption of statistical significance.</li>
+<li>I also think the assumption of significance would be HIGHLY related to the viewers prior beliefs on the topic.</li>
 <li>James Goldie: uncertainty is confusing to audiences so it is skipped. instead we select cases where the pattern is clear and discuss uncertainty only if it is relevant.</li>
-<li>Casey Briggs: we provide trend forecasts instead of predictions because we dont convey uncertainty</li>
-<li>Liam Mannix: Predictions that don’t come true make the public lose confidence.</li>
-<li>Michael Lyndmore: From my experience, policy makers hate uncertainty, so it is taken out.</li>
+</ul></li>
+<li>Implication
+<ul>
+<li>If everyone assumes a trend is highly significant whenever any difference is displayed, not visualising uncertainty becomes highly problematic. Unless your confidence intervals are literally invisible, you are implying a level of uncertainty that is not there.</li>
+</ul></li>
+<li>How to test
+<ul>
+<li>…</li>
+</ul></li>
+</ul>
+</section>
+<section id="alternative-reasons-to-visualise-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-reasons-to-visualise-uncertainty">Alternative reasons to visualise uncertainty</h3>
+<ul>
+<li>Idea
+<ul>
+<li>I find that I almost always visualise uncertainty when I am doing a forecasting model and I suspect it is for a couple reasons
+<ul>
+<li>The package I use for time series forecasts has uncertainty displays as the default which means I don’t have to think about the appropriate way to visualise the uncertainty</li>
+<li>The uncertainty adds something to the plot that isnt uncertainty. It makes it visually very clear where the forecast starts</li>
+<li>It also gives an overarching sense of “the further we get into the future, the more uncertain the forecast might be” that I don’t think is given in other forecasts (confidence bands around a linear regression don’t give the immediate impression that a collection of predictors that are outside the observed data will be more inaccurate)</li>
+</ul></li>
+<li>I also wonder if the secondary nature of uncertainty is implied with the way we present things like model estimates (average first then uncertainty basically always)</li>
+</ul></li>
+<li>Implication
+<ul>
+<li>If there are reasons outside the “moral” way to visualise uncertainty, we can design software and practices that makes people more likely to visualise uncertainty, which is better practice. Make the best and easiest to understand visualisation the one that includes uncertainty.</li>
+</ul></li>
+<li>How to test
+<ul>
+<li>…</li>
+</ul></li>
+</ul>
+</section>
+<section id="cognative-overload" class="level3">
+<h3 class="anchored" data-anchor-id="cognative-overload">Cognative Overload</h3>
+<ul>
+<li>Idea
+<ul>
+<li>some people said they didn’t visualise uncertainty because it gives people too much information and creates a cognative overload</li>
+<li>I was thinking of testing current uncertainty methods and see how much environmental aspects such as space, importance of decision, time to make decision etc impact how well people can interpret visualisations.</li>
+<li>I also wonder if peoples ability to incorperate uncertainty information is impacted by how the uncertainty is presented to them and which methods suffer the worst with changes in the environment.</li>
+</ul></li>
+</ul>
+</section>
+<section id="presented-with-just-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="presented-with-just-uncertainty">Presented with just uncertainty</h3>
+<ul>
+<li>Idea
+<ul>
+<li>A lot of the discussions on not visualising uncertainty were centered on uncertainty being secondary to the mean estimate. I wonder what happens to decision making if you present an uncertainty estimate (or one with an implied central value such as a range).</li>
+<li>say we ask people to decide if they are going to do something based on a an estimated risk given as an average, given as a range, or given as an average with uncertainty.</li>
+<li>I can’t think of a case where only the uncertainty with <em>no</em> central tendancy is appropriate. You can’t exactly say “your bus is coming at some point in time give or take 10mins”</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-much-uncertainty-can-people-understand" class="level3">
+<h3 class="anchored" data-anchor-id="how-much-uncertainty-can-people-understand">How much uncertainty can people understand</h3>
+<ul>
+<li>Idea
+<ul>
+<li>A lot of literature talks about how there is this mixed information about whether or not people can understand uncertainty.</li>
+<li>how much can uncertainty can individuals understand, vs how much can a group understand, I think it would be interesting to disentable the average vs the individual reaction to uncertainty.</li>
+<li>I wonder if the visualisations have the same issue as electoral systems. If an electoral system is too simple, highly educated people don’t vote because they don’t respect the process, if it is too complicated, poorly educated people don’t vote because they don’t understand it.</li>
+<li>There is something with communicating to a group vs individuals because of mass interpretation and then action. If you speak to a large enough number of people, the uncertainy disappears. It is not “you have a 10% chance of getting cancer” and becomes “10 of you will get cancer”. Saying “it will happen” vs “it has a 10% chance of happening”. This idea is not very well thought out.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="design-of-uncertainty-visualisation-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="design-of-uncertainty-visualisation-ideas">Design of uncertainty visualisation ideas</h2>
+<section id="forecast-uncertainty-implies-path-probability-instead-of-pointwise." class="level3">
+<h3 class="anchored" data-anchor-id="forecast-uncertainty-implies-path-probability-instead-of-pointwise.">Forecast uncertainty implies path probability instead of pointwise.</h3>
+<ul>
+<li>Idea
+<ul>
+<li>The confidence intervals of a forecast are calculated at each time step given the last observation (I think it’s been a while since I did it honestly).</li>
+<li>Because these intervals are connected with shading, I think people would interpret the confidence interval as being for the entire path, not for each time period.</li>
+<li>I think HOPS or bootstrapped plots would do a better job of conveying possible paths.</li>
+</ul></li>
+<li>Implication
+<ul>
+<li>if a stakeholder is concerned about the likely outcomes of the path as a whole, rather than the forecast at one particular point in time, the visualisation could lead them to the wrong conclusion. The problem with this theory is I can’t think of an example where this would be relevant.</li>
+</ul></li>
+<li>How to test
+<ul>
+<li>…</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="benched-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="benched-ideas">Benched ideas</h2>
+</section>
+<section id="not-yet-thought-out-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="not-yet-thought-out-ideas">Not yet thought out ideas</h2>
+<ul>
+<li>Think of how to test assertions vs rebuttals – Ask people (maybe done) when someone uses uncertainty what do you think of (what does it mean) – Is there uncertainty in this plot (what is it) if none what would be an addition to the plot to convey it</li>
 </ul>
 
 
