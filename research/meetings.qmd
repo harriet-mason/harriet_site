@@ -17,7 +17,7 @@ listing:
 - Finished writing the first blog post and published on this website under [posts](https://harriet.quarto.pub/posts/)
   
 #### Experiemnts
-- Made a list of [experiment ideas](https://harriet.quarto.pub/research/ideas.html) from the "why people don't visualise uncertainty" topic which is on the website.
+- Made a list of [experiment ideas](https://harriet.quarto.pub/research/ideas.html) from the "why people don't visualise uncertainty" topic which is on the website. 
 - Added some other experiment ideas for future sections (although I haven't read that much literature on the topics so I am not sure if they are good ideas or not)
   
 #### CassowaryR
