@@ -8,6 +8,17 @@ listing:
 ---
 
 # Supervisor Meetings
+
+## 2023 March 9nd
+
+#### General
+* Set up github actions so the meeting notes are always up to date.
+
+#### Uncertainty Literature Review
+#### Experiemnts
+#### CassowaryR
+#### Side Projects
+
 ## 2023 March 2nd
   
 #### General
