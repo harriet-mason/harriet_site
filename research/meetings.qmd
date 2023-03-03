@@ -17,6 +17,8 @@ listing:
 #### Uncertainty Literature Review
 #### Experiemnts
 #### CassowaryR
+- I fixed the github actions issue, the github actions themselves needed to be updated, it was nothing wrong with the dependencies or code.
+
 #### Side Projects
 
 ## 2023 March 2nd
