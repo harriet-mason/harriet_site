@@ -1,0 +1,173 @@
+---
+title: "Swap from Interp to Triad"
+editor: visual
+---
+
+## Motivation for Swap
+
+While most scatter plots that had a delauney triangulation in tripack also have one with interp, there are a handful of scatter plots that do not. These scatter plots take a HUGE amount of time to find the delauney triangulation for no clear reason. Any clear visual feature of the scatter plot can be replicated in another but it does not take as long. An example of a scatter plot that takes a very long time is below.
+
+```{r}
+library(fitzRoy)
+library(dplyr)
+library(interp)
+library(cassowaryr)
+library(tidyverse)
+# triad is not on CRAN
+# devtools::install_github("ZeroDawn0D/tRiad")
+library("tRiad")
+library(tRiad)
+
+# Get data and find scatter plot that is instant and long scatter plot
+aflw <- fetch_player_stats(2020, comp = "AFLW")
+
+aflw_num <- aflw %>%
+  select_if(is.numeric)
+
+aflw_num <- aggregate(aflw_num[,5:37],
+                      list(aflw$player.player.player.surname),
+                      mean)
+
+# problem scatter plots
+a <- aflw_num$goals
+c <- aflw_num$handballs
+
+plot(a,c)
+
+```
+
+Additionally, this problem is not a feature of the delauney triangulation itself. The tri.mesh function is computed almost instantaneously with tripack, but takes significantly longer with interp. I compared the time it takes for each package to compute the triangulation, including tRiad, the suggested replacement for interp.
+
+```{r}
+
+#Follow code down to tri.mesh 
+# to make sure I have the same input
+ac <- cbind(cassowaryr:::unitize(a), cassowaryr:::unitize(c))
+dupes <- paste(a, c, sep =",")
+ac <- ac[!duplicated(dupes),]
+x <- ac
+y = NULL
+X <- xy.coords(x, y)
+
+system.time(interp::tri.mesh(X))
+system.time(tripack::tri.mesh(X))
+system.time(tRiad::del.tri(X))
+system.time(tRiad::DelTri(a,c))
+```
+
+For most scatter plots interp performs a faster delauney triangulation than the C++ DelTri function in tRiad. This is only really noticiable when working with scatter plots that have a large number of points.
+
+```{r}
+# small scatter plot
+x <- runif(500)
+y <- runif(500)
+plot(x,y)
+system.time(tRiad::DelTri(x,y))
+system.time(interp::tri.mesh(x,y))
+
+# big scatter plot
+x <- runif(5000)
+y <- runif(5000)
+plot(x,y)
+system.time(tRiad::DelTri(x,y))
+system.time(interp::tri.mesh(x,y))
+```
+
+This may make it seem like the time issue is a strange issolated plot, but these are actually semi-common occurences, even in simulated data.
+
+```{r}
+# interp throws an error without preprocessing, so I'm making an in between function
+before_interp <- function(x,y){
+  xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
+  dupes <- paste(x, y, sep =",")
+  xy <- xy[!duplicated(dupes),]
+  x <- xy
+  y = NULL
+  X <- xy.coords(x, y)
+  system.time(interp::tri.mesh(X))
+}
+
+before_interp(aflw_num$goals,aflw_num$behinds)
+
+# calculate time on collection of scatter plots
+all_data <- aflw_num[,2:4]
+
+all_combs <- expand.grid(colnames(all_data), colnames(all_data)) %>%
+    dplyr::filter(!(Var1==Var2))
+
+# debug this bit
+final_data <- all_combs %>%
+    dplyr::group_by(Var1, Var2) %>%
+    dplyr::summarise(triad_time = system.time(tRiad::DelTri(dplyr::pull(all_data,var=Var1), dplyr::pull(all_data, var=Var2)))[[3]]) %>%
+    dplyr::ungroup()
+
+```
+
+```{r}
+# set n
+  n <- 1000
+  
+  # time vector
+  triadtime <- rep(0, n)
+  interptime <- rep(0, n)
+  
+  # run a bunch of times
+  for(i in seq(n)){
+    x <- runif(500)
+    y <- runif(500)
+    triadtime[i] <- system.time(tRiad::DelTri(x,y))[[3]]
+    interptime[i] <- system.time(before_interp(x,y))[[3]]
+  }
+
+# compare visually
+timetable <- tibble(
+  triad = triadtime,
+  interp = interptime
+) 
+
+timetable %>%
+  pivot_longer(everything(), names_to="package", values_to="time") %>%
+  ggplot(aes(x=package, y=time, colour=package)) +
+  geom_jitter()
+
+```
+
+Additionally the interp package occasionally throws an error on scatter plots that are visually indistinguishable from plots that do not throw an error. While some scatter plots take a long time to run, other scatter plots that worked fine with tripack and tRiad throw an error and cannot be computed with interp.
+
+```{r}
+# Plot that throws an error
+d <- aflw_num$totalPossessions
+e <- aflw_num$contestedPossessions
+plot(d,e)
+
+#Follow code down to tri.mesh 
+# to make sure I have the same input
+de <- cbind(cassowaryr:::unitize(d), cassowaryr:::unitize(e))
+dupes <- paste(d, e, sep =",")
+de <- de[!duplicated(dupes),]
+x <- de
+y = NULL
+X <- xy.coords(x, y)
+
+# compare methods
+system.time(tripack::tri.mesh(X))
+system.time(tRiad::DelTri(d,e))
+```
+
+```{r}
+system.time(interp::tri.mesh(X))
+```
+
+## Changes
+
+### In cassowaryr
+
+### In alphahull
+
+## Do things work?
+
+## Triad issues
+
+-   GSOC article doesn't work if you try and run the code because it has triad instead of tRiad
+-   Readme has library("triad") and I'm not sure if the quotations hurt anything
+-   It might be beneficial to allow the tRiad functions to be called in the same way alphahull calls interp. It works for the R version of the function, i.e. tRiad::del.tri(X) runs, but the C++ version of the function does not.
