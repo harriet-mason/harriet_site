@@ -7,7 +7,7 @@ editor: visual
 
 While most scatter plots that had a delauney triangulation in tripack also have one with interp, there are a handful of scatter plots that do not. These scatter plots take a HUGE amount of time to find the delauney triangulation for no clear reason. Any clear visual feature of the scatter plot can be replicated in another but it does not take as long. This problem is not a feature of the delauney triangulation itself. The tri.mesh function is computed almost instantaneously with tripack, but takes significantly longer with interp. An example of a scatter plot that takes a very long time is below. I compared the time it takes for each package to compute the triangulation, including tRiad, the suggested replacement for interp.
 
-```{r}
+```{r, eval=FALSE}
 library(fitzRoy)
 library(dplyr)
 library(interp)
