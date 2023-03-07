@@ -51,7 +51,7 @@ system.time(tRiad::DelTri(a,c))
 
 For most scatter plots interp performs a faster delauney triangulation than the C++ DelTri function in tRiad. This is only really noticiable when working with scatter plots that have a large number of points.
 
-```{r}
+```{r, eval=FALSE}
 # small scatter plot
 x <- runif(500)
 y <- runif(500)
@@ -69,7 +69,7 @@ system.time(interp::tri.mesh(x,y))
 
 For most plots interp is faster than tRiad, resulting in a lower time on average, however the issue of the occasional *very long* computation time on an interp plot results in a much higher variance. This issue occurs occasionally in simulated continuous data.
 
-```{r}
+```{r, eval=FALSE}
 # set seed
 set.seed(1)
 # set n
@@ -102,7 +102,7 @@ timetable %>%
 
 What is of greater concern is that this problem occurs much more frequently in real, non-simulated, data sets.
 
-```{r}
+```{r, eval=FALSE}
 # interp throws an error without preprocessing, so I'm making an in between function
 prep_interp <- function(x,y){
   xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
