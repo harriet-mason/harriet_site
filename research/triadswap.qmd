@@ -155,7 +155,7 @@ combinations[which(interptime>50),]
 
 Additionally the interp package occasionally throws an error on scatter plots that are visually indistinguishable from plots that do not throw an error. These scatter plots work fine 
 
-```{r}
+```{r, eval=FALSE}
 # Plot that throws an error
 d <- aflw_num$totalPossessions
 e <- aflw_num$contestedPossessions
