@@ -175,7 +175,7 @@ system.time(tripack::tri.mesh(X))
 system.time(tRiad::DelTri(d,e))
 ```
 
-```{r}
+```{r, eval=FALSE}
 system.time(interp::tri.mesh(X))
 ```
 While the faster tRiad triangulation is written in C++, it also has a version of its functions written in R. This makes it easier for the R community to contribute and debug the code. From my understanding of interp, the actual delauney triangulation is computed using the `shull.deltri` function from the C shull library. So tRiad has additional transparency that interp does not.
