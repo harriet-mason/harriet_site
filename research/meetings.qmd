@@ -15,12 +15,11 @@ listing:
 * Set up github actions so the meeting notes are always up to date.
 
 #### Uncertainty Literature Review
-#### Experiemnts
+- Just read papers this week, didn't write anything new.
+
 #### CassowaryR
 - I fixed the github actions issue, the github actions themselves needed to be updated, it was nothing wrong with the dependencies or code.
 - I wrote out a motivation that could be sent to the author of alphahull as to why the swap from interp to tRiad is necessary. It can be found [here](triad/triadswap.qmd)
-
-#### Side Projects
 
 ## 2023 March 2nd
   
