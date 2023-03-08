@@ -9,7 +9,7 @@ listing:
 
 # Supervisor Meetings
 
-## 2023 March 9nd
+## 2023 March 9th
 
 #### General
 * Set up github actions so the meeting notes are always up to date.
