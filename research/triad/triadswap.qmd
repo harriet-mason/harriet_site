@@ -9,7 +9,7 @@ knitr:
 
 ## Motivation for Swap
 
-While most scatter plots that had a Delauney triangulation in tripack also have one with interp, there are a handful of scatter plots that do not. These scatter plots take a HUGE amount of time to find the delauney triangulation for no clear reason. This problem is not a feature of the delauney triangulation itself since `tripack::tri.mesh()` is computed almost instantaneously for these plots. I compared the computation time of `interp::tri.mesh()`, `tripack::tri.mesh()`, and `tRiad::Deltri()` (a function written as a replacement for `interp::tri.mesh()` from the package, (tRiad)[https://github.com/ZeroDawn0D/tRiad]) on one of these problem scatter plots below.
+While most scatter plots that had a Delauney triangulation in tripack also have one with interp, there are a handful of scatter plots that do not. These scatter plots take a HUGE amount of time to find the delauney triangulation for no clear reason. This problem is not a feature of the delauney triangulation itself since `tripack::tri.mesh()` is computed almost instantaneously for these plots. I compared the computation time of `interp::tri.mesh()`, `tripack::tri.mesh()`, and `tRiad::Deltri()` (a function written as a replacement for `interp::tri.mesh()` from the package, [tRiad](https://github.com/ZeroDawn0D/tRiad) on one of these problem scatter plots below.
 
 ```{r}
 library(fitzRoy)
