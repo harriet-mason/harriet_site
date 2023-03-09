@@ -26,3 +26,6 @@ Lets make this easier. If I use the fable package to  have some time series data
 * Sampling error
 * Events outside the sample
 * Black Swan Events (pandemic)
+
+# Random notes
+- interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
