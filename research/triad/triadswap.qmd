@@ -211,6 +211,78 @@ The alphahull code does not directly call the interp package with "interp::" so 
 ### Needed for Swap
 The missing functions is the biggest issue for the swap, however I don't think we need to replace them. The other interp functions don't seem to create any error (as far as I can tell). We COULD add functions into tRiad that replace the other interp functions, but I am not sure the author of alphahull (who also wrote interp) would be super keen on that since there isn't anything wrong with that part of the package. Therefore I think it would be better to pitch tRiad as a replacement for the C++ library, shull (which it kind of is). Then we don't want alphahull to swap from interp to tRiad, but we want interp to swap from shull to tRiad. The issue with this is that the function was written at the alphahull level, so really we are just asking alphahull to replace one function.
 
+I am not sure if tRiad can just replace interp. The interp triangles function needs to work with the tRiad output, which it currently does not.
+
+```{r, eval=FALSE}
+# Code taken straight from alphahull package
+delvor <-
+function (x, y = NULL) 
+{
+    X <- xy.coords(x, y)
+    x <- cbind(X$x, X$y)
+    if (dim(x)[1] <= 2) {
+        stop("At least three non-collinear points are required")
+    }
+    #tri.obj <- tri.mesh(X)
+    tri.obj <- tRiad::DelTri(X$x, X$y)
+    tri <- triangles(tri.obj) # <<<<<<<--------- this line is where the issue is
+    nt <- nrow(tri)
+    circenter <- matrix(nrow = nt, ncol = 2) 
+    colnames(circenter) <- c("circumx", "circumy")
+    for (i in 1:nt){
+		aux <- circum(c(x[tri[i, 1], 1], x[tri[i, 2], 1], x[tri[i, 3], 1]), c(x[tri[i, 1], 2], x[tri[i, 2], 2], x[tri[i, 3], 2]))
+		circenter[i, ] <- c(aux$x, aux$y)
+    }
+    tri.info<-cbind(tri, circenter)
+
+    n.tri <- dim(tri.info)[1]
+    n.arc <- max(tri.info[, 7:9])
+    if (n.tri == 1) {
+        aux1 <- cbind(matrix(tri.info[, c("arc1", "node2", "node3")], 
+            ncol = 3, nrow = 1), 1:n.tri, tri.info[, "tr1"])
+        aux2 <- cbind(matrix(tri.info[, c("arc2", "node1", "node3")], 
+            ncol = 3, nrow = 1), 1:n.tri, tri.info[, "tr2"])
+        aux3 <- cbind(matrix(tri.info[, c("arc3", "node1", "node2")], 
+            ncol = 3, nrow = 1), 1:n.tri, tri.info[, "tr3"])
+    }
+    else {
+        aux1 <- cbind(tri.info[, c("arc1", "node2", "node3")], 
+            1:n.tri, tri.info[, "tr1"])
+        aux2 <- cbind(tri.info[, c("arc2", "node1", "node3")], 
+            1:n.tri, tri.info[, "tr2"])
+        aux3 <- cbind(tri.info[, c("arc3", "node1", "node2")], 
+            1:n.tri, tri.info[, "tr3"])
+    }
+    aux <- rbind(aux1, aux2, aux3)
+    repeated <- duplicated(aux[, 1])
+    aux <- aux[!repeated, ]
+    colnames(aux) <- c("arc", "ind1", "ind2", "indm1", "indm2")
+    bp1 <- (aux[, "indm1"] == 0)
+    bp2 <- (aux[, "indm2"] == 0)
+    is.dummy <- which(bp2)
+    n.dummy <- length(is.dummy)
+    circumcentres <- tri.info[, c("circumx", "circumy")]
+    away <- max(diff(range(x[, 1])), diff(range(x[, 2])))
+    for (i in is.dummy) {
+        n.tri <- n.tri + 1
+        dum <- dummycoor(tri.obj, x[aux[i, "ind1"], ], x[aux[i, 
+            "ind2"], ], tri.info[aux[i, "indm1"], c("circumx", 
+            "circumy")], away)
+        circumcentres <- rbind(circumcentres, dum)
+        aux[i, "indm2"] <- n.tri
+    }
+    mesh <- cbind(aux[, c("ind1", "ind2")], x[aux[, "ind1"], 
+        ], x[aux[, "ind2"], ], circumcentres[aux[, "indm1"], 
+        ], circumcentres[aux[, "indm2"], ], bp1, bp2)
+    colnames(mesh) <- c("ind1", "ind2", "x1", "y1", "x2", "y2", 
+        "mx1", "my1", "mx2", "my2", "bp1", "bp2")
+    delvor.obj <- list(mesh = mesh, x = x, tri.obj = tri.obj)
+    class(delvor.obj) <- "delvor"
+    invisible(delvor.obj)
+}
+del <- delvor(ac)
+```
+
 ### Reccomended for Swap
 - `tRiad::Deltri()` seems to take an infinitely long time if there are duplicate points. I didn't check `tRiad::del.tri()`. I haven't made 100% sure that it is duplicate points, but `interp::tri.mesh()` and `tripack::tri.mesh()` gave an error about duplicate points on the same scatter plot. 
 - It might be beneficial to allow `tRiad::Deltri()` to take a list as input because that is how alphahull calls `interp::tri.mesh()`. Every other version of the function including `tRiad::del.tri()` allow a list as input, so I am not sure why `tRiad::Deltri()` doesn't.
