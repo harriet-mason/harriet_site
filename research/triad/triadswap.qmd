@@ -114,7 +114,8 @@ timetable %>%
 However, this problem occurs much more frequently in real, non-simulated, data sets. The problem in non-simulated data is so pronounced, that `interp::tri.mesh()` often takes longer on average than `tRiad::Deltri()`.
 
 ```{r, eval=FALSE}
-# interp throws an error without preprocessing, so I'm making an in between function
+# the functions throws an error without removing duplicates
+# these are just inbetween functions
 prep_interp <- function(x,y){
   xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
   dupes <- paste(x, y, sep =",")
