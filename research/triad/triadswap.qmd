@@ -1,6 +1,10 @@
 ---
-title: "Swap from Interp to Triad"
+title: "Swap from interp::tri.mesh() to tRiad::Deltri()"
 editor: source
+knitr:
+  opts_chunk: 
+    warning: FALSE
+    message: FALSE
 ---
 
 ## Motivation for Swap
@@ -19,7 +23,9 @@ library(tRiad)
 
 # Get data and find scatter plot that is instant and long scatter plot
 aflw <- fetch_player_stats(2020, comp = "AFLW")
+```
 
+```{r}
 aflw_num <- aflw %>%
   select_if(is.numeric)
 
@@ -184,7 +190,7 @@ system.time(tripack::tri.mesh(X))
 system.time(tRiad::DelTri(d,e))
 ```
 
-```{r, eval=FALSE}
+```{r, error=TRUE}
 system.time(interp::tri.mesh(X))
 ```
 
@@ -192,14 +198,22 @@ While the faster tRiad triangulation is written in C++, it also has a version of
 
 Due to the issues with interp caused by computation time, errors, and transparency, I think it would be beneficial to swap the alphahull package to tRiad.
 
-## Changes
+## Replacement Functions
+Both cassowaryr and alphahull use interp fucntions that are not `tri.mesh()`, so a complete replacement of interp is not feasible.
 
 ### In cassowaryr
+cassowaryr directly calls interp once, in R/alphahull.R line 95 `interp::convex.hull(del$tri.obj)`. We do not have a replacement function for this.
 
 ### In alphahull
+The alphahull code does not directly call the interp package with "interp::" so I can't find the uses, but the namespace has `importFrom("interp", "circum", "in.convex.hull", "tri.mesh", "triangles")`. We only have a replacement for `tri.mesh()`.
 
-## Do things work?
+## Triad Changes
+### Needed for Swap
+The missing functions is the biggest issue for the swap, however I don't think we need to replace them. The other interp functions don't seem to create any error (as far as I can tell). We COULD add functions into tRiad that replace the other interp functions, but I am not sure the author of alphahull (who also wrote interp) would be super keen on that since there isn't anything wrong with that part of the package. Therefore I think it would be better to pitch tRiad as a replacement for the C++ library, shull (which it kind of is). Then we don't want alphahull to swap from interp to tRiad, but we want interp to swap from shull to tRiad. The issue with this is that the function was written at the alphahull level, so really we are just asking alphahull to replace one function.
 
-## Triad issues
-
-GSOC article doesn't work if you try and run the code because it has triad instead of tRiad Readme has library("triad") and I'm not sure if the quotations hurt anything It might be beneficial to allow the tRiad functions to be called in the same way alphahull calls interp. It works for the R version of the function, i.e. tRiad::del.tri(X) runs, but the C++ version of the function does not. Deltri seems to take an infinitely long time if there are duplicate points? Looking at case of aflw behinds vs goals plot. The other methods give an error, I'm not sure what is happening in it since I can't read C++. I'm not sure about the the triad R version.
+### Reccomended for Swap
+- `tRiad::Deltri()` seems to take an infinitely long time if there are duplicate points. I didn't check `tRiad::del.tri()`. I haven't made 100% sure that it is duplicate points, but `interp::tri.mesh()` and `tripack::tri.mesh()` gave an error about duplicate points on the same scatter plot. 
+- It might be beneficial to allow `tRiad::Deltri()` to take a list as input because that is how alphahull calls `interp::tri.mesh()`. Every other version of the function including `tRiad::del.tri()` allow a list as input, so I am not sure why `tRiad::Deltri()` doesn't.
+- GSOC article doesn't work if you try and run the code because it has "triad" instead of "tRiad" since it was written before the name change. 
+- The readme does not run because it loads the library with `library("triad")` which also (I think?) doesn't work.
+- There are a lot of functions in the tRiad reference. Do all the functions need to be exported? A lot of them look like behind the scenes calculations and having them all listed makes it a little difficult to tell which functions should be common use for the user.
