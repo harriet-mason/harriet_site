@@ -10,7 +10,17 @@ listing:
 # Supervisor Meetings
 
 ## 2023 March 16th
+#### General
+- I added Sarah as a supervisor
 
+#### Milestone
+- I got the reminder email that my milestone is due in 2 months
+- I am still not entirely sure what I have to do for it
+
+#### Uncertainty Literature Review
+
+#### CassowaryR
+- Going off Albrecht, I guess we just wait until the new version of interp comes out? The issue we have is with the package underneath interp, shull, but maybe he already swapped dependencies or something? It didn't seem like he really understood my problem so I guess we just wait?
 
 ## 2023 March 9th
 
