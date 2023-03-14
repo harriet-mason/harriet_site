@@ -18,36 +18,23 @@ editor:
 Recently I asked my doctor if I could be put on some kind of mood stabilisers. I had been experiencing a lot of aggrevation, stress and general negative vibes as a result of trying to tie up the tenancy of my due to having to engage with my ex-housemate. Over the few weeks prior to my doctor appointment, my housemate sara had hit my dog, hit me in the face with a plate (which resulted in the police being called to the house), stole some of our stuff, refused to sign the lease transfer documents, left a large amount of broken furniture at the house, refused to pay her outstanding $700 in rent and bills, set fire to the mantle and refused to fix it, constantly posted on social media calling myself and my other housemates crazy children, tried to convince the person who we found to take over her lease to not move in, and finally ghosted us when we tried to confront her about these things. At one point the house group chat turned to asking if it would be easier to just kill her and deal with the police than continue to deal with her. Upon hearing this my doctor said he didn't think I needed mood stabilizers because someone terrorizing your place of living and stealing your things and assulting you would lead any reasoable person to be upset and he didn't think mood stabilisers would help. While I somewhat agree, seeing her message the new housemate saying she "wants this to be over and done with already" should not be enough to send me into a two day rage. This conflict which would seem completely out of the ordinary to most people is a regular occurence for me and while I understand it is extreme, at some point I have to be able to work at a job. If my plan for emotional regulation is to assume my mood will usually be in the healthy range and handle the few cases it isn't when they arise, then I might as well accept my current situation which is 100 productive days in the year. There are obvious triggers and ways to manage this. I will never be able to entirely remove "off days" from my life, but I can decrease their frequency and length with a better understanding of its sources. If I understand *what* about my demon housemate Sara and others like her sends me into an angry death spiral, I can redirect the energy and have a better control of the situation. Specifically, understanding the sources of the variance in my life will help me understand the best ways to manage it. Uncertainty in a model is quite similar. In a lot of ways, I think of my struggles to contain my mood as similar to my struggles to estimate uncertainty.
 
 ## Sources of Uncertainty
-Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model but that is unimportant) that has some uncertainty surrounding it.
+Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
 
 ```{r}
 library(fpp3)
 
-h02 <- PBS |>
+# Plot PBS Data with ARIMA Model
+PBS |>
   filter(ATC2 == "H02") |>
-  summarise(Cost = sum(Cost)/1e6)
-h02 |>
-  mutate(log(Cost)) |>
-  pivot_longer(-Month) |>
-  ggplot(aes(x = Month, y = value)) +
-  geom_line() +
-  facet_grid(name ~ ., scales = "free_y") +
-  labs(y="", title="Corticosteroid drug scripts (H02)")
-
-fit <- h02 |>
-  model(ARIMA(log(Cost) ~ 0 + pdq(3,0,1) + PDQ(0,1,2)))
-fit |> gg_tsresiduals(lag_max=36)
-
-augment(fit) |>
-  features(.innov, ljung_box, lag = 36, dof = 6)
-
-h02 |>
+  summarise(Cost = sum(Cost)/1e6) |>
   model(ARIMA(log(Cost) ~ 0 + pdq(3,0,1) + PDQ(0,1,2))) |>
   forecast() |>
   autoplot(h02) +
   labs(y=" $AU (millions)",
        title="Corticosteroid drug scripts (H02) sales")
 ```
+
+If you use the fable package to make your forecasts, the default plot will display a confidence interval around your forecast. I enjoy this feature. In my previous post I discussed reasons people didn't visualise uncertainty, one of them being a refusal to "put their money where their mouth is". Inaction in the face of uncertainty is common, not visualising uncertainty because you aren't sure how to do it is just uncertainty about uncertainty. Default confidence intervals do not require users to understand and quantify the uncertainty, but it does force *something* to be put down in terms of quantifiable uncertainty. But what
 
 Now there is a LOT happening under the hood here. Not calculation wise (well actually there is but that's not what I'm referring to) but rather in terms of the assumptions we are making about our uncertainty.
 
