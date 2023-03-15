@@ -27,7 +27,7 @@ Recently I asked my doctor if I could be put on some kind of mood stabilisers. I
 ## Sources of Uncertainty
 Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
 
-```{r, eval=FALSE}
+```{r}
 library(fpp3)
 
 # Plot PBS Data with ARIMA Model
@@ -63,7 +63,7 @@ You may be thinking to yourself, well this typology is well and good, but how on
 # Applying the Typology
 First, lets take a look at the data we were forecasting with before, and where those confidence intervals came from.
 
-```{r, eval=FALSE}
+```{r}
 p
 ```
 
@@ -76,14 +76,3 @@ You need to bring this insible under the murky water uncertainty and bring it in
 2) give up on trying to quantify it and include it as an assumption.
 
 
-# Random notes
-Lets make this easier. If I use the fable package to  have some time series data, and I make some forecast, 
-* Incorrect model or distribution
-* Measurement errors
-* Sampling error
-* Events outside the sample
-* Black Swan Events (pandemic)
-- interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
-- From the Role of Uncertainty "We can see that trust it is highest when the user is either aware of no uncertainties or mistakenly believes there are no uncertainties". This makes me suspect that people are trusted more when they don't display uncertainty BECAUSE the audience has assumed there is none.  If you don't display uncertainy, I think it is assumed there is none. maybe we could test this by making people aware of uncertainty and not and seeing if their reaction to to the plot when there is no uncertainty displayed mimics their beliefs when they know for certainty there is no uncertainty. Like get them to do a decision making task or something. It makes me think about the cognative test I had to do where uncertainty existed but was not made explicitly clear to me.
-- Could be fun to test what testing method provides a better understanding of audience insight? Is that too meta?
-- "Open questions generally support visualisation overviews rather than details views" I wonder if the way we ask questions about visualisations changes the way people see them.
