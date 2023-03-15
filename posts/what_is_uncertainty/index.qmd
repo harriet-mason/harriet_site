@@ -27,7 +27,7 @@ Recently I asked my doctor if I could be put on some kind of mood stabilisers. I
 ## Sources of Uncertainty
 Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
 
-```{r, eval=FALSE}
+```{r}
 library(fpp3)
 
 # Plot PBS Data with ARIMA Model
@@ -63,7 +63,7 @@ You may be thinking to yourself, well this typology is well and good, but how on
 # Applying the Typology
 First, lets take a look at the data we were forecasting with before, and where those confidence intervals came from.
 
-```{r, eval=FALSE}
+```{r}
 p
 ```
 
