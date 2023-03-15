@@ -20,7 +20,12 @@ listing:
 #### Uncertainty Literature Review
 
 #### CassowaryR
-- Going off Albrecht, I guess we just wait until the new version of interp comes out? The issue we have is with the package underneath interp, shull, but maybe he already swapped dependencies or something? It didn't seem like he really understood my problem so I guess we just wait?
+- I have read Alberts email but I haven't checked the new version of interp. I will do that before emailing him back, hopefully before next week.
+- He suggested adding random noise, for the long computation issue. The delauney triangulation SHOULD work with colinear points and considering the striated scagnostic literally counts the number of points in a straight line, I am not the biggest fan of that solution. Cassowaryr also already includes jitter for perfectly colinear points (i.e. the straight lines) and while the code runs without error I feel like it opens up some new issues. It means the MST and the hulls the scagnostic are calculated on are not the ones the user sees, and we have already seen that small changes to the triangulation can throw those quite off balance. Plus it now makes it invisible to cassowaryr if points are in a perfectly straight line, and I don't wan't that to be invisible.
+- Additionally, if we intend to use cassowaryr for projection persuit where we aren't unitizing the projection every time we calculate the scagnostics, a set amount of random noise will have more effect on some projections than others. 
+- He also didn't mention the readability of the C package, nor the scatter plot that had an error, but I will double check those too.
+- He showed the different plots for a larger N, which we already knew interp was faster. This might be why he is not keep on swapping packages (excluding the extra work). I wonder if he would be willing to include tRiad as an option (although he might not go for it because it increases his dependencies).
+
 
 ## 2023 March 9th
 

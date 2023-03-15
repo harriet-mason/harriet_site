@@ -24,9 +24,10 @@ Lets start this section off with a simple plot hopefully everyone has seen befor
 library(fpp3)
 
 # Plot PBS Data with ARIMA Model
-PBS |>
+h02 <- PBS |>
   filter(ATC2 == "H02") |>
-  summarise(Cost = sum(Cost)/1e6) |>
+  summarise(Cost = sum(Cost)/1e6) 
+h02|>
   model(ARIMA(log(Cost) ~ 0 + pdq(3,0,1) + PDQ(0,1,2))) |>
   forecast() |>
   autoplot(h02) +
