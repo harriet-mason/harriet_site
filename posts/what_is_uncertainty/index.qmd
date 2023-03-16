@@ -60,6 +60,8 @@ In this typology, there are three things we need to consider for each "uncertain
 
 You may be thinking to yourself, well this typology is well and good, but how on earth do I use it? Lets go through an example using the data we used to forecast earlier.
 
+<center>![](typologyvis.jpeg)</center>
+
 # Applying the Typology
 First, lets take a look at the data we were forecasting with before, and where those confidence intervals came from.
 
