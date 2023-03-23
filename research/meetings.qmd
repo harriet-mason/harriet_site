@@ -9,8 +9,14 @@ listing:
 
 # Supervisor Meetings
 ## 2023 March 23rd
-#### Uncertainty Literature Review
 #### CassowaryR
+- I can't even install the newer version of the package. Like if I f
+- Should I email back and say I can't install the package?
+
+#### General
+- I think I want to change the direction of my topic a little bit, interesting in everyone's thoughts.
+
+
 
 ## 2023 March 16th
 #### General
@@ -32,7 +38,7 @@ listing:
 - He also didn't mention the readability of the C package, nor the scatter plot that had an error, but I will double check those too.
 - He showed the different plots for a larger N, which we already knew interp was faster. This might be why he is not keep on swapping packages (excluding the extra work). I wonder if he would be willing to include tRiad as an option (although he might not go for it because it increases his dependencies).
 
-# Commnents
+#### Meetings comments and notes
 - Additional issue with adding noise in the interp function. Once we add binning to the package and start implementing it, we dont want to be adding noise afterwards. It's a bit weird.
 - Can try writing an intermediate function to take the tRiad output and make it look like the interp::tri.mesh() output so tRiad can be seamlessly integrated. 
 - Some terms in the uncertainty are a bit odd. Maybe I should write a glossary.
