@@ -10,7 +10,7 @@ listing:
 # Supervisor Meetings
 ## 2023 March 23rd
 #### CassowaryR
-- I can't even install the newer version of the package. Like if I f
+- I can't even install the newer version of the package. I have tried using a couple methods and none of them worked.
 - Should I email back and say I can't install the package?
 
 #### General
