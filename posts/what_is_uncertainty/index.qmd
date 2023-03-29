@@ -1,8 +1,6 @@
 ---
-title: "What do we mean when we talk about uncertainty?"
+title: "(incomplete) What do we mean when we talk about uncertainty?"
 author: "Harriet Mason"
-date: "2023-03-18T00:00:00Z"
-lastMod: "2023-03-18T00:00:00Z"
 image: feature.jpeg
 bibliography: references.bib
 categories:

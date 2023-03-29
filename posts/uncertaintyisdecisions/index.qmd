@@ -1,0 +1,49 @@
+---
+title: "(incomplete)"
+editor: source
+---
+
+### A story about you who works in academia
+Hello you. You are a budding academic researcher, starting on your journey to do important work and send it out into the public. How exciting. Unfortunately, these are a few steps between you doing your important work that you have been thinking about and that work being seen as a change in society. Lets look at a run through of how this process works:
+
+1) You do research that is useful for the general public and they should know about it.
+2) You spend years trying to get this research published in an academic journal. Most of this time is spent not improving the research but rather making small tweaks to match each journals formatting, length and content rules. and hope the entire time that nobody else does this exact work and publishes it before you (which has happened to people I know).
+3) after years of effort and tweaking (that is usually irrelevant to the actual research) you may finally get your work published.
+4) At this point in the process, your paper has been read by the authors (probably) and the peer reviewers of your paper, lets say about 5 people in total. This is very likely the only people who will read your paper in full.
+5) Your paper is then tossed into the research abyss. I like to imagine it as a big room with a huge pile of papers falling out of a tube in the middle. Papers with no identifiable features are flung randomly on the floor and only people who also belong to some large academic institution can access this room.
+6) People who are researching the topic you have written your paper on walk into this metaphorical room with a blindfold on and grab fist fulls of papers. They are much more likely to grab your paper if it has a well known author, institution, or journal attached to it, or you somehow got stuck to a paper that has one/all of those things. These people never access your paper through the journal it was published in, only through this blindfold shoving into a bag way, so the years you spent formatting your paper to look like other papers in the journal turned out to be unnoticed by the readers and pointless for you.
+7) Of the people who walked into the room and grabbed your paper in a blind collection, some of them will read the title, abstract and maybe some other details, even less will give a skim read of the whole document. Almost none will read the entire thing. 
+8) Of those that skim read your research, some will 
+9) Occasionally a paper or two will esape this room and a journalist or blogger will show parts of it to the general public. They may misrepresent your work, but most people will not check and even more cannot check because they cannot get behind the pay wall. Ultimately your work is more likely than not to remain trapped in this room forever, contributing to more work that shoots out the pipe into the pile of papers, all of which will remain trapped in this room forever.
+
+Looking at this process, at this performance of information sharing, you wonder if you should just go into industry. Maybe it wont be so bad to work at a huge corporation. You are already working long hours, you might as well make some money. Qualifying for a low income health care card was simultaneously the high and low point of last week, which shines a depressing light on your life. The hours might suck, but they already suck in academia. The last time you spent a long period of time with people in the department, you timed that they all worked 10 hours per day and most of their github repositories have a commit made every day of the past year. Although moving to industry might mean spending your days performing highly unethical work while choking on the boots of monkey torturer Elon Musk. That might actually be worse. You spend a week trying to work out if you would rather degrade yourself for a billionaire CEO or a prestigious journal editor. At least the CEO would kind of pay you. Maybe you should just quit everything and become a gardener. You would continue to live below the poverty line, stuck in a share house with 20 year old, but being outside a lot might relax you. Either because of the sunk cost or because job interviews revolt you, you decide to continue with your PhD. Plus, your dad seemed really happy that you were doing it and it would be easier to finish the degree than deal with a lifetime of him expressing disappointment that you didn't finish it. Now that you have gone through your weekly emotional turmoil of considering quitting, deciding against it, and then trudging back to your computer to do your work, you can discuss the problem at hand. This murkey inefficient academic system has given birth to a collective understanding that says one thing, and research that says the opposite. By deciding to stay in academia you have decided to work with this cycling paper pile, put on your blindfold and grab fistfulls of papers, hoping someone might one day grab yours. So if we are going to work with this nightmare, lets talk about why its ruining your research.
+
+
+### Acadmia stress but this time it's mine
+If you could not tell, that long winded second person narative was actually about me. I can The paper I based my post on why people don't visualise uncertainty was published over three years ago by a relatively well known author. In that same post I described being at a conference this year where people over and over again said the things Jessica Hullam had provided significant evidence against against as though it was fact. Why do we publish? Why? It's not for the persuit of knowledge for humanity.
+
+
+### Footage of me pulling my hair out
+If one more person talks to me about visualising uncertainty in the context of some specific type of data or model I'm going to rip all my hair out of the top of my skull and live as a monk. That doesn't make any sense given how we think about uncertainty. 
+
+Uncertainty doesn't exist unless there is a decision. We only talk about uncertainty with respect to a hypothesis test, with respect to a decision. When I try and think of the best way to visualise uncertainty, I continuously go back to the question "Why are you visualising the uncertainty? What are you trying to decide?".
+
+- depends on hypothesis, why do we need the conext?
+- most areas of research focus on these contexts because they are the only ones that don't need context.
+
+
+# Stuff that I wrote but removed and might put back idk
+ 
+I'm starting to think I'm not cut out for research. I find the field infuriating because it does not run like a well oilled machine, rather it runs like the Mars rover on its final days, trapped in a sandstorm and unable to do its job as it cries for help and dies. My sharehouse is run better than academia. My housemates also have systems that keep things moving. We have a chore wheel (although not always followed) and a group chat we use to communicate on things. For example, if Zac uses the last of the salt, he will let everyone know we are out of salt, so the next person who goes to the store can get salt and nobody ever goes to cook and has no salt. This salt example is simple, but there are two things happening here that academia seems unable to replicate:
+
+1) Zac has information that is important to his housemates. He shares this information in way that is immediate, directed towards the people who need the information, 
+2) The people who read the information are both have the ability to act on it and rectify the problem (by going and buying salt)
+
+-----
+
+3) Said academic journal profits off this work, while just like a scammed graphic designer, I am paid with "exposure". Please note that the pharmacy that provides the mood stabilising drugs I need to stay in academia only accepts legal currency, of which "exposure" is not.
+
+
+-----
+
+Now, of course my share house is of a much smaller scale than all of academia so things like this are much easier, but academia isn't even TRYING to do these things. The internet allows swift sharing of information, fair enough that it results in more information of lower quality, but I can write something and have it read by a relevant member of the public for free by today. Academia doesn't even prevent spread of misinformation, there are a lot of published papers that are false due to the biases that exist in the institution. People make jokes that "academia is full of austistic people with hyperfocused interests" which I actually don't agree with because this entire process would cause any autistic person to have regular breakdowns due to the wild inefficiency and pointlessness of it all. From my own experience and those of my neurodivergent friends in academia, I have found that even autistic people who love their work cannot stomach academia for more than a few years.
