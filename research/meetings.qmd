@@ -17,7 +17,7 @@ listing:
 - I haven't tried the GitLab link from Albrecht yet. I will do that soon.
 
 #### Uncertainty Visualisation
-- I did a manic word vomit about visualising uncertainty and my issues with it, its in the blog posts section.
+- I did a manic word vomit about visualising uncertainty and my issues with it, its in the blog posts section but you can just use this [link](https://harriet.quarto.pub/posts/uncertaintyisdecisions/).
 - I think I am leaning towards making a guide or something on how to visualise uncertainty based on the decision you want to make, not based on the type of data? Similar to the rules we have for normal visualisation? IDK.
 
 #### Comments
