@@ -10,13 +10,15 @@ listing:
 # Supervisor Meetings
 ## 2023 March 29rd
 #### General
-- I'm in another bad vibes era so my productivity has dropped off again and I'm mostly focusing on getting out of bed before 3pm and eating food that isn't marshmallows.
+- The blog site is too big for quarto.pub which is why I had issues publishing my stuff this week :(. 
+- I'm not sure if I should move the whole thing somewhere else, or just move the blog.
 
 #### CassowaryR
-- I still can't install the interp package
+- I haven't tried the GitLab link from Albrecht yet. I will do that soon.
 
 #### Uncertainty Visualisation
-- Vibe vs Descision making
+- I did a manic word vomit about visualising uncertainty and my issues with it, its in the blog posts section.
+- I think I am leaning towards making a guide or something on how to visualise uncertainty based on the decision you want to make, not based on the type of data? Similar to the rules we have for normal visualisation? IDK.
 
 #### Comments
 
