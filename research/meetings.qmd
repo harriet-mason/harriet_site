@@ -21,6 +21,8 @@ listing:
 - I think I am leaning towards making a guide or something on how to visualise uncertainty based on the decision you want to make, not based on the type of data? Similar to the rules we have for normal visualisation? IDK.
 
 #### Comments
+- I need to establish ground rules for the next meetings.
+- I don't want to do work that will turn out to be obsolete with other work. You keep asking me to zoom in but what if what I wan't to do as my first topic is establish rules for uncertainty visualisation the way we have rules for other visualisation.
 
 ## 2023 March 23rd
 #### CassowaryR

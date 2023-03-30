@@ -53,7 +53,12 @@ With this in mind, you might have arrived at the question I have been sitting on
 Looking at these maps, I ask you, do you get an intuitive sense of "uncertainty"? I dont. Can you answer any of the questions above with these maps? I can't. So what is the point of depicting the uncertainty in this way? Similar to the way we produce research to throw it back into the echochamber of academia, visualising uncertainty like this implies the reason we include uncertainty is just to.... include it. It is devoid of motivation and appears entirely performative.
 
 
-
- 
-
-
+### Notes to add
+- all these methods are worse than just plotting two maps side by side (check the base case method for each of these plots). They also only depict a single value for uncertainty which means we can identify which areas have high error (which seems to be a product of the estimate itself in the example case) and nothing else.
+- the estimate is tied to the location, the uncertainty is tied to the estimate, the uncertainty is not tied to the location.
+- The literature doesn't even comment on this distinction of type of decision needed to be made. They just talk about better or worse methods to convey uncertainty and errors associated with different types. They don't talk about errors associated with specific types of questions even though it is SHOCKINGLY obvious from the literature.
+- "What uncertainty do we care about" decides how you quantify it and what aspect of the data it is connected to, "Why do we care about it" decides how you plot it.
+- Hypothetical outcomes are good for scenario uncertainty (like forecasts that fork off and make two outcomes). Intervals/distributions are good for statistical uncertainty?. There is a connection with enough outcomes, which is why a large number of hypothetical outcomes can be used as a discreetised version of statistical uncertainty.
+- You cannot make an uncertainty plot without uncerstanding the 1) question a person has and 2) the method they can access the data.
+- Things like animation and interactivity just add another "axis" to the plot (similar to adding colour or something). Eventually with enough "axis' we are not really summarising information anymore, just showing all of it. Looking at plots they generally convey one key piece of information and maybe some extra info. If a single plot is worse than two separate plots, and the swapping between mental effort is less than the effort to understand the bizzare graphics, you have made a bad plot. 
+- What do we compare plots to? Nothing? There is no placebo. People being able to answer general questions about uncertainty does not mean a plot is conveying uncertainty. Sometimes I think two plots should be a baseline case for understanding plots.
