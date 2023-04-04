@@ -8,6 +8,20 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 April 6th
+### General
+- I have split the website in two. This website contains meetings notes, teaching help sheets, and written out research ideas. I have also changed the layout and structure.
+- I moved blog posts and other public stuff to 
+
+### Last weeks meeting
+- I have spoken to Di already
+- This is my understanding of what happened:
+
+### Visualising uncertainty
+- I while revamping the website I have also tried to better explain the idea. 
+- I have removed the intro bits from the posts. I was including them because starting with a diary entry helped me write about the research, but I think they make the posts longer and more difficult to read. I'm going to keep them in the public blog posts, but the private ones will just have the research information.
+- Rather than give piece by piece what I am trying to do, I have written up a skeleton of my plans and will fill it in. Hopefully this will give you guys a better understanding of where I am going.
+
 ## 2023 March 29rd
 #### General
 - The blog site is too big for quarto.pub which is why I had issues publishing my stuff this week :(. 

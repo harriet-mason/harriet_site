@@ -1,8 +1,6 @@
 ---
-title: "Do You Have a Good Reason to Ignore Uncertainty? Check if I Approve of Your Reason Below"
+title: "Part 1: Why Don't People Visualise Uncertainty?"
 author: "Harriet Mason"
-date: "2023-02-25T00:00:00Z"
-lastMod: "2023-02-25T00:00:00Z"
 image: feature.jpeg
 bibliography: references.bib
 categories:
@@ -16,6 +14,7 @@ editor:
     wrap: 72
 ---
 
+<!--
 # The Wombat Conference
 
 Recently I went to a conference with the central topic of visualising
@@ -112,6 +111,7 @@ difficult) but it just highly likely that they are. Below I will go
 though the most common reasons cited for failing to express
 uncertainty, and why they are lacking once you engage in the literature.
 Then you might see what I mean.
+-->
 
 # The Excuses (and The Rebuttals)
 

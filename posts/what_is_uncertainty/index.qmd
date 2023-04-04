@@ -1,5 +1,5 @@
 ---
-title: "(incomplete) What do we mean when we talk about uncertainty?"
+title: "Part 2: What do we mean when we talk about Uncertainty"
 author: "Harriet Mason"
 image: feature.jpeg
 bibliography: references.bib
