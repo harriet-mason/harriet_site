@@ -13,24 +13,13 @@ website:
     search: true
     left:
       - index.qmd
-      - sidebar:research
       - sidebar:teaching
-      - href: posts/index.qmd
-        text: Blog Posts
+      - href: meetings/index.qmd
+        text: Meeting Notes
+      - href: ideas/index.qmd
+        text: Idea Write Ups
       
   sidebar:
-    - id: research
-      style: "floating"
-      title: "Research"
-      contents:
-        - section: "PhD program"
-          contents:
-            - research/meetings.qmd
-            - research/ideas.qmd
-        - section: "General"
-          contents: 
-            - research/talks.qmd
-    
     - id: teaching
       title: "Teaching"
       contents:
