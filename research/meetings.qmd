@@ -11,7 +11,7 @@ listing:
 ## 2023 April 6th
 ### General
 - I have split the website in two. This website contains meetings notes, teaching help sheets, and written out research ideas. I have also changed the layout and structure.
-- I moved blog posts and other public stuff to 
+- I moved blog posts and other public stuff to [netlify](https://harrietmason.netlify.app/). This fixes the size issue for the website and also draws a line between the blog posts and the research posts.
 
 ### Last weeks meeting
 - I have spoken to Di already
