@@ -16,9 +16,3 @@ These summaries are to help students if you are completely lost in the content a
 
 ::: {#etc3580-summary}
 :::
-
-# Tutorial Help Sheet
-I have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY reccomend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.
-
-::: {#etc3580-help}
-:::

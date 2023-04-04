@@ -2,7 +2,7 @@
 title: "(incomplete) Uncertainty Is A Decision"
 editor: source
 ---
-
+<!--
 ### Untangling Infinite Threads
 #### A story about you who works in academia
 Hello you. You are a budding academic researcher, starting on your journey to do important work and send it out into the public. How exciting. Unfortunately, these are a few steps between you doing your important work that you have been thinking about and that work being seen as a change in society. Lets look at a run through of how this process works:
@@ -21,7 +21,7 @@ Looking at this process, at this performance of information sharing, you wonder 
 
 #### Acadmia stress but this time it's mine
 If you could not tell, that long winded second person narrative was actually about me. I bet you feel surprised by this unexpected information. You may assume this relates to my research (that despite the section above I am still doing) because there are good methods to visualise uncertainty but people are just unaware of them, and that is somewhat true. I did spend the first blog post of this series discussing how the general consensus and attitude towards visualising uncertainty does not align with the literature on the topic. It reminds me of when I was in highschool and told everyone there was no evidence that long term weight loss was possible despite a large number of clinical trials (if you don't believe me, google it) and was essentially treated like a basket case. I actually spent a weekend in a manic state in 2016 and made a stop motion [Youtube video](https://youtu.be/fFuQEKQhBn0) about it, but I digress. The actual link I want to make this week, is that this terrible organisation system for academia and information in general makes it hard to see the forest for the trees, and for broad and somewhat poorly defined topics such as "visualising uncetainty" I feel like I have a concussion from being hit in the face by the branches. 
-
+-->
 
 ### Footage of me pulling my hair out
 If one more person talks to me about visualising uncertainty in the context of some specific type of data or model I'm going to rip all my hair out of the top of my skull and live as a monk. The more I read and understand the process behind visualisations and uncertainty in general, the less this makes sense. The question of "why do you want to visualise the uncertainty" is treated as secondary to how the uncertainty was calculated (the model) or where the uncertainty came from (the data). 
