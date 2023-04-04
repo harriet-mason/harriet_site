@@ -4,27 +4,22 @@ project:
 execute: 
   freeze: auto
 
-bibliography: references.bib
-
 website:
   title: "Harriet Mason"
   navbar:
     background: primary
     search: true
     left:
-      - index.qmd
-      - sidebar:teaching
       - href: meetings/index.qmd
         text: Meeting Notes
       - href: ideas/index.qmd
-        text: Idea Write Ups
-      
-  sidebar:
-    - id: teaching
-      title: "Teaching"
-      contents:
-        - teaching/ETC3250.qmd
-        - teaching/ETC3580.qmd
+        text: PhD Writings
+      - text: Teaching
+        menu:
+          - text: ETC3250
+            href: teaching/ETC3250.qmd
+          - text: ETC3580
+            href: teaching/ETC3580.qmd
         
 
 format:

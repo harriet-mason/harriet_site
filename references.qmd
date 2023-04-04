@@ -1,6 +1,0 @@
----
-title: "Bibliography"
-nocite: '@*'
----
-
-<div id="refs"></div>
