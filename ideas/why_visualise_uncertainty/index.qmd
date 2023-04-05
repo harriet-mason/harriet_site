@@ -1,7 +1,6 @@
 ---
 title: "Part 1: Why Don't People Visualise Uncertainty?"
 author: "Harriet Mason"
-image: feature.jpeg
 bibliography: references.bib
 categories:
   - data visualisation

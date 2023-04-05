@@ -1,11 +1,21 @@
 ---
-title: "Research Ideas"
+title: "Idea Dumpster"
 editor: source
 ---
 
-# Experiments
+This section is not designed to be read (so please don't read it). Every now and then I have an idea and I don't really have somewhere to put it. It might be good or bad or pointless but I don't want to throw it out. So I just write it down here and might come back to it later, or might throw it out later if it is stupid. 
 
-## Why people don't visualise ideas
+## Random notes that have not had much thought
+- Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
+- interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
+- From the Role of Uncertainty "We can see that trust it is highest when the user is either aware of no uncertainties or mistakenly believes there are no uncertainties". This makes me suspect that people are trusted more when they don't display uncertainty BECAUSE the audience has assumed there is none.  If you don't display uncertainy, I think it is assumed there is none. maybe we could test this by making people aware of uncertainty and not and seeing if their reaction to to the plot when there is no uncertainty displayed mimics their beliefs when they know for certainty there is no uncertainty. Like get them to do a decision making task or something. It makes me think about the cognative test I had to do where uncertainty existed but was not made explicitly clear to me.
+- Could be fun to test what testing method provides a better understanding of audience insight? Is that too meta?
+- "Open questions generally support visualisation overviews rather than details views" I wonder if the way we ask questions about visualisations changes the way people see them.
+- What if I tried to quantify the unknown uncertaintys? Like there are a lot of uncertainties that we dont consider, would it be possible to look at a bunch of historic forecasts made in a social context (so there are lots of external and difficult to measure factors) and assess how often the outcome was in the confidence bands and what defines the cases where they were/weren't.
+- Think of how to test assertions vs rebuttals -- Ask people (maybe done) when someone uses uncertainty what do you think of (what does it mean) -- Is there uncertainty in this plot (what is it) if none what would be an addition to the plot to convey it
+
+
+## Possible Experiment Ideas
 
 ### Automatic infintesimally small confidence intervals
 
@@ -62,8 +72,6 @@ editor: source
     -   I wonder if the visualisations have the same issue as electoral systems. If an electoral system is too simple, highly educated people don't vote because they don't respect the process, if it is too complicated, poorly educated people don't vote because they don't understand it.
     -   There is something with communicating to a group vs individuals because of mass interpretation and then action. If you speak to a large enough number of people, the uncertainy disappears. It is not "you have a 10% chance of getting cancer" and becomes "10 of you will get cancer". Saying "it will happen" vs "it has a 10% chance of happening". This idea is not very well thought out.
 
-## Design of uncertainty visualisation ideas
-
 ### Forecast uncertainty implies path probability instead of pointwise.
 
 -   Idea
@@ -74,18 +82,3 @@ editor: source
     -   if a stakeholder is concerned about the likely outcomes of the path as a whole, rather than the forecast at one particular point in time, the visualisation could lead them to the wrong conclusion. The problem with this theory is I can't think of an example where this would be relevant.
 -   How to test
     -   ...
-
-## Benched ideas
-
-## Not yet thought out ideas
-
--   Think of how to test assertions vs rebuttals -- Ask people (maybe done) when someone uses uncertainty what do you think of (what does it mean) -- Is there uncertainty in this plot (what is it) if none what would be an addition to the plot to convey it
-
-
-# Random notes
-- Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
-- interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
-- From the Role of Uncertainty "We can see that trust it is highest when the user is either aware of no uncertainties or mistakenly believes there are no uncertainties". This makes me suspect that people are trusted more when they don't display uncertainty BECAUSE the audience has assumed there is none.  If you don't display uncertainy, I think it is assumed there is none. maybe we could test this by making people aware of uncertainty and not and seeing if their reaction to to the plot when there is no uncertainty displayed mimics their beliefs when they know for certainty there is no uncertainty. Like get them to do a decision making task or something. It makes me think about the cognative test I had to do where uncertainty existed but was not made explicitly clear to me.
-- Could be fun to test what testing method provides a better understanding of audience insight? Is that too meta?
-- "Open questions generally support visualisation overviews rather than details views" I wonder if the way we ask questions about visualisations changes the way people see them.
-- What if I tried to quantify the unknown uncertaintys? Like there are a lot of uncertainties that we dont consider, would it be possible to look at a bunch of historic forecasts made in a social context (so there are lots of external and difficult to measure factors) and assess how often the outcome was in the confidence bands and what defines the cases where they were/weren't.
