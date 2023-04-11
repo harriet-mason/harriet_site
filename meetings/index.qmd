@@ -15,8 +15,10 @@ listing:
 - (todo) Part 3 example, compare the data-centred approach to the hypothesis approach
 ### Cassowaryr
 - (todo) Install interp from github
-### Australian Statistical Conference
+### Other Work
 - (todo) Write abstract for Australian Statistical Conference poster and show next week
+- (todo) Write draft for 3 minute thesis
+- (todo) maybe write draft for visualise your thesis?
 
 ## 2023 April 6th
 ### General
