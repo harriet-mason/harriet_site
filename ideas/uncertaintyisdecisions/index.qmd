@@ -2,7 +2,6 @@
 title: "Part 3: Uncertainty Needs a Motivation"
 author: "Harriet Mason"
 image: feature.jpeg
-bibliography: references.bib
 editor: 
   markdown: 
     wrap: 72
