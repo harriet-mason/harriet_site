@@ -8,6 +8,16 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 April 13th
+### Visualising uncertainty
+- (todo) Part 2 example, work through a breakdown of uncertainty
+- (todo) Part 2 add a mathematical definition of uncertainty
+- (todo) Part 3 example, compare the data-centred approach to the hypothesis approach
+### Cassowaryr
+- (todo) Install interp from github
+### Australian Statistical Conference
+- (todo) Write abstract for Australian Statistical Conference poster and show next week
+
 ## 2023 April 6th
 ### General
 - I have split the website in two. This website contains meetings notes, teaching help sheets, and written out research ideas. I have also changed the layout and structure.

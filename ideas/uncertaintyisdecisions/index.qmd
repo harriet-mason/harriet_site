@@ -1,6 +1,16 @@
 ---
 title: "Part 3: Uncertainty Needs a Motivation"
-editor: source
+author: "Harriet Mason"
+image: feature.jpeg
+bibliography: references.bib
+editor: 
+  markdown: 
+    wrap: 72
+knitr:
+  opts_chunk: 
+    warning: FALSE
+    message: FALSE
+    echo: FALSE
 ---
 <!--
 ### Untangling Infinite Threads
@@ -62,3 +72,7 @@ Looking at these maps, I ask you, do you get an intuitive sense of "uncertainty"
 - You cannot make an uncertainty plot without uncerstanding the 1) question a person has and 2) the method they can access the data.
 - Things like animation and interactivity just add another "axis" to the plot (similar to adding colour or something). Eventually with enough "axis' we are not really summarising information anymore, just showing all of it. Looking at plots they generally convey one key piece of information and maybe some extra info. If a single plot is worse than two separate plots, and the swapping between mental effort is less than the effort to understand the bizzare graphics, you have made a bad plot. 
 - What do we compare plots to? Nothing? There is no placebo. People being able to answer general questions about uncertainty does not mean a plot is conveying uncertainty. Sometimes I think two plots should be a baseline case for understanding plots.
+- I wonder if HOPS plots were better in that paper because the hypothesis was more appropriate rather than the "being forced to experience the distribution with time" thing
+- try offering a visualisation expression for every graph aspect (time, colour, position, shape etc) so you can always assign uncertainty?
+- comparison of plot question like placebo vs drug. Comparing a new drug to a placebo isnt great, should compare to the next best drug on the market. Don't care if it works at all, want to know if it works better than the next best.
+- concept of visualising a statistical test with uncertainty reminds me of infovis but idk how much it relates

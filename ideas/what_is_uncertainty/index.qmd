@@ -3,12 +3,6 @@ title: "Part 2: What do we mean when we talk about Uncertainty"
 author: "Harriet Mason"
 image: feature.jpeg
 bibliography: references.bib
-categories:
-  - data visualisation
-  - statistics
-tags:
-  - data visualisation
-  - statistics
 editor: 
   markdown: 
     wrap: 72
