@@ -13,8 +13,10 @@ listing:
 - (todo) Part 2 example, work through a breakdown of uncertainty
 - (todo) Part 2 add a mathematical definition of uncertainty
 - (todo) Part 3 example, compare the data-centred approach to the hypothesis approach
+
 ### Cassowaryr
 - (todo) Install interp from github
+
 ### Other Work
 - (todo) Write abstract for Australian Statistical Conference poster and show next week
 - (todo) Write draft for 3 minute thesis
