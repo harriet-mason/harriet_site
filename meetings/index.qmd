@@ -8,7 +8,7 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2023 April 13th
+## 2023 April 20
 ### Visualising uncertainty
 - (todo) Part 2 example, work through a breakdown of uncertainty
 - (todo) Part 2 add a mathematical definition of uncertainty
@@ -22,7 +22,7 @@ listing:
 - (todo) Write draft for 3 minute thesis
 - (todo) maybe write draft for visualise your thesis?
 
-## 2023 April 6th
+## 2023 April 6
 ### General
 - I have split the website in two. This website contains meetings notes, teaching help sheets, and written out research ideas. I have also changed the layout and structure.
 - I moved blog posts and other public stuff to [netlify](https://harrietmason.netlify.app/). This fixes the size issue for the website and also draws a line between the blog posts and the research posts.
@@ -42,7 +42,7 @@ listing:
 #### Notes
 - write abstract for Australian Statistical Conference poster and show next week
  
-## 2023 March 29rd
+## 2023 March 29
 #### General
 - The blog site is too big for quarto.pub which is why I had issues publishing my stuff this week :(. 
 - I'm not sure if I should move the whole thing somewhere else, or just move the blog.
@@ -58,7 +58,7 @@ listing:
 - I need to establish ground rules for the next meetings.
 - I don't want to do work that will turn out to be obsolete with other work. You keep asking me to zoom in but what if what I wan't to do as my first topic is establish rules for uncertainty visualisation the way we have rules for other visualisation.
 
-## 2023 March 23rd
+## 2023 March 23
 #### CassowaryR
 - I can't even install the newer version of the package. I have tried using a couple methods and none of them worked.
 - Should I email back and say I can't install the package?
@@ -69,7 +69,7 @@ listing:
 #### Comments
 - Sarah is contacting people that I can talk to from AEMO and I should contact Sayani so that I can better understand what their problems are.
 
-## 2023 March 16th
+## 2023 March 16
 #### General
 - I added Sarah as a supervisor
 - My github actions broke for a bit so my meeting notes weren't updating.
@@ -96,7 +96,7 @@ listing:
 - The forecast display does not make it clear the uncertainty in the model if determined by the residuals of the fitted values. Interesting to see if displaying the fitted values on the forecast makes people see more vs less uncertainty. 
 
 
-## 2023 March 9th
+## 2023 March 9
 
 #### General
 * Set up github actions so the meeting notes are always up to date.
@@ -108,7 +108,7 @@ listing:
 - I fixed the github actions issue, the github actions themselves needed to be updated, it was nothing wrong with the dependencies or code.
 - I wrote out a motivation that could be sent to the author of alphahull as to why the swap from interp to tRiad is necessary. It can be found [here](triad/triadswap.qmd)
 
-## 2023 March 2nd
+## 2023 March 2
   
 #### General
 - I made this website to store information and posts and stuff. It keeps everything together which I like.
