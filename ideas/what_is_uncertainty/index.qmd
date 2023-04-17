@@ -18,6 +18,10 @@ Recently I asked my doctor if I could be put on some kind of mood stabilisers. I
 -->
 Many aspects of uncertainty become muddled, lost or ignored through the data visualization process. Authors are often unaware of how this occurs and to what degree, and rather than pick apart the issue, ignore it entirely.
 
+## Defining Uncertainty
+It is a good idea to 
+- a measure of the variance around any expected value
+
 ## Sources of Uncertainty
 Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
 
