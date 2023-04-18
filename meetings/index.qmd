@@ -10,17 +10,15 @@ listing:
 # Supervisor Meetings
 ## 2023 April 20
 ### Visualising uncertainty
-- (todo) Part 2 example, work through a breakdown of uncertainty
 - (todo) Part 2 add a mathematical definition of uncertainty
+- (todo) Part 2 example, work through a breakdown of uncertainty
 - (todo) Part 3 example, compare the data-centred approach to the hypothesis approach
 
 ### Cassowaryr
-- (todo) Install interp from github
+- Tried and failed to install interp usig gitlab. Emailled Albercht with session info and hopefully he can find out what is causing the problem.
 
 ### Other Work
 - (todo) Write abstract for Australian Statistical Conference poster and show next week
-- (todo) Write draft for 3 minute thesis
-- (todo) maybe write draft for visualise your thesis?
 
 ## 2023 April 6
 ### General
