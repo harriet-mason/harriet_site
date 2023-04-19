@@ -23,7 +23,17 @@ It is a good idea to have a definition of uncertainty before we start trying to 
 
 Walker and Rotmans paper not only gives a general definition of "uncertainty", but also defines a topology that untangles the conflated sub-categories that most other definitions get caught up in. Definition from other papers are either a description of one of their specified sub-catetegories (which are detailled in the specifying uncertainty section), or are a less specific version of Walter and Rotmans definition. They define uncertainty as "any deviation from the unachievable ideal of completely deterministic knowledge of the relevant system". This is the definition I will use to map out a mathematical definition of uncertainty.
 
-In laymens terms, this definition says that uncertainty is anything we cant know with 100% certainty. This diverges from a definition of randomness because a system can be deterministic, not random, but if we have incomplete knowledge of this deterministic event, it is uncertain. Additionally this definition does not speak to a general uncertainty, you have to specify the "relevant system". I think of this as identifying the random variable we are dealing with. This definition also avoids two pitfalls that comes with describes uncertainty as a variance, something that already has a mathematical definition. The first pitfall is that variance is inherently tied to a measure of central tendancy which is not necessarily true of uncertainty in general. The second pitfall is that we don't want to confuse uncertainty itself with one possible expressions of uncertainty. Expressing a value as a range of possible or likely values is disconnected from its expected value, and is distinct from our definition of variance but would be considered a valid expressions of uncertainty nonetheless.
+This definition has a few follow up implications for uncertainty. 
+
+First of all, it establishes that uncertainty is not a thing in of itself, but rather a property that some variable can have (lets call this variable X). 
+
+Second of all, this property is related to our knowledge about X, rather than a comment on X itself. This allows the definition of uncertainty to diverge from the definition of randomness which is because a system can be deterministic, not random, but if we have incomplete knowledge of this deterministic event, it is uncertain. 
+
+Third of all this definition does not speak to a general uncertainty, you have to specify the "relevant system". I think of this as identifying the random variable we are dealing with. 
+
+Third, this definition does not tie uncertainty to a anything except a set of potential outcomes. 
+
+This definition also avoids two pitfalls that comes with describes uncertainty as a variance, something that already has a mathematical definition. The first pitfall is that variance is inherently tied to a measure of central tendancy which is not necessarily true of uncertainty in general. The second pitfall is that we don't want to confuse uncertainty itself with one possible expressions of uncertainty. Expressing a value as a range of possible or likely values is disconnected from its expected value, and is distinct from our definition of variance but would be considered a valid expressions of uncertainty nonetheless.
 
 
 Notes for this section
