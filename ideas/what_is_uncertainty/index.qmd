@@ -19,11 +19,29 @@ Recently I asked my doctor if I could be put on some kind of mood stabilisers. I
 Many aspects of uncertainty become muddled, lost or ignored through the data visualization process. Authors are often unaware of how this occurs and to what degree, and rather than pick apart the issue, ignore it entirely.
 
 ## Defining Uncertainty
-It is a good idea to 
-- a measure of the variance around any expected value
+It is a good idea to have a definition of uncertainty before we start trying to pick apart its sources and how it can be represented. The problem is there isn't a strict commonly accepted definition of uncertainty. Argot et al. comments that “there are almost as many definitions of uncertainty as there are treatments of the subject” [1]. This mismash of terminology leads to a large body of work, all claiming to finding the best visualisation or expression of of "uncertainty" but most don't even seem to agree on what uncertainty is. When papers on uncertainty do offer a definition, it often specifies aspects of, categories of, or philisophical perspective on uncertainty, leading to a definition that is so narrow it is not particularly useful. A definition that only covers either Baysian or Frequentist statistcians is not broad enough for our uses. On the other hand the layperson definition of uncertainty is too broad. Caimbridge dictionary defines uncertainty as "a situation in which something is not known, or something that is not known or certain" [2]. It is difficult to turn this definition into a mathematical one. Although most papers don't agree on their definition of uncertainty, that doesn't mean there aren't any good ones. I am going to follow the definition set by by Walker and Rotmans (2003) in their paper "Defining Uncertainty"[3].
 
-## Sources of Uncertainty
-Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
+Walker and Rotmans paper not only gives a general definition of "uncertainty", but also defines a topology that untangles the conflated sub-categories that most other definitions get caught up in. Definition from other papers are either a description of one of their specified sub-catetegories (which are detailled in the specifying uncertainty section), or are a less specific version of Walter and Rotmans definition. They define uncertainty as "any deviation from the unachievable ideal of completely deterministic knowledge of the relevant system". This is the definition I will use to map out a mathematical definition of uncertainty.
+
+In laymens terms, this definition says that uncertainty is anything we cant know with 100% certainty. This diverges from a definition of randomness because a system can be deterministic, not random, but if we have incomplete knowledge of this deterministic event, it is uncertain. Additionally this definition does not speak to a general uncertainty, you have to specify the "relevant system". I think of this as identifying the random variable we are dealing with. This definition also avoids two pitfalls that comes with describes uncertainty as a variance, something that already has a mathematical definition. The first pitfall is that variance is inherrently tied to a measure of central tendancy which is not necessarily true of uncertainty in general. The second pitfall is that we don't want to confuse uncertainty itself with one possible expressions of uncertainty. Expressing a value as a range of possible or likely values is disconnected from its expected value, and is distinct from our definition of variance but would be considered a valid expressions of uncertainty nonetheless.
+
+
+Notes for this section
+- 100% certainty does not mean 100% accuracy. 
+- Random variable is not a variable or random, it is the mapping of a function from possible outcomes in the sample space to a measurable space (often the real numbers).
+- The interpretation of probability is philosophically complicated, and even in specific cases is not always straightforward. The purely mathematical analysis of random variables is independent of such interpretational difficulties, and can be based upon a rigorous axiomatic setup.(From wiki)
+- Broadly uncertainty is some expression that summaries the sample space of a random variable. A range is an expression of uncertainty, and it describes the entire sample space (or observed sample space if we are working with actual data).
+- Let X be a random variable that describes our "knowledge" of an event.
+
+Variance thoughts
+- Expected value and variance
+- Range
+- Median and IQR
+
+
+
+## Specifying Uncertainty
+While "Defining Uncertainty" does not provide a strict mathematical definition, it does provide a typology of uncertainty, which is in some ways, more useful. Lets start this section off with a simple plot hopefully everyone has seen before. This is a plot taken from Forecasting: Principles and Practice [@robsbook]. It is a simple depiction time series data, but I have also included a forecast (using an ARIMA model) that has some uncertainty surrounding it.
 
 ```{r}
 library(fpp3)
@@ -75,4 +93,13 @@ You need to bring this insible under the murky water uncertainty and bring it in
 1) try and quantify it and include it in your intervals (usually by expanding it)
 2) give up on trying to quantify it and include it as an assumption.
 
+Alternative definitions:
+- degree to which the lack of knowledge about the amount of error is responsible for hesitancy in accepting results and observations without caution - (G. J. Hunter and M.F. Goodchild. Managing uncertainty in spatial databases: Putting theory into practice VIA The Visualization of Uncertain Data: Methods and Problems)
+- In its broadest sense, uncertainty refers to knowledge of possible deviation from a “true” value, but without precise knowledge of the magnitude. - (Modelling and visualizing multiple spatial uncertainties)
+- we defined ambiguity as “known-to-be- missing information, or not knowing relevant information that could be known”
+- Organizational Behavior and Human Decision Processes, Volume 69, Issue 2 provides a table of definitions of uncertainty in a table.
 
+# Citations to organise
+[1] cite from Organizational Behavior and Human Decision Processes, Volume 69, Issue 2)
+[2] https://dictionary.cambridge.org/dictionary/english/uncertainty
+[3] defining uncertainty 2003
