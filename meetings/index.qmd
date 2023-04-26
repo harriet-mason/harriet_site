@@ -8,6 +8,13 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 April 27
+### ASC
+- Wrote poster abstract submission
+
+### Visualising uncertainty
+- (todo) Finished ironing out the definition/typology of uncertainty and applied the definition/typology to an example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
+
 ## 2023 April 20
 ### Visualising uncertainty
 - Started writing a mathematical definition of uncertainty in part 2 [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#defining-uncertainty). I am not sure how deep the mathematical definition should go. I was working through it with Tom and 
