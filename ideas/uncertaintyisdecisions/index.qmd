@@ -63,6 +63,7 @@ Looking at these maps, I ask you, do you get an intuitive sense of "uncertainty"
 
 
 ### Notes to add
+- visualisation with a purpose goes beyond uncertainty. If you want to compare the variance of different areas of your data, you dont want to visualise the uncertainty associated with a metric you should just visualise the variance. Getting the correlation between two time series is easier with a scatter plot than a line plot (cite). Make the goal of your visualisation the key decision in how you visualise it, not the data type.
 - all these methods are worse than just plotting two maps side by side (check the base case method for each of these plots). They also only depict a single value for uncertainty which means we can identify which areas have high error (which seems to be a product of the estimate itself in the example case) and nothing else.
 - the estimate is tied to the location, the uncertainty is tied to the estimate, the uncertainty is not tied to the location.
 - The literature doesn't even comment on this distinction of type of decision needed to be made. They just talk about better or worse methods to convey uncertainty and errors associated with different types. They don't talk about errors associated with specific types of questions even though it is SHOCKINGLY obvious from the literature.
