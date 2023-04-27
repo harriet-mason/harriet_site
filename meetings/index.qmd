@@ -9,11 +9,15 @@ listing:
 
 # Supervisor Meetings
 ## 2023 April 27
+### General
+- Teaching ends up taking up a lot of time, especially in later weeks. I don't think I'll teach next semester.
+  
 ### ASC
 - Wrote poster abstract submission
 
 ### Visualising uncertainty
-- Finish ironing out the definition/typology of uncertainty [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
+- Had a meeting with Dean Sharafi, Toby Price and Alireza Fereidouni about the problems with uncertainty that AEMO is facing in WA. The meeting was recorded if you guys want to watch it. They asked if I wanted to work with them on their issue. Said I would go back to you guys and see what you think.
+- I ironed out the definition/typology of uncertainty a little more [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
 
 ## 2023 April 20
 ### Visualising uncertainty
