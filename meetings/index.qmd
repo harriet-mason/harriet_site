@@ -13,7 +13,7 @@ listing:
 - Wrote poster abstract submission
 
 ### Visualising uncertainty
-- (todo) Finished ironing out the definition/typology of uncertainty and applied the definition/typology to an example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
+- Finish ironing out the definition/typology of uncertainty [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
 
 ## 2023 April 20
 ### Visualising uncertainty
