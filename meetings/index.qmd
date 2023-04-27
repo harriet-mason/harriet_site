@@ -11,6 +11,7 @@ listing:
 ## 2023 April 27
 ### General
 - Teaching ends up taking up a lot of time, especially in later weeks. I don't think I'll teach next semester.
+- Github actions arent working and Github token has expired so meeting notes haven't been updating. Will fix before next week.
   
 ### ASC
 - Wrote poster abstract submission
