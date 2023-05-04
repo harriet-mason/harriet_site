@@ -91,11 +91,12 @@ p
 
 You may not be super experienced with time series data or forecasting, and that's OK (honestly I have taken like two courses in it and then pretended forecasting doesn't exist outside that). 
 
-
 You need to bring this insible under the murky water uncertainty and bring it into the light, giving us a bright and shining visible uncertainty.
 - whenever you encounter a new uncertainty you have one of two options.
 1) try and quantify it and include it in your intervals (usually by expanding it)
 2) give up on trying to quantify it and include it as an assumption.
+
+# Unplaced Notes
 
 Alternative definitions:
 - degree to which the lack of knowledge about the amount of error is responsible for hesitancy in accepting results and observations without caution - (G. J. Hunter and M.F. Goodchild. Managing uncertainty in spatial databases: Putting theory into practice VIA The Visualization of Uncertain Data: Methods and Problems)
@@ -103,7 +104,7 @@ Alternative definitions:
 - we defined ambiguity as “known-to-be- missing information, or not knowing relevant information that could be known”
 - Organizational Behavior and Human Decision Processes, Volume 69, Issue 2 provides a table of definitions of uncertainty in a table.
 
-# Citations to organise
+# Citations (to organise)
 [1] cite from Organizational Behavior and Human Decision Processes, Volume 69, Issue 2)
 [2] https://dictionary.cambridge.org/dictionary/english/uncertainty
 [3] defining uncertainty 2003
