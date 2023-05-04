@@ -8,32 +8,43 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 May 4
+#### Confirmation
+- Should we try and organsise a top three dates? (If everyone is here). It looks like we won't be able to get a date with everyone that Catherine can chair.
+- Skim read confirmation reports Di sent me. @Sarah if you have some you think would be helpful for me to read, I would also be keen to read those.
+- It looks like the format goes: motivation/literature reivew, brief mentions of scope of 3 the three projects, detailled explanation of project 1 work to date, general discussion of plans for the other two projects, broad timeline of the phd.
+- Since I have done an amount of cassowaryr work in the first year, should I detail that in the confirmation report even though its the third topic?
+- Should I write it in the abbreviated report format? Is there a template for either of these I should use?
+#### Visualising uncertainty
+- Should I organise another meeting with Dean?
+- Applied typology to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
+
 ## 2023 April 27
-### General
+#### General
 - Teaching ends up taking up a lot of time, especially in later weeks. I don't think I'll teach next semester.
 - Github actions arent working and Github token has expired so meeting notes haven't been updating. Will fix before next week.
   
-### ASC
+#### ASC
 - Wrote poster abstract submission
 
-### Visualising uncertainty
+#### Visualising uncertainty
 - Had a meeting with Dean Sharafi, Toby Price and Alireza Fereidouni about the problems with uncertainty that AEMO is facing in WA. The meeting was recorded if you guys want to watch it. They asked if I wanted to work with them on their issue. Said I would go back to you guys and see what you think.
 - I ironed out the definition/typology of uncertainty a little more [here](https://harriet.quarto.pub/ideas/what_is_uncertainty)
 
 ## 2023 April 20
-### Visualising uncertainty
+#### Visualising uncertainty
 - Started writing a mathematical definition of uncertainty in part 2 [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#defining-uncertainty). I am not sure how deep the mathematical definition should go. I was working through it with Tom and 
 
-### Cassowaryr
+#### Cassowaryr
 - Tried and failed to install interp usig gitlab. Emailled Albercht again. Haven't tried the new installing method that he emailled back
 
 
 ## 2023 April 6
-### General
+#### General
 - I have split the website in two. This website contains meetings notes, teaching help sheets, and written out research ideas. I have also changed the layout and structure.
 - I moved blog posts and other public stuff to [netlify](https://harrietmason.netlify.app/). This fixes the size issue for the website and also draws a line between the blog posts and the research posts.
 
-### Last weeks meeting
+#### Last weeks meeting
 - I have spoken to Di already and Ursula isn't here this week so it might not be beneficial to talk about it.
 - If there is something you don't understand (or don't understand the whole thing) when I am presenting something I want you guys to tell me or ask about it. Otherwise I don't know what part is the problem and I don't know if the idea is bad or you just don't understand it. I got upset last week because the suggestions and the direction you guys thought I wanted to go with the research made it clear I didn't properly convey what I wanted to do, but the suggestions implied the idea was bad instead of implying a misunderstanding. That's why I was also upset when you suggested the work was good, since it was still clear I hadn't conveyed the idea and it wasn't persuasive.
 - If I am going to the effort to explicity ask for something or make it clear its not possible, it is not really negotiable. There are a lot of research topics, so if I am aginst one thing that doesn't mean I am against everything. I am happy to make concessions in other areas, but often it takes a lot of effort for me to tell you guys that something is off the table so I need to it to be understood when I do. Otherwise I will just end up ignoring your advice because I already made it clear what I am and am not willing to do.
@@ -41,7 +52,7 @@ listing:
 - Also, since I start with an overview and work my way down, citations are the last thing I usually add to my writing. That means when I present a topic I will essentially never have citations. That does not mean I am not basing my work off evidence, it means I haven't done the citations yet.
 - Please tell me if there is anything I can do to better communicate with you guys. I am happy to make changes to how I do things, but I don't know if nobody tells me anything.
 
-### Visualising uncertainty
+#### Visualising uncertainty
 - Rather than give piece by piece what I am trying to do, I have written up a motivation and outline of my idea [here](https://harriet.quarto.pub/ideas/) and will fill the sections with more detail as I go. Hopefully this will give you guys a better understanding of what I am trying to convey and why I don't want to work on spatial or temporal uncertainty specifically. In the overview I ended up just re-explaining the entire idea because I don't know which parts you guys are confused on so it might seem a little repetitive, sorry. I also included parts that I haven't written yet in the outline to give a better idea of where I want to go with the idea. If you don't understand parts please ask and I will focus on trying to explain that part better. If you fully get the idea and have criticism of it I'm open to hearing it. There are no citations, not because I don't have evidence to back up my claims, but because I typically do citations last. I can describe a paper that backs up each of my points from memory and send it to you if you want, so please don't say I have nothing to back up my claims when I present an overview like this.
 - I have removed the intro bits from the posts. I was including them because starting with a diary entry helped me write about the research, but I think they make the posts longer and more difficult to read. I'm going to keep them in the public blog posts, but the private ones will just have the research information.
 
