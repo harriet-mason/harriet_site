@@ -18,7 +18,7 @@ listing:
 
 #### Visualising uncertainty
 - Should I organise another meeting with Dean?
-- Started applying typology to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
+- Started applying taxonomy to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
 
 ## 2023 April 27
 #### General
