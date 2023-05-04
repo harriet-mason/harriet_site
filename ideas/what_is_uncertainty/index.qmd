@@ -83,20 +83,25 @@ You may be thinking to yourself, well this typology is well and good, but how on
 <center>![](typologyvis.jpeg)</center>
 
 # Applying the Typology
-First, lets take a look at the data we were forecasting with before, and where those confidence intervals came from.
+When we try an apply the typology to a visualisation we have already created, we run into a small problem. We seem to have visualised the uncertainty backwards. If you read the details of the typology, it seems to suggest that we are deciding on what the scope of our project and then finding data that fits that scope. While this may occasionally be true, very often we let our data decide the scope of our decisions.
+
+Since we are working with the second case, instead of making our confidence intervals using our data and assumptions, we are going to look at the confidence intervals and work out where they came form. Returning to the visualisation from earlier.
 
 ```{r}
 p
 ```
 
-You may not be super experienced with time series data or forecasting, and that's OK (honestly I have taken like two courses in it and then pretended forecasting doesn't exist outside that). 
+It may be not particularly shocking to find out those confidence intervals are actually only accounting for a very small subset of the total uncertainty in the prediction.
+
+<center>![](typologyvisex.jpeg)</center>
+
+
+# Unplaced Notes
 
 You need to bring this insible under the murky water uncertainty and bring it into the light, giving us a bright and shining visible uncertainty.
 - whenever you encounter a new uncertainty you have one of two options.
 1) try and quantify it and include it in your intervals (usually by expanding it)
 2) give up on trying to quantify it and include it as an assumption.
-
-# Unplaced Notes
 
 Alternative definitions:
 - degree to which the lack of knowledge about the amount of error is responsible for hesitancy in accepting results and observations without caution - (G. J. Hunter and M.F. Goodchild. Managing uncertainty in spatial databases: Putting theory into practice VIA The Visualization of Uncertain Data: Methods and Problems)

@@ -15,9 +15,10 @@ listing:
 - It looks like the format goes: motivation/literature reivew, brief mentions of scope of 3 the three projects, detailled explanation of project 1 work to date, general discussion of plans for the other two projects, broad timeline of the phd.
 - Since I have done an amount of cassowaryr work in the first year, should I detail that in the confirmation report even though its the third topic?
 - Should I write it in the abbreviated report format? Is there a template for either of these I should use?
+
 #### Visualising uncertainty
 - Should I organise another meeting with Dean?
-- Applied typology to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
+- Started applying typology to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
 
 ## 2023 April 27
 #### General
