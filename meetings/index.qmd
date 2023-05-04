@@ -20,6 +20,22 @@ listing:
 - Should I organise another meeting with Dean?
 - Started applying taxonomy to example [here](https://harriet.quarto.pub/ideas/what_is_uncertainty/#applying-the-typology).
 
+### Notes
+#### WA AEMO meeting
+- What do we want from them relative to my work
+- How often should we meet
+- What data are we working with
+- Worthwile to map out what types of things we want to do with them before just jumping in
+- Worthwhile to think of exploratory stage (if you have problems early on in your modelling and data processing - weather patterns which are pretty consistent) to be able to diagnose models (where do you not have sufficient information)
+- Interested in workflow
+- Split issues and EDA and communication perspective and map out what data would be related to each one. (could get sample or aggregate - want to keep geographical information in tact or disclosure agreement). 
+- Could get access ourselves rather than waiting for them to give us access
+- Look at AEMO data - seen this on your website, do you have a finer detail of data we could use.
+
+#### Cassowaryr and Thesis
+- How does cassowaryr link to entire thesis, is it related or is it a side research project that develops research skills
+- Include if it can be linked to overarching ideas
+
 ## 2023 April 27
 #### General
 - Teaching ends up taking up a lot of time, especially in later weeks. I don't think I'll teach next semester.
