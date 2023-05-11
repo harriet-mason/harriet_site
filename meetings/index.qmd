@@ -14,8 +14,8 @@ listing:
 - Was I supposed to discuss this with Dean or was I supposed to make this and bring it to him?
  
 #### cassowaryr
-- I tried to install from CRAN and I ran into the same problem. I didn't really understand method 2 so I asked Tom and I'll try that later this week.
-
+- I tried to install from CRAN and I ran into the same problem. 
+- I genuinly have no idea what he is talking about with method 2. Have you guys done anything like that before? I read the stuff he provided and don't even know where to start.
 
 ## 2023 May 4
 #### Confirmation
