@@ -1,0 +1,32 @@
+---
+title: "AEMO Meeting Plans"
+---
+
+# Notes
+## Meeting Frequency
+- Once a month should be fine?
+
+## Working Details
+- Want specific case examples in their work where they think problems could be solved with better uncertainty communication. 
+- In order to work on each question, we would need an idea of the overall workflow for this problem, example data to work with, and some specified goal of the uncertainty visualisation.
+- The workflow is required to work out what type of visualisation is needed and whether there is feedback between levels. It also lets us know what information each level is working with and what level of uncertainty they should be able to see. A visualisation used to communicate uncertainty to an energy operator to make decisions about changes in the structure is very different to a visualisation used to show sources of uncertainty in to the data analyst performing model analysis. 
+- The data is needed to we can work on possible visualisations. We are happy to use publicly available data if it suits the question, but the further the data we are using is from the actual data AEMO uses, the less useful our results will be. 
+- The goal is needed because that is how we decide what type of visualisation to make (within the sub-category of exploratory vs decision making)
+
+# Email Draft
+
+Hi Dean,
+
+I have shown the recording of our meeting to my supervisors and we are happy to start working with your team if you still think our work is relevant. Before we start working with you, there are just a few details we wanted to iron out first.
+  
+In order to properly understand how we can help your team, we would need some specific case examples where you have an issue that you think could be solved with better uncertainty communication. If you want to provide a handful of issues we would be happy to select the ones we think would be most applicable to my research. They can be anything from communicating uncertainty to operators (the example I gave in the meeting) to better understanding the sources of uncertainty for those in the modelling stages.
+
+In order to work on these case examples we would need an idea of the overall workflow for the problem, example data to work with, and some specified goal of the uncertainty visualisation. We are happy to use the publicly available data on the AEMO website if it suits the question, but the further the data we are using is from the data available at that stage in the work flow, the less applicable our results will be. Of course we are happy to work with whatever level of data you are able to provide, but that is just something that should be kept in mind.
+
+If we work together we would also be happy to meet regularly to discuss the current stage of the research. We are able to meet once a month, but if that is too frequent for your side, we are happy to adjust.
+
+Cheers,
+
+Harriet Mason
+
+
