@@ -2,7 +2,8 @@
 title: "Part 3: Uncertainty Needs a Motivation"
 author: "Harriet Mason"
 image: feature.jpeg
-description: Here I reject the idea of uncertainty being tied to the type of data it comes from and instead show why it should be connected to a hypothesis. I provide evidence in the literature of this perspective and show the problems associated with designing uncertainty visualisations that do not have a specific hypothesis in mind. I make clear that asking which visualisation method is best for visualising uncertainty is fundamentally removed from the way people engage with the problem.
+description: Part 1 established that a large reason people do not visualise uncertaitny is because of a view that it is of secondary imporance to estimates or other contextual information. Here I discuss methods of visualising uncertainty as an independent area of interest directly related to a hypothesis rather than as a by product of a data type or estimate. I present an example where visualising uncertainty without this framework leads leads to poor visualisations. 
+
 editor: 
   markdown: 
     wrap: 72

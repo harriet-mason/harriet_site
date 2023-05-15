@@ -2,7 +2,7 @@
 title: "Part 1: Why Don't People Visualise Uncertainty?"
 author: "Harriet Mason"
 bibliography: references.bib
-description: This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. A large problem seems to be a a general inability to quantify and articulate what exactly uncertainty is and a view that it is of secondary imporance to estimates.
+description: This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. 
 
 categories:
   - data visualisation

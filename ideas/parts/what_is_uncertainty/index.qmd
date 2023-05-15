@@ -2,7 +2,7 @@
 title: "Part 2: What do we mean when we talk about Uncertainty"
 author: "Harriet Mason"
 image: feature.jpeg
-description: This part zooms in on the difficulties of quantifying and measuring uncertainty by giving a succinct definition and taxonomy of uncertainty. I ask where uncertainty comes from, how we quantify it, what we do when we cant, and how the sources of uncertainty might impact the visualisation. I provide an example of how to define uncertainty with an example of forecast uncertainty.
+description: Part 1 established that many authors avoided visualising uncertainty due to and inability to quantify and articulate what exactly uncertainty is. This section zooms in on those issues. I give a succinct definition and taxonomy of uncertainty and applies that taxonomy to an example. 
 bibliography: references.bib
 editor: 
   markdown: 
