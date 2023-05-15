@@ -90,7 +90,9 @@ trust in peoples ability to understand probability. I do somewhat
 understand how people feel when they express this sentiment. I mark
 third year statistics assignments and only half of the students seem to
 know what a random variable is. That being said, there is a difference
-between However, the conference made it clear that there are many that
+between not understanding the intricacies of statistics and being
+completely unable to concieve of "randomness". However, the conference 
+made it clear that there are many that
 people avoid visualising uncertainty that are not just to do with
 assuming the worst about the intelligence of your audience. Having now
 read quite a few papers on the topic, finding out why people don't
@@ -250,7 +252,7 @@ has been changed.
 #### Reason
 
 The presence of uncertainty is common knowledge and does not need to be
-explicitly stated. Sometimes I
+explicitly stated. 
 
 #### Rebuttal
 
@@ -383,12 +385,12 @@ This does not mean everyone who doesn't visualise uncertainty is evil. Widesprea
 
 I took this as a fancy academic way of saying "I think these people are full of it and are making up random reasons to justify why their actions don't reflect their beliefs". This is not to say I have a poor view of the participants in the study. I think they are normal people doing what people do. Rather, I think that discussing the results with an absence of acknowledgement of the human psychology that got us there is disingenuous in of itself. Authors are likely reacting to unstated norms in the field that are so accepted they don't even question themselves when they create a visualisation that doesn't include uncertainty.
 
-From personal experience visualisation as a whole seems to be generally looked down upon in science. There is a large focus on facts and much less of a focus on communications. I sometimes wonder if there is an effort to purposely make research harder to understand. I don't think I am entirely off the mark considering I have many memories of my undergraduate lecturers d gloating to students about high fail rates and difficulty of their course. Obviously there is a prestige to doing something so complicated others struggle to understand it. When you hear that the
+From personal experience visualisation as a whole seems to be generally looked down upon in science. There is a large focus on facts and much less of a focus on communications. I sometimes wonder if there is an effort to purposely make research harder to understand. I don't think I am entirely off the mark considering I have many memories of my undergraduate lecturers gloating to students about high fail rates and difficulty of their course. Obviously there is a prestige to doing something so complicated others struggle to understand it. When you hear that the
 proof for the Poincare conjecture (the only millennium prize problem to be solved) could only be understood by experts meeting at a conference and understanding the work in groups over several days, it inspires an idea of godlike intelligence. Therefore, if something is hard to
 understand it is a more advanced idea, and you are smarter for knowing it. Of course, something can be hard to understand because it is poorly communicated, not only because it is difficult, but that seems to be
 lost on a few researchers. A man asking for directions to the train station in gibberish is also difficult to understand, but he is unlikely to stand in front of a multivariate calculus lecture and brag about still being lost.
 
-Very often, while reading papers, I am floored by how difficult some academics are to understand. The papers have become more comprehensive as I understood the field more, but even so, many papers still leave me confused. If the research put out by academia is so difficult to comprehend it is even inaccessible to the people in it, I wonder what the point of our research is.  
+Very often, while reading papers, I am floored by how difficult some academics are to understand. The papers have become more comprehensible as I understood the field more, but even so, many papers still leave me confused. If the research put out by academia is so difficult to comprehend it is even inaccessible to the people in it, I wonder what the point of our research is.  
 
 <center>![This is your brain on academic research](academicbrain.jpeg)</center>
 
