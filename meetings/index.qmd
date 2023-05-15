@@ -8,6 +8,25 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 May 18
+#### AEMO Meetings
+- I emailed Dean and CCed all of you.
+
+#### Visualising uncertainty
+- Wrote up explanation of Urusla conversation in Part 3 [here]()
+
+#### cassowaryr
+- Write up of comments in interp [here]()
+- Comments before I send them to Albercht?
+
+### Notes
+
+#### AEMO Meetings
+
+#### Visualising uncertainty
+#### cassowaryr
+
+
 ## 2023 May 11
 #### AEMO Meetings
 - Map of plan and draft email for AEMO people [here](aemo/aemoplan.qmd)
@@ -15,7 +34,10 @@ listing:
  
 #### cassowaryr
 - I tried to install from CRAN and I ran into the same problem. 
-- I genuinly have no idea what he is talking about with method 2. Have you guys done anything like that before? I read the stuff he provided and don't even know where to start.
+- I genuinely have no idea what he is talking about with method 2. Have you guys done anything like that before? I read the stuff he provided and don't even know where to start.
+
+### Notes
+- task taxonomies
 
 ## 2023 May 4
 #### Confirmation
