@@ -1,22 +1,12 @@
 ---
 title: "Research Ideas"
 listing:
-  - id: part1
-    type: grid
-    contents: why_visualise_uncertainty/index.qmd
-    fields: [image, title]
-  - id: part2
-    type: grid
-    contents: what_is_uncertainty/index.qmd
-    fields: [image, title]
-  - id: part3
-    type: grid
-    contents: uncertaintyisdecisions/index.qmd
-    fields: [image, title]
+  - id: parts
+    contents: parts
+    type: default
+    fields: [image, title, description]
   - id: ideas
-    type: grid
-    contents: ideadumpster/index.qmd
-    fields: [image, title]
+    contents: ideadumpster
 ---
 # Overview of Topic
 ## The current perspective on visualising uncertainty
@@ -43,22 +33,12 @@ Additionally (for possible future work) this process would change the way we vie
 
 This is a long winded overview of the general motivation for the change in perspective in visualising uncertainty. The five posts below go into more detail providing citations and evidence for the suggestions I make in the overview above. Directly below is a short summary of what each of the five parts cover. 
 
-### Part 1: Why People Don't Visualise
 This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. A large problem seems to be a a general inability to quantify and articulate what exactly uncertainty is and a view that it is of secondary imporance to estimates.
 
-::: {#part1}
-:::
 
-### Part 2: Defining Uncertainty
-This part zooms in on the difficulties of quantifying and measuring uncertainty by giving a susinct typology of uncertainty. I ask where uncertainty comes from, how we quantify it, what we do when we cant, and how the sources of uncertainty might impact the visualisation. I provide an example of how to define uncertainty with an example of forecast uncertainty.
 
-::: {#part2}
-:::
-
-### Part 3: Defining the Purpose
-Here I reject the idea of uncertainty being tied to the type of data it comes from and instead show why it should be connected to a hypothesis. I provide evidence in the literature of this perspective and show the problems associated with designing uncertainty visualisations that do not have a specific hypothesis in mind. I make clear that asking which visualisation method is best for visualising uncertainty is fundamentally removed from the way people engage with the problem. 
-
-::: {#part3}
+## The Idea in 5 Parts
+::: {#parts}
 :::
 
 ### Part 4: Rules for Communicating Uncertainty
