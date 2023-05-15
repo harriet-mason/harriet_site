@@ -1,7 +1,22 @@
 ---
 title: "Research Ideas"
 listing:
-  sort: "date desc"
+  - id: part1
+    type: grid
+    contents: why_visualise_uncertainty/index.qmd
+    fields: [image, title]
+  - id: part2
+    type: grid
+    contents: what_is_uncertainty/index.qmd
+    fields: [image, title]
+  - id: part3
+    type: grid
+    contents: uncertaintyisdecisions/index.qmd
+    fields: [image, title]
+  - id: ideas
+    type: grid
+    contents: ideadumpster/index.qmd
+    fields: [image, title]
 ---
 # Overview of Topic
 ## The current perspective on visualising uncertainty
@@ -31,20 +46,29 @@ This is a long winded overview of the general motivation for the change in persp
 ### Part 1: Why People Don't Visualise
 This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. A large problem seems to be a a general inability to quantify and articulate what exactly uncertainty is and a view that it is of secondary imporance to estimates.
 
+::: {#part1}
+:::
+
 ### Part 2: Defining Uncertainty
 This part zooms in on the difficulties of quantifying and measuring uncertainty by giving a susinct typology of uncertainty. I ask where uncertainty comes from, how we quantify it, what we do when we cant, and how the sources of uncertainty might impact the visualisation. I provide an example of how to define uncertainty with an example of forecast uncertainty.
+
+::: {#part2}
+:::
 
 ### Part 3: Defining the Purpose
 Here I reject the idea of uncertainty being tied to the type of data it comes from and instead show why it should be connected to a hypothesis. I provide evidence in the literature of this perspective and show the problems associated with designing uncertainty visualisations that do not have a specific hypothesis in mind. I make clear that asking which visualisation method is best for visualising uncertainty is fundamentally removed from the way people engage with the problem. 
 
+::: {#part3}
+:::
+
 ### Part 4: Rules for Communicating Uncertainty
 In this section I go back to papers written on defining uncertainty and reinterpret their conclusions. Rather than ask "Which method of uncertainty visualisation is better (for this data)" I ask "Which method of uncertainty is better for this question". This will give us a set of rules backed by scientific evidence that we can use to decide which uncertainty method is the best at conveying the answer to a specific question. 
 
-### Part 5: Rules for Exploring Uncertainty
-This section looks at uncertainty visualisation that do not have the goal of communication. These methods are instead designed to understand sources of uncertainty.
-
-### Part 6: Applying this Problem to Energy Data
+### Part 5: Applying this Problem to Energy Data
 Finally, I will go through a data visualisation problem from begining to end to show how this method might be used with a typical question about uncertainty. Starting with defining the uncertainty and stating the assumptions/limitations. Then using the rules of visualising uncertainty to present different visualisations that answer different uncertainty questions about the data.
 
-# Building Block Details
-These are the six parts written out as individual posts.
+# Idea Dumpster
+This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
+
+::: {#ideas}
+:::
