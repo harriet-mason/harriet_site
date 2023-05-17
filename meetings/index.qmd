@@ -10,14 +10,10 @@ listing:
 # Supervisor Meetings
 ## 2023 May 18
 #### AEMO Meetings
-- I emailed Dean and CCed all of you.
+- I emailed Dean and CCed all of you. He said he would set up a meeting.
 
 #### Visualising uncertainty
 - Wrote up explanation of Urusla conversation in Part 3 [here]()
-
-#### cassowaryr
-- Write up of comments in interp [here]()
-- Comments before I send them to Albercht?
 
 ### Notes
 
