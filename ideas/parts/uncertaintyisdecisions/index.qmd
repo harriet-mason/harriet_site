@@ -33,6 +33,30 @@ Looking at this process, at this performance of information sharing, you wonder 
 #### Acadmia stress but this time it's mine
 If you could not tell, that long winded second person narrative was actually about me. I bet you feel surprised by this unexpected information. You may assume this relates to my research (that despite the section above I am still doing) because there are good methods to visualise uncertainty but people are just unaware of them, and that is somewhat true. I did spend the first blog post of this series discussing how the general consensus and attitude towards visualising uncertainty does not align with the literature on the topic. It reminds me of when I was in highschool and told everyone there was no evidence that long term weight loss was possible despite a large number of clinical trials (if you don't believe me, google it) and was essentially treated like a basket case. I actually spent a weekend in a manic state in 2016 and made a stop motion [Youtube video](https://youtu.be/fFuQEKQhBn0) about it, but I digress. The actual link I want to make this week, is that this terrible organisation system for academia and information in general makes it hard to see the forest for the trees, and for broad and somewhat poorly defined topics such as "visualising uncetainty" I feel like I have a concussion from being hit in the face by the branches. 
 -->
+### Introduction
+When we talk about uncertainty we often set the *context* around that uncertainty as key factor, instead of the *hypothesis* related to the uncertainty. This 
+
+### What
+- Section 1: Uncertainty and a hypothesis
+-- The way we talk about uncertainty is incorrect. There are two reasons 1) we connect uncertainty to its context, and in doing so don't recognise 2) uncertainty must be connected to a specific hypothesis.
+-- Work through example of HOPS paper. Also mention temporal correlation paper Di talked about.
+-- There is no such thing as temporal "uncertainty". You can have uncertainty related to a forecast, or time series estimate, you can have uncertainty related to a parameter that is given its context in "time" 
+- You cannot translate between multiple types of uncertainty. I cannot use an error bar plot to determine which outcome is more likely, I cannot use a hypothetical outcome plot to tell you the statistically significant set of outcomes.
+
+- Section 2: The Importance (or sometimes lack therefof) of context.
+-- Context is of secondary importance when looking at plots. So long as it is considered the primary imporance we wont make useful plots. I can convey uncertainty without context, I cannot convey uncertainty without a hypothesis
+-- If you say "what if I have uncertainty related to some interval" my follow up question will always be "uncertainty about **what**". 
+-- Because of the way we think about data, where the context and type of data you have is always the most important, we translate that to uncertainty even though it is not the case.
+-- Trying to invent new plots often bad when made through this context. Example with spatial plots. Key criticism is that they are WORSE THAN TWO PLOTS.
+-- Two plots may be better than one. A lot of papers that talk about "spatial uncertainty" mean "expressing uncertainty but keep the spatial context". 
+-- this means the plots are basically useless for many
+-- Sometimes you have to drop the context because it is secondary to the point. that is not to say you shouldn't express it, but rather if you are trying to convey many ideas, very often multiple plots do better. 
+-- What takes time is processing "bits" of information. We want people to process those "bits" as quickly or efficiently as possible. It is not always the case that
+
+- Section 3: Trying to Combine the Uncertainty and the Context.
+-- Try to find best uncertainty visualization for spatial data is misguided endeavor. 
+-- I suggest trying to find the best uncertainty plot for your data and then combine it with the best context plot. 
+
 
 ### Footage of me pulling my hair out
 If one more person talks to me about visualising uncertainty in the context of some specific type of data or model I'm going to rip all my hair out of the top of my skull and live as a monk. The more I read and understand the process behind visualisations and uncertainty in general, the less this makes sense. The question of "why do you want to visualise the uncertainty" is treated as secondary to how the uncertainty was calculated (the model) or where the uncertainty came from (the data). 
