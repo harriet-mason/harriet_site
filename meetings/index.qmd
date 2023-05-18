@@ -13,7 +13,7 @@ listing:
 - I emailed Dean and CCed all of you. He said he would set up a meeting.
 
 #### Visualising uncertainty
-- Wrote up explanation of Urusla conversation in Part 3 [here]()
+- Wrote up explanation of Urusla conversation in Part 3 [here](https://harriet.quarto.pub/ideas/parts/uncertaintyisdecisions/)
 
 ### Notes
 
