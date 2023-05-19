@@ -14,3 +14,6 @@ listing:
 # Weekly Summaries
 These summaries are to help students if you are completely lost in the content and are struggling to grasp the big picture ideas. They are designed to help understand and organise this weeks content. They are not a replacement for lectures or readings and will be quite useless on their own.
 
+::: {#etc3580-summary}
+:::
+
