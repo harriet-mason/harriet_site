@@ -8,19 +8,22 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 May 25
+<!--
+#### Cassowaryr
+- Writing up new issues and 
+
+
+#### Visualising uncertainty
+- Full write up of Part 3 is [here](https://harriet.quarto.pub/ideas/parts/uncertaintyisdecisions/)
+-->
+
 ## 2023 May 18
 #### AEMO Meetings
 - I emailed Dean and CCed all of you. He said he would set up a meeting.
 
 #### Visualising uncertainty
-- Wrote up explanation of Urusla conversation in Part 3 [here](https://harriet.quarto.pub/ideas/parts/uncertaintyisdecisions/). It is very messy and unreadable and I'm currently trying to organise my ideas.
-
-### Notes
-
-#### AEMO Meetings
-
-#### Visualising uncertainty
-#### cassowaryr
+- Part 3 [here](https://harriet.quarto.pub/ideas/parts/uncertaintyisdecisions/). It is very messy and unreadable and I'm currently trying to organise my ideas.
 
 
 ## 2023 May 11
