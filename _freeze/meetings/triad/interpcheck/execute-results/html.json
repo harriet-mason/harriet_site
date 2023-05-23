@@ -1,0 +1,14 @@
+{
+  "hash": "58f8a2332a651cf6748882ecc2526c2e",
+  "result": {
+    "markdown": "---\ntitle: \"New Version of Interp Check\"\neditor: source\nknitr:\n  opts_chunk: \n    warning: FALSE\n    message: FALSE\n---\n\n\n## Issues\n\n### Triad problem\n- triad doesn't work now and I have no idea why.\n\n### Time issue\n- I cannot compare the two packages because I can't run the triad function.\n\n### Jitter\n- Check how serious the jitter is. Depending on how the jitter is added (and how much) this could be a minor problem to something that can be ignored.\n- Jitter is added with interp if too many swaps are occuring. Fine (I think I'll double check) Once we add binning to the package and start implementing it, we dont want to be adding noise afterwards. It’s a bit weird. \n- check if the jitter is scaled according to the size. If we intend to use cassowaryr for projection persuit where we aren’t unitizing the projection every time we calculate the scagnostics, a set amount of random noise will have more effect on some projections than others.\n- Considering the striated scagnostic literally counts the number of points in a straight line, I am not the biggest fan of that solution. Cassowaryr also already includes jitter for perfectly colinear points (i.e. the straight lines) and while the code runs without error I feel like it opens up some new issues. It means the MST and the hulls the scagnostic are calculated on are not the ones the user sees, and we have already seen that small changes to the triangulation can throw those quite off balance. Plus it now makes it invisible to cassowaryr if points are in a perfectly straight line, and I don’t wan’t that to be invisible.\n\n### Readability\n- He also didn’t mention the readability of the C package in his email, nor the scatter plot that had an error, but I will double check those too. Check if that is improved with interp.\n\n### Fixed problems\n- Plot that took a long time no longer has issues. Since some plots that were randomly generated throw an error, I wonder if the jitter is added recursively if the jitter doesnt fix the problem.\n- Plot that threw an error no longer throws an error\n\n## Solutions\n- Option 1: ask again for interp to triad swap, probably best as an option for interp and not a full replacement. Since interp provides a warning when jitter is added, it could also offer an alternative as an option if the user doesn't want jitter. The tRiad package would need to run in order for us to use this method though.\n- Option 2: Since we don't use binning in the current version of cassowaryr, we could use this version for the current release and ask again for option 1 if we introduce binning?",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
