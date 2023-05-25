@@ -9,14 +9,18 @@ listing:
 
 # Supervisor Meetings
 ## 2023 May 25
-<!--
-#### Cassowaryr
-- Writing up new issues and 
 
+#### Cassowaryr
+- Writing up new issues and haven't been able to solve the tRiad problem. It might be because I messed around with stuff to get tensorflow working but idk. Current state is [here](triad/interpcheck.qmd)
+
+#### Confirmation Report
+- Is there an existing template I should use?
+- When do you guys want a draft of the report by?
 
 #### Visualising uncertainty
-- Full write up of Part 3 is [here](https://harriet.quarto.pub/ideas/parts/uncertaintyisdecisions/)
--->
+- I have been organising the literature I've read on plots and most of it is just drawings in my notes app (so not on the blog). Thinking of working forwards from what Emi suggested last week so I have an idea of the overarching groups of plots and their related questions (using current research) 
+
+### Notes
 
 ## 2023 May 18
 #### AEMO Meetings
