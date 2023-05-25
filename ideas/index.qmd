@@ -7,6 +7,8 @@ listing:
     fields: [image, title, description]
   - id: ideas
     contents: ideadumpster
+  - id: confirmation
+    contents: confirmation
 ---
 # Overview of Topic
 ## The current perspective on visualising uncertainty
@@ -46,6 +48,12 @@ In this section I go back to papers written on defining uncertainty and reinterp
 
 ### Part 5: Applying this Problem to Energy Data
 Finally, I will go through a data visualisation problem from begining to end to show how this method might be used with a typical question about uncertainty. Starting with defining the uncertainty and stating the assumptions/limitations. Then using the rules of visualising uncertainty to present different visualisations that answer different uncertainty questions about the data.
+
+# Confirmation Report
+I have put my confirmation report here for the time being because I am not sure where to put it.
+
+::: {#confirmation}
+:::
 
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.

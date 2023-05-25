@@ -14,6 +14,7 @@ listing:
 - Writing up new issues and haven't been able to solve the tRiad problem. It might be because I messed around with stuff to get tensorflow working but idk. Current state is [here](triad/interpcheck.qmd)
 
 #### Confirmation Report
+- Should I make the confirmation report its own repo?
 - Is there an existing template I should use?
 - When do you guys want a draft of the report by?
 
