@@ -8,23 +8,37 @@ format: pdf
 # Motivation/Literature Review
 - Explanation of several reasons uncertainty visualisation needs to be investigated:
 1) Importance of visualising uncertainty
-2) Definition of uncertainty (not sure if the taxonomy should go here)
-3) Why people often don't visualise uncertainty even in simple cases (Part 1 but with less of a focus on that one paper)
-4) Cases where people want/need to visualise uncertainty but methods are lacking (such as spatial/temporal)
+2) Why people often don't visualise uncertainty even in simple cases (Part 1 but with less of a focus on that one paper)
+3) Cases where people want/need to visualise uncertainty but methods are lacking (such as spatial/temporal)
+4) Motivation: energy forecasts and importance of unertainty vis for clean energy 
 
-# Scope of 3 Projects
+# Scope of 3 Projects (phase/stage/chapter/problems/questions)
 - Project 1: the stuff detailled in PhD writings on blog. Basically a literature review of the current state of uncertainty visualisation
-- Project 2: Maybe an experiment on the ideas established in project 1. Like we test the categories I established?
-- Project 3: cassowaryr extension
+- Project 2: Maybe an experiment/ application of ideas tests
+- Project 3: Technical outputs (translation of research)
 
 # Project 1 Details
 - Explain the current state of uncertainty visualisation research
+- Definition of uncertainty (not sure if the taxonomy should go here)
 - Explain rethinking uncertainty visualisation in terms of the motivation of the plot (the research question) instead of "best" uncertainty visualisation.
 - Show that we can find a best distribution visualisation and reintroduce context to get a good uncertainty plot for that question and context.
 - Classification of current plots and research questions that have been shown to be effective for those types of plots
-- Should I mention working with AEMO or leave that for now?
+- Reintroduce context
 
 # Project 2 and 3 Plans
+(only a few sentances on project 2 and 3 is sufficient)
+
+## Project 2
+- AEMO
+
+## Project 3
+- package
 
 # Timeline
-- ASC later in year
+- ASC later in year (submitted an abstract for a poster)
+- IEEE VIS (June 22 2023 poster abstract) - Conference October 2023 
+- Aim for something international in a year (or in last year)
+- Also could do UseR! & talk about some of the software developed (technical output)
+- Could have an energy specific one (various applied energy)
+- IEEE VIS (march 31st paper due in 2025) - Conference October 2025 (Vienna)
+- Thesis due December 2025
