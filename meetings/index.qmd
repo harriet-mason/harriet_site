@@ -18,7 +18,7 @@ This has been a week of trying to fix endless technical issues am I am tired :(
 - Writing up new issues and haven't been able to solve the tRiad problem. It might be because I messed around with stuff to get tensorflow working but idk. Current state is [here](triad/interpcheck.qmd)
 
 #### Confirmation Report
-- I started an outline but have not been able to get it to render.
+- I started an outline and after a lot of struggling got it to output as a PDF [here](https://harriet.quarto.pub/harriet-mason/ideas/#confirmation-report)
 - Should I make the confirmation report its own repo?
 - Is there an existing template I should use?
 - When do you guys want a draft of the report by?
