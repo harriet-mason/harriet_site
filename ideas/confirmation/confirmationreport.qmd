@@ -14,5 +14,3 @@ format: pdf
 # Project 2 and 3 Plans
 
 # Timeline
-
-# PDF of the Confirmation Report

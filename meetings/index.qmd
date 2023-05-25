@@ -9,11 +9,16 @@ listing:
 
 # Supervisor Meetings
 ## 2023 May 25
+This has been a week of trying to fix endless technical issues am I am tired :(
+
+#### General
+- I want to have the supervisor meeting every fortnight. Having it every week is stressful and I always feel like I haven't had enough time to properly work on what you guys told me to do in the last meeting before you present new stuff for me to do. This leaves me with 50 unfinished pieces of work and I just want more time to finish things.
 
 #### Cassowaryr
 - Writing up new issues and haven't been able to solve the tRiad problem. It might be because I messed around with stuff to get tensorflow working but idk. Current state is [here](triad/interpcheck.qmd)
 
 #### Confirmation Report
+- I started an outline but have not been able to get it to render.
 - Should I make the confirmation report its own repo?
 - Is there an existing template I should use?
 - When do you guys want a draft of the report by?
