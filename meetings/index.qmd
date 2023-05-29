@@ -12,7 +12,8 @@ listing:
 ## 2023 June 1
 
 #### Confirmation Report
-- Working on draft.
+- Working on the draft right now, you can see my progress [here](https://harriet.quarto.pub/harriet-mason/ideas/#confirmation-report)
+- I'll message the slack when its readable and the edits I am making are smaller, hopefully by Wednesday afternoon.
 
 ## 2023 May 25
 This has been a week of trying to fix endless technical issues :(
