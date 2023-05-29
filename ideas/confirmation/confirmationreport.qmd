@@ -1,9 +1,13 @@
 ---
 title: "Confirmation Report"
 author: Harriet Mason
+bibliography: references.bib
 date: last-modified
 format: pdf
 ---
+
+# Thesis Title
+- Entire report needs to be 10-20 pages
 
 # Motivation/Literature Review
 - Explanation of several reasons uncertainty visualisation needs to be investigated:
@@ -12,12 +16,16 @@ format: pdf
 3) Cases where people want/need to visualise uncertainty but methods are lacking (such as spatial/temporal)
 4) Motivation: energy forecasts and importance of unertainty vis for clean energy 
 
-# Scope of 3 Projects (phase/stage/chapter/problems/questions)
+# Thesis Overview 
+- Replace projects with (phase/stage/chapter/problems/questions)
+- brief detail of the proposed content of all chapters. 
+- description of the theoretical and conceptual framework that underlies the thesis, and procedures to be used in addressing the research questions
 - Project 1: the stuff detailled in PhD writings on blog. Basically a literature review of the current state of uncertainty visualisation
-- Project 2: Maybe an experiment/ application of ideas tests
-- Project 3: Technical outputs (translation of research)
+- Project 2: Maybe an experiment/ application of ideas tests (AEMO application maybe)
+- Project 3: Technical outputs (translation of research) - possibly a package
 
 # Project 1 Details
+- A more detailed explanation of the element (e.g. chapter), to be presented orally
 - Explain the current state of uncertainty visualisation research
 - Definition of uncertainty (not sure if the taxonomy should go here)
 - Explain rethinking uncertainty visualisation in terms of the motivation of the plot (the research question) instead of "best" uncertainty visualisation.
@@ -25,16 +33,8 @@ format: pdf
 - Classification of current plots and research questions that have been shown to be effective for those types of plots
 - Reintroduce context
 
-# Project 2 and 3 Plans
-(only a few sentances on project 2 and 3 is sufficient)
-
-## Project 2
-- AEMO
-
-## Project 3
-- package
-
 # Timeline
+- A timetable for completing the thesis and a statement of progress to date
 - ASC later in year (submitted an abstract for a poster)
 - IEEE VIS (June 22 2023 poster abstract) - Conference October 2023 
 - Aim for something international in a year (or in last year)
@@ -42,3 +42,5 @@ format: pdf
 - Could have an energy specific one (various applied energy)
 - IEEE VIS (march 31st paper due in 2025) - Conference October 2025 (Vienna)
 - Thesis due December 2025
+
+# Bibliography
