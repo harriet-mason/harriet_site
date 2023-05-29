@@ -11,10 +11,29 @@ format: pdf
 
 # Motivation/Literature Review
 - Explanation of several reasons uncertainty visualisation needs to be investigated:
-1) Importance of visualising uncertainty
-2) Why people often don't visualise uncertainty even in simple cases (Part 1 but with less of a focus on that one paper)
-3) Cases where people want/need to visualise uncertainty but methods are lacking (such as spatial/temporal)
-4) Motivation: energy forecasts and importance of unertainty vis for clean energy 
+
+## Importance of visualising uncertainty
+A survey conducted by Dr Jessica Hullman found that majority of visualisation authors surveyed agree that expressing uncertainty is important and should be done more often than it currently is, some even agreed that failing to do so is tantamount to fraud [@Hullman2020a]. Despite this, only a quarter of respondents included uncertainty in 50% or more of their visualisations [@Hullman2020a]. This means people are convinced that visualising uncertainty is important from a moral standpoint, but they have still been able to provide self sufficient reasoning that allows them to avoid doing it. 
+
+While some people may have a lower baseline than the general public, most people get better at understanding uncertainty plots the more they are exposed to them [@Kay2016].
+Refusing to express uncertainty because people don't understand them, prevents people from improving in their ability to understand the plots, causing those that may not be able to understand uncertainty to continue to be bad at it.
+
+## Why people dont visualise uncertainty
+There is a large amount of literature providing new ways to visualise uncertainty and showing its effectiveness, but much less on why people don't do it. Hullmans study found that the most common reasons authors don't visualise uncertainty despite knowing the importance of it are: not wanting to overwhelm the audience; an inability to calculate the uncertainty; a lack of access to the uncertainty information; and not wanting to make their data seem questionable [@Hullman2020a]. It is hard to read that data visulisation authors have a general inability to calculate or access uncertainty information and remain unconcerned about general incompetence in the field, however this issue does not seem to be completely groundless. A strong definition of uncertainty, a consensus on which uncertainty should be incorporated and which should be ignored, as well as simple methods to visualise it seem to be largely absent in the literature. These gaps are worth discussing at length and form a large part of the motivation behind *Project 1*. Authors failling to visualise uncertainty due to a fear of overwhelming their audience, however, are motivations that can easily be discredited with the current literature.
+
+Not wanting to overwhelm the audience typically links back to a general belief that audiences struggle to understand uncertainty. Rather than asking for a blanket yes/no conclusion on the general publics ability to understand uncertainty, it would be more helpful to focus on the intricacies behind understanding uncertainty. Some research suggests that laypeople cannot understand complicated statistical technicalities (such as the difference between Frequentist and Baysian thinking) [@Hoekstra2014], nor can they reliably translate an error bar plot to an equivalent hypothesis test [@Bella2005], but they can make accurate and efficient decisions factoring the uncertainty into their choices [@Kay2016] [@Fernandes2018]. A study that had account for uncertainty in bus arrival times showed laypeople have ability to make fast and accurate decisions that accounted for uncertainty that was displayed on a small screen [@Kay2016].
+
+This might suggest that visualisation authors are unaware of the research indicating that laypeople are able incorperate uncertainty into their decisisons, or they are using that reasoning because they themselves don't uncerstand their true motivations to avoid visualising uncertainty. For example, at least one interviewee from Hullman's survey claimed that expertise implies that the signal being conveyed is significant, but also said they would omit uncertainty if it obfuscated the message they were trying to convey; while other authors who were capable of calculating and and representing uncertainty well did not do it, and were unable to provide a self-satisfying reason why [@Hullman2020a]. These conflicting motivations devloid of sound logic are acknowledged by Hullman herself in the paper.
+
+> "It is worth noting that many authors seemed confident in stating rationales, as though they perceived them to be truths that do not require examples to demonstrate. It is possible that rationales for omission represent ingrained beliefs more than conclusions authors have drawn from concrete experiences attempting to convey uncertainty" [@Hullman2020a]. 
+
+The gap between what authors desire to visualise uncertainty and the decision makers desire to have uncertainty communicated to them also comes through in the methods we use to express uncertainty. While authors typically prefer to express uncertainty in vague terms and will use reasons such as the one above to justify it, decision makers prefer uncertainty in precise quantitative terms [@Erev_1990], [@Olson_1997]. There does not only seem to be a disconnect between the authors work and the desires of decision makers, but also a second disconnect that exists between the researchers who develop uncertainty visualisations and those that use them.
+
+Many of the reasons people don't visualise uncertainty have a common belief that uncertainty is secondary to estimations. The argument speaks to an unspoken belief of those that work with data, that the uncertainty associated with an estimate (the noise) only exists to hide the estimate itself (the signal). From this view, uncertainty is only seen as additional or hindering information, therefore despite its alleged importance, when simplifying a plot uncertainty the first thing to go. This belief is also reflected in the development of new uncertainty visualisations. 
+
+## Cases where people want/need to visualise uncertainty but methods are lacking (such as spatial/temporal)
+
+## Energy forecasts and importance of unertainty vis for clean energy (motivation)
 
 # Thesis Overview 
 - Replace projects with (phase/stage/chapter/problems/questions)
@@ -44,3 +63,18 @@ format: pdf
 - Thesis due December 2025
 
 # Bibliography
+
+```{r, include=FALSE, eval=FALSE}
+library(spelling)
+qmd <- "index.qmd"
+ignore <- readLines("WORDLIST")
+check_spelling <- spell_check_files(
+  qmd,
+  ignore = ignore,
+  lang = "en_GB"
+)
+if (nrow(check_spelling) > 0) {
+  print(check_spelling)
+  stop("Check spelling in Qmd files!")
+}
+```
