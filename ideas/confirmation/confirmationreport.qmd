@@ -1,12 +1,11 @@
 ---
-title: "Confirmation Report"
+title: "Thesis Title"
 author: Harriet Mason
 bibliography: references.bib
 date: last-modified
 format: pdf
 ---
 
-# Thesis Title
 - Entire report needs to be 10-20 pages
 
 # Motivation/Literature Review
@@ -44,10 +43,13 @@ Many of the reasons people don't visualise uncertainty have a common belief that
 - Project 3: Technical outputs (translation of research) - possibly a package
 
 # Project 1 Details
-- A more detailed explanation of the element (e.g. chapter), to be presented orally
-- Explain the current state of uncertainty visualisation research
-- Definition of uncertainty (not sure if the taxonomy should go here)
-- Explain rethinking uncertainty visualisation in terms of the motivation of the plot (the research question) instead of "best" uncertainty visualisation.
+## Current state of uncertainty visualisation research
+
+## Definition of uncertainty 
+- (not sure if the taxonomy should go here)
+
+## Rethinking uncertainty visualisation
+- rethinking uncertainty visualisation in terms of the motivation of the plot (the research question) instead of "best" uncertainty visualisation.
 - Show that we can find a best distribution visualisation and reintroduce context to get a good uncertainty plot for that question and context.
 - Classification of current plots and research questions that have been shown to be effective for those types of plots
 - Reintroduce context
