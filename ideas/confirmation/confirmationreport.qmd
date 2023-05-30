@@ -53,19 +53,30 @@ Generally the goal seems to be to increase the number of options we have in our 
 
 ## Example: comparing HOPS, error bars and violin plots
 The importance of using the correct visualisation for the correct question is best seen with an example. The study done by [@Hullman2015] is a great illustration in the importance of understanding your goal when visualising uncertainty. 
+
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-charts
+#| fig-subcap: 
+#|   - "Error bar plot"
+#|   - "Violin plot"
+#| fig-cap: "Replicate of two plot given in [@Hullman2015] to show the graphics participants were shown. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
+#| layout-ncol: 2
+
 # Load Libries
 library(tidyverse)
-# Make Data
+# Make error bar data
 ymin <- c(30, 40)
 ymax <- c(70, 80)
 smean <- c(50, 60)
 solute <- c("Solute A", "Solute B")
-solute_data <- tibble(ymin, ymax, smean, solute)
+error_data <- tibble(ymin, ymax, smean, solute)
 
-# Make Plot
+# Make error bar plot
 ticks <- seq(0,100, 10)
-solute_data %>%
+error_data %>%
   ggplot(aes(x=solute)) + 
   geom_errorbar(aes(ymin=ymin, ymax=ymax), width=0.1, 
                 linetype="dashed", size=1.4) +
@@ -75,8 +86,26 @@ solute_data %>%
   theme_classic() +
   theme(axis.title.x=element_blank(), 
         axis.text.x=element_text(size=15),
-        aspect.ratio=1) 
-  
+        aspect.ratio=1)
+
+# Make violin plot data
+n <- 10000
+soluteA <- rnorm(n, 50, 10)
+soluteB <- rnorm(n, 60, 10)
+solute <- c("Solute A", "Solute B")
+violin_data <- tibble(ppm = c(soluteA, soluteB), 
+                      solute =c(rep("Solute A", n), rep("Solute B", n)))
+
+# Make violin plot
+violin_data %>%
+  ggplot(aes(x=solute, y=ppm)) + 
+  geom_violin(fill= "dodgerblue", colour="dodgerblue") +
+  labs(y="Parts Per Million (PPM)")+
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=15),
+        aspect.ratio=1)  
 ```
 The study presented subjects with a HOPs, error bar and violin plot and asked them to report some numerical properties of the distribution. Participants were asked about the mean of the distribution, the probability of an outcome being above some threshold or between some threshold values. They measures which technique was better with absolute error between the subjects response and the true value. In simple plots there is just one variable but also presented plots with two or three variables. They specified that the error bars are not confidence intervals (they represent the underlying distribution, not the distribution of the mean)
 - One variable tasks: what is the average, how often are the measurements above the red dot (visual version), how often will measurements lie between K2 and k3 ppm (text version)
