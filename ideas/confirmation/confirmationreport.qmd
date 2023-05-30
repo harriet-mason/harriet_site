@@ -52,17 +52,17 @@ Current research in visualising uncertainty seems to have a focus on designing n
 Generally the goal seems to be to increase the number of options we have in our "visualisation bag" so that we always have a plot at the ready if we want to visualise uncertainty. These new plots also tend to focus on a catch all plot that is "best for making decision" or "best for visualising spatial uncertainty". Data visualisation is commonly utilised as a tool in data exploration, so it is not uncommon for a data analyst to make a plot with only a vague goal and use it to pull out a large number of adjacent observations. For example, a data analyst might make a scatter plot to find out the relationship between two variables, but in doing do also finds out that one variable has discrete outcomes over a range of values. It is common knowledge that any single plot cannot reveal all information about a data set, all plot types obfuscate and uncover different types of information, however this aspect of plotting becomes more apparent in uncertainty visualisation. This difference stems from both the way we conceptualise and calculate uncertainty, as well as they way we think about visualising uncertainty. 
 
 ## Example: comparing HOPS, error bars and violin plots
-The importance of using the correct visualisation for the correct question is best seen with an example. The study done by [@Hullman2015] is a great illustration in the importance of understanding your goal when visualising uncertainty. 
+The importance of using the correct visualisation for the correct question is best seen with an example. The study done by [@Hullman2015] is a great illustration in the importance of understanding your goal when visualising uncertainty. The study asked participants to provide some numerical properties of a distribution using a HOPs, error bar or violin plot. When shown a single distribution participants were asked about the mean of the distribution, the probability of an outcome being above some threshold (indicated on the plot with a red dot), or the probability of an outcome being between two given values. When shown two distributions the participants were asked "How often is measurement of solute B larger than the measurement of solute A?", and when shown three distributions "How often is measurement of solute B larger than the measurement of solute A and solute C?". @fig-examples shows an example error bar plot and violin plot for the two distribution case. The study decided which technique was better using absolute error between the subjects response and the true value. They specified that the error bars are not confidence intervals as they represent the true underlying distribution, not the sampling distribution of the mean. They found that the HOPS plots outperformed the violin and error bar plots in the two and three distribution cases, but performed worse in the univeriate case when there was high variance or when being used to answer questions about the mean.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| label: fig-charts
+#| label: fig-examples
 #| fig-subcap: 
 #|   - "Error bar plot"
 #|   - "Violin plot"
-#| fig-cap: "Replicate of two plot given in [@Hullman2015] to show the graphics participants were shown. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
+#| fig-cap: "An example of the plots shown in the two variable tasks given in [@Hullman2015]. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
 #| layout-ncol: 2
 
 # Load Libries
@@ -89,7 +89,7 @@ error_data %>%
         aspect.ratio=1)
 
 # Make violin plot data
-n <- 10000
+n <- 100
 soluteA <- rnorm(n, 50, 10)
 soluteB <- rnorm(n, 60, 10)
 solute <- c("Solute A", "Solute B")
@@ -107,9 +107,149 @@ violin_data %>%
         axis.text.x=element_text(size=15),
         aspect.ratio=1)  
 ```
-The study presented subjects with a HOPs, error bar and violin plot and asked them to report some numerical properties of the distribution. Participants were asked about the mean of the distribution, the probability of an outcome being above some threshold or between some threshold values. They measures which technique was better with absolute error between the subjects response and the true value. In simple plots there is just one variable but also presented plots with two or three variables. They specified that the error bars are not confidence intervals (they represent the underlying distribution, not the distribution of the mean)
-- One variable tasks: what is the average, how often are the measurements above the red dot (visual version), how often will measurements lie between K2 and k3 ppm (text version)
-- Two variables tasks: how often is measurement of solute B larger than the measurement of solute A
+
+The primary issue I have with this study (and by extension most visualisation studies) is the philosophy driving the motivation. An error bar plot is good at displaying a range of statistically significant values. A violin plot is good at depicting the frequency of outcomes of a distribution. Both can be used to get a general idea of the variance or central value of a distribution, but the significant values, and the frequency of individual values is not all the information we might need from a distribution. While an animated HOPs plot was better at depicting probability, or frequency of an outcome, than an error bar plot, that does not mean it is the "best" at answering the question "In what percentage of vials is there more of solute B than A (Probability(B > A)?". @fig-alternatives depicts several plots that I actually think would do a better job than the HOPs plot used in the experiment.
+
+```{r}
+#| echo: false
+#| eval: false
+#| warning: false
+#| message: false
+#| label: fig-extra
+#| fig-subcap: 
+#|   - "Slope Graph"
+#|   - "Bar Chart"
+#| layout-ncol: 2
+
+# Scatter plot data
+scatter_data <- tibble(soluteA = soluteA,
+                       soluteB = soluteB) %>%
+  mutate(biggerb = ifelse(soluteB>soluteA, "Yes", "No"))
+
+# Slope Graph Data
+slope_data <- scatter_data %>%
+  mutate(pairs = 1:100) %>%
+  pivot_longer(soluteA:soluteB, 
+               names_to = "solute", 
+               values_to = "ppm") %>%
+  mutate(solute= ifelse(solute=="soluteA","Solute A", "Solute B"))
+
+# Slopegraph plot
+slope_data %>%
+  ggplot(aes(x=solute, y=ppm, group=pairs, colour=biggerb)) +
+  geom_point() +
+  geom_line() +
+  labs(y="Parts Per Million (PPM)")+
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=15),
+        aspect.ratio=1)  
+
+# Make bar plot data
+bar_data <- scatter_data %>%
+  mutate(biggersolute = ifelse(biggerb=="Yes", "Solution B", "Solution A")) %>%
+  select(-biggerb) %>%
+  mutate(dummy = "d")
+
+# Normal bar chart
+bar_data %>%
+  ggplot(aes(x=biggersolute, fill=biggersolute)) +
+  geom_bar() +
+  labs(y = "Proportion (%)",
+       title = "% of draws that will have more of that solute") +
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=15),
+        aspect.ratio=1,
+        legend.position = "none")  
+  
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-alternatives
+#| fig-subcap: 
+#|   - "Scatter Plot"
+#|   - "Stacked Bar Chart"
+#| fig-cap: "Two plots that could be used as alternatives to answer to question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. The scatter plot in (a) focuses on the relationship between the concentration of solute A and solute B, while the stacked bar chart in (b) highlights the frequency with which each solute is greater than the other."
+#| layout-ncol: 2
+
+# Scatter plot data
+scatter_data <- tibble(soluteA = soluteA,
+                       soluteB = soluteB) %>%
+  mutate(biggerb = ifelse(soluteB>soluteA, "Yes", "No"))
+
+# Scatter plot
+scatter_data %>%
+  ggplot(aes(x=soluteA, y=soluteB)) +
+  geom_point(aes(colour=biggerb)) +
+  labs(x="Solute A Concentration (PPM)", 
+       y="Solute B Concentration (PPM)") +
+  guides(colour=guide_legend(title="Is P(B>A)?")) +
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  scale_x_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(aspect.ratio=1)  
+
+# Make bar plot data
+bar_data <- scatter_data %>%
+  mutate(biggersolute = ifelse(biggerb=="Yes", "Solute B", "Solute A")) %>%
+  select(-biggerb)
+
+# Stacked bar chart
+bar_data %>%
+  mutate(dummy = "d") %>%
+  ggplot(aes(x=dummy, fill=biggersolute)) +
+  geom_bar() +
+  labs(y = "Proportion") +
+  guides(fill=guide_legend(title="% of draws that will have more of...")) + 
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_blank(),
+        axis.ticks.x = element_blank(),
+        aspect.ratio=4/2)  
+  
+```
+The error bar plot and the violin plot in @fig-examples depicted a distribution, the scatter bar plot and slopegraph in @fig-alternatives depicted the relationship between Solution A and Solution B concentrations, the stacked and normal bar plots represented proportions. The two plots that visualised the distribution depict the two concentrations as two independent random variables with little concern to their relationship. The two relationship plots highlighted that what we care about is actually care about is the relationship, and the colour highlighted the question (is A bigger than B) as something of secondary interest. These depitions still maintain some information about the distribution (you can tell that we seem to have to have two independent normal distributions) however it is no longer of primary importance. The stacked bar chart highlighted that the proportion is the aspect of the data we care about, while the normal bar chart highlighted that the difference in the two proportions is of primary importance. Any depiction of the distribution has been removed. 
+
+It may seem obvious that the bar charts make the question easier to answer, and you may want to say "Well we want a plot that can answer a large number of questions, not just a single question about frequency". My response to this is.. why? Why do we need a plot that can "see" everything? Plots are similar to people in the sense that expecting one person to have a complete and flawless view of something as complicated as society ignores that one of the things that has allowed humanity to flourish is that there are so many of us. It allows each person to specialise and be good at something important to them rather than trying to be mediocre at everything. Similarly, no plot can see every possible thing you might want to know about your data. Leaning into and uncovering the strengths of each plot is the best way to research them because it reflects the ways in which we actually incorperate plotting into our diagram. While general principals are helpful, fundamentally each plot for each question should be as unique as the person who made it.
+
+The plots in @fig-examples and @fig-alternatives also highlight that the idea of there being such a thing a "plots for distributions" and "plots for relationships" and such are a bit nonsense. The violin plot and the scatter plot were the only two that illustrated the data was a normal distribution but the error bar plot is technically a plot of a "distribution". I think this issue is largely why error bar plots get a lot of flack as being a bad plot, I think they are just being misused. 
+- mapping the most important feature to the highest aspect
+- Additionally, you might argue that the scatter plots didn't visualise the "distribution" but rather, hypothetical outcomes of it.
+
+
+to which I respond, you didn't test for that either. Identifying which plots can answer a large number of questions and which questions they can answer is the experiement I suggest in project 2. What is important to acknowledge about this question is that the QUESTION itself was about the PROPRORTION of an event. How often was B greater than A. While it was ABOUT a random distribution (although in statistics realistically everything is) because we wanted to know about a proprotion, the visualisation should reflect that. Assuming people can somehow infer the hidden information in a plot and then designing experients around is so flawed in logic I cannot understand it.
+
+Additionally, a HOPs plot isn't even technically a visualisation of a distribution in some sense, it is a visualisation of a simulated dataset from a distribution. Identifying what aspect of the statistical framework you want to visualise and WHY is important in understanding how to build your plot. Since the pre
+There is also a large amount of confusion of what we should depict. 
+
+
+In the paper, Hullman does acknowledge that error bars are typically used to identify significance, but
+
+When deciding a plots purpose, it is useful to ask yourself what is being plotted to each aspect of the accuracy hierarchy.
+
+- people couldn't answer that question with a DIFFERENT DISTRIBUTION PLOT
+- plotting mapped to hierarchy
+
+### Returning to the Example
+So after zooming in on the uses (and misuses) of error bar plots, it should be clear to see why error bar plots *are* valid visualisations of significance
+ignore questions about significance (the exact scenario that) assuming that answering a question about the probability (What is P(B>A)?) is a precursor to  
+
+
+instead of asking a large range of irrelevant question The error bar plot shows which 
+
+Second of all, the paper acknowledges issues with statistical understanding but misinterprets them as issues with the plot. Every plot we display has
+
+First of all, the study ignores the questions that would be ideal for an error bar or violin plot.
+
+
+- placebo rule, studys compare to placebo is bad, should compare to next best alternative
 - They acknowledge that error bars are typically used to express statistical significance but don't ask questions directly related to this. They provide several reasons for this. First of all, they assume that people first make some probability estimate (they find P(A>B)) and then use that to assess significance. 
 - Statistical significance is related to sampling distributions which they didn't care about
 - Wanted to get a better understanding of peoples ability to assess if A>B, rather than asking a binary question about significance.
@@ -125,10 +265,19 @@ Frequency based questions are easily answered with a HOPs plot. I suspect partic
 
 While you may be sitting here, thinking "this is obvious and pointless to point out" I suspect you are not as aware of how much you interchangably use different uncertainty methods. As a matter of fact, I can't think of a single unit in my undergraduate degree that didn't make this mistake at least once. Therefore it is unsurprising that every paper on uncertainty visualisation research seems to ignore this issue entirely. Not only do they ignore this, but many are written with the perspective of trying to find a "best" or "universal" uncertainty method. Ignoring the hypothesis that generated the uncertainty then leads to the uncertainty questions asked in every paper being different.
 
+
+
 ### The importance of the right question
-With this example in mind, we now understand both the distribution we visualise and the method we use should be directly related to the uncertainty we want to ask questions about. These are the key points we need to keep in mind every time we visualise uncertainty, however even the things that this paper got right (i.e. in order to answer questions about an uncertainty distribution we need to show the uncertainty distribution) get lost when researchers try to reintroduce the context of the data. Papers discussing new ways to visualise "temporal uncertainty" or "spatial uncertainty" seem to forget the uncertainty is related to a distribution, not a type of data. If I ask you to explain to me what "temporal uncertainty" is, you may try and describe uncertainty related to a forecast, or variance of a variable, or even model residuals. These are not "temporal uncertainty", they are the distribution of a prediction, a variable, or of a model. None of these things are specific to temporal data. This may just sound like me being pedantic about poor naming, but this incorrect framing of uncertainty leads to very inconsistent research. Because we view uncertainty as a secondary feature of the data, and not as something we have constructed, we don't think about uncertainty visualisations with the "goal of the uncertainty" in mind. The problem is, we had a goal in mind when we estimated the uncertainty. The uncertainty related to whether or not two variables are significantly different from each other is different to the uncertainty related to whether or not each variable is significantly different from 0. If you make a forecast and want to know the confidence intervals associated with each point prediction, that would have a different confidence interval to the path of a 5 step ahead forecast. So not only does it not make sense to think about "temporal uncertainty" the concept of even visualising the uncertainty of some random variable without knowing what you want to know, is futile. If you ignore this clear distinction, you are going to misuse uncertainty techniques and beleive they are interchangable for every hypothesis, and thus draw incorrect conclusions. If you have ever used an error bar for a hypothesis that is not idenfiying a statistically significant range of values (using it to identify if two variables are statistically different from each other is also incorrect) then you are guilty of the exact issue I am talking about. 
+With this example in mind, we now understand both the distribution we visualise and the method we use should be directly related to the uncertainty we want to ask questions about. These are the key points we need to keep in mind every time we visualise uncertainty, however even the things that this paper got right (i.e. in order to answer questions about an uncertainty distribution we need to show the uncertainty distribution) get lost when researchers try to reintroduce the context of the data. Papers discussing new ways to visualise "temporal uncertainty" or "spatial uncertainty" seem to forget the uncertainty is related to a distribution, not a type of data. If I ask you to explain to me what "temporal uncertainty" is, you may try and describe uncertainty related to a forecast, or variance of a variable, or even model residuals. These are not "temporal uncertainty", they are the distribution of a prediction, a variable, or of a model. None of these things are specific to temporal data. This may just sound like me being pedantic about poor naming, but this incorrect framing of uncertainty leads to very inconsistent research. Because we view uncertainty as a secondary feature of the data, and not as something we have constructed, we don't think about uncertainty visualisations with the "goal of the uncertainty" in mind. The problem is, we had a goal in mind when we estimated the uncertainty. The uncertainty related to whether or not two variables are significantly different from each other is different to the uncertainty related to whether or not each variable is significantly different from 0. If you make a forecast and want to know the confidence intervals associated with each point prediction, that would have a different confidence interval to the path of a 5 step ahead forecast. So not only does it not make sense to think about "temporal uncertainty" the concept of even visualising the uncertainty of some random variable without knowing what you want to know, is futile. If you ignore this clear distinction, you are going to misuse uncertainty techniques and beleive they are interchangable for every hypothesis, and thus draw incorrect conclusions. If you have ever used an error bar for a hypothesis that is not idenfiying a statistically significant range of values (using it to identify if two variables are statistically different from each other is also incorrect) then you are guilty of the exact issue I am talking about.
 
 ### Example: spatial uncertainty plots
+
+### Looking the method behind data vis papers
+- there is a habit of comparing plots to NOTHING (error bar significance test) or to an alternative that is NOT "next best"
+Third of all, there is no reason to have specifically compared a HOPs to a
+- the way we perform studies on data visualisation is antithetical to the way we use data visualisations.
+- There is a large amount of acknowledgement that different plots hide and uncover different sources of information, so structuring experiments that allow us to have a better understanding of how these work would be more fruitful.
+- I fundamentally disagree that we should be asking what plot is the best at depicting a distribution, and instead ask which questions different plots are better at identifying. These papers often ask one question (or a handful of similar questions) and compare the response on two or three plots. What would be more effective would be asking a large range of questions, with a large range of underlying distributions, and trying to match up the plots to their ideal question or case scenario. Finding a "best" plot for all case scenarios is a fruitless activity. 
 
 ### Combining the context of the data and the uncertainty
 You can chose to include the temporal aspect of the plot in some capacity, however it is not by accident that there is a general struggle to visualise uncertainty when there are so many competing ideas. This changes the way we view problems such as visualising spatial uncertainty. The question of how to constuct uncertainty plots for complicated data types (such as spatial data) is no longer driven by desiging an abstract uncertainty visualisation method for spatial data. The goal would be to find the best way to combine the most appropriate uncertainty visualisation for the relevant question and the best plot for the type of data. These methods may be able to be combined onto a single plot, however there may be cases where two different plots (one for the data and one for the uncertainty) is more appropriate and effective. 
