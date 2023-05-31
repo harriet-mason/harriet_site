@@ -15,6 +15,9 @@ listing:
 - Working on the draft right now, you can see my progress [here](https://harriet.quarto.pub/harriet-mason/ideas/#confirmation-report)
 - I'll message the slack when its readable and the edits I am making are smaller, hopefully by Wednesday afternoon.
 
+##### Report Questions
+- I feel like I should include a HOPS plot but I'm not sure how since it's an animation. I could use a screenshot of the visualisation in the paper but I don't know how to replicate it in R.
+
 ## 2023 May 25
 This has been a week of trying to fix endless technical issues :(
 
