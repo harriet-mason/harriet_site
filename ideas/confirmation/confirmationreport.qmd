@@ -18,6 +18,9 @@ A survey conducted by Dr Jessica Hullman found that majority of visualisation au
 While some people may have a lower baseline than the general public, most people get better at understanding uncertainty plots the more they are exposed to them [@Kay2016].
 Refusing to express uncertainty because people don't understand them, prevents people from improving in their ability to understand the plots, causing those that may not be able to understand uncertainty to continue to be bad at it.
 
+- [@Ancker2009] Interactive graphics force people to learn probability and therefore they have a more accurate estimate and understanding of the real probability. Inforgraphic style interactive methods are better for people with poor numeracy skills.
+
+- 
 ## Why people dont visualise uncertainty
 There is a large amount of literature providing new ways to visualise uncertainty and showing its effectiveness, but much less on why people don't do it. Hullmans study found that the most common reasons authors don't visualise uncertainty despite knowing the importance of it are: not wanting to overwhelm the audience; an inability to calculate the uncertainty; a lack of access to the uncertainty information; and not wanting to make their data seem questionable [@Hullman2020a]. It is hard to read that data visulisation authors have a general inability to calculate or access uncertainty information and remain unconcerned about general incompetence in the field, however this issue does not seem to be completely groundless. A strong definition of uncertainty, a consensus on which uncertainty should be incorporated and which should be ignored, as well as simple methods to visualise it seem to be largely absent in the literature. These gaps are worth discussing at length and form a large part of the motivation behind *Project 1*. Authors failling to visualise uncertainty due to a fear of overwhelming their audience, however, are motivations that can easily be discredited with the current literature.
 
@@ -41,6 +44,8 @@ Many of the reasons people don't visualise uncertainty have a common belief that
 - description of the theoretical and conceptual framework that underlies the thesis, and procedures to be used in addressing the research questions
 - Project 1: the stuff detailled in PhD writings on blog. Basically a literature review of the current state of uncertainty visualisation
 - Project 2: Maybe an experiment/ application of ideas tests (AEMO application maybe)
+- [@North2006] Discusses how the purpose of visualisation is insight but visualisation evaluations fail to measure that because they use benchmark tests as a substitute, time limits that prevent deep insight etc. Author disagrees that small insights are stepping stones to true insight. Suggests open ended questions.
+- two part experiment? pt 1 is a visualisation evaluation and the second part is discussing the visualisations with the people who use them.
 - Project 3: Technical outputs (translation of research) - possibly a package
 
 # Project 1 Details
@@ -180,8 +185,8 @@ This view of understanding uncertainty visualizations opens up a new gap in the 
 
 
 ## Issue 2: Section on distribution aspects (What aspect of the distribution are important)
-
-Even the concept of some plots being used for "distributions" and plots for "relationships" is a little silly. In this example the violin plot and the scatter plot both showed that each solution had a marginal normal distribution, but while the error bar (although technically a plot for visualising distributions) gives no concept of mass leaves you unable to identify the existence of even a common distribution. 
+- [Grewal2021] looks categorising uncertainty visualisations based on at how current visualisation methods compare based on x=discreetness of uncertainty and y=how field specific the audience is.
+- Even the concept of some plots being used for "distributions" and plots for "relationships" is a little silly. In this example the violin plot and the scatter plot both showed that each solution had a marginal normal distribution, but while the error bar (although technically a plot for visualising distributions) gives no concept of mass leaves you unable to identify the existence of even a common distribution. 
 - Additionally, you might argue that the scatter plots didn't visualise the "distribution" but rather, hypothetical outcomes of it.
 
 - Frequency based questions are easily answered with a HOPs plot OR ANY PLOT OF HYPOTHETICAL OUTCOMES. 
