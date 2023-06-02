@@ -17,6 +17,25 @@ listing:
 
 ##### Report Questions
 - I feel like I should include a HOPS plot but I'm not sure how since it's an animation. I could use a screenshot of the visualisation in the paper but I don't know how to replicate it in R.
+- multiple labeled frames to highlight animation under figure 1
+- Express marginal and conditional distributions using formal math $f(PPM|Solution=A)$ and $f(PPM|Solution=B)$
+
+### NOTES
+- Boostrapping = resampling w replacement - keep side same (calls it permutaiton typically take two groups and scramble lables (sampling from propulation with no difference not changing dist))
+- Chapter 1 add: Need to prodive evidence this abstraction is better. Link to concrete analytical work - link back to a particular framework - study to show why that particular one.
+- doesn't need empirical evidence but does need to be really well motivated why you want to go in that direction
+- In process of applying for ethics and hopefully after confirmation (one for AEMO and one for experiment)  - discussion with them might be recorded - once recording info if want to put quote in thesis need ethics approval - Need better understanding of the problem we are focusing on
+- expand on chapter three - make suggestions on what *could* be there - e.g. software for visualising uncertainty specifically for energy output - how this applies for different types of plots and package makes it easy to make those plots. - not just technical but other application areas (translation) - applications of the framework in the energy sector, doesnt just need to be technical outputs can be the work being used in energy and generalised. Show it is beneficial and useful.
+- no justification for why an R package and why do it (integrated into data analysis workflow)
+- need to make it clearer that scholarship is from AEMO. investement from them and a case study. 
+- mention talking to aemo people (title of their group and names of people) - show in conversations - also publication they sent
+- cassowaryr - link to energy data with masses of different time series - characterise of feature sets - variation and uncertainty - shows done more work (mention in topic 3 looking at technical outputs can be used for energy been working on package) - looking to see how they match and overlap (different time series from lots of sources and scales pending further investigation) (add to chapter 3 details how this would work and how it relates to energy data)
+- connect to academics with questions at the begining (academics love a table of results with confidence intervals make it relatable to people on the comitee)
+- above all else show the data - Edward tufte 
+- enough information to answer a question relates to concept of sufficiency
+- maybe make distributions not asusmed more clear
+- change colour scheme
+- Being sure is good; being uncertain is not necessarily bad. https://www.nature.com/articles/nmeth.2530
 
 ## 2023 May 25
 This has been a week of trying to fix endless technical issues :(

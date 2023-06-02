@@ -37,7 +37,7 @@ Chapter 1 discuss the current state of the research surrounding uncertainty visu
 ## Chapter 2: Applications of the framework
 Chapter 2 applies this framework and investigates its practical usefullness through experiemnts and discussions with AEMO. The purpose of data visualisation is insight, but due to time limits or other constraints, most visualisation studies use multiple benchmark tests as a substitute for measuring the complicated phenomena of insight [@North2006]. Unfortunately the validity of these results hinge on the large insights we gain from graphics being the sum total of these small incremental insights which may not always be true [@North2006]. Specifically in uncertainty visualisation, there is a focus on performance and accuracy based measures that assume more predictabe behaviour from people than what research on human decision making suggests. The work in Chapter 2 should avoid these common pitfalls that arrise from experimental plot evaluations by working closely with people at AEMO. Our partners at AEMO will be able to provide detailled and open ended descriptions of the beenfits and struggles of our uncertainty visualisation techniques. This allow us to directly see the improvements (or lack thereof) in insight due to the suggested framework.
 
-## Chapter 3: Technical Outputs
+## Chapter 3: Translation
 Chapter 3 will be a translation of chapter 1 and 2 into an R package. This will make this research more accessible and allow others to easily implement this visualisation framework in their own work.
 
 {{< pagebreak >}}
@@ -194,17 +194,20 @@ While information about the sources of our uncertainty and the type of uncertain
 ### Returning to our example
 Let us return to the study by @Hullman2015 to discuss the second issue with the comparison. In discussing the concept of a "best" visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The error bar plot and the violin plot in @fig-examples puts implies we should be unconcerned with the relationship between the solutions and especially unconcerned with specific questions about it (such as "What is $P(B>A)$?"). The scatter plot in @fig-alternatives highlights that the relationship between the solutions is of importance and allows us to see think about the two variables as they occur together. This plot still maintain some information about the marginal distributions illustrated in the violin and error bar plots (you can tell that we seem to have to have two independent normal distributions) however it is no longer of primary importance, the plot is now telling us that the general relationship between the solutions is the most important feature.
 
-- [@Buja2009] [@Wickham2010] suggests the lineup protocol to test if what we see in a plot is actually there. Esentailly makes an uncertainty visualisation of plots themselves using hypothetical outcomes.
-- [@Chowdhury] shows use of infoviz to show distribution of high dimensional hard to conceptualise situation of plots of low dimensional projections of data.
-- [@Hofmann2012] Infoviz is directly comparable to statistical tests and the ways we use graphical elements can have an impact on the power of the test. This paper tries to estimate the power of a statistical test performed using infoviz. It compares polar and cartesian co-ordinates and finds that polar co-ordinates are a higher powered test. It also compares multiple ways of showing distribution to see which has more power.
-- [Grewal2021] looks categorising uncertainty visualisations based on at how current visualisation methods compare based on x=discreetness of uncertainty and y=how field specific the audience is.
-
+### Identifying the important features
+There are several 
 - Even the concept of some plots being used for "distributions" and plots for "relationships" is a little silly. In this example the violin plot and the scatter plot both showed that each solution had a marginal normal distribution, but while the error bar (although technically a plot for visualising distributions) gives no concept of mass leaves you unable to identify the existence of even a common distribution. 
 - Additionally, you might argue that the scatter plots didn't visualise the "distribution" but rather, hypothetical outcomes of it.
 
 - Frequency based questions are easily answered with a HOPs plot OR ANY PLOT OF HYPOTHETICAL OUTCOMES. 
 
 - High dimensional visualisation techniques also can be viewed through this frameoworok and is the reason I find the tour to be such a valuable tool in visualisation. The tour using because it tries to give a view of the overarching joint distribution. A parallel co-ordinate plot and a SPLOM both provide a look at all of the bivariate joint distributions, or a subset of them.
+
+- [@Buja2009] [@Wickham2010] suggests the lineup protocol to test if what we see in a plot is actually there. Esentailly makes an uncertainty visualisation of plots themselves using hypothetical outcomes.
+- [@Chowdhury] shows use of infoviz to show distribution of high dimensional hard to conceptualise situation of plots of low dimensional projections of data.
+- [@Hofmann2012] Infoviz is directly comparable to statistical tests and the ways we use graphical elements can have an impact on the power of the test. This paper tries to estimate the power of a statistical test performed using infoviz. It compares polar and cartesian co-ordinates and finds that polar co-ordinates are a higher powered test. It also compares multiple ways of showing distribution to see which has more power.
+- [Grewal2021] looks categorising uncertainty visualisations based on at how current visualisation methods compare based on x=discreetness of uncertainty and y=how field specific the audience is.
+
 
 (Plots can give impressions of different things)
 - specific values (mean, 95% CI intervals)
@@ -214,8 +217,15 @@ Let us return to the study by @Hullman2015 to discuss the second issue with the 
 - Connectedness
 - parameters (location, other variables, etc)
 
+### Mapping the features to the hierarchy
+
+### High dimensional uncertainty visualisation
+
+
+
+
 *(Hierarchy)*
-- INATTENTIVE BLINDNESS STUDIES
+- INATTENTIVE BLINDNESS
 - the visualisation we use to find information out for ourselves do not need to be the same visualisations we use to communicate those interesting findings. using one graphic to get a lot of information makes sense in the exploratory stage, but less so in the communiating stage. Our goal is not to present a lot of information so that we might find the information we want, it is to give the relevant information for a deicison or for understanding. Instead of making visualisations that tell us interesting features, we need to pick visualsiatin that highlight the interesting features we have found.
 - when you use plots for EDA you often will make hundreds to try and find interesting features, when you present a plot for communication or decisions, you can only show a small handful.
 There are only so many aesthetics we can map information to, and those aesthetics have a hierarchy of how easy they are the process. Additional secondary information can simultaneously give important context and clutter the visualisation, so it is important to understand our motivations when creating a visualisation. 
@@ -317,11 +327,19 @@ Why do we need a plot that can "see" everything? Plots are similar to people in 
 {{< pagebreak >}}
 
 # Timeline
-- A timetable for completing the thesis and a statement of progress to date
+A timetable for completing the thesis and a statement of progress to date (make sure to match everything to apsects of the thesis)
+- (done) Literature review (have made progress in this year) have picked up main parts of the infoviz community - changed topic once got new scholarship (check off to say completed)
+- can pencil in energy aspect now (met with them earlier in the year) - have a need for this work 
+- next meeting in June (and have regular meetings monthly over the next year and hopefully build up applications)
+- Have idea of when I think I will have a finished piece of work (literature review)
+- Content for each of the pieces should be mapped out
 - ASC later in year (submitted an abstract for a poster)
-- IEEE VIS (June 22 2023 poster abstract) - Conference October 2023 
+- getting design of experiment clear and question we want to answer clear can go round and round (good idea to have something simple to test) - dont have time for something too complicated in phd need to have it in small managable pieces
+- ASC december 2023 - apsect of literature review + results from preliminary experiemnt
+- IEEE VIS (June 22 2023 poster abstract) - Conference October 2023 (present aspect of literature review)
+- The Rstudio conference (posit conference) - hard to get a spot (worth applying for)
 - Aim for something international in a year (or in last year)
-- Also could do UseR! & talk about some of the software developed (technical output)
+- Also could do UseR! 2024 (or 2025) & talk about some of the software developed (technical output) 
 - Could have an energy specific one (various applied energy)
 - IEEE VIS (march 31st paper due in 2025) - Conference October 2025 (Vienna)
 - Thesis due December 2025
