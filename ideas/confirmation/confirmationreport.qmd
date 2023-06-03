@@ -139,7 +139,7 @@ scatter_data %>%
   geom_point(aes(colour=biggerb)) +
   labs(x="Solute A Concentration (PPM)", 
        y="Solute B Concentration (PPM)") +
-  guides(colour=guide_legend(title="Is P(B>A)?")) +
+  guides(colour=guide_legend(title="Is B>A?")) +
   scale_y_continuous(breaks=ticks, limits=c(0,100)) +
   scale_x_continuous(breaks=ticks, limits=c(0,100)) +
   theme_classic() +
@@ -190,14 +190,92 @@ This issue is not helped by the fact that the term "uncertainty" lacks a commonl
 
 While information about the sources of our uncertainty and the type of uncertainty may seem like an unimportant secondary step in uncertainty visualisation, communicating these features of uncertainty helps decision makers make more informed choices. @Padilla2021 found that low forecaster confidence or high model uncertainty both contribute to more conservative judgements by decision makers. Failling to communicate the nature of your uncertainty can result in underestimation or overestimation of failure probabilities [@Kiureghian2009]. Additionally @Gustafson2019 found that the framing of our uncertainty, (i.e. informing the reading if the uncertainty came from a lack of knowledge, approximations, unknown unknowns, or disagreement among parties) does not have a significant effect on the belief in the estimates, perceived credibility, or behavioral intentions of the decision makers. This means communicating secondary information about your uncertainty is unlikely to negatively affect your communication and is important in understanding the scope of your uncertainty.
 
-## Issue 2: visualising the wrong features
+## Issue 2: visualising the correct features
 ### Returning to our example
-Let us return to the study by @Hullman2015 to discuss the second issue with the comparison. In discussing the concept of a "best" visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The error bar plot and the violin plot in @fig-examples puts implies we should be unconcerned with the relationship between the solutions and especially unconcerned with specific questions about it (such as "What is $P(B>A)$?"). The scatter plot in @fig-alternatives highlights that the relationship between the solutions is of importance and allows us to see think about the two variables as they occur together. This plot still maintain some information about the marginal distributions illustrated in the violin and error bar plots (you can tell that we seem to have to have two independent normal distributions) however it is no longer of primary importance, the plot is now telling us that the general relationship between the solutions is the most important feature.
+Let us return to the study by @Hullman2015 to discuss the second issue with the comparison. In discussing the concept of a "best" visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The way we currently look at visualisation would classify the error bar plot and the violin plot as visualisations of a "distribution", the scatter plot is a visualisation of a "relationship" while the bar plot is a visualisation of "amounts" (@wilke2019fundamentals), but this categorisation hides a lot of important details about drawing information from a graph. In this example the violin plot and the scatter plot both showed that each solution had an independent marginal normal distribution, the error bar (although technically a plot for visualising distributions) gives no concept of mass and would not give you the ability to identify even a simple distribution. Not only is it important to select a distribution that is appropriate for our question, it is also important to *show* the aspect of that distribution that holds the relevant information. The example asked about the *frequency* of a particular outcome which translates to visualising the *outcomes* of the joint distribution **or** the *parameter* of the Bernoulli distribution since these are the aspects of each distribution that hold the information we are looking for. If we visualised features of the distribution that don't hold the information we are looking for, the information is difficult to assertain and is more likely to be found through potentially faulty heuristics.
 
-### Identifying the important features
+@fig-bad depicts two graphics that have the of the same distributions as those in @fig-alternative, but each plot visualises an aspect of the distribution that is less relevant to the question. The 2D error bar plot (or circle?) highlights the mean and the values that are within the 95% confidence range. Since none of the parameters of the joint distribution are directly related to the question at hand, visualising the mean and significance instead of the outcomes made it harder to answer "What is $P(B>A)$?". Since the parameter of the Bernouli distribution *is* directly related to the question, visualising outcomes makes it harder to answer the question.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-bad
+#| fig-subcap: 
+#|   - "2D error bar plot"
+#|   - "Scatter plot of bernouli"
+#|   - "alternative to 2d error bar plot"
+#| fig-cap: "Two plots that are not useful in answering the question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. While the distributions visualised are correct, we have visualised the incorrect feature of the repsective distributions. Plot (a) visualises mean and significance thresholds of for values (b) the."
+#| layout-ncol: 2
+
+# 2D error bar plot
+ticks <- seq(0,100, 10)
+tibble(x=50,
+       y=60) %>%
+  ggplot(aes(x,y)) + 
+  geom_errorbarh(xmin=30, xmax=70) +
+  geom_errorbar(ymin=40, ymax=80) +
+  geom_point() +
+  geom_abline() + 
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  scale_x_continuous(breaks=ticks, limits=c(0,100)) +
+  labs(y = "Solution B Parts Per Million (PPM)",
+       x = "Solution A Parts Per Million (PPM)")+
+  theme_classic() +
+  theme(aspect.ratio=1)
+
+# Outome Bernouli Plot
+scatter_data %>%
+  ggplot(aes(x=biggerb, y=0, colour=biggerb)) +
+  geom_jitter(width=0.4, height=0.4) + 
+  scale_y_continuous(limits=c(-1,1)) +
+  labs(x = "Is B>A?")+
+  theme_classic() +
+  theme(aspect.ratio=1,
+        axis.title.y = element_blank(), 
+        axis.text.y=element_blank(),
+        legend.position = "none",
+        axis.ticks.y = element_blank())
+
+# CIRCLE PLOT
+library(ggforce)
+ticks <- seq(0,100, 10)
+tibble(x=50,
+       y=60) %>%
+  ggplot(aes(x,y)) + 
+  geom_circle(aes(x0=x, y0=y, r = 20))+
+  geom_point() +
+  geom_abline() + 
+  scale_y_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
+  scale_x_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
+  labs(y = "Solution B Parts Per Million (PPM)",
+       x = "Solution A Parts Per Million (PPM)")+
+  theme_classic() +
+  theme(aspect.ratio=1)
+```
+
+
+### The four features of a distribution
+Outcomes and Parameters are obviously not the only features of our distribution. The apsect of a distribution that are typically depicted in graphics can be organised into four key features. @fig-features depicts these four features along with an example of how they are typically depicted in graphics. Each of these four features have a set of questions they are better equip to answer. The four features are:
+
+1) **Mass** describes the PMF/PDF or CMF/CDF of the functions. Depictions of mass can inform us of the mode, likely or impossible values, and whether or not we have an identifiable distribution. There is a connection between outcomes and mass because if you show enough outcomes and introduce opacity a plot out outcomes will start to look like a plot depicting the mass.
+
+*Should I merge outcomes with mass???*
+
+2) **Outcomes** are a set of actual or simulated outcomes of a distribution. Our data falls into this category as it can be seen as an outcome of some "underlying" distribution. Outcomes can also be simulated through techniques such as bootstrapping or random sampling. Outcomes are useful to answer questions about frequency, however since outcomes have a connection to mass (depending on the structure of the graphic, a mass plot may just be a smoothed plot of a large number of outcomes) they can sometimes be used to answer the same questions.
+
+3) **Parameters** are the statistics that are related to our distribution. They can be the sufficient statistics of the distribution, such as the mean, variance, minimum and maximum, or they can be other statistics such as the or correlation, median and mode. Visualising a specific parameter of our distribution typically gives us freedom because it allows us to express any aspect of a plot in terms of a single value. Unfortunately this flexibility means that the set of question questions a parameter plot can answer are limited. Questions about the mean, median, maximum, minimum, correlation, values of significance, etc would usually need multiple plots to answer.
+
+4) **Exchangability** illustrates whether or not a elements in a sequence of random variables from this distribution can be swapped. Rather than answering questions about exchangability, it is something we typically want to highlight in our data. Exchangability is often expressed by having features touch in a graphic. A time series inechangability is expressed using a line plot, spatial data's inechangability is expressed using a map and the exchangability of randomly sampled data is often expressed using points. Exchangability is adjacent to continuity because visually connected features in a graphic are also used to express discretised outcomes of a continuous process (such as a ridgeline plot).
+
+![The four main features of a distribution graphics are typically used to represent](distfeatures.jpeg){#fig-features}
+
+It is important to note that this list if not exhaustive but rather the four most commonly visualised aspects of a distribution. Each of these features have can be ignored, set as a high priorty, or set as a low priority in any particular graphic. Any particular hierarchy of importance for aspects of a distribution can be mapped to the well researched hierarchy of aesthetics of a plot. 
+
+### Mapping the features to the hierarchy
+*Hierarchy*
+*Natrual Mappings*
 There are several 
-- Even the concept of some plots being used for "distributions" and plots for "relationships" is a little silly. In this example the violin plot and the scatter plot both showed that each solution had a marginal normal distribution, but while the error bar (although technically a plot for visualising distributions) gives no concept of mass leaves you unable to identify the existence of even a common distribution. 
-- Additionally, you might argue that the scatter plots didn't visualise the "distribution" but rather, hypothetical outcomes of it.
 
 - Frequency based questions are easily answered with a HOPs plot OR ANY PLOT OF HYPOTHETICAL OUTCOMES. 
 
@@ -209,15 +287,10 @@ There are several
 - [Grewal2021] looks categorising uncertainty visualisations based on at how current visualisation methods compare based on x=discreetness of uncertainty and y=how field specific the audience is.
 
 
-(Plots can give impressions of different things)
-- specific values (mean, 95% CI intervals)
-- Order
-- Outcomes (frequency)
-- Mass
-- Connectedness
+
 - parameters (location, other variables, etc)
 
-### Mapping the features to the hierarchy
+
 
 ### High dimensional uncertainty visualisation
 
@@ -293,33 +366,7 @@ Two themes in these papers
 - [@Hullman2018] Visualising uncertainty as a set of discrete outcomes improves recall of sampling distribution.
 
 ### Sorting the questions and experiments
-- Which of these questions should the "best" uncertainty visualisation allow me to answer?
-- My solution to this problem is to design uncertainty visualisation rules that are irrelevant to the data, but instead focus on the question being asked. I would review the research in uncertainty visualisation and reframe the conclusions with the goal of finding the best uncertainty method for each question, rather than for the type of data. I would then define rules for uncertainty visualisation so that authors know the correct way to express uncertainty for their purpose. Using this framework, the concept of designing a method for visualising temporal uncertainty becomes pointless.
-- There is a large amount of acknowledgement that different plots hide and uncover different sources of information, so structuring experiments that allow us to have a better understanding of how these work would be more fruitful.
-- Assumption that answering small questions are intermediate steps in answering big questions.
-- Identifying which plots can answer a large number of questions and which questions they can answer is the experiement I suggest in project 2.
-- there is a habit of comparing plots to NOTHING (error bar significance test) or to an alternative that is NOT "next best" (same level on the hierarchy)
-- the way we perform studies on data visualisation is antithetical to the way we use data visualisations.
-- I fundamentally disagree that we should be asking what plot is the best at depicting a distribution, and instead ask which questions different plots are better at identifying. These papers often ask one question (or a handful of similar questions) and compare the response on two or three plots. What would be more effective would be asking a large range of questions, with a large range of underlying distributions, and trying to match up the plots to their ideal question or case scenario. Finding a "best" plot for all case scenarios is a fruitless activity. 
 
-- Example questions
-Significance questions
-- statistical significance of one value
-- significant difference between variables
-- Joint significance 
-Probability Questions
-- Which outcome is more probable 
-Estimate questions
-- What is the mean, mode and median of this distribution
-Ordinal questions
-- What is the maximum/minimum outcome you would expect from this distribution
-- Between which values would 50% of the data appear
-Vibe Questions
-- Describe the distribution of the distribution 
-- Do the variables have identifiable distributions
-- Does the variable have a discrete or continuous distribution
-- Are there any impossible values in the distribution
-- Does this distribution have more than one mode?
 
 *Final Paragraph*
 Why do we need a plot that can "see" everything? Plots are similar to people in the sense that expecting one person to have a complete and flawless view of something as complicated as society ignores that one of the things that has allowed humanity to flourish is that there are so many of us. It allows each person to specialise and be good at something important to them rather than trying to be mediocre at everything. Similarly, no plot can see every possible thing you might want to know about your data. Leaning into and uncovering the strengths of each plot is the best way to research them because it reflects the ways in which we actually incorperate plotting into our diagram. While general principals are helpful, fundamentally each plot for each question should be as unique as the person who made it.
