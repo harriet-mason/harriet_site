@@ -1,12 +1,24 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
-subtitle: "Graphical Issues Particular to Uncertainty Visualisation"
+subtitle: "Problems With The Current Landscape of Uncertainty Visualisation Experiments"
 author: Harriet Mason
 bibliography: references.bib
 date: last-modified
 format: pdf
+editor_options: 
+  chunk_output_type: console
 ---
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 
+# Load libraries
+library(tidyverse)
+library(tsibbledata)
+library(Vizumap)
+library(fable)
+```
 # Motivation
 Think back to the last time you made some sort of data visualisation. What was the purpose of that visualisation? Was it to better understand your data? Was it to help you make a decision? Was it to to communicate that decision to someone else? There are many stages in our analysis that benefit from the power of data visualisation, however this does not mean it is always done with success. Visualization is an important step in exploratory data analysis and it is often utilised to **learn** what is important about a data set. The importance of data driven discovery is highlighted by data sets such as Anscombe’s quartet [@anscombe] or the Datasaurus Dozen [@datasaurpkg]. Each of the pairwise plots in these data sets have the same summary statistics but strikingly different information when visualised. Instead of having to repeatedly check endless hypothesis to find interesting numerical features, visualisations **tell** us what is important about the data set. This powerful aspect of data visualization is poorly or seldom used in later stages when we are communicating our findings, specifically with respect to uncertainty. 
 
@@ -43,7 +55,7 @@ Chapter 3 will be a translation of chapter 1 and 2 into an R package. This will 
 {{< pagebreak >}}
 
 # Chapter 1: A new theortical framework
-## An overview of the current ideas
+## The current landscape of visualisation experiments
 Current research in visualising uncertainty seems to have a focus on designing new options for visualising uncertainty for specific types of data. Typical papers comparing visualisation methods seem to fit into one or both of the follow categories:
 
 1) a paper that suggests or compares uncertainty visualisations that depict a single distribution.
@@ -52,8 +64,19 @@ Current research in visualising uncertainty seems to have a focus on designing n
 
 Generally the goal seems to be to increase the number of options we have in our "visualisation bag" so that we always have a plot at the ready if we want to visualise uncertainty. These new plots also tend to focus on a catch all plot that is "best for making decision" or "best for visualising spatial uncertainty". Data visualisation is commonly utilised as a tool in data exploration, so it is not uncommon for a data analyst to make a plot with only a vague goal and use it to pull out a large number of adjacent observations. For example, a data analyst might make a scatter plot to find out the relationship between two variables, but in doing do also finds out that one variable has discrete outcomes over a range of values. It is common knowledge that any single plot cannot reveal all information about a data set, all plot types obfuscate and uncover different types of information, however this aspect of plotting becomes more apparent in uncertainty visualisation. Often when discussing "uncertainty" information, we expect readers to be able to draw information from a plot that was not estimated, prioritised, or visualised. Communicating uncertainty can be boilled down into two simple steps, first we need to quantify the uncertainty, and second, we need to communicate it [@Webster2003]. The two issues I have noticed in uncertainty visualisation literature each come from one of these steps. The first issue is failing to identify the correct distribution (quantifying) and the second is failling to select a visualisation that highlights the important aspects of the distribution (communicating). These issues run deep in the literature, but they are easiest to understand with an example that I will repeatedly return to as we develop this idea.
 
-## Visualising the wrong distribution
-### An example: comparing HOPs, error bars, and violin plots
+- The way we test visualisations is completely antithetical to the way they are used
+- to capture this people testing visualisations need to ask a questions that form small parts of the "gist" of a visualisation
+- Obviously the best case scenario is to just visualise the parameter of interest, but at that point we should just use a table. A visualisation that would be better replaced by a table is functionally pointless.
+- To get around this many visualisation papers ask questions that are related to the visualisation but not explicitly depicted in it
+- an animated plot, an interactive plot and depictions of multiple plots are all just different ways to depict multiple plots with different expressions of exchangability
+- Sometimes the visualisation 
+- Point of a visualisation is to identify sweeping and complicated structures quickly.
+- Often the information provided in a visualisation is purposely distinct from the question asked by ep
+
+- some cases where the question asked has no real correct answer from the participants point of view but an accuracy metric is still used. @Hofmann2012 showed study participants a graph of two different marginal distributions and asked participants "In which plot is the blue group furthest to the right?". When I read this paper I was not sure if they meant  
+Importantly, none of these cases reflect the way visualisations are made in practice. On what *planet* are visualisation authors purposely hiding the information they want to 
+
+ ### Example: Comparing HOPs, error bars, and violin plots
 The issues that are rampant in the uncertainty visualisation literature are easily seen if we zoom in on one example. The study done by @Hullman2015 is a great illustration in the importance of having a clear motivation when you design a graphic. It is important to keep in mind that while I am primarily discussing one paper to illustrate a point, the issues I am brining to light are the standard in the uncertainty visualisation literature. This paper is no outlier.
 
 The study by @Hullman2015 asked participants to provide some numerical properties of a distribution using a hypothetical outcome plot (HOPs), an error bar plot or violin plot. Participants were given questions relating to individual and multiple distributions. When shown a single distribution participants were asked about the mean of the distribution, the probability of an outcome being above some threshold (indicated on the plot with a red dot), or the probability of an outcome being between two given values. When shown two distributions the participants were asked "How often is measurement of solute B larger than the measurement of solute A?", and when shown three distributions "How often is measurement of solute B larger than the measurement of solute A and solute C?". @fig-examples shows an example error bar plot and violin plot for the two distribution case. There was also a high and low variance case for every plot and question combination. The study decided which technique was better using absolute error between the subjects response and the true value. They specified that the error bars are not confidence intervals as they represent the true underlying distribution, not the sampling distribution of the mean. They found that the HOPs reliably outperformed the violin and error bar plots for all the two and three distribution questions, but were no better than the violin or error bar plot in the other univariate cases (and in some cases worse). 
@@ -69,8 +92,7 @@ The study by @Hullman2015 asked participants to provide some numerical propertie
 #| fig-cap: "An example of the plots shown in the two variable tasks given in [@Hullman2015]. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
 #| layout-ncol: 2
 
-# Load Libries
-library(tidyverse)
+
 # Make error bar data
 ymin <- c(30, 40)
 ymax <- c(70, 80)
@@ -165,7 +187,23 @@ bar_data %>%
   
 ```
 
-Not only is the distribution depicted in the visualisation different, but the features of the distribution depicted are also different. In discussing the concept of a "best" visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The way we currently look at visualisation would classify the error bar plot and the violin plot as visualisations of a "distribution", the scatter plot is a visualisation of a "relationship" while the bar plot is a visualisation of "amounts" (@wilke2019fundamentals), but this categorisation hides a lot of important details about drawing information from a graph. In this example the violin plot and the scatter plot both showed that each solution had an independent marginal normal distribution, the error bar (although technically a plot for visualising distributions) gives no concept of mass and would not give you the ability to identify even a simple distribution. Not only is it important to select a distribution that is appropriate for our question, it is also important to *show* the aspect of that distribution that holds the relevant information. The example asked about the *frequency* of a particular outcome which translates to visualising the *outcomes* of the joint distribution **or** the *parameter* of the Bernoulli distribution since these are the aspects of each distribution that hold the information we are looking for. If we visualised features of the distribution that don't hold the information we are looking for, the information is difficult to assertain and is more likely to be found through potentially faulty heuristics.
+
+### Theory: Selecting the correct distribution
+In order to fairly compare two uncertainty visualisations, they need to provide the same information. This is rarely done in plots comparing distribution visualisations. The important distinction between the distribution displayed and the distribution required to answer a question is often ignored in our discussions good or bad uncertainty visualizations. This means that studies identifying some graphics as better than others may only do so because the two plots displayed different distributions. @fig-distdraw illustrates how we think about distributions when performing statsitical tests compared to when we create visualisations. When we compute statistics or perform a hypothesis test, we typically put a lot of thought into what the correct distribution is for our question, however, when we perform visualisation we typically plot a collection of normal marginal distributions and ignore the actual distribution required. This extends to our perception of visualisation in general as most of the visualisation we consider to be for "distributions" are actually just tools for visualising marginal distributions. 
+
+![Illustration depicting the difference between the distributions we use for testing vs the visualisation we visualise](incorrectdistributions.jpeg){#fig-distdraw}
+
+An example that might be more familiar to the average statistician is something I like to refer to as "the error bar problem". If you have ever looked at two overlapping error bars and said "oh these variables are not statistically significantly different" you have used error bars incorrectly. While it is true that error bars that do not overlap implies statistical significance, overlapping error bars do not imply the converse in true. The same is true for a lot of the other ad-hoc statistical tests we use error bars for. A study done by @Bella2005 asked participants to adjust two error bars until the means were "just" statistically significantly different, and most people adjusted the error bars until they were just touching. In the case of independent confidence intervals that just touch, the p-value of the associated two-tailled t-test is about 0.006 [@Schenker2001]. @Bella2005 also found that few people could incorporate changing information about independence that arrises from repeated measure design and most participants were ignorant to the fact that error bars are used for both confidence intervals and standard error bars, two wildly different indicators of precision. 
+
+This is a classic example of expecting readers to draw conclusions about a distribution that was not visualised. Error bars typically represent the 95% confidence interval of a sampling distribution, most commonly the significant values of a t-distribution. This means that each error bar provides the range of significant values through the two end points, and a vague indicator of variance with the length of the bar, *of each variable independently*. What an error bar does **not** depict is the t-distribution associated with a difference of two means, the equivalent statistical test we utilise error bars for. The visualisation itself is not the problem, trying to draw conclusions that requires information that was not visualised is.
+
+The papers that go on to cite these misunderstandings about error bars discuss the work as though the problems are caused by error bars themselves. They suggest that error bars should be avoided as a visualisation tool, ignoring the fact that these fundamental misunderstandings in uncertainty will likely follow other visual encodings of t-distributions. Maybe some visual aspect of error bars encourages these extrapolations, but the HOPs example I drew on at the start of this chapter illustrates that this problem of expecting people to answer questions that are not directly related to the visualised distribution is larger than questions about significance. 
+
+This view of understanding uncertainty visualizations opens up a new gap in the literature. For example, if we accept that visualizing a collection of t-distributions is not a substitute for a collection of F-tests or paired t-tests, how *should* we visualise uncertainty if we want to draw those conclusions? Rather than shutting down the discussion on the usefulness of visualisation, I beleive it opens it and highlights areas of improvement in our current work.
+
+## Part 2: Features
+### Example: more 
+Let us return to the study done by @Hullman2015. Not only is the distribution depicted in the visualisation different, but the features of the distribution depicted are also different. In discussing the concept of a "best" visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The way we currently look at visualisation would classify the error bar plot and the violin plot as visualisations of a "distribution", the scatter plot is a visualisation of a "relationship" while the bar plot is a visualisation of "amounts" (@wilke2019fundamentals), but this categorisation hides a lot of important details about drawing information from a graph. In this example the violin plot and the scatter plot both showed that each solution had an independent marginal normal distribution, the error bar (although technically a plot for visualising distributions) gives no concept of mass and would not give you the ability to identify even a simple distribution. Not only is it important to select a distribution that is appropriate for our question, it is also important to *show* the aspect of that distribution that holds the relevant information. The example asked about the *frequency* of a particular outcome which translates to visualising the *outcomes* of the joint distribution **or** the *parameter* of the Bernoulli distribution since these are the aspects of each distribution that hold the information we are looking for. If we visualised features of the distribution that don't hold the information we are looking for, the information is difficult to assertain and is more likely to be found through potentially faulty heuristics.
 
 @fig-bad depicts two graphics that have the of the same distributions as those in @fig-alternative, but each plot visualises an aspect of the distribution that is less relevant to the question. The 2D error bar plot (or circle?) highlights the mean and the values that are within the 95% confidence range. Since none of the parameters of the joint distribution are directly related to the question at hand, visualising the mean and significance instead of the outcomes made it harder to answer "What is $P(B>A)$?". Since the parameter of the Bernouli distribution *is* directly related to the question, visualising outcomes makes it harder to answer the question.
 
@@ -230,23 +268,7 @@ tibble(x=50,
 Not only does visualising the incorrect distribution that highlights incorrect features related to a question make it difficult to answer correctly, it might also completely disorientate the viewer. In the discussion of the study @Hullman2015 notes: 
 > "In light of the common usage of error bars for presenting multiple independent distributions, it is noteworthy how poorly subjects using these representations performed on tasks asking them to assess how reliably a draw from one variable was larger than the other...Many subjects reported values less than 50%, which are not plausible given that the mean of B was larger than the mean of A."
 
-
-### Selecting the correct distribution
-In order to fairly compare two uncertainty visualisations, they need to provide the same information. This is rarely done in plots comparing distribution visualisations. The important distinction between the distribution displayed and the distribution required to answer a question is often ignored in our discussions good or bad uncertainty visualizations. This means that studies identifying some graphics as better than others may only do so because the two plots displayed different distributions. @fig-distdraw illustrates how we think about distributions when performing statsitical tests compared to when we create visualisations. When we compute statistics or perform a hypothesis test, we typically put a lot of thought into what the correct distribution is for our question, however, when we perform visualisation we typically plot a collection of normal marginal distributions and ignore the actual distribution required. This extends to our perception of visualisation in general as most of the visualisation we consider to be for "distributions" are actually just tools for visualising marginal distributions. 
-
-The relationship between plots and the distributions they present are not entirely alien to the current literature of visualisaiton, it is just a topic that is touched on sporadically.  @Wickham2011 discusses product plots and how different displays result in depictions of different marginal, conditional, and joint distributions. A common complaint about choropleth maps is that they depict distributions that depend on populations as depending on land, and visualisation that correct for this, such as hex maps effectively correct for this [@Kobakian]. The lineup protocol expands the idea of considering the distribution that we are visualising and expands it to considering a visualisation to be a single outcome of a larger distribution and ask visualisation authors to consider the distribution that might have generated a plot [@Buja2009; @Wickham2010]. This method can be used to identify false findings and perform complicated statistical tests [@Chowdhury; @Hofmann2012]. Unfortunately visualisation papers that properly consider the information depicted in a plot and visualisation papers that identify better depictions of uncertainty distributions are often mutually exclusive.
-
-![Illustration depicting the difference between the distributions we use for testing vs the visualisation we visualise](incorrectdistributions.jpeg){#fig-distdraw}
-
-An example that might be more familiar to the average statistician is something I like to refer to as "the error bar problem". If you have ever looked at two overlapping error bars and said "oh these variables are not statistically significantly different" you have used error bars incorrectly. While it is true that error bars that do not overlap implies statistical significance, overlapping error bars do not imply the converse in true. The same is true for a lot of the other ad-hoc statistical tests we use error bars for. A study done by @Bella2005 asked participants to adjust two error bars until the means were "just" statistically significantly different, and most people adjusted the error bars until they were just touching. In the case of independent confidence intervals that just touch, the p-value of the associated two-tailled t-test is about 0.006 [@Schenker2001]. @Bella2005 also found that few people could incorporate changing information about independence that arrises from repeated measure design and most participants were ignorant to the fact that error bars are used for both confidence intervals and standard error bars, two wildly different indicators of precision. 
-
-This is a classic example of expecting readers to draw conclusions about a distribution that was not visualised. Error bars typically represent the 95% confidence interval of a sampling distribution, most commonly the significant values of a t-distribution. This means that each error bar provides the range of significant values through the two end points, and a vague indicator of variance with the length of the bar, *of each variable independently*. What an error bar does **not** depict is the t-distribution associated with a difference of two means, the equivalent statistical test we utilise error bars for. The visualisation itself is not the problem, trying to draw conclusions that requires information that was not visualised is.
-
-The papers that go on to cite these misunderstandings about error bars discuss the work as though the problems are caused by error bars themselves. They suggest that error bars should be avoided as a visualisation tool, ignoring the fact that these fundamental misunderstandings in uncertainty will likely follow other visual encodings of t-distributions. Maybe some visual aspect of error bars encourages these extrapolations, but the HOPs example I drew on at the start of this chapter illustrates that this problem of expecting people to answer questions that are not directly related to the visualised distribution is larger than questions about significance. 
-
-This view of understanding uncertainty visualizations opens up a new gap in the literature. For example, if we accept that visualizing a collection of t-distributions is not a substitute for a collection of F-tests or paired t-tests, how *should* we visualise uncertainty if we want to draw those conclusions? Rather than shutting down the discussion on the usefulness of visualisation, I beleive it opens it and highlights areas of improvement in our current work.
-
-### Idenfitying the relevant features
+### Theory: the four features of a distribution
 Different features of a distribution have different questions they are mode adept adept at answering. The apsect of a distribution that are typically depicted in graphics can be organised into four key features. @fig-features depicts these four features along with an example of how they are typically depicted in graphics. Each of these four features have a set of questions they are better equip to answer. The four features are:
 
 1) **Mass** describes the PMF/PDF or CMF/CDF of the functions. Depictions of mass can inform us of the mode, likely or impossible values, and whether or not we have an identifiable distribution. 
@@ -259,30 +281,48 @@ Different features of a distribution have different questions they are mode adep
 
 ![The four main features of a distribution graphics are typically used to represent](distfeatures.jpeg){#fig-features}
 
-This is not an exhaustive list of every possible feature of a distribution, but rather the four most commonly visualised aspects of a distribution. Additionally, these features are not entirely distinct, particular visualsiations of parameters or samples may also double as a depiction of mass. There are uncertainty visualisation taxonomies that cross the boundaries of this taxonomy or introduce, for example @Grewal2021 categorised uncertainty visualisations based on discreteness of the distribution (a sub aspect of mass) and the domain expertise (which was similar to the number/complexity of the features depicted).
-Considering this, a graphic that is designed to depict one feature of a distribution may depict multiple features of multiple distributions. For example, the scatter plot in figure , in the same way that a depiction of a particular distribution may depict multiple.
+This is not an exhaustive list of every possible feature of a distribution, but rather the four most commonly visualised aspects of a distribution. Additionally, these features are not entirely distinct, particular visualsiations of parameters or samples may also double as a depiction of mass. Therefore, a graphic that is designed to depict one feature of a distribution may depict multiple features of multiple distributions. It also compares multiple ways of showing distribution to see which has more power.There are also uncertainty visualisation taxonomies that cross the boundaries of this feature based taxonomy, for example @Grewal2021 categorised uncertainty visualisations based on discreteness of the distribution (a sub aspect of mass) and the domain expertise (which was similar to the number/complexity of the features depicted). @Hofmann2012 classified uncertainty distributions by the level of data summarisation (a measure adjacent to the number of data points used). Despite these alternatives I suggest this taxonomy because it allows us to properly evaluate the results of any visualisation paper (not just uncertainty specific ones). This framework makes it easier to untangle whether it is the information presented or the graphic itself that creates a difference in our ability to draw information from a visualisation. 
+
+## Part 3: Hierarchy
+
+### Example: Looking to spatial uncertainty
+Often our goal in visualisation is not to perform a statistical test or to make a decision based on a single estimate, but to identify some underlying structure in our data or make a decision based on a large number of connected systems. When there are many features of the data that are competing for our interest, we often don't have as much flexibility in how we choose to visualise uncertainty. Complicated features of our distributions, such as mass, are thrown to the wayside to make way for for complicated features of the data such as spatial dependence. Additionally, if we want to visualise the sampling distribution of a large number of estimates that have a lot of dependent variables, even visualising a simple feature of our distribution becomes difficult. 
+Trying to depict the uncertainty of an estimates with a spatial aspect is incredibly difficult. Even displaying an estimates in a spatial context can have problems. Cartograms perform poorly on countries such as Australia which is largely vast open spaces contrasted by dense  coastal cities [@Kobakian]. Often
+
+- uncertainty plots are no different from other plots and should not be treated differently (bivariate maps were originally designed for trying to illustrate two features of a graph)
+
+```{r}
+# Load Data
+# tuesdata <- tidytuesdayR::tt_load('2023-03-07')
+# tuesdata <- tidytuesdayR::tt_load(2023, week = 10)
+# numbats <- tuesdata$numbats
+
+# Data stuff
+data(us_data)
+data(us_geo)
+poverty <- read.uv(data = us_data, estimate = "pov_rate", error = "pov_moe")
+
+## Bivariate plot
+# make pal 
+customBivPal3 <- build_palette(name = "usr", colrange = list(colour = c("chartreuse4", "darkblue"), difC = c(3, 4)))
+customBivPal1 <- build_palette(name = "usr", colrange = list(colour = c("tan2", "lightskyblue"), difC = c(1, 1)))
+# Make map
+usBivMap <- build_bmap(data = poverty, geoData = us_geo, id = "GEO_ID", terciles = TRUE, , palette = customBivPal3)
+# make key
+usBivKey <- build_bkey(data = poverty, palette = customBivPal3, terciles = TRUE)
+# attach key (+ visualise)
+attach_key(usBivMap, usBivKey)
 
 
-### The scope of the problem
-Expecting readers to draw information about a distribution that was not is not the only problem with quantifying uncertainty, but it is the apsect of the issue with a clearer solution. An adjacent issue is *how much* uncertainty we should include when trying to quantify our associated distribution. Obviously the correct answer is somewhere between "every possible outcome" which would result in an unbounded uncertainty and "a simple confidence interval based on a set of strict and unrealistic assumptions" that would result in an interval that is far too narrow. Unfortunately between those two extremes the solution is largely a judgement decision which can sometimes be overwhelming. This is why software that provides *some* uncertainty visualisation as a default, such as forecasts in the `fable` package are useful [@fable]. It prevents authors omitting uncertainty through inaction. There is the possibility, however, that default uncertainty visualisations facilitate the poor understanding of which conclusions are relevant to the uncertainty visualised.
-
-This issue is not helped by the fact that the term "uncertainty" lacks a commonly accepted definition in the literature. @Lipshitz1997 even commented that “there are almost as many definitions of uncertainty as there are treatments of the subject” . This mishmash of terminology leads to a large body of work, all claiming to finding the best visualisation or expression of of "uncertainty" but most don't even seem to agree on what uncertainty is. The most encompassing definition of uncertainty I have seen comes from @utypo who define uncertainty as **"any deviation from the unachievable ideal of completely deterministic knowledge of the relevant system"**. This definition does not completely align with the distribution conceptualisation I discussed earlier in this chapter, but the cases where they diverge are rare and can still be handled by focusing on the relevant information. More commonly, uncertainty is defined using a taxonomy rather than a strict definition. There are a few of taxonomies for uncertainty, but, just like the definition, most of them are a subset of the one laid out  by @utypo.
-
-@fig-taxonomy is an illustration of the taxonomy presented by @utypo. In this taxonomy, there are three things we need to consider for each "uncertainty" we encounter through the modelling process. First, consider the source of the uncertainty. Is this uncertainty coming from inaccurate measurements or a poorly defined model? This is the *location* of the uncertainty. Second, consider how well you can quantify this uncertainty. Do you know exactly how much measurement error there is in each observation or are you not even aware if there is or isn't measurement error? This is the *level* of your uncertainty, and it ranges from discrete to total ignorance. Finally, consider how this uncertainty came into existence. Is it a result of a naturally random process (epistemic) or is it due to imperfect information and could be improved (aleatory). This is the *nature* of your uncertainty. @utypo then go on to describe mapping our uncertainty in a 3D space that is defined by its location, level, and nature, but I think the taxonomy is more easily understood as a series of questions we need to consider when asking how much unertainty we should express to our audience.
-
-![Illustration of the taxonomy described in @utypo](taxonomyvis.jpeg){#fig-taxonomy}
-
-While information about the sources of our uncertainty and the type of uncertainty may seem like an unimportant secondary step in uncertainty visualisation, communicating these features of uncertainty helps decision makers make more informed choices. @Padilla2021 found that low forecaster confidence or high model uncertainty both contribute to more conservative judgements by decision makers. Failling to communicate the nature of your uncertainty can result in underestimation or overestimation of failure probabilities [@Kiureghian2009]. Additionally @Gustafson2019 found that the framing of our uncertainty, (i.e. informing the reading if the uncertainty came from a lack of knowledge, approximations, unknown unknowns, or disagreement among parties) does not have a significant effect on the belief in the estimates, perceived credibility, or behavioral intentions of the decision makers. This means communicating secondary information about your uncertainty is unlikely to negatively affect your communication and is important in understanding the scope of your uncertainty.
-
-## The implicit importance of uncertainty
-Often our goal in visualisation is not to perform a statistical test or to make a decision based on a single estimate, but rather to identify underlying structure in our data or make a decision on a large number of connected systems. When there are many features of the data that are competing for our interest, we often don't have as much flexibility in how we choose to visualise uncertainty. Complicated features of our distributions, such as mass, are thrown to the wayside to make way for for complicated features of the data such as spatial dependence.
-
-### An example: spatial uncertainty
-Trying to depict the uncertainty of an estimates with a spatial aspect is incredibly difficult. Even displaying an estimates in a spatial context can have problems. Cartograms perform poorly on countries such as Australia which is largely vast open spaces contsrasted by dense  coastal cities [@Kobakian]. Maintaining the geographical structure while avoiding incorrect 
-
-
-
+```
+- what happens if i swap the "uncertainty" and "estimate"
+- can I combine hexmaps with spatial uncertainty maps?
 - check what kind of question they can answer
+- If you choose two light colours when creating your own palette, the palette will lack important differences in colour across the grid. Therefore, it is best to use two darker colours. 
+- While it can express uncertainty, it is very sensistive to colour changes. Makers of the package even note themselves that small changes to the palette and tenciles arguments can generate a completely different map using the same data set. This is ok for data exploration but if we want interesting patterns to jump out at us, they are unlikely to do so.
+- one of the main difficulties in data analysis is identifying if a discovery is a feature of the data or a feature of the method we have used. When a method is as sensitive as this
+- Part of coming up with these standards is to reduce the amount of work for the statistician. 
+- pixilation doesnt work when the area is small.
 
 - [@Correll2018] They make value-suppressing uncertainty palettes. Suggest using it to endocde the uncertainty in the colour apect of the graph (should be directly integrated in a shared chart). Found that Juxtaposed maps, by introducing a second search task to the identification task (searching for the proper values in two, rather than one map), would have poorer performance than other conditions. (read the paper to find out details)
 
@@ -290,8 +330,15 @@ Trying to depict the uncertainty of an estimates with a spatial aspect is incred
 
 - Because we view uncertainty as a secondary feature of the data, and not as something we have constructed, we don't think about uncertainty visualisations with the "goal of the uncertainty" in mind.
 
-### Hierarchy
-*general hierarchy*
+### Theory: Mapping the features to the appropriate hierarchy
+
+
+
+The current research in high dimensional uncertainty visualisation seems to hold with it the implict assumption that the only reason to visualise uncertainty is to validate a structure we see with an estimate. This is not necessarily true.
+
+- I think it if you want to bring an estimate into dispute you need to map the uncertainty to the same feature as the estimate
+- if you have done this, the goal is to make sure people take away the correct information from a large structure in the data, they don't just need to be able to answer questions.
+
 - Why do we need a plot that can "see" everything? Plots are similar to people in the sense that expecting one person to have a complete and flawless view of something as complicated as society ignores that one of the things that has allowed humanity to flourish is that there are so many of us. It allows each person to specialise and be good at something important to them rather than trying to be mediocre at everything. Similarly, no plot can see every possible thing you might want to know about your data. Leaning into and uncovering the strengths of each plot is the best way to research them because it reflects the ways in which we actually incorperate plotting into our diagram. While general principals are helpful, fundamentally each plot for each question should be as unique as the person who made it.
 - mapping the most important feature to the highest aspect
 - placebo rule, studys compare to placebo is bad, should compare to next best alternative (should compare plots that have the feature of interest at a similar importance ranking)
@@ -313,19 +360,97 @@ Trying to depict the uncertainty of an estimates with a spatial aspect is incred
 *Additional conflicting information*
 - It is important to avoid highlighting irrelevant aspects of the plot as that will confuse viewers and make it harder for them to draw conclusions.
 
-### How to include uncertainty
+It is not only important to display the key features of our distribution, but we also need to display them in a way that best conveys the information. @Hofmann2012 showed that just changing the co-ordinates of a plot can result in change in the power of an line up test
 
-*Natural Mappings*
+Not only should the relevant distribution features be visualised according to priority, but it is also a good idea to drop the irrelevant features of a distribution. Spatial-temporal visualisation is always an area of research in visualisation largely because we seem to find it difficult to drop exchangability in those cases. @Nathonours found that a scatter plot is better than a line plot if you want to convey the correlation between two time series. Unfortunately we cannot be sure if this was influenced by swapping the conditional distribution for the joint distribution on the high priority position axis, or by dropping the visualisation of the time series exchangability feature. @fig-timescatter depicts 4 different version of the same data, each with a different combination of distribution depicted and whether or not we visualised data's exchangability feature. The example both highlights the importance of identifying what features are import and identifying what aspect of the plot we want to map it to. A line graph depicts the joint distribution in the same way a HOPs or slope graph does, by displying the two variables moving together rather than explicitly displaying their relationship in the position axis, because of this additional distribution features, such as the exchangability, might contribute to the visualsiation of the joint distribution by making the ordering more clear. This also illustrates that the distribuiton features aren't entirely independent and the cost of dropping the notion of exchangability changes depending on the visualised distribution. It is likely the combination of irelevant feature removal and highlighting the correct distribution that makes correlation easier to identify in a scatter plot, but it is not possible to conclude one or the other for certain.
 
-## Organise Paper Notes
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-timescatter
+#| fig-subcap: 
+#|   - "Conditional distribution on time with inexchangability"
+#|   - "Conditional distribution on time"
+#|   - "Joint distribution of series"
+#|   - "Joint distribution of series with inexchangability"
+#| fig-cap: "Four figures to illustrate the impact of changing the priority of the distribution displayed and presence of exchangability. Time is depicted with opacity in plots (c) and (d) to maintain the same information. More recent dates are darker. Could you order these four plots by how well they convey correlation?"
+#| layout-ncol: 2
 
+# Data for conditional distribution
+series_data <- aus_retail %>%
+  filter(State %in% c("Victoria", "Queensland"),
+         Industry == "Food retailing",
+         year(Month)>2010) 
+
+# Data for joint distribution
+series_data2 <- series_data %>%
+  select(-c(Industry, `Series ID`)) %>%
+  pivot_wider(id_cols = Month,
+              values_from = Turnover,
+              names_from = State)%>%
+  mutate(id = row_number()/max(row_number()))
+
+# Data for joint distribution w segments
+series_data3 <- series_data2 %>%
+  mutate(x1 = lag(Queensland),
+         y1 = lag(Victoria),
+         x2 = Queensland,
+         y2 = Victoria) %>%
+  select(-c(Queensland, Victoria))
+
+# Line plot
+ggplot(series_data, aes(x=as.Date(Month), y=Turnover, colour=State)) +
+  geom_line() +
+  labs(y="Food retailing turnover (AUD)",
+       x = "Month") + 
+  theme_classic() +
+  theme(aspect.ratio=1)  
+
+# Point plot
+ggplot(series_data, aes(x=as.Date(Month), y=Turnover)) +
+  geom_point(aes(colour=State)) +
+  labs(y="Food retailing turnover (AUD)",
+       x = "Month") + 
+  geom_segment(data=series_data2,
+               aes(y=Queensland, xend=as.Date(Month),
+                   yend=Victoria)) +
+  theme_classic() +
+  theme(aspect.ratio=1) 
+
+# Scatter plot
+ggplot(series_data2, aes(x=Queensland, y=Victoria, alpha=id)) +
+  geom_point() +
+  labs(y="Victoria food retailing turnover (AUD)",
+       x= "Queensland food retailing turnover (AUD)") +
+  theme_classic() +
+  theme(aspect.ratio=1,
+        legend.position = "none")  
+
+# Scatter plot with exchangability
+ggplot(series_data3, aes(alpha=id)) +
+  geom_segment(aes(x=x1, y=y1, xend=x2, yend=y2))  +
+  labs(y="Victoria food retailing turnover (AUD)",
+       x= "Queensland food retailing turnover (AUD)") +
+  theme_classic() +
+  theme(aspect.ratio=1,
+        legend.position = "none") 
+```
+
+
+## Stuff to Orgnaise
+The relationship between plots and the distributions they present are not entirely alien to the current literature of visualisaiton, it is just a topic that is touched on sporadically. @Wickham2011 discusses how in different displays of product plots result in depictions of different marginal, conditional, and joint distributions. The lineup protocol expands the idea of considering the distribution that we are visualising and expands it to considering a visualisation to be a single outcome of a larger distribution and ask visualisation authors to consider the distribution that might have generated a plot [@Buja2009; @Wickham2010]. This method can be used to identify false findings and perform complicated statistical tests [@Chowdhury; @Hofmann2012].
+
+Discussions about improvements in spatial plots typically focus on ways to map a distribution that is dependent on something other than land size while still depicting the inexchangability of spatial data. A common complaint about choropleth maps is that they depict the estimated parameter as a function of land size instead of location, even if land size is irrelevant to the estimate (such as in the case of voting). Visualisations that correct for this, such as hex maps do so by colouring and plotting hexagonal tiles that each represent a portion of the dependent location [@Kobakian]. This means an irrelevant feature, such as land size is not depicted as important in the map. 
+
+@Hofmann2012 compared a visualisation of mass, outcomes, and parameters (using a boxplot) and asked
+
+- [@kosslyn2006graph] Assumption that charts are most effective when they show enough information to solve the task at hand, but not too much to hamper the observer
 - [@Wickham2012] Glyph maps are a good way to visualize spatial temporal data (read: not uncertainty). The ordering is determined by space, and the glyph is a line plot. Different scales allow us to look at trends in global variance, local variance. Aggregation allows investigations of trends.
-
-- [@Hofmann2012] It compares polar and cartesian co-ordinates and finds that polar co-ordinates are a higher powered test. It also compares multiple ways of showing distribution to see which has more power.
 
 - [@Kale2021]. Adding means to uncertainty visualizations has small biasing effects on both magnitude estimation and decision-making, consistent with users relying on visual distance between distributions as a proxy for effect size visualization designs that support the least biased effect size estimation do not support the best decision-making, suggesting that a chart user’s sense of effect size may not necessarily be identical when they use the same information for different tasks.
 
-- [@Nathonours] finds that a scatter plot is better than a line plot if you want to convey the correlation between two time series. Considering the correlation is a feature of the joint distribution, it makes sense that a depiction of the joint distribution (a scatter plot) outperformed between the two time series, and a line plot is the marginal distribution of each time ser (its also like a flipped slope graph?)
+
 
 - [@Gschwandtnei2016] Could have to do with making sure you match your question with an intuitive plot feature. The paper looks at different types of temporal uncertainty and discusses the differences and how to best visualise each one. Has some interesting methods to visualise intervals. Gradients were best for probability and ambiguation was best for start and end time estimation
 
@@ -338,6 +463,21 @@ Trying to depict the uncertainty of an estimates with a spatial aspect is incred
 - [@Maceachren2012] The first paper organises different types of uncertainty and then matches each type of uncertatiny to a visual aspect of a graph. Experiment 1 tested the extent to which symbols have intuitive applications. Participants response times were the same across symbols, etc. Found fuzziness, location, (and sightly less value) were the best for visualising uncertainty. Arrangement, size and transpacency slightly less so. Saturation, hue, orientation and shape are unacceptable. Only one direction was deemed intuitive by participants (fuzziness: more fuzzy=less certain; location: further from center=less certain; value: lighter=less certain; arrangement: poorer arrangement=less certain; size: smaller=less certain; transparency: more obscured=less certain). While iconic sign-vehicles can be more intuitive and more accurately judged when aggregated (than are abstract sign-vehicles), the abstract sign-vehicles can lead to quicker judgments.  Experiment 2 assessed task performance when multiple symbols appeared.
 
 - [@Hullman2018] Visualising uncertainty as a set of discrete outcomes improves recall of sampling distribution.
+
+
+## ? Part 4: Amount
+Expecting readers to draw information about a distribution that was not is not the only problem with quantifying uncertainty, but it is the apsect of the issue with a clearer solution. An adjacent issue is *how much* uncertainty we should include when trying to quantify our associated distribution. Obviously the correct answer is somewhere between "every possible outcome" which would result in an unbounded uncertainty and "a simple confidence interval based on a set of strict and unrealistic assumptions" that would result in an interval that is far too narrow. Unfortunately between those two extremes the solution is largely a judgement decision which can sometimes be overwhelming. This is why software that provides *some* uncertainty visualisation as a default, such as forecasts in the `fable` package are useful [@fable]. It prevents authors omitting uncertainty through inaction. There is the possibility, however, that default uncertainty visualisations facilitate the poor understanding of which conclusions are relevant to the uncertainty visualised.
+
+This issue is not helped by the fact that the term "uncertainty" lacks a commonly accepted definition in the literature. @Lipshitz1997 even commented that “there are almost as many definitions of uncertainty as there are treatments of the subject” . This mishmash of terminology leads to a large body of work, all claiming to finding the best visualisation or expression of of "uncertainty" but most don't even seem to agree on what uncertainty is. The most encompassing definition of uncertainty I have seen comes from @utypo who define uncertainty as **"any deviation from the unachievable ideal of completely deterministic knowledge of the relevant system"**. This definition does not completely align with the distribution conceptualisation I discussed earlier in this chapter, but the cases where they diverge are rare and can still be handled by focusing on the relevant information. More commonly, uncertainty is defined using a taxonomy rather than a strict definition. There are a few of taxonomies for uncertainty, but, just like the definition, most of them are a subset of the one laid out  by @utypo.
+
+@fig-taxonomy is an illustration of the taxonomy presented by @utypo. In this taxonomy, there are three things we need to consider for each "uncertainty" we encounter through the modelling process. First, consider the source of the uncertainty. Is this uncertainty coming from inaccurate measurements or a poorly defined model? This is the *location* of the uncertainty. Second, consider how well you can quantify this uncertainty. Do you know exactly how much measurement error there is in each observation or are you not even aware if there is or isn't measurement error? This is the *level* of your uncertainty, and it ranges from discrete to total ignorance. Finally, consider how this uncertainty came into existence. Is it a result of a naturally random process (epistemic) or is it due to imperfect information and could be improved (aleatory). This is the *nature* of your uncertainty. @utypo then go on to describe mapping our uncertainty in a 3D space that is defined by its location, level, and nature, but I think the taxonomy is more easily understood as a series of questions we need to consider when asking how much unertainty we should express to our audience.
+
+![Illustration of the taxonomy described in @utypo](taxonomyvis.jpeg){#fig-taxonomy}
+
+While information about the sources of our uncertainty and the type of uncertainty may seem like an unimportant secondary step in uncertainty visualisation, communicating these features of uncertainty helps decision makers make more informed choices. @Padilla2021 found that low forecaster confidence or high model uncertainty both contribute to more conservative judgements by decision makers. Failling to communicate the nature of your uncertainty can result in underestimation or overestimation of failure probabilities [@Kiureghian2009]. Additionally @Gustafson2019 found that the framing of our uncertainty, (i.e. informing the reading if the uncertainty came from a lack of knowledge, approximations, unknown unknowns, or disagreement among parties) does not have a significant effect on the belief in the estimates, perceived credibility, or behavioral intentions of the decision makers. This means communicating secondary information about your uncertainty is unlikely to negatively affect your communication and is important in understanding the scope of your uncertainty.
+
+## Conclusion
+Unfortunately visualisation papers that properly consider the underlying distributional information depicted in a plot are rare, and papers that don't conflate issues created by an incorrect distribution, incorrect features, or poor use of aesthetics even more so. One or more of the three issues are frequently attributed to a failing in the plot type and unpacking the source will allow us to make more concentrated efforts towards uncertainty visualisation improvements.
 
 {{< pagebreak >}}
 
