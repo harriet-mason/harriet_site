@@ -445,9 +445,9 @@ ggplot(series_data, aes(x=as.Date(Month), y=Turnover)) +
   geom_point(aes(colour=State)) +
   labs(y="Food retailing turnover (AUD)",
        x = "Month") + 
-  geom_segment(data=series_data2,
-               aes(y=Queensland, xend=as.Date(Month),
-                   yend=Victoria)) +
+  #geom_segment(data=series_data2,
+  #             aes(y=Queensland, xend=as.Date(Month),
+  #                 yend=Victoria)) +
   theme_classic() +
   theme(aspect.ratio=1) 
 
