@@ -1,6 +1,6 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
-subtitle: "Problems With The Current Landscape of Uncertainty Visualisation Experiments"
+subtitle: "A New Taxonomy to Prevent Information Inequalities In Uncertainty Visualisations"
 author: Harriet Mason
 bibliography: references.bib
 date: last-modified
@@ -20,13 +20,64 @@ library(Vizumap)
 library(fable)
 ```
 # Motivation
-Think back to the last time you made some sort of data visualisation. What was the purpose of that visualisation? Was it to better understand your data? Was it to help you make a decision? Was it to to communicate that decision to someone else? There are many stages in our analysis that benefit from the power of data visualisation, however this does not mean it is always done with success. Visualization is an important step in exploratory data analysis and it is often utilised to **learn** what is important about a data set. The importance of data driven discovery is highlighted by data sets such as Anscombe’s quartet [@anscombe] or the Datasaurus Dozen [@datasaurpkg]. Each of the pairwise plots in these data sets have the same summary statistics but strikingly different information when visualised. Instead of having to repeatedly check endless hypothesis to find interesting numerical features, visualisations **tell** us what is important about the data set. This powerful aspect of data visualization is poorly or seldom used in later stages when we are communicating our findings, specifically with respect to uncertainty. 
+Think back to the last time you made some sort of data visualisation. What was the purpose of that visualisation? Was it to better understand your data? Was it to help you make a decision? Was it to to communicate that decision to someone else? There are many stages in our analysis that benefit from the power of data visualisation, however this does not mean it is always done with success. Visualization is an important step in exploratory data analysis and it is often utilised to **learn** what is important about a data set. The importance of data driven discovery is highlighted by data sets such as Anscombe’s quartet [@anscombe] or the Datasaurus Dozen [@datasaurpkg]. Each of the pairwise plots in these data sets have the same summary statistics but strikingly different information when visualised. The anscombe quartet is shown in @fig-anscombe. Instead of having to repeatedly check endless hypothesis to find interesting numerical features, visualisations **tell** us what is important about the data set. This powerful aspect of data visualization is poorly or seldom used in later stages when we are communicating our findings, specifically with respect to uncertainty. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-anscombe
+#| fig-cap: "The four scatter plots that make up the anscombe quartet. Each x and y variable has the same mean, standard deviation, and correlation"
+tibble(x = c(anscombe$x1, anscombe$x2,
+             anscombe$x3, anscombe$x4),
+       y = c(anscombe$y1, anscombe$y2,
+             anscombe$y3, anscombe$y4),
+       Plot = c(rep("Plot 1",11), rep("Plot 2",11), 
+                rep("Plot 3",11), rep("Plot 4",11))) %>%
+  ggplot(aes(x,y)) +
+  geom_point(aes(fill=Plot), colour="black", 
+             size=3, pch=21, alpha=0.75) +
+  facet_wrap(~Plot) +
+  theme_classic() +
+  theme(aspect.ratio = 1,
+        legend.position = "none") +
+  scale_fill_brewer(type = "qual", palette = 4)
+  
+
+```
 
 Utilising visualisation can give people a more complete understanding of risks. Studies asking participants to sketch a distribution allowed them to better compute statistics about that distribution and improve predictions [@Hullman2018; @Goldstein2014]. While there is some evidence that confidence provided in text form only are less likely to be misinterpretated than grahics [@Savelli2013], text is insufficient to express more complicated aspects of a distribution, such as mass. The confusion caused by visualisation could also be due to a lack of expose, since @Kay2016 found that people exposed to the same uncertainty visualisation get better at making judgements the more they are exposed to them. Additionally, visualisation allows for interactive graphics that provide a more in depth understanding of probability [@Potter2009a; @Ancker2009] and infographics that make uncertainty more accessible for people with poor numeracy skills [@Ancker2009]. 
 
 Despite these benefits, there is a reasonable amount of annecdotal and survey evidence that we don't visualise uncertainty as often as we should. Some economists suggest that visualisation authors are responding to incentives that make it tempting to avoid visualising uncertainty, even if those incentives are based more in perception than reality [@Manski2020]. A survey conducted by @Hullman2020a found that majority of visualisation authors agreed that expressing uncertainty is important and should be done more often than it currently is, some even agreed that failing to do so is tantamount to fraud. Despite this, only a quarter of respondents included uncertainty in 50% or more of their visualisations [@Hullman2020a]. Meaning participants were convinced that visualising uncertainty is morally important but were able to provide self sufficient reasoning that allows them to avoid doing it. The study by @Hullman2020a found that the most common reasons authors don't visualise uncertainty in practice despite knowing it's moral importance are: not wanting to overwhelm the audience; an inability to calculate the uncertainty; a lack of access to the uncertainty information; and not wanting to make their data seem questionable [@Hullman2020a].
 
-If decision markers are not presented with the uncertainty about an estimate the data analysts have, for all intents and purposes, made the decision for the decision maker. Upon further interviews @Hullman2020a found that authors believed uncertainty would overwhelm the audience and make their data seem questionable because decision makers are unable to understand uncertainty. This belief, while pervasive, is not true. While some research suggests that laypeople cannot understand complicated concepts in statistical thinking (such as trick questions on hypothesis tests or the difference between Frequentist and Baysian thinking) [@Hoekstra2014; @Bella2005] there is a large amount of research suggesting that presenting uncertainty information improves decision making, both experimentally [@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] and in practice [@Al-Kassab2014]. As a matter of fact, doing what many authors currently do (providing only a deterministic outcome with no uncertainty) causes decision makers to be *less* decisive and have completely unbounded expectations on an outcome [@Savelli2013]. This reality cannot be avoided by providing secondary or non-specific information such as explaining calculations [@Joslyn2012], explaining the advantages of a recommendation [@Joslyn2012], or expressing uncertainty in vague terms [@Erev_1990; @Olson_1997], all of which are undesirable for decision makers and lead to measurably worse decisions [@Joslyn2012; @Erev_1990; @Olson_1997]. Expressing uncertainty verbally additionally decreases the percieved reliability and trustworthiness of the source [@VanderBles2020].
+If decision markers are not presented with the uncertainty about an estimate the data analysts have, for all intents and purposes, made the decision for the decision maker. Upon further interviews @Hullman2020a found that authors believed uncertainty would overwhelm the audience and make their data seem questionable because decision makers are unable to understand uncertainty. This belief, while pervasive, is not true. While some research suggests that laypeople cannot understand complicated concepts in statistical thinking (such as trick questions on hypothesis tests or the difference between Frequentist and Baysian thinking) [@Hoekstra2014; @Bella2005] there is a large amount of research suggesting that presenting uncertainty information improves decision making, both experimentally [@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] and in practice [@Al-Kassab2014]. As a matter of fact, doing what many authors currently do (providing only a deterministic outcome with no uncertainty) causes decision makers to be *less* decisive and have completely unbounded expectations on an outcome [@Savelli2013]. This reality cannot be avoided by providing secondary or non-specific information such as explaining calculations [@Joslyn2012], explaining the advantages of a recommendation [@Joslyn2012], or expressing uncertainty in vague terms [@Erev_1990; @Olson_1997], all of which are undesirable for decision makers and lead to measurably worse decisions [@Joslyn2012; @Erev_1990; @Olson_1997]. Expressing uncertainty verbally additionally decreases the percieved reliability and trustworthiness of the source [@VanderBles2020]. One of the most popular depictions of uncertainty for decision making is a quantile dotplot, shown in @fig-quantdot.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-quantdot
+#| fig-cap: "A quantile dotplot is an uncertainty visualisation that provides a discrete display of uncertainty to aid decision making. This example plot provides an estimate for a daily maximum temperature."
+set.seed(1)
+dotplot_data <- tibble(temp = 10 + round(rnorm(40, mean=10, sd=2))) 
+mid <- round(mean(dotplot_data$temp), 2)
+dotplot_data %>%
+  ggplot(aes(x=temp)) +
+  geom_dotplot(binwidth = 0.75, fill="grey") +
+  theme_classic() +
+  geom_segment(x=round(mid), xend=round(mid), 
+               y=-1, yend=0.5, size=2) +
+  geom_label(x=round(mid), y=0.5, label=paste0(mid, "°C"),
+             fill = "black", fontface = "bold",
+             colour="white") +
+  scale_x_continuous(breaks = seq(10, 30, 5), 
+                     limits = c(10, 30)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tomorrow's Daily Max Temperature")
+```
 
 Not only does communicating uncertainty improve decisions but the mistrust created by communicating certainty in uncertain situations can be exploited. A 6-month survey of anti-mask groups on Facebook during to COVID-19 pandemic showed that the anti-maskers thought carefully about their grammer of graphics and made pursuasive visualisations using the same data as pro-mask groups by exploiting information ignored by the pro-maskers [@Lee2021]. It is understood that deceptive plots can lead viewers to come to incorrect conclusions or significantly overstate effects or risks [@Pandey2015; @Padilla2022] but these incorrect takeaways cannot be mitigated with instructions in how to correctly understand the plot [@Boone2018]. This evidence indicates we are more likely than not to hurt our message when we ignore uncertainty information and trying to raise the general publics plot literacy is an insufficient strategy to curb conspiracy theories and misguided scientific communication.  In direct contrast to this, displaying numerical estimates of uncertainty information has shown to lead to greater trust in predicitions [@Joslyn2012; @VanderBles2020]. While @Han2009 found people have more worry when presented with uncertainty reguarding health outcomes, this worry is not a bad thing if the concern is warranted given the ambiguous situation.
 
@@ -75,7 +126,7 @@ Current research in visualising uncertainty seems to have a focus on designing n
 Generally the goal seems to be to increase the number of options we have in our "visualisation bag" so that we always have a plot at the ready if we want to visualise uncertainty. These new plots also tend to focus on a catch all plot that is "best for making decision" or "best for visualising spatial uncertainty". Data visualisation is commonly utilised as a tool in data exploration, so it is not uncommon for a data analyst to make a plot with only a vague goal and use it to pull out a large number of adjacent observations. For example, a data analyst might make a scatter plot to find out the relationship between two variables, but in doing do also finds out that one variable has discrete outcomes over a range of values. It is common knowledge that any single plot cannot reveal all information about a data set, all plot types obfuscate and uncover different types of information, however this aspect of plotting becomes more apparent in uncertainty visualisation. Often when discussing "uncertainty" information, we expect readers to be able to draw information from a plot that was not estimated, prioritised, or visualised. Communicating uncertainty can be boilled down into two simple steps, first we need to quantify the uncertainty, and second, we need to communicate it [@Webster2003]. The two issues I have noticed in uncertainty visualisation literature each come from one of these steps. The first issue is failing to identify the correct distribution (quantifying) and the second is failling to select a visualisation that highlights the important aspects of the distribution (communicating). These issues run deep in the literature, but they are easiest to understand with an example that I will repeatedly return to as we develop this idea.
 
 ## Part 1: Distribution
- ### Example: Comparing HOPs, error bars, and violin plots
+### Example: Comparing HOPs, error bars, and violin plots
 The issues that are rampant in the uncertainty visualisation literature are easily seen if we zoom in on one example. The study done by @Hullman2015 is a great illustration in the importance of having a clear motivation when you design a graphic. It is important to keep in mind that while I am primarily discussing one paper to illustrate a point, the issues I am brining to light are the standard in the uncertainty visualisation literature. This paper is no outlier.
 
 The study by @Hullman2015 asked participants to provide some numerical properties of a distribution using a hypothetical outcome plot (HOPs), an error bar plot or violin plot. Participants were given questions relating to individual and multiple distributions. When shown a single distribution participants were asked about the mean of the distribution, the probability of an outcome being above some threshold (indicated on the plot with a red dot), or the probability of an outcome being between two given values. When shown two distributions the participants were asked "How often is measurement of solute B larger than the measurement of solute A?", and when shown three distributions "How often is measurement of solute B larger than the measurement of solute A and solute C?". @fig-examples shows an example error bar plot and violin plot for the two distribution case. There was also a high and low variance case for every plot and question combination. The study decided which technique was better using absolute error between the subjects response and the true value. They specified that the error bars are not confidence intervals as they represent the true underlying distribution, not the sampling distribution of the mean. They found that the HOPs reliably outperformed the violin and error bar plots for all the two and three distribution questions, but were no better than the violin or error bar plot in the other univariate cases (and in some cases worse). 
@@ -163,7 +214,8 @@ scatter_data %>%
   scale_y_continuous(breaks=ticks, limits=c(0,100)) +
   scale_x_continuous(breaks=ticks, limits=c(0,100)) +
   theme_classic() +
-  theme(aspect.ratio=1)  
+  theme(aspect.ratio=1) +
+  scale_colour_brewer(type = "qual", palette = 6)
 
 # Make bar plot data
 bar_data <- scatter_data %>%
@@ -182,7 +234,8 @@ bar_data %>%
   theme(axis.title.x=element_blank(), 
         axis.text.x=element_blank(),
         axis.ticks.x = element_blank(),
-        aspect.ratio=4/2)  
+        aspect.ratio=4/2)  +
+  scale_fill_brewer(type = "qual", palette = 6)
   
 ```
 
@@ -212,40 +265,26 @@ Let us return to the study done by @Hullman2015. Not only is the distribution de
 #| message: false
 #| label: fig-bad
 #| fig-subcap: 
-#|   - "2D error bar plot"
-#|   - "Scatter plot of bernouli"
-#|   - "alternative to 2d error bar plot"
+#|   - "Error cirlce. The point in the middle represents the mean and the circle represents the area 95% of values will fall into."
+#|   - "A scatter plot depicting the samples of the bernouli distribution"
 #| fig-cap: "Two plots that are not useful in answering the question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. While the distributions visualised are correct, we have visualised the incorrect feature of the repsective distributions. Plot (a) visualises mean and significance thresholds of for values (b) the."
 #| layout-ncol: 2
 
 # 2D error bar plot
-ticks <- seq(0,100, 10)
-tibble(x=50,
-       y=60) %>%
-  ggplot(aes(x,y)) + 
-  geom_errorbarh(xmin=30, xmax=70) +
-  geom_errorbar(ymin=40, ymax=80) +
-  geom_point() +
-  geom_abline() + 
-  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
-  scale_x_continuous(breaks=ticks, limits=c(0,100)) +
-  labs(y = "Solution B Parts Per Million (PPM)",
-       x = "Solution A Parts Per Million (PPM)")+
-  theme_classic() +
-  theme(aspect.ratio=1)
-
-# Outome Bernouli Plot
-scatter_data %>%
-  ggplot(aes(x=biggerb, y=0, colour=biggerb)) +
-  geom_jitter(width=0.4, height=0.4) + 
-  scale_y_continuous(limits=c(-1,1)) +
-  labs(x = "Is B>A?")+
-  theme_classic() +
-  theme(aspect.ratio=1,
-        axis.title.y = element_blank(), 
-        axis.text.y=element_blank(),
-        legend.position = "none",
-        axis.ticks.y = element_blank())
+#ticks <- seq(0,100, 10)
+#tibble(x=50,
+#       y=60) %>%
+#  ggplot(aes(x,y)) + 
+#  geom_errorbarh(xmin=30, xmax=70) +
+#  geom_errorbar(ymin=40, ymax=80) +
+#  geom_point() +
+#  geom_abline() + 
+#  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+#  scale_x_continuous(breaks=ticks, limits=c(0,100)) +
+#  labs(y = "Solution B Parts Per Million (PPM)",
+#       x = "Solution A Parts Per Million (PPM)")+
+#  theme_classic() +
+#  theme(aspect.ratio=1)
 
 # CIRCLE PLOT
 library(ggforce)
@@ -262,6 +301,21 @@ tibble(x=50,
        x = "Solution A Parts Per Million (PPM)")+
   theme_classic() +
   theme(aspect.ratio=1)
+
+# Outome Bernouli Plot
+scatter_data %>%
+  ggplot(aes(x=biggerb, y=0, colour=biggerb)) +
+  geom_jitter(width=0.4, height=0.4) + 
+  scale_y_continuous(limits=c(-1,1)) +
+  labs(x = "Is B>A?")+
+  theme_classic() +
+  theme(aspect.ratio=1,
+        axis.title.y = element_blank(), 
+        axis.text.y=element_blank(),
+        legend.position = "none",
+        axis.ticks.y = element_blank()) +
+  scale_colour_brewer(type = "qual", palette = 6)
+
 ```
 
 Not only does visualising the incorrect distribution that highlights incorrect features related to a question make it difficult to answer correctly, it might also completely disorientate the viewer. In the discussion of the study @Hullman2015 notes: 
@@ -288,25 +342,26 @@ This chapter so far has focused on the first way in which we talk about "visuali
 
 Trying to depict the uncertainty of an estimates with a spatial aspect is incredibly difficult. Even displaying an estimate in a spatial context can have problems. Improvements in spatial plots typically focus on ways to map a distribution that is dependent on something other than land size while still depicting the inexchangability and location that is relevant to spatial data. A common complaint about choropleth maps is that they depict the estimated parameter as a function of land size instead of location, even if land size is irrelevant to the estimate (such as in the case of voting). Visualisations that correct for this, such as hex maps, do so by colouring and plotting hexagonal tiles that each represent a portion of the dependent location [@Kobakian]. This means an irrelevant feature, such as land size is not depicted as important in the map. Trying to highlight the uncertainty associated with these estimates makes the process even more difficult.
 
-@fig-spatialuncert depicts four proposed methods of visualising spatial uncertainty that can be made with the `Vizumap` R package [@lucchesi2021vizumap]. These four plots each present uncertainty with varying degrees of success and failure. Plot (a) depicts a bivariate map which uses a bivariate colour palette which is created by blending two single hue colour palettes. One colour represents the variable of interest while the other represents uncertainty. There are two immediate problems with this method. First of all, uncertainty is being mapped with hue and saturation. @fig-huesatcol illustrates the differences between hue, saturation, and value when looking at a colour palette. @Maceachren2012 found hue and saturation to be two of the worst aesthetics to map to uncertainty as they don't have an intuitive connection to uncertainty and so participants were worse. Value does have a natural connection to uncertainty (lighter values equate to higher uncertainty and darker values equate to more certainty) so it is a much more appropriate choice. While the `Vizumap` data does depict areas of light and darkenss, they are largely irrlevant to the uncertainty measure causing our heuristics to lead us to the incorrect conclusions. The Value-Suppressing Uncertainty Palettes (VSUP) shown in @fig-vsup maps estimates to the hue and uncertainty to the value thereby creating a more intuitive plot [@Correll2018 ]. Additionally, at high levels of uncertainty VSUP only has one output colour, which explicitly prevents any decoding of one output colour without enforcing a binary encoding of significance [@Correll2018]. Unfortunately VSUP are not easy to combine with packages like `Vizumap` which leaves it still somewhat difficult to express this encoding in practice. Plot (b) from @fig-spatialuncert depicts a pixel map. Pixel maps are similar to HOPs plots since they present a sample of possible values for the estimate, rather than a single value and an uncertainty visualsiation. Some depictions of a pixel map are quite intuitive, such as those shown in @Bauer2015, however these cases link "uncertainty" to sparseness rather than a wide array of potential outcomes, however the effectivness of a pixel map is yet to be shown in any experients. The pixel map depicted in (b) might be more effective if values were written explicitly on top of the pixels because mapping a distribution of colours to numerical values is currently required to extract actual values from the plot which is a relatively difficult mental task. The pixel map is also quite computationally expensive and hard to interpret when the relevant geographical areas are small relative to a large map, so it is likely best used on simpler smaller geographical areas. Plot (c) uses orientation to express uncertainty which @Maceachren2012 found to have very poor results in expressing uncertainty and should be avoided. Additionally, if you want to bring an estimate into dispute it is harder to ignore if the uncertainty to the same feature as the estimate, which this plot does not do. Plot (d) is essentially just depicting a single value except instead of an estimate it expresses the probability of a threshold being met for each area. This plot was developed specifically for decision making relative to a single value in mind, and can be considered a visualisation of a single parameter @Kuhnert2018.
+There are four proposed methods of visualising spatial uncertainty that can be made with the `Vizumap` R package [@lucchesi2021vizumap]. These four plots each present uncertainty with varying degrees of success and failure.
+
+The two visualiations that do a reasonably good job of expressing error are the bivariate map and the pixel map. @fig-spatialuncert1 depicts these two types of visualisation. Plot (a) depicts a bivariate map which uses a bivariate colour palette which is created by blending two single hue colour palettes. One colour represents the variable of interest while the other represents uncertainty. There are two immediate problems with this method. First of all, uncertainty is being mapped with hue and saturation. @fig-huesatcol illustrates the differences between hue, saturation, and value when looking at a colour palette. @Maceachren2012 found hue and saturation to be two of the worst aesthetics to map to uncertainty as they don't have an intuitive connection to uncertainty and so participants were worse. Value does have a natural connection to uncertainty (lighter values equate to higher uncertainty and darker values equate to more certainty) so it is a much more appropriate choice. While the `Vizumap` data does depict areas of light and darkenss, they are largely irrlevant to the uncertainty measure causing our heuristics to lead us to the incorrect conclusions. The Value-Suppressing Uncertainty Palettes (VSUP) shown in @fig-vsup maps estimates to the hue and uncertainty to the value thereby creating a more intuitive plot [@Correll2018 ]. Additionally, at high levels of uncertainty VSUP only has one output colour, which explicitly prevents any decoding of one output colour without enforcing a binary encoding of significance [@Correll2018]. Unfortunately VSUP are not easy to combine with packages like `Vizumap` which leaves it still somewhat difficult to express this encoding in practice, however the combination of a bivariate map with VSUP has shown to improve decisions in the face of uncertainty [@Correll2018]. Plot (b) from @fig-spatialuncert1 depicts a pixel map. Pixel maps are similar to HOPs plots since they present a sample of possible values for the estimate, rather than a single value and an uncertainty visualsiation. Some depictions of a pixel map are quite intuitive, such as those shown in @Bauer2015, however these cases link "uncertainty" to sparseness rather than a wide array of potential outcomes. Currently the effectivness of a pixel map is yet to be shown in any experients, and it may turn out to be a poor encoding of uncertainty information. Mapping a distribution of colours to numerical values is currently required to extract actual values from the plot which is a relatively difficult mental task Therefore the pixel map might be more effective if values were written explicitly on top of the pixels. The pixel map is also quite computationally expensive and hard to interpret when the relevant geographical areas are small relative to a large map, so it is likely best used on simpler smaller geographical areas. 
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| label: fig-spatialuncert
+#| label: fig-spatialuncert1
 #| fig-subcap: 
 #|   - "Bivariate map"
 #|   - "Pixel map"
-#|   - "Glyph map"
-#|   - "Exceedance probability map"
-#| fig-cap: "The four visualisations of spatial uncertainty that can be made using the `Vizumap` package. These are the four visualisations that are provided as an example in the package vingette."
-#| layout-ncol: 1
+#| fig-cap: "The two more inventive visualisations of spatial uncertainty that can be made using the `Vizumap` package. These are the example visualisations of the bivariate and pixel map that are provided in the package vingette."
 
 # Data stuff
 data(us_data)
 data(us_geo)
-poverty <- read.uv(data = us_data, estimate = "pov_rate", error = "pov_moe")
+us_data <- us_data %>% mutate(Estimate = pov_rate,
+                              Error = pov_moe)
+poverty <- read.uv(data = us_data, estimate = "Estimate", error = "Error")
 
 ## Bivariate plot
 # make pal 
@@ -317,12 +372,12 @@ usBivMap <- build_bmap(data = poverty, geoData = us_geo, id = "GEO_ID", terciles
 # make key
 usBivKey <- build_bkey(data = poverty, palette = customBivPal3, terciles = TRUE)
 # attach key (+ visualise)
-attach_key(usBivMap, usBivKey)
+attach_key(usBivMap, usBivKey) 
 
 # Pixel Map
 us_data$GEO.id2 <- as.numeric(us_data$GEO.id2)
 ca_data <- subset(us_data, us_data$GEO.id2 > 6000 & us_data$GEO.id2 < 7000)
-ca_data <- read.uv(data = ca_data, estimate = "pov_rate", error = "pov_moe")
+ca_data <- read.uv(data = ca_data, estimate = "Estimate", error = "Error")
 row.names(ca_data) <- seq(1, nrow(ca_data), 1)
 ca_geo <- subset(us_geo, us_geo@data$STATE == "06")
 pix <- pixelate(ca_geo, id = "region")
@@ -331,12 +386,29 @@ ca_data$region <- df[match(ca_data$GEO_ID, df$name), 1]
 ca_data$region <- as.character(ca_data$region)
 unifPixMap <- build_pmap(data = ca_data, distribution = "uniform", pixelGeo = pix, id = "region", border = ca_geo)
 view(unifPixMap)
+```
+
+![Visual depiction of hue, saturation and value of a colour palette from @huesatval](huesatval.png){#fig-huesatcol}
+
+![An example of a Value-Suppressing Uncertainty Palette with axis aids](vsup.png){#fig-vsup}
+
+@fig-spatialuncert2 depicts the two plots that are either inappropriate for depicting spatial error, or are functionally the same as maps that already exist. Plot (c) is a glyph map that uses colour of a glyph to express the estimate and the rotation of the glyph to express uncertainty. Orientation has no intuitive link to uncertaitny and should be avoided at all costs [@Maceachren2012]. This plot also makes it easier to ignore the uncertainty all together since it is mapped to a feature that is different to the estimate. Plot (d) is a exceedance probability map that shows the probability of the estimate being over a certain value. This plot was developed specifically for decision making relative to a single value in mind, and can be considered a visualisation of a single parameter [@Kuhnert2018]. An exceedance probability map map is actually very similar to a chloropleth map, but instead of expressing an estimate, it shows a probability. Therefore this plot is only able to express probability through a change in information rather than an improvement in visualisation techniques.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-spatialuncert2
+#| fig-subcap: 
+#|   - "Glyph map"
+#|   - "Exceedance probability map"
+#| fig-cap: "The two visualisations of spatial uncertainty that can be made using the `Vizumap` package that are less impressive. The glyph map is already used in high dimensional data and rotation is a poor mapping for error. An exceedance probability map is useful for uncertainty visualisaitons, but it is functionally the same as a chloropleth map. "
 
 # Glyph Map
 co_geo <- subset(us_geo, us_geo@data$STATE == "08")
 us_data$GEO.id2 <- as.numeric(us_data$GEO.id2)
 co_data <- subset(us_data, us_data$GEO.id2 > 8000 & us_data$GEO.id2 < 9000)
-co_data <- read.uv(data = co_data, estimate = "pov_rate", error = "pov_moe")
+co_data <- read.uv(data = co_data, estimate = "Estimate", error = "Error")
 usGlyphMap <- build_gmap(data = co_data, geoData = co_geo, id = "GEO_ID", size = 80, glyph = "icone", border = "county")
 usGlyphKey <- build_gkey(data = co_data, glyph = "icone")
 attach_key(usGlyphMap, usGlyphKey)
@@ -347,15 +419,12 @@ quantile(us_data$pov_rate)
 pd <- quote({ pexp(q, rate, lower.tail = FALSE) })
 args <- quote({ list(rate = 1/estimate) })
 pdflist <- list(dist = pd, args = args, th = 30)
-usExcMap <- build_emap(data = poverty, pdflist = pdflist, geoData = us_geo, id = "GEO_ID", key_label = "Pr[X > 30]")
+usExcMap <- build_emap(data = poverty, pdflist = pdflist, geoData = us_geo, id = "GEO_ID", key_label = "Pr[Estimate > 30]")
 view(usExcMap)
 ```
 
-![Visual depiction of hue, saturation and value of a colour palette from @huesatval](huesatval.png){#fig-huesatcol}
 
-![An example of a Value-Suppressing Uncertainty Palette with axis aids](vsup.png){#fig-vsup}
-
-The four plots depicted in @fig-spatialuncert are not the be all end and all of visualisation of spatial uncertainty. They are a suggested solution for a particular case of uncertainty visualisation, when we want to highlight the certainty or uncertainty associated with a particular estimate. They may not even always work in that case depending on the complexity of the underlying distribution. The plots that can be expressed using `Visumap` sets a particular order of importance to the information we are conveying (typically geographical information > estimate > sample uncertainty) and maps that information to aesthetics that are of relative importance in the plot.
+The four plots depicted in @fig-spatialuncert1 and @fig-spatialuncert2 are not the be all end and all of visualisation of spatial uncertainty. They are a suggested solution for a particular case of uncertainty visualisation, when we want to highlight the certainty or uncertainty associated with a particular estimate. They may not even always work in that case depending on the complexity of the underlying distribution. The plots that can be expressed using `Visumap` sets a particular order of importance to the information we are conveying (typically geographical information > estimate > sample uncertainty) and maps that information to aesthetics that are of relative importance in the plot.
 
 ### Theory: Mapping the features to the appropriate hierarchy
 The methods I discussed in parts 1 and 2 of this chapter and the method I discussed in the starting example of this section are not as distinct as I am making them out to be. We can think of this new problem using the framing I have established so far in this chapter. This question boils down to "how do I visualise the sampling distriubtions of large number of estimates and also visualise some features of a larger distribution that THOSE estimates came from". When there are many features of the data that are competing for our interest, we often don't have as much flexibility in how we choose to visualise uncertainty. Frequently we abandon complicated features of our distributions, such as mass, to make way for for complicated features of the data such as spatial dependence. Obviously every possible piece of information you might want to depict in a plot cannot be extrated with maximum efficiency, so we need to establish some kind of hierarchy.
@@ -416,7 +485,8 @@ ggplot(series_data, aes(x=as.Date(Month), y=Turnover, colour=State)) +
   labs(y="Food retailing turnover (AUD)",
        x = "Month") + 
   theme_classic() +
-  theme(aspect.ratio=1)  
+  theme(aspect.ratio=1)  +
+  scale_colour_brewer(type = "qual", palette = 7)
 
 # Point plot
 ggplot(series_data, aes(x=as.Date(Month), y=Turnover)) +
@@ -427,7 +497,8 @@ ggplot(series_data, aes(x=as.Date(Month), y=Turnover)) +
   #             aes(y=Queensland, xend=as.Date(Month),
   #                 yend=Victoria)) +
   theme_classic() +
-  theme(aspect.ratio=1) 
+  theme(aspect.ratio=1) +
+  scale_colour_brewer(type = "qual", palette = 7)
 
 # Scatter plot
 ggplot(series_data2, aes(x=Queensland, y=Victoria, alpha=id)) +
@@ -449,7 +520,7 @@ ggplot(series_data3, aes(alpha=id)) +
 ```
 
 
-With this in mind lets assess the hierarchy established in the figures of @fig-spatialuncert. Despite being against the categorisation of "uncertainty", "estimate", and "data" I will use it here because it is how it is referred to in the literature. Plot (a) in set the estimate and uncertainty at the same level of importance, plot (b) visualised the uncertainty over the estimate. Roation does not exist in the hierarchy (direction refers to identifying slopes and angles are for vectors starting at the same origin) and I found it easy to ignore, therefore plot (c) sets "uncertainty" is at a lower level than the estimate. Plot (d) displays a parameter related to both the estimate and its uncertainty. All four plots place spatial information at the highest level of importance. If the only thing you want from your plot is a sense of estimates with respect to their position in space, these plots are fine, but what if there is a feature of your distribution that is of higher importance than the order/inexchangeability of your data? Playing around with this hierarchy and asking if the same features of our distribution are being conveyed can lead to some interesting plots, such as those depicted in @fig-timescatter. 
+With this in mind lets assess the hierarchy established in the figures of @fig-spatialuncert1 and @fig-spatialuncert2. Despite being against the categorisation of "uncertainty", "estimate", and "data" I will use it here because it is how it is referred to in the literature. Plot (a) in set the estimate and uncertainty at the same level of importance, plot (b) visualised the uncertainty over the estimate. Roation does not exist in the hierarchy (direction refers to identifying slopes and angles are for vectors starting at the same origin) and I found it easy to ignore, therefore plot (c) sets "uncertainty" is at a lower level than the estimate. Plot (d) displays a parameter related to both the estimate and its uncertainty. All four plots place spatial information at the highest level of importance. If the only thing you want from your plot is a sense of estimates with respect to their position in space, these plots are fine, but what if there is a feature of your distribution that is of higher importance than the order/inexchangeability of your data? Playing around with this hierarchy and asking if the same features of our distribution are being conveyed can lead to some interesting plots, such as those depicted in @fig-timescatter. 
 
 What should become apparent comparing these plots is that there is a constant trade off between information relevant to the our question and secondary information that provides context. By always assuming features such as the spatial context are always the most important apsect of a plot, we kneecap research and don't consider the wide array of ways we can express complicated concepts such as inexchangability and perception heavy information such as location.
 
