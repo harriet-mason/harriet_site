@@ -2,8 +2,7 @@
 title: "Plotting Apples, Oranges, and Distributions"
 subtitle: "A New Taxonomy to Prevent Information Inequalities In Uncertainty Visualisations"
 author: Harriet Mason
-affiliations:
-      - name: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
+authors: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 bibliography: references.bib
 date: last-modified
 format: pdf
@@ -537,22 +536,27 @@ Unfortunately visualisation papers that properly consider the underlying distrib
 {{< pagebreak >}}
 
 # Timeline
-A timetable for completing the thesis and a statement of progress to date (make sure to match everything to apsects of the thesis)
-- (done) Literature review (have made progress in this year) have picked up main parts of the infoviz community - changed topic once got new scholarship (check off to say completed)
-- can pencil in energy aspect now (met with them earlier in the year) - have a need for this work 
-- next meeting in June (and have regular meetings monthly over the next year and hopefully build up applications)
-- Have idea of when I think I will have a finished piece of work (literature review)
-- Content for each of the pieces should be mapped out
-- ASC later in year (submitted an abstract for a poster)
-- getting design of experiment clear and question we want to answer clear can go round and round (good idea to have something simple to test) - dont have time for something too complicated in phd need to have it in small managable pieces
-- ASC december 2023 - apsect of literature review + results from preliminary experiemnt
-- IEEE VIS (June 22 2023 poster abstract) - Conference October 2023 (present aspect of literature review)
-- The Rstudio conference (posit conference) - hard to get a spot (worth applying for)
-- Aim for something international in a year (or in last year)
-- Also could do UseR! 2024 (or 2025) & talk about some of the software developed (technical output) 
-- Could have an energy specific one (various applied energy)
-- IEEE VIS (march 31st paper due in 2025) - Conference October 2025 (Vienna)
-- Thesis due December 2025
+
+|Date|Description|
+|:--|:--------|
+|May 2022| Changed topic to uncertainty visualisation with new scholarship funded by AEMO |
+|May 2023| Met with Dean Sharafi, Alireza Fereidouni, and Toby Price from the AEMO Systems Design and Transformation team to discuss current issues they are facing in uncertainty visualisation|
+|June 2023| Meeting with AEMO team to map out future monthly meetings over the next year and build up applications of uncertainty visualisations|
+|June 2023|Confirmation milestone|
+|June 2023| Submit poster abstract on apsects of the literature review for IEEE VIS 2023|
+|July 2023| Complete chapter 1, a detailed literature review paper that captures the key aspects of the infoviz community and submit to a journal|
+|August 2023| Start initial experiments for Chapter 2 of the thesis|
+|October 2023| Attend IEEE VIS 2023|
+|December 2023| Attend ASC and present poster on taxonomy of uncertainty visualisaitons with results from preliminary experiments|
+|April 2024| Submit paper summarising key findings from experiments |
+|May 2024| Progress review milestone |
+|September 2024|Attend POSIT::CONF(2024)|
+|October 2024| Attend IEEE VIS 2024|
+|April 2024| Submit paper for Chapter 3 |
+|May 2025| Pre-submission milestone|
+|October 2025| Attend IEEE VIS 2025 in Vienna |
+|Novemeber 2025| Attend UseR! conference to discuss software developed for translation of uncertainty visualisation work|
+|December 2025| Submit Thesis |
 
 {{< pagebreak >}}
 

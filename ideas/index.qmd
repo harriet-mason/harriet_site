@@ -64,12 +64,12 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Add two plot to the motivation
 - [x] Fix formatting of plots (in R stuff)
 - [x] Work out what is stopping PDF from knitting
-- [ ] Format timeline into table
+- [x] Format timeline into table
 - [ ] Full read over with changes needed to:
   - General edits and spell check
   - Add econometrics question to begining
   - Make uncertainty definition and use more cohesive
-  - Cite AEMO conversation and paper they sent
+  - Cite AEMO conversation 
   - Make it clear scholarship is from AEMO and we are already talking to them (in project 2 and 3)
   - Comment on “show me the data”
   - Expand on chapter 3
@@ -86,6 +86,7 @@ I have put my confirmation report here for the time being because I am not sure 
 - [ ] Add in sufficiency link (short one sentence)
 - [ ] Check circle error bar is accurate
 - [ ] Full read over of current work + spell check
+  - Cite paper AEMO team sent
 
 #### Wednesday
 - [ ] Full read over of current work + spell check
