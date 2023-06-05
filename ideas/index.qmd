@@ -55,6 +55,13 @@ I have put my confirmation report here for the time being because I am not sure 
 ::: {#confirmation}
 :::
 
+## TODO LIST
+### Small Tasks
+
+### Bigger Tasks
+
+### Full read over
+
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
 
