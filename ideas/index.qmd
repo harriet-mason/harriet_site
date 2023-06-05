@@ -63,9 +63,9 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Redo features drawing with actual names
 - [x] Add two plot to the motivation
 - [x] Fix formatting of plots (in R stuff)
+- [x] Work out what is stopping PDF from knitting
 - [ ] Format timeline into table
-- [ ] Full read over of current work
-  *Read over changes*
+- [ ] Full read over with changes needed to:
   - General edits and spell check
   - Add econometrics question to begining
   - Make uncertainty definition and use more cohesive
@@ -80,10 +80,9 @@ I have put my confirmation report here for the time being because I am not sure 
   - Make sure it is conveyed why this abstraction is better
 
 #### Tuesday
+- [ ] Work out why Vizumap plots stoppped working :(
 - [ ] Add HOPs plot to example
-- [ ] Fix formatting of plots (PDF / individual figure sizes)
-- [ ] Why are the added in images appearing on pages by themselves? Fix that somehow :(
-- [ ] I need to have the plots at a consistent size that isnt *touching* :(
+- [ ] Fix formatting of plots (PDF / individual figure sizes / figures on pages by themselves)
 - [ ] Add in sufficiency link (short one sentence)
 - [ ] Check circle error bar is accurate
 - [ ] Full read over of current work + spell check
@@ -91,7 +90,7 @@ I have put my confirmation report here for the time being because I am not sure 
 #### Wednesday
 - [ ] Full read over of current work + spell check
 
-### Low Priority Maybes (If time but probably not)
+### Add if I have time for some reason (but probably not)
 - gestalt principles?
 - Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
 - Change spatial example to Australian data from American

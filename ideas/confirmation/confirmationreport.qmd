@@ -2,12 +2,15 @@
 title: "Plotting Apples, Oranges, and Distributions"
 subtitle: "A New Taxonomy to Prevent Information Inequalities In Uncertainty Visualisations"
 author: Harriet Mason
+affiliations:
+      - name: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 bibliography: references.bib
 date: last-modified
 format: pdf
 editor_options: 
   chunk_output_type: console
 ---
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -19,8 +22,9 @@ library(tsibbledata)
 library(Vizumap)
 library(fable)
 ```
+
 # Motivation
-Think back to the last time you made some sort of data visualisation. What was the purpose of that visualisation? Was it to better understand your data? Was it to help you make a decision? Was it to to communicate that decision to someone else? There are many stages in our analysis that benefit from the power of data visualisation, however this does not mean it is always done with success. Visualization is an important step in exploratory data analysis and it is often utilised to **learn** what is important about a data set. The importance of data driven discovery is highlighted by data sets such as Anscombe’s quartet [@anscombe] or the Datasaurus Dozen [@datasaurpkg]. Each of the pairwise plots in these data sets have the same summary statistics but strikingly different information when visualised. The anscombe quartet is shown in @fig-anscombe. Instead of having to repeatedly check endless hypothesis to find interesting numerical features, visualisations **tell** us what is important about the data set. This powerful aspect of data visualization is poorly or seldom used in later stages when we are communicating our findings, specifically with respect to uncertainty. 
+Think back to the last time you made some sort of data visualisation. What was the purpose of that visualisation? Was it to better understand your data? Was it to help you make a decision? Was it to to communicate that decision to someone else? Now think about the last time you expressed uncertainty. Was it in a table of estimates or was it in a visualisation? There are many stages in our analysis that benefit from the power of data visualisation, however this does not mean it is always done with success. Visualization is an important step in exploratory data analysis and it is often utilised to **learn** what is important about a data set. The importance of data driven discovery is highlighted by data sets such as Anscombe’s quartet [@anscombe] or the Datasaurus Dozen [@datasaurpkg]. Each of the pairwise plots in these data sets have the same summary statistics but strikingly different information when visualised. The anscombe quartet is shown in @fig-anscombe. Instead of having to repeatedly check endless hypothesis to find interesting numerical features, visualisations **tell** us what is important about the data set. This powerful aspect of data visualisation is poorly or seldom used in later stages when we are communicating our findings, specifically with respect to uncertainty. 
 
 ```{r}
 #| echo: false
@@ -42,8 +46,6 @@ tibble(x = c(anscombe$x1, anscombe$x2,
   theme(aspect.ratio = 1,
         legend.position = "none") +
   scale_fill_brewer(type = "qual", palette = 4)
-  
-
 ```
 
 Utilising visualisation can give people a more complete understanding of risks. Studies asking participants to sketch a distribution allowed them to better compute statistics about that distribution and improve predictions [@Hullman2018; @Goldstein2014]. While there is some evidence that confidence provided in text form only are less likely to be misinterpretated than grahics [@Savelli2013], text is insufficient to express more complicated aspects of a distribution, such as mass. The confusion caused by visualisation could also be due to a lack of expose, since @Kay2016 found that people exposed to the same uncertainty visualisation get better at making judgements the more they are exposed to them. Additionally, visualisation allows for interactive graphics that provide a more in depth understanding of probability [@Potter2009a; @Ancker2009] and infographics that make uncertainty more accessible for people with poor numeracy skills [@Ancker2009]. 
@@ -363,7 +365,7 @@ us_data <- us_data %>% mutate(Estimate = pov_rate,
                               Error = pov_moe)
 poverty <- read.uv(data = us_data, estimate = "Estimate", error = "Error")
 
-## Bivariate plot
+# Bivariate plot
 # make pal 
 customBivPal3 <- build_palette(name = "usr", colrange = list(colour = c("chartreuse4", "darkblue"), difC = c(3, 4)))
 customBivPal1 <- build_palette(name = "usr", colrange = list(colour = c("tan2", "lightskyblue"), difC = c(1, 1)))
@@ -372,7 +374,7 @@ usBivMap <- build_bmap(data = poverty, geoData = us_geo, id = "GEO_ID", terciles
 # make key
 usBivKey <- build_bkey(data = poverty, palette = customBivPal3, terciles = TRUE)
 # attach key (+ visualise)
-attach_key(usBivMap, usBivKey) 
+#attach_key(usBivMap, usBivKey) 
 
 # Pixel Map
 us_data$GEO.id2 <- as.numeric(us_data$GEO.id2)
@@ -385,7 +387,7 @@ df <- data.frame(region = sapply(slot(ca_geo, "polygons"), function(x) slot(x, "
 ca_data$region <- df[match(ca_data$GEO_ID, df$name), 1]
 ca_data$region <- as.character(ca_data$region)
 unifPixMap <- build_pmap(data = ca_data, distribution = "uniform", pixelGeo = pix, id = "region", border = ca_geo)
-view(unifPixMap)
+#view(unifPixMap)
 ```
 
 ![Visual depiction of hue, saturation and value of a colour palette from @huesatval](huesatval.png){#fig-huesatcol}
@@ -395,6 +397,7 @@ view(unifPixMap)
 @fig-spatialuncert2 depicts the two plots that are either inappropriate for depicting spatial error, or are functionally the same as maps that already exist. Plot (c) is a glyph map that uses colour of a glyph to express the estimate and the rotation of the glyph to express uncertainty. Orientation has no intuitive link to uncertaitny and should be avoided at all costs [@Maceachren2012]. This plot also makes it easier to ignore the uncertainty all together since it is mapped to a feature that is different to the estimate. Plot (d) is a exceedance probability map that shows the probability of the estimate being over a certain value. This plot was developed specifically for decision making relative to a single value in mind, and can be considered a visualisation of a single parameter [@Kuhnert2018]. An exceedance probability map map is actually very similar to a chloropleth map, but instead of expressing an estimate, it shows a probability. Therefore this plot is only able to express probability through a change in information rather than an improvement in visualisation techniques.
 
 ```{r}
+#| eval: false
 #| echo: false
 #| warning: false
 #| message: false
