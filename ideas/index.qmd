@@ -65,31 +65,37 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Fix formatting of plots (in R stuff)
 - [x] Work out what is stopping PDF from knitting
 - [x] Format timeline into table
-- [ ] Full read over with changes needed to:
-  - General edits and spell check
+- [x] Read over Motivation - Thesis Overview:
+  - Spell check
+  - Readability check
   - Add econometrics question to begining
   - Make uncertainty definition and use more cohesive
   - Cite AEMO conversation 
   - Make it clear scholarship is from AEMO and we are already talking to them (in project 2 and 3)
-  - Comment on “show me the data”
   - Expand on chapter 3
   - Rewrite landscape section to make it more cohesive with report
+
+#### Tuesday
+- [x] Spend forever fixing the vizumap error :(
+- [x] Add hypothesis test visualisation
+- [ ] Read over Chapter 1 - End:
+  - Rewrite landscape section to match paper
   - Mathematical expressions for distributions
   - Make it clear distribuitons can come from an unspecified null
   - Make it clear that this is a way to assess the information presented in a distribution and connect the ideas in to statistics.
   - Make sure it is conveyed why this abstraction is better
-
-#### Tuesday
-- [ ] Work out why Vizumap plots stoppped working :(
+  - Redo spell check
 - [ ] Add HOPs plot to example
+- [ ] add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
+- [ ] Cite paper AEMO team sent
+- [ ] ADD “show me the data” to motivation
 - [ ] Fix formatting of plots (PDF / individual figure sizes / figures on pages by themselves)
-- [ ] Add in sufficiency link (short one sentence)
-- [ ] Check circle error bar is accurate
-- [ ] Full read over of current work + spell check
-  - Cite paper AEMO team sent
+- [ ] Work out how to add supervisor list to title section
+- [ ] Full read over + spell check 
 
 #### Wednesday
-- [ ] Full read over of current work + spell check
+- [ ] Check circle error bar is accurate
+- [ ] Full read over + spell check
 
 ### Add if I have time for some reason (but probably not)
 - gestalt principles?
