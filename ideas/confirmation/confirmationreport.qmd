@@ -2,7 +2,7 @@
 title: "Plotting Apples, Oranges, and Distributions"
 subtitle: "An alternative taxonomy to prevent information inequality in uncertainty visualisations"
 author: Harriet Mason
-authors: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
+abstract: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 bibliography: references.bib
 date: last-modified
 format: pdf
