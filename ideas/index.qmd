@@ -87,13 +87,13 @@ I have put my confirmation report here for the time being because I am not sure 
   - Make it clear that this is a way to assess the information presented in a distribution and connect the ideas in to statistics.
   - Make sure it is conveyed why this abstraction is better
   - Redo spell check
-- [ ] Cite paper AEMO team sent
-- [ ] Fix formatting of plots (PDF / individual figure sizes / figures on pages by themselves)
+- [x] Cite paper AEMO team sent
+- [x] Fix formatting of plots (except full page problem)
 - [ ] Add HOPs plot to example
 
 #### Wednesday
 - [ ] Full read over + spell check
-
+- [ ] Fix full page problem
 
 ### Add if I have time for some reason (but probably not)
 - I couldnt find a citation for “show me the data”. Check again later?

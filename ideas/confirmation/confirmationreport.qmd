@@ -67,8 +67,8 @@ dotplot_data %>%
   geom_dotplot(binwidth = 0.75, fill="grey") +
   theme_classic() +
   geom_segment(x=round(mid), xend=round(mid), 
-               y=-1, yend=0.5, size=2) +
-  geom_label(x=round(mid), y=0.5, label=paste0(mid, "°C"),
+               y=-1, yend=0.7, size=2) +
+  geom_label(x=round(mid), y=0.7, label=paste0(mid, "°C"),
              fill = "black", fontface = "bold",
              colour="white") +
   scale_x_continuous(breaks = seq(10, 30, 5), 
@@ -146,7 +146,7 @@ This leaves the future of visualisation experiments a few options moving forward
 ### Example: Comparing HOPs, error bars, and violin plots
 The first, and most important element of our taxonomy is correctly identifying the relevant distribution. Every visualisation is depicting *some* underlying distribution, and if that distribution is irrelevant to your motivating question the graphic will be a poor expression of the information you are interested in. @Hullman2015 is a great illustration in the importance of understanding the distribution depicted by different graphics. It is important to keep in mind that while I am focusing on a single paper to illustrate a point, this is a standard issue in the visualisation literature. 
 
-The study by @Hullman2015 asked participants to provide some numerical properties of a distribution using a hypothetical outcome plot (HOPs), an error bar plot or a violin plot. When shown a single distribution participants were asked about the mean of the distribution, the probability of an outcome being above some threshold (indicated on the plot with a red dot), and the probability of an outcome being between two given values. When shown two distributions  the participants were asked "How often is measurement of solute B larger than the measurement of solute A?", and when shown three distributions they were asked "How often is measurement of solute B larger than the measurement of solute A and solute C?". @fig-examples shows an example error bar plot and violin plot for the two distribution case. There was also a high and low variance case for every plot and question combination. The study decided which technique was better using absolute error between the subjects response and the true value. They specified that the error bars are not confidence intervals as they represent the true underlying distribution, not the sampling distribution of the mean. They found that the HOPs reliably outperformed the violin and error bar plots for all the two and three distribution questions, but were no better than the violin or error bar plot in the other univariate cases (and in some cases worse). 
+The study by @Hullman2015 asked participants to provide some numerical properties of a distribution using a hypothetical outcome plot (HOPs), an error bar plot or a violin plot. When shown a single distribution participants were asked about the mean of the distribution, the probability of an outcome being above some threshold (indicated on the plot with a red dot), and the probability of an outcome being between two given values. When shown two distributions  the participants were asked "How often is measurement of solute B larger than the measurement of solute A?", and when shown three distributions they were asked "How often is measurement of solute B larger than the measurement of solute A and solute C?". @fig-examples shows an example error bar plot, violin plot, and some example frames from a HOPs for the two distribution case. There was also a high and low variance case for every plot and question combination. The study decided which technique was better using absolute error between the subjects response and the true value. They specified that the error bars are not confidence intervals as they represent the true underlying distribution, not the sampling distribution of the mean. They found that the HOPs reliably outperformed the violin and error bar plots for all the two and three distribution questions, but were no better than the violin or error bar plot in the other univariate cases (and in some cases worse). 
 
 ```{r}
 #| echo: false
@@ -156,8 +156,9 @@ The study by @Hullman2015 asked participants to provide some numerical propertie
 #| fig-subcap: 
 #|   - "Error bar plot"
 #|   - "Violin plot"
+#|   - "HOPs frames 1 to 4"
 #| fig-cap: "An example of the plots shown in the two variable tasks given in [@Hullman2015]. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
-#| layout-ncol: 2
+#| layout: "[[45,-5, 45], [100]]"
 
 
 # Make error bar data
@@ -199,9 +200,29 @@ violin_data %>%
   theme(axis.title.x=element_blank(), 
         axis.text.x=element_text(size=15),
         aspect.ratio=1)  
+
+# HOPs Data
+frame <- rep(seq(4), 2)
+y <- c(rnorm(4, 50, 10), rnorm(4, 60, 10))
+solute <- c(rep("Solute A", 4), rep("Solute B", 4))
+hops_data <- tibble(frame, y, solute)
+
+# HOPS plot frame
+hops_data %>%
+  ggplot(aes(x=solute)) + 
+  geom_boxplot(aes(y=y), colour="dodgerblue") +
+  labs(y="Parts Per Million (PPM)")+
+  facet_wrap(~frame, nrow=1) +
+  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
+  theme_classic() +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=6),
+        axis.text.y=element_text(size=6),
+        aspect.ratio=1)
+
 ```
 
-My first issue with the plots in @Hullman2015 study is that the violin plot and error bars are visualising a different distribution to the HOPs plot. The error bar plot and the violin plot in @fig-examples visualise the marginal distributions of solutions A and B and provides no information on the joint distribution. The HOPs plot is similar to a slope graph except instead of connecting the outcomes from A and B with a line, they are connected through frames of an animation. The HOPs, just like a slope graph, depicts a relationship between two variables, i.e. the *joint* distribution. This key feature can be used to improve upon the HOPs and direct our attention to the distribution that is even more useful for answering this question.
+My first issue with the plots in @Hullman2015 study is that the violin plot and error bars are visualising a different distribution to the HOPs. The error bar plot and the violin plot in @fig-examples visualise the marginal distributions of solutions A and B and provides no information on the joint distribution. The HOPs is similar to a slope graph except instead of connecting the outcomes from A and B with a line, they are connected through frames of an animation. The HOPs, just like a slope graph, depicts a relationship between two variables, i.e. the *joint* distribution. This key feature can be used to improve upon the HOPs and direct our attention to the distribution that is even more useful for answering this question.
 
 Two alternative graphics that could be used to answer the question "In what percentage of vials is there more of solute B than A (Probability(B > A)?" are provided in @fig-alternatives. The scatter plot depicts the joint distribution of the two solutions and uses colour to highlight the Bernoulli distribution that is more closely aligned with the question. The stacked bar exclusively visualises the Bernoulli distribution that describes the event $B>A$ and ignores the joint distribution highlighted by the scatter plot. Through this process of moving from the marginal distributions, to the joint distribution to the Bernoulli distribution we moved the information needed to answer the question "What is $P(B>A)$?" from something you needed to calculate in your head (when looking at the error bar plots) to something you can **see** in the bar chart. While this process is illuminating, it is important to avoid whittling down the problem **too** much. Providing a categorical decision alone is somewhat useless [@Joslyn2012], and visualising a single estimate is akin to providing a decision or expressing no uncertainty at all. We want to simplify a graphic to make the important distribution relevant but not so much that we remove the information that gives the graphic context. 
 
@@ -214,7 +235,7 @@ Two alternative graphics that could be used to answer the question "In what perc
 #|   - "Scatter Plot"
 #|   - "Stacked Bar Chart"
 #| fig-cap: "Two plots that could be used as alternatives to answer to question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. The scatter plot in (a) focuses on the relationship between the concentration of solute A and solute B, while the stacked bar chart in (b) highlights the frequency with which each solute is greater than the other."
-#| layout-ncol: 2
+#| layout: "[[48, -4, 48]]"
 
 # Scatter plot data
 scatter_data <- tibble(soluteA = soluteA,
@@ -272,7 +293,7 @@ This distribution framework does not mean you actually need some assumed distrib
 This view of understanding uncertainty visualisations opens up a new gap in the literature. For example, if we accept that visualizing a collection of t-distributions is not a substitute for a collection of F-tests or paired t-tests, how *should* we visualise our data if we want to draw those conclusions? This distribution based perception to visualisation highlights areas of improvement in our current work. @Wickham2011 discusses how in different displays of product plots result in depictions of different marginal, conditional, and joint distributions of data, which also does not require an assumed distribution.
 
 ## Part 2: Features
-### Example: more 
+### Example: returning to the HOPs, error bars, and violin plots
 If we have two visualisations that depict the same distribution, does that mean they contain the same information? No. Let us return to the study done by @Hullman2015 to answer this question. Not only are the distributions depicted in the three visualisation methods different, but the features of each distribution are also different. In discussing the concept of a *best* visualisation, we rarely discuss which *features* of the distribution are being displayed in the graphic. The way we currently look at visualisation would classify the error bar plot and the violin plot as visualisations of a "distribution", the scatter plot is a visualisation of a "relationship" while the bar plot is a visualisation of "amounts" (@wilke2019fundamentals), but this categorisation hides a lot of important details about drawing information from a graph. In this example the violin plot and the scatter plot both showed that each solution had an independent marginal normal distribution, the error bar (although technically a plot for visualising distributions) gives no concept of mass and would not give you the ability to identify even a simple distribution. Not only is it important to select a distribution that is appropriate for our question, it is also important to *show* the aspect of that distribution that holds the relevant information. The example asked about the *frequency* of a particular outcome which translates to visualising a hypothetical sample from a joint distribution **or** the *parameter* of the Bernoulli distribution. These are the aspects of each distribution that best highlight the information we are looking for. If we visualised features of the distribution that don't hold the information we are looking for, the information is difficult to ascertain and is more likely to be found through potentially faulty heuristics.
 
 @fig-bad depicts two graphics that have the of the same distributions as those in @fig-alternatives, but each plot visualises an aspect of the distribution that is not as relevant to the question as those in @fig-alternatives. The 2D error circle highlights the mean and the values that are within the 95% confidence range of the joint distribution. Since neither of those parameters are directly related to the question at hand, visualising the mean and significance instead of the outcomes made it harder to answer "What is $P(B>A)$?". Since the parameter of the Bernoulli distribution *is* directly related to the question, visualising a sample makes it harder to answer the question.
@@ -283,26 +304,11 @@ If we have two visualisations that depict the same distribution, does that mean 
 #| message: false
 #| label: fig-bad
 #| fig-subcap: 
-#|   - "Error circle. The point in the middle represents the mean and the circle represents the area 95% of values will fall into."
+#|   - "Error circle. The point represents the mean and the circle represents the 95% CI"
 #|   - "A scatter plot depicting the samples of the Bernoulli distribution"
 #| fig-cap: "Two plots that are not useful in answering the question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. While the distributions visualised are correct, we have visualised the incorrect feature of the respective distributions. Plot (a) visualises mean and significance thresholds of for values (b) the."
-#| layout-ncol: 2
-
-# 2D error bar plot
-#ticks <- seq(0,100, 10)
-#tibble(x=50,
-#       y=60) %>%
-#  ggplot(aes(x,y)) + 
-#  geom_errorbarh(xmin=30, xmax=70) +
-#  geom_errorbar(ymin=40, ymax=80) +
-#  geom_point() +
-#  geom_abline() + 
-#  scale_y_continuous(breaks=ticks, limits=c(0,100)) +
-#  scale_x_continuous(breaks=ticks, limits=c(0,100)) +
-#  labs(y = "Solution B Parts Per Million (PPM)",
-#       x = "Solution A Parts Per Million (PPM)")+
-#  theme_classic() +
-#  theme(aspect.ratio=1)
+#| layout: [[46,-4, 40]]
+#| layout-valign: "bottom"
 
 # CIRCLE PLOT
 library(ggforce)
@@ -336,7 +342,7 @@ scatter_data %>%
 
 ```
 
-Not only does visualising the incorrect distribution and incorrect features make it difficult to answer our questions, it might also completely disorientate the viewer. In the discussion of the HOPs error bar and violin plot study @Hullman2015 notes: 
+Not only does visualising the incorrect distribution and incorrect features make it difficult to answer our questions, it might also completely disorientate the viewer. In the discussion of the HOPs, error bar, and violin plot study @Hullman2015 notes: 
 > "In light of the common usage of error bars for presenting multiple independent distributions, it is noteworthy how poorly subjects using these representations performed on tasks asking them to assess how reliably a draw from one variable was larger than the other...Many subjects reported values less than 50%, which are not plausible given that the mean of B was larger than the mean of A."
 
 ### Theory: the four features of a distribution
@@ -350,7 +356,7 @@ Different features of a distribution have different questions they are mode adep
 
 4) **Exchangeability** illustrates whether or not elements from a sequence of random variables in this distribution can be swapped. Rather than wanting to answer questions about exchangeability, it is usually something we want to highlight in our data. Exchangeability is often expressed by having the graphical elements touch (if the data is inexchangeable) or not touch (if the data is exchangeable). A time series' inechangeability is expressed using a line plot, spatial data's inechangeability is expressed using a map and the exchangeability of randomly sampled data is often expressed using points. Exchangeability is adjacent to continuity because visually connected features in a graphic are also used to express discretised outcomes of a continuous process (such as a ridgeline plot or a histogram).
 
-![The four main features of a distribution graphics are typically used to represent](distfeatures.jpeg){#fig-features}
+![The four main features of a distribution graphics are typically used to represent](distfeatures.jpeg){#fig-features width=60%}
 
 This is not an exhaustive list of every possible feature of a distribution, but rather the four most commonly visualised aspects of a distribution. Almost every currently used visualisation can be categorised based on which distributions and related features it depicts. Additionally, these features are not entirely distinct, particular visualisations of parameters or samples may also double as a depiction of mass. Therefore, a graphic that is designed to depict one feature of a distribution may depict multiple features of multiple distributions. A boxplot is a good example of a graphic that depicts both mass (at a very low resolution) and a handful of selected parameters. Additionally different distributions that appear in the same plot can be expressed with different features. @fig-errortest visualises a simple hypothesis test by expressing one distribution with significant values, and the other with a sample. This visualisation shows the probability of a type two error expressed by the number of points in the circle.
 
@@ -359,7 +365,7 @@ This is not an exhaustive list of every possible feature of a distribution, but 
 #| warning: false
 #| message: false
 #| label: fig-errortest
-#| fig-cap: "A visualisation of a hypothesis test where the black circle represents the significant values of the null distribution and the pink points represent a sample from the true distribution. The number of points (out of 100) from the A distribution that fall in the black circle show the probability of a type two error."
+#| fig-cap: "A visualisation of a hypothesis test where the black circle represents the significant values of the null distribution and the pink points represent a sample from the true distribution. The number of points (out of 100) from the true distribution that fall in the black circle show the probability of a type two error."
 
 # Generate Data
 distA <- tibble(x = rnorm(100, 30, 10),
@@ -376,8 +382,8 @@ tibble(x=50,
   geom_label(x=30, y=30, label="True", colour="violet") +
   scale_y_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
   scale_x_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
-  labs(y = "Solution B Parts Per Million (PPM)",
-       x = "Solution A Parts Per Million (PPM)")+
+  labs(y = "Random Variable B",
+       x = "Random Variable A")+
   theme_classic() +
   theme(aspect.ratio=1)
 ```
@@ -394,7 +400,7 @@ There are four proposed methods of visualising spatial uncertainty that can be m
 
 @fig-bivariate depicts a bivariate map which uses a bivariate colour palette that is created by blending two single hue colour palettes. One colour represents the variable of interest while the other represents the sampling error of that variable. There are two immediate problems with this method. First of all, uncertainty is being expressed with hue and saturation which @Maceachren2012 found to be the worst aesthetics to map to uncertainty to as they don't have an intuitive interpretation. Value has a natural connection to uncertainty (lighter values equate to higher uncertainty and darker values equate to more certainty) so it is a much more appropriate choice. While the `Vizumap` data does depict areas of light and darkness, they are largely irrelevant to the uncertainty measure causing our heuristics to lead us to the incorrect conclusions. The Value-Suppressing Uncertainty Palettes (VSUP) shown in @fig-vsup maps estimates to the hue and error to the value thereby creating a more intuitive plot [@Correll2018]. Additionally, at high levels of uncertainty VSUP only has one output colour, which prevents viewers from decrypting any particular value and also avoids enforcing a binary encoding of significance [@Correll2018]. Unfortunately VSUP are not easy to combine with packages like `Vizumap` which leaves it still somewhat difficult to express this encoding in practice, however the combination of a bivariate map with VSUP has shown to improve decisions in the face of uncertainty [@Correll2018]. 
 
-@fig-pixel depicts a pixel map. Pixel maps are similar to HOPs plots since they present a sample of possible values for the estimate, rather than a single value and an uncertainty visualisation. Currently the effectiveness of a pixel map is yet to be shown in any experiments, and it may turn out to be a poor encoding of uncertainty information, however it is a promising visualisation. Unfortunately, mapping a distribution of colours to numerical values is currently required to extract any numerical estimates from the plot which is a relatively difficult mental task. Therefore the pixel map might be more effective if values were written explicitly on top of the pixels. The pixel map is also quite computationally expensive and hard to interpret when the relevant geographical areas are small relative to a large map, so it is best used on simpler smaller geographical areas.
+@fig-pixel depicts a pixel map. Pixel maps are similar to HOPs since they present a sample of possible values for the estimate, rather than a single value and an uncertainty visualisation. Currently the effectiveness of a pixel map is yet to be shown in any experiments, and it may turn out to be a poor encoding of uncertainty information, however it is a promising visualisation. Unfortunately, mapping a distribution of colours to numerical values is currently required to extract any numerical estimates from the plot which is a relatively difficult mental task. Therefore the pixel map might be more effective if values were written explicitly on top of the pixels. The pixel map is also quite computationally expensive and hard to interpret when the relevant geographical areas are small relative to a large map, so it is best used on simpler smaller geographical areas.
 
 @fig-exceed is a exceedance probability map that shows the probability of the estimate being over a certain value. This plot was developed specifically for decision making so it is a simple visualisation of a single parameter [@Kuhnert2018]. An exceedance probability map map is actually very similar to a choropleth map, but instead of expressing an estimate, it shows a probability. Therefore this plot is only able to express probability through a change in information rather than an improvement in visualisation techniques.
 
@@ -458,7 +464,7 @@ ggsave("ideas/confirmation/exceedmap.jpeg", width = 10, height = 5)
 ```
 
 
-::: {#fig-maps layout="[[60, 40], [60, 40]]" layout-valign="bottom"}
+::: {#fig-maps layout="[[59,-2, 39], [59,-2, 39]]" layout-valign="bottom"}
 
 ![Bivariate Map](bivariatemap.jpeg){#fig-bivariate}
 
@@ -472,11 +478,11 @@ Four spatial uncertainty visualisations that can be made using the `Vizumap` pac
 :::
 
 
-![An example of a Value-Suppressing Uncertainty Palette with axis aids](vsup.png){#fig-vsup}
+![An example of a Value-Suppressing Uncertainty Palette with axis aids](vsup.png){#fig-vsup width=35%}
 
 
 
-The four plots depicted in @fig-maps are merely some suggested solutions for a particular case of uncertainty visualisation. They are great when we want to highlight the error associated with a particular estimate, or visualise a sample, but if we need an idea of a more complicated feature of the distribution (such as mass) they are not so useful. What is interesting about this spatial uncertainty example is the implicit hierarchy we put on the error and the estimate. @fig-bivariate set the estimate and error at the same level of importance; @fig-glyph established the estimate to be of higher importance than the error; and @fig-pixel and @fig-exeed both visualised a feature that combined the error and estimate (by expressing a sample and a parameter that combined the error and estimate respectively) placing both at the same level of importance. What may have been less obvious is that all four plots place spatial information at the highest level of importance. If the only thing you want from your plot is a sense of estimates with respect to their position in space, these plots work well, but sometimes other pieces of information are more important. By always assuming features such as the spatial context are always the most important aspect of a plot, we kneecap research and don't consider the wide array of ways we can express complicated concepts such as exchangeability and location.
+The four plots depicted in @fig-maps are merely some suggested solutions for a particular case of uncertainty visualisation. They are great when we want to highlight the error associated with a particular estimate, or visualise a sample, but if we need an idea of a more complicated feature of the distribution (such as mass) they are not so useful. What is interesting about this spatial uncertainty example is the implicit hierarchy we put on the error and the estimate. @fig-bivariate set the estimate and error at the same level of importance; @fig-glyph established the estimate to be of higher importance than the error; and @fig-pixel and @fig-exceed both visualised a feature that combined the error and estimate (by expressing a sample and a parameter that combined the error and estimate respectively) placing both at the same level of importance. What may have been less obvious is that all four plots place spatial information at the highest level of importance. If the only thing you want from your plot is a sense of estimates with respect to their position in space, these plots work well, but sometimes other pieces of information are more important. By always assuming features such as the spatial context are always the most important aspect of a plot, we kneecap research and don't consider the wide array of ways we can express complicated concepts such as exchangeability and location.
 
 ### Theory: Mapping the features to the appropriate hierarchy
 When there are a large number of features competing for our interest, we don't much flexibility in how we choose to visualise them. It is common knowledge that any single plot cannot reveal all information about a data set, different plots obfuscate and uncover different types of information. Leveraging that trade off is what makes a good visualisation and we do that by using the hierarchy of visual perception.
@@ -509,7 +515,7 @@ The final consideration when deciding what information to depict is whether or n
 #|   - "Joint distribution of series"
 #|   - "Joint distribution of series with inexchangeability"
 #| fig-cap: "Four figures to illustrate the impact of changing the priority of the distribution displayed and presence of exchangeability . Time is depicted with opacity in plots (c) and (d) to maintain the same information. More recent dates are darker. Could you order these four plots by how well they convey correlation?"
-#| layout-ncol: 2
+#| layout: [[48,-4, 48], [43, -14, 43]]
 
 # Data for conditional distribution
 series_data <- aus_retail %>%
