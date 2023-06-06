@@ -79,29 +79,30 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Spend forever fixing the vizumap error :(
 - [x] Add hypothesis test visualisation
 - [X] Add supervisor list to title section
-- [ ] Find lost lineup plot paragraph and add back in
-- [ ] Read over Chapter 1 - End:
+- [x] Find lost lineup plot paragraph and add back in
+- [x] Read over Chapter 1 - End:
   - Rewrite landscape section to match paper
   - Mathematical expressions for distributions
   - Make it clear distribuitons can come from an unspecified null
   - Make it clear that this is a way to assess the information presented in a distribution and connect the ideas in to statistics.
   - Make sure it is conveyed why this abstraction is better
   - Redo spell check
-- [ ] Add HOPs plot to example
-- [ ] add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
 - [ ] Cite paper AEMO team sent
-- [ ] ADD “show me the data” to motivation
 - [ ] Fix formatting of plots (PDF / individual figure sizes / figures on pages by themselves)
-- [ ] Full read over + spell check 
+- [ ] Add HOPs plot to example
 
 #### Wednesday
-- [ ] Check circle error bar is accurate
 - [ ] Full read over + spell check
 
+
 ### Add if I have time for some reason (but probably not)
+- I couldnt find a citation for “show me the data”. Check again later?
 - gestalt principles?
 - Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
 - Change spatial example to Australian data from American
+- add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
+- Check circle error bar is accurate
+- Add type 1 and other probabilities into error plot
 
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
