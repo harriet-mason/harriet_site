@@ -78,6 +78,8 @@ I have put my confirmation report here for the time being because I am not sure 
 #### Tuesday
 - [x] Spend forever fixing the vizumap error :(
 - [x] Add hypothesis test visualisation
+- [X] Add supervisor list to title section
+- [ ] Find lost lineup plot paragraph and add back in
 - [ ] Read over Chapter 1 - End:
   - Rewrite landscape section to match paper
   - Mathematical expressions for distributions
@@ -90,7 +92,6 @@ I have put my confirmation report here for the time being because I am not sure 
 - [ ] Cite paper AEMO team sent
 - [ ] ADD “show me the data” to motivation
 - [ ] Fix formatting of plots (PDF / individual figure sizes / figures on pages by themselves)
-- [ ] Work out how to add supervisor list to title section
 - [ ] Full read over + spell check 
 
 #### Wednesday
