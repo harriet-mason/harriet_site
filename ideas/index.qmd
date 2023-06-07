@@ -48,13 +48,14 @@ In this section I go back to papers written on defining uncertainty and reinterp
 ### Part 5: Applying this Problem to Energy Data
 Finally, I will go through a data visualisation problem from begining to end to show how this method might be used with a typical question about uncertainty. Starting with defining the uncertainty and stating the assumptions/limitations. Then using the rules of visualising uncertainty to present different visualisations that answer different uncertainty questions about the data.
 
-# Confirmation Report
+# Confirmation 
+## Report
 I have put my confirmation report here for the time being because I am not sure where to put it.
 
 ::: {#confirmation}
 :::
 
-### TODO LIST
+### Todo List
 #### Monday
 - [x] Finish writing Hierarchy section
 - [x] Finish sorting all the miscelaneous notes at the end of the report
@@ -92,20 +93,34 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Add HOPs plot to example
 
 #### Wednesday
-- Supervisor Comments:
+- [x] Supervisor Comments:
   - [x] Check for lower case r for R
-  - [x] Move casswaryr to sections at the end of the report called "additional activity"
+  - [x] Move cassowaryr to sections at the end of the report called "additional activity"
   - [x] Add 3 month break to timeline
   - [x] Cut fable package section on page 5
   - [x] Cut chapter 3 discussing of random pacakge
   - [x] Fix captions to follow structure
-  - [ ] Move why section to begining section
-  - [ ] Reference anscombes quartet in last section because it is contradictory to 
-  - [ ] Add in "how to read section" that explains the stage of the work being presented and how the report is structured
-  - [ ] Chapter 1 give another explanation of coming structure
+  - [x] Move why section to begining
+  - [x] Reference anscombes quartet in last section because it is contradictory to that motivating questions
+  - [x] Add in "how to read section" that explains the stage of the work being presented and how the report is structured
+  - [x] Chapter 1 give another explanation of coming structure
 - [ ] Final read over + spell check
 
-### Add if I have time for some reason (but probably not)
+## Presentation
+### Todo List
+
+#### Thursday
+- [ ] Set up quarto slides
+- [ ] Write draft presentation
+- [ ] Map draft presentation to slides
+
+#### Friday
+#### Saturday
+#### Sunday
+#### Monday
+#### Tuesday
+
+## Additional notes (or vis ideas)
 - I couldnt find a citation for “show me the data”. Check again later?
 - gestalt principles?
 - Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
