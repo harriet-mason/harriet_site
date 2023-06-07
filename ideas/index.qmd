@@ -96,9 +96,9 @@ I have put my confirmation report here for the time being because I am not sure 
   - [x] Check for lower case r for R
   - [x] Move casswaryr to sections at the end of the report called "additional activity"
   - [x] Add 3 month break to timeline
-  - [ ] Cut fable package section on page 5
-  - [ ] Cut chatper 3 discussing of random pacakge
-  - [ ] Fix captions to follow structure
+  - [x] Cut fable package section on page 5
+  - [x] Cut chapter 3 discussing of random pacakge
+  - [x] Fix captions to follow structure
   - [ ] Move why section to begining section
   - [ ] Reference anscombes quartet in last section because it is contradictory to 
   - [ ] Add in "how to read section" that explains the stage of the work being presented and how the report is structured

@@ -58,7 +58,7 @@ If decision markers are not presented with the uncertainty about an estimate the
 #| warning: false
 #| message: false
 #| label: fig-quantdot
-#| fig-cap: "A quantile dotplot is an uncertainty visualisation that provides a discrete display of uncertainty to aid decision making. This example plot provides an estimate for a daily maximum temperature."
+#| fig-cap: "This plot depicts an example of a a quantile dotplot that expresses the uncertainty associated with a daily maximum temperature. The probability associated with each temperature is expressed with discrete countable bins and the predicted temperature is experessed with a line. Discretised depictions such as this, make decision making in the face of uncertainty easier for the viewer."
 set.seed(1)
 dotplot_data <- tibble(temp = 10 + round(rnorm(40, mean=10, sd=2))) 
 mid <- round(mean(dotplot_data$temp), 2)
@@ -92,9 +92,7 @@ This issues surrounding uncertainty visualisation is not helped by the fact that
 
 More commonly uncertainty is defined using a taxonomy rather than a strict definition. There are a few taxonomies for uncertainty, but, just like the definition, most of them are a subset of the one laid out by @utypo. To complete the definition I will include that definition here. @fig-taxonomy is an illustration of the taxonomy presented by @utypo. In this taxonomy, there are three things we need to consider for each "uncertainty" we encounter through the modelling process. First, we need to consider the source of the uncertainty. Is this uncertainty coming from inaccurate measurements or a poorly defined model? This is the *location* of the uncertainty. Second, consider how well you can quantify this uncertainty. Do you know exactly how much measurement error there is in each observation or are you not even aware if there is or isn't measurement error? This is the *level* of your uncertainty, and it ranges from discrete to total ignorance. Finally, consider how this uncertainty came into existence. Is it a result of a naturally random process (epistemic) or is it due to imperfect information and could be improved (aleatory). This is the *nature* of your uncertainty. @utypo then go on to describe mapping our uncertainty in a 3D space that is defined by its location, level, and nature, but I think the taxonomy is more easily understood as a series of questions we need to consider when trying to quantify uncertainty for our audience.
 
-![Illustration of the taxonomy described in @utypo](taxonomyvis.jpeg){#fig-taxonomy}
-
-Due to the unbound nature of uncertainty, trying to put any quantification on it is daunting, but needs to be done. The best quantification of uncertainty lands somewhere between considering every possible outcome (which would result in an unbounded uncertainty) and a simple confidence interval based on a set of strict and unrealistic assumptions (which would result in an interval that is far too narrow). Finding an appropriate spot between those two extremes is a judgement decision which can sometimes be overwhelming. This is why software that provides *some* uncertainty visualisation as a default, such as forecasts in the `fable` package are useful [@fable]. It prevents authors omitting uncertainty through inaction. However, there is the possibility, that default uncertainty visualisations facilitates a poorer understanding of uncertainty and makes it harder for users to identify the relevant uncertainty for a particular decision. The risk of that is likely not high enough for `fable` to stop presenting confidence intervals by default. Not only is this taxonomy useful for considering what uncertainty information is relevant, but it also helps us to understand and communicate secondary information about the uncertainty.
+![Depicts an ilustration of the taxonomy described in @utypo. From right to left the drawing shows the location, level and nature of uncertainty with examples of that category underneath. A specific source of uncertainty from the location can be mapped to a specific level. The ability for the uncertainty to increase or decrease (i.e. moving up or down the green line) depends on the nature of the uncertainty.](taxonomyvis.jpeg){#fig-taxonomy}
 
 While information about the sources of our uncertainty and the type of uncertainty may seem like an unimportant secondary step in uncertainty visualisation, communicating these features of uncertainty helps decision makers make more informed choices. @Padilla2021 found that low forecaster confidence or high model uncertainty both contribute to more conservative judgements by decision makers. Failing to communicate the nature of your uncertainty can result in underestimation or overestimation of failure probabilities [@Kiureghian2009]. Additionally @Gustafson2019 found that the framing of our uncertainty, (i.e. informing the reading if the uncertainty came from a lack of knowledge, approximations, unknown unknowns, or disagreement among parties) does not have a significant effect on the belief in the estimates, perceived credibility, or behavioural intentions of the decision makers. This means communicating secondary information about your uncertainty can provide additional benefits to decision makers.
 
@@ -124,7 +122,7 @@ Chapter 3 will focus on applying the work established in chapter 1 and 2 to real
 
 This chapter of the work could go in a number of ways, depending on how the work in chapter 2 pans out. If the research done in chapter 2 is predominantly focused on results in the energy industry, this chapter will be a discussion on the visualisations used by AEMO that were directed by this research, and the real world impacts of those improvements. Another research output could be software that is specific for visualising uncertainty information in energy data.
 
-Alternatively, if the research output is applicable more broadly, we could introduce software that makes it easier to consider these visualisation principals in daily visualisation. This could take the form of an R package since it can then be easily integrated into data analysis workflow. This research output could come in the form of functions that takes in a plot and informs the user the implicit hierarchy of information the plot conveys, or suggest an alternative plot choice that contains the same information.
+Alternatively, if the research output is applicable more broadly, we could introduce software or tools that makes it easier to implement these principals into the data analysis workflow. 
 
 {{< pagebreak >}}
 
@@ -155,7 +153,7 @@ The study by @Hullman2015 asked participants to provide some numerical propertie
 #|   - "Error bar plot"
 #|   - "Violin plot"
 #|   - "HOPs frames 1 to 4"
-#| fig-cap: "An example of the plots shown in the two variable tasks given in [@Hullman2015]. The example question provided with this plot was 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'"
+#| fig-cap: "An example of the plots shown in the study by @Hullman2015 that were used to answer the quesiton 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. The error bar plot and violin plot depict the marginal distribution of Solutions A and B while the HOPs depicts the joint distribution. The questions is easier to answer using the HOPs since it highlights the correct distribution."
 #| layout: "[[45,-5, 45], [100]]"
 
 
@@ -232,7 +230,7 @@ Two alternative graphics that could be used to answer the question "In what perc
 #| fig-subcap: 
 #|   - "Scatter Plot"
 #|   - "Stacked Bar Chart"
-#| fig-cap: "Two plots that could be used as alternatives to answer to question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. The scatter plot in (a) focuses on the relationship between the concentration of solute A and solute B, while the stacked bar chart in (b) highlights the frequency with which each solute is greater than the other."
+#| fig-cap: "Two plots that could be used as alternatives to answer to question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. The scatter plot in (a) illustrates the joint distribution while the stacked bar chart in (b) is an expression of the Bernouli distribution of the event B > A. The closer the distribution displayed is to the distribution of interest, the easier it is to answer the question."
 #| layout: "[[48, -4, 48]]"
 
 # Scatter plot data
@@ -278,7 +276,7 @@ bar_data %>%
 ### Theory: Selecting the correct distribution
 In order to fairly compare two visualisations, they need to provide the same information. The important distinction between the distribution displayed and the distribution required to answer a question is often ignored in our discussions of good or bad visualisations. This means that studies identifying some graphics as better than others may only do so because the two plots displayed different distributions and one was more relevant to the question. @fig-distdraw illustrates how we think about distributions when performing statistical tests compared to when we create visualisations. When we compute statistics or perform a hypothesis test, we typically put a lot of thought into selecting the correct distribution for our question, however, when we perform visualisation we typically plot a collection of normal marginal distributions and ignore the actual distribution required. This extends to our perception of visualisation in general as most of the visualisations we consider to be for "distributions" are actually just tools for visualising marginal distributions. 
 
-![Illustration depicting the difference between the distributions we use for testing vs the visualisation we visualise](incorrectdistributions.jpeg){#fig-distdraw}
+![This is an illustration of the differences in the distributions we infer from our data when we are doing a hypothesis test versus when we are constructing a visualisation. The complete joint distribution of all variables gives us the most complete picture, a sub category of that are all the distributions we use to answer questions about our data, and a sub category of that are specific marginal distributions. When we visualised data we only consider expressing the marginal or conditional distributions of our variables, even when they don't have the information we desire. ](incorrectdistributions.jpeg){#fig-distdraw}
 
 An example that might be more familiar to the average statistician is something I like to refer to as "the error bar problem". If you have ever looked at two overlapping error bars and said "oh these variables are not statistically significantly different" you have used error bars incorrectly. While it is true that error bars that do not overlap implies statistical significance, overlapping error bars do not imply the converse. The same is true for a lot of the other ad-hoc statistical tests we use error bars for. A study done by @Bella2005 asked participants to adjust two error bars until the means were "just" statistically significantly different, and most people adjusted the error bars until they were just touching. In the case of independent confidence intervals, the p-value of the two-tailed t-test for error bars that just touch is about 0.006 [@Schenker2001]. @Bella2005 also found that few people could incorporate changing information about independence that arises from repeated measure design and most participants were ignorant to the fact that error bars are used for both confidence intervals and standard error bars, two wildly different indicators of precision. 
 
@@ -304,7 +302,7 @@ If we have two visualisations that depict the same distribution, does that mean 
 #| fig-subcap: 
 #|   - "Error circle. The point represents the mean and the circle represents the 95% CI"
 #|   - "A scatter plot depicting the samples of the Bernoulli distribution"
-#| fig-cap: "Two plots that are not useful in answering the question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. While the distributions visualised are correct, we have visualised the incorrect feature of the respective distributions. Plot (a) visualises mean and significance thresholds of for values (b) the."
+#| fig-cap: "Two plots that are somewhat useful in answering the question 'In what percentage of vials is there more of solute B than A (Probability(B > A)?'. While the distributions visualised are correct, each plot expresses an inadequate feature of the respective distributions sicne plot (a) visualises a mean and significance valeu when it should visualise a set of outcomes and (b) visualises a set of outcomes when it should express a mean. We can see that visualising the correct feature of the distribution is just as important as highiting the correct distribution."
 #| layout: [[46,-4, 40]]
 #| layout-valign: "bottom"
 
@@ -354,7 +352,7 @@ Different features of a distribution have different questions they are mode adep
 
 4) **Exchangeability** illustrates whether or not elements from a sequence of random variables in this distribution can be swapped. Rather than wanting to answer questions about exchangeability, it is usually something we want to highlight in our data. Exchangeability is often expressed by having the graphical elements touch (if the data is inexchangeable) or not touch (if the data is exchangeable). A time series' inechangeability is expressed using a line plot, spatial data's inechangeability is expressed using a map and the exchangeability of randomly sampled data is often expressed using points. Exchangeability is adjacent to continuity because visually connected features in a graphic are also used to express discretised outcomes of a continuous process (such as a ridgeline plot or a histogram).
 
-![The four main features of a distribution graphics are typically used to represent](distfeatures.jpeg){#fig-features width=60%}
+![An illustration of the four main features of a distribution that graphics are typically used to represent. The four expressions of a distribution are mass, sample, parameters and exchangeability. Every commonly used visualisation can be categorised using these four features.](distfeatures.jpeg){#fig-features width=60%}
 
 This is not an exhaustive list of every possible feature of a distribution, but rather the four most commonly visualised aspects of a distribution. Almost every currently used visualisation can be categorised based on which distributions and related features it depicts. Additionally, these features are not entirely distinct, particular visualisations of parameters or samples may also double as a depiction of mass. Therefore, a graphic that is designed to depict one feature of a distribution may depict multiple features of multiple distributions. A boxplot is a good example of a graphic that depicts both mass (at a very low resolution) and a handful of selected parameters. Additionally different distributions that appear in the same plot can be expressed with different features. @fig-errortest visualises a simple hypothesis test by expressing one distribution with significant values, and the other with a sample. This visualisation shows the probability of a type two error expressed by the number of points in the circle.
 
@@ -363,7 +361,7 @@ This is not an exhaustive list of every possible feature of a distribution, but 
 #| warning: false
 #| message: false
 #| label: fig-errortest
-#| fig-cap: "A visualisation of a hypothesis test where the black circle represents the significant values of the null distribution and the pink points represent a sample from the true distribution. The number of points (out of 100) from the true distribution that fall in the black circle show the probability of a type two error."
+#| fig-cap: "A visualisation of a hypothesis test where the black circle represents the significant values of the null distribution and the pink points represent a sample from the true distribution. We are concerned with the threshold values of the black distribution, so it is expressed as a parameter, but we are interested in the frequency of an outcome in the pink distribution, so it is expressed as a sample. The number of points (out of 100) from the true distribution that fall in the black circle show the probability of a type two error."
 
 # Generate Data
 distA <- tibble(x = rnorm(100, 30, 10),
@@ -472,11 +470,11 @@ ggsave("ideas/confirmation/exceedmap.jpeg", width = 10, height = 5)
 
 ![Glyph Map](glyphmap.jpeg){#fig-glyph}
 
-Four spatial uncertainty visualisations that can be made using the `Vizumap` package. These maps are the example visualisations from the package vignette.
+Four spatial uncertainty visualisations that can be made using the `Vizumap` package. Each plots depicts a map with a combination of estimate and error expressed using (a) a bivariate colour palette, (b) a sample of outcomes, (c) a statistic that uses both the error and estimate in its calculation, and (d) using colour value for the estimate and rotation for the uncertainty. The pixel chart (b) gives a good sense of uncertainty, the exceedance probability map (c) is easy to read, and the bivariate map (a) and glyph map (d) are hard to interpret because the estimate and the uncertainty are not well integrated with each other.
 :::
 
 
-![An example of a Value-Suppressing Uncertainty Palette with axis aids](vsup.png){#fig-vsup width=35%}
+![An example of the Value-Suppressing Uncertainty Palette designed by @Correll2018. The change in hue shows a change in the estimated value, while the change in value highlights a change in uncertainty. The estimates merge together as the uncertainty increases to prevent viewers identifying insignificant differences between values.](vsup.png){#fig-vsup width=35%}
 
 
 
@@ -512,7 +510,7 @@ The final consideration when deciding what information to depict is whether or n
 #|   - "Conditional distribution on time"
 #|   - "Joint distribution of series"
 #|   - "Joint distribution of series with inexchangeability"
-#| fig-cap: "Four figures to illustrate the impact of changing the priority of the distribution displayed and presence of exchangeability . Time is depicted with opacity in plots (c) and (d) to maintain the same information. More recent dates are darker. Could you order these four plots by how well they convey correlation?"
+#| fig-cap: "Four figures that illustrate the strikingly different visualisations we get when we make one change in the distribution and feature depicted. Plots (a) and (b) depict two conditional distributions of a time series while plots (c) and (d) show the joint distribution of those two series and express time with opacity such that recent dates are darker. Plots (a) and (d) express the inechangeability of time series data with connected points while plots (b) and (c) ignore that feature of the data. By ordering these plots by how well they express correlation, we can untangle how much improvement is contributed by the distribution verus how much is caused by the change in features."
 #| layout: [[48,-4, 48], [43, -14, 43]]
 
 # Data for conditional distribution
