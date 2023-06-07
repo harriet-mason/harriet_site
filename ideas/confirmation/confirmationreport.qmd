@@ -30,7 +30,7 @@ Think back to the last time you made some sort of data visualisation. What was t
 #| warning: false
 #| message: false
 #| label: fig-anscombe
-#| fig-cap: "The four scatter plots that make up the Anscombe quartet. Each x and y variable has the same mean, standard deviation, and correlation"
+#| fig-cap: "The four scatter plots that make up the Anscombe quartet. The four scatter plots are visually distinct but have the same mean, standard deviation, and correlation. The visualisation highlights the importants of plotting your data to identify underlying structure."
 tibble(x = c(anscombe$x1, anscombe$x2,
              anscombe$x3, anscombe$x4),
        y = c(anscombe$y1, anscombe$y2,
