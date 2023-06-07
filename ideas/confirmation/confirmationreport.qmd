@@ -126,8 +126,6 @@ This chapter of the work could go in a number of ways, depending on how the work
 
 Alternatively, if the research output is applicable more broadly, we could introduce software that makes it easier to consider these visualisation principals in daily visualisation. This could take the form of an R package since it can then be easily integrated into data analysis workflow. This research output could come in the form of functions that takes in a plot and informs the user the implicit hierarchy of information the plot conveys, or suggest an alternative plot choice that contains the same information.
 
-For the duration of the PhD I have also been working on improving the r package `cassowaryr`, software that finds interesting scatter plots in a large data set. Improving the package by implementing binning and working through dependency issues allows the package to be used on large scatter plots. This will allow the `cassowaryr` package to provide insights into the sizeable data that comes with analysing energy data, and help inform improvements in uncertainty visualisations by investigating all the interesting bivariate joint distributions. 
-
 {{< pagebreak >}}
 
 # Chapter 1: a taxonomy of visual information
@@ -593,8 +591,9 @@ This taxonomy is it provides a simple set of questions any visualisation author 
 # Timeline
 
 |Date|Description|
-|:--|:--------|
+|:-|:---|
 |May 2022| Changed topic to uncertainty visualisation with new scholarship funded by AEMO |
+|August-November 20232|Leave from PhD|
 |May 2023| Met with Dean Sharafi, Alireza Fereidouni, and Toby Price from the AEMO Systems Design and Transformation team to discuss current issues they are facing in uncertainty visualisation|
 |June 2023| Meeting with AEMO team to map out future monthly meetings over the next year and build up applications of uncertainty visualisations|
 |June 2023|Confirmation milestone|
@@ -612,6 +611,14 @@ This taxonomy is it provides a simple set of questions any visualisation author 
 |October 2025| Attend IEEE VIS 2025 in Vienna |
 |November 2025| Attend UseR! conference to discuss software developed for translation of uncertainty visualisation work|
 |December 2025| Submit Thesis |
+
+{{< pagebreak >}}
+
+# Additional Work
+
+For the duration of the PhD I have also been working on improving `cassowaryr`, an R package that finds interesting scatter plots in high dimensional data sets. Due to a dependency on the package `interp`, some computations take a long time unless noise is added to the data. We want to add binning to the `cassowaryr` package, so we need an alternative solution. To fix this issue my supervisor Di Cook and I did a Google Summer of Code project and supervised a recent high school graduate Umang Majumder, in making the `tRiad` R package. This package replaced some low level functions from `interp` that were causing issues. Since March 2023 I have been in discussions with the author of `interp` to work through this problem.
+
+We want this package to work on large data scatter plots so that they can provide insights into the high dimensional energy case study we are working on. The package can also help inform improvements in uncertainty visualisations by investigating all the interesting bivariate joint distributions.  Therefore, binning needs to be implemented into `cassowaryr`.
 
 {{< pagebreak >}}
 

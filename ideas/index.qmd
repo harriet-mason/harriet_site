@@ -89,11 +89,21 @@ I have put my confirmation report here for the time being because I am not sure 
   - Redo spell check
 - [x] Cite paper AEMO team sent
 - [x] Fix formatting of plots (except full page problem)
-- [ ] Add HOPs plot to example
+- [x] Add HOPs plot to example
 
 #### Wednesday
-- [ ] Full read over + spell check
-- [ ] Fix full page problem
+- Supervisor Comments:
+  - [x] Check for lower case r for R
+  - [x] Move casswaryr to sections at the end of the report called "additional activity"
+  - [x] Add 3 month break to timeline
+  - [ ] Cut fable package section on page 5
+  - [ ] Cut chatper 3 discussing of random pacakge
+  - [ ] Fix captions to follow structure
+  - [ ] Move why section to begining section
+  - [ ] Reference anscombes quartet in last section because it is contradictory to 
+  - [ ] Add in "how to read section" that explains the stage of the work being presented and how the report is structured
+  - [ ] Chapter 1 give another explanation of coming structure
+- [ ] Final read over + spell check
 
 ### Add if I have time for some reason (but probably not)
 - I couldnt find a citation for “show me the data”. Check again later?
