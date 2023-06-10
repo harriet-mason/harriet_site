@@ -104,19 +104,18 @@ I have put my confirmation report here for the time being because I am not sure 
   - [x] Reference anscombes quartet in last section because it is contradictory to that motivating questions
   - [x] Add in "how to read section" that explains the stage of the work being presented and how the report is structured
   - [x] Chapter 1 give another explanation of coming structure
-- [ ] Final read over + spell check
+- [x] Final read over + spell check
 
 ## Presentation
 ### Todo List
-
-#### Thursday
+#### Saturday
 - [ ] Set up quarto slides
+
+#### Sunday
 - [ ] Write draft presentation
 - [ ] Map draft presentation to slides
+- [ ] Map visualisations for each slide
 
-#### Friday
-#### Saturday
-#### Sunday
 #### Monday
 #### Tuesday
 
