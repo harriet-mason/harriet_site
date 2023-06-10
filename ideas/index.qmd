@@ -7,8 +7,10 @@ listing:
     fields: [image, title, description]
   - id: ideas
     contents: ideadumpster
-  - id: confirmation
-    contents: confirmation
+  - id: confirmation_report
+    contents: confirmation_report
+  - id: confirmation_presentation
+    contents: confirmation_presentation
 ---
 # Overview of Topic
 ## The current perspective on visualising uncertainty
@@ -52,7 +54,7 @@ Finally, I will go through a data visualisation problem from begining to end to 
 ## Report
 I have put my confirmation report here for the time being because I am not sure where to put it.
 
-::: {#confirmation}
+::: {#confirmation_report}
 :::
 
 ### Todo List
@@ -107,20 +109,27 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Final read over + spell check
 
 ## Presentation
+
+::: {#confirmation_presentation}
+:::
+
 ### Todo List
 #### Saturday
-- [ ] Set up quarto slides
+- [x] Set up quarto slides
 
 #### Sunday
-- [ ] Write draft presentation
-- [ ] Map draft presentation to slides
-- [ ] Map visualisations for each slide
+- [ ] Map out slides
+- [ ] Write speaker notes
+- [ ] Map content for each slide
+- [ ] Put all visualisations in slides
+- [ ] Put all other content in slides
+- [ ] Set up slide themes
 
 #### Monday
 #### Tuesday
 
 ## Additional notes (or vis ideas)
-- I couldnt find a citation for “show me the data”. Check again later?
+- I couldn't find a citation for “show me the data”. Check again later?
 - gestalt principles?
 - Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
 - Change spatial example to Australian data from American

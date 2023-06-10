@@ -1,0 +1,58 @@
+---
+title: "Plotting Apples, Oranges, and Distributions"
+subtitle: "An alternative taxonomy to prevent information inequality in uncertainty visualisations"
+author: Harriet Mason
+format: 
+  revealjs: 
+    theme: solarized
+---
+
+## The Structure of This Presentation
+### Quiz Show (Information)
+- Motivation
+  - Round 1: Check Your Bias! (The need for uncertainty visualisations)
+  - Round 2: The need for a new taxonomy
+- Chapter 1
+  - Round 3: What is "information"?
+  - Round 4: Applying the taxonomy
+- Score counting
+
+### Serious Presentation (Other PhD Stuff)
+- The Rest of the PhD
+  - Chapter 2
+  - Chapter 3
+  - Additional work
+  - Timeline
+
+
+# Motivation
+
+## The need for uncertainty visualisations
+
+::: {.notes}
+first notes
+:::
+
+## The need for a new taxonomy
+
+::: {.notes}
+second notes
+:::
+
+## Third slide
+
+::: {.notes}
+third notes
+:::
+
+## Fourth slide
+
+::: {.notes}
+fourth notes
+:::
+
+# The Rest of the PhD
+
+## Chapter 2
+## Chapter 3
+## Timeline
