@@ -6,53 +6,67 @@ format:
   revealjs: 
     theme: solarized
 ---
+## The Structure of This Presentation
+### Quiz Show
+### Normal Presentation
+
+::: {.notes}
+
+This talk will be split into two sections. Half of it will be a quiz show, and the other half will be a normal, serious, presentation.
+
+:::
 
 ## The Structure of This Presentation
-### Quiz Show (Information)
+### Quiz Show
 - Motivation
-  - Round 1: Check Your Bias! (The need for uncertainty visualisations)
-  - Round 2: The need for a new taxonomy
+  - The need for uncertainty visualisations
+  - The need for a new taxonomy
 - Chapter 1
-  - Round 3: What is "information"?
-  - Round 4: Applying the taxonomy
-- Score counting
+  - Details of the taxonomy 
 
-### Serious Presentation (Other PhD Stuff)
+::: {.notes}
+
+The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question.
+
+:::
+
+## The Structure of This Presentation
+### Serious Presentation
 - The Rest of the PhD
-  - Chapter 2
-  - Chapter 3
+  - Chapter 2 & 3
   - Additional work
   - Timeline
-
-
-# Motivation
-
-## The need for uncertainty visualisations
-
+  
 ::: {.notes}
-first notes
+
+The second section will be an explanation of the work I plan to do for the rest of my PhD, some comments on additional work I did and a timeline for the next few years. This section will not be a quiz show and will just be a normal presentation. Feel free to interrupt at any point with questions, either about the content itself or clarifying questions for the quiz. So if nobody has any questions about the structure...
+
 :::
 
-## The need for a new taxonomy
+# Are You Smarter Than A Big 4 Consultant?
 
 ::: {.notes}
-second notes
+
+... lets get quizzing. One of my housemates works at EY as a consultant. She has very little statistics knowledge. She *did* take introduction to econometrics several years ago, however she failled the exam. During this presentation you will have to answer 10 multiple choice questions where you extract some information from a data visualisation. Your goal as a group is to perform better than the average score for the consultants.
+
+One of the reasons data visualisation authors dont present uncertainty is because they believe laypeople, not educated in the ways of statistics cannot understand the it. You will all have a chance to see if that bias is correct or not. If a group a academics in statistics can outperform a group of consultants.
+
 :::
 
-## Third slide
+# Round 1: The Current Literature on Visualisation (3 Questions)
+
+## Question 1: Anscombe's Quartet
+
+```{r}
+
+
+```
 
 ::: {.notes}
-third notes
+
+Lets get started by talking about the importance of visualisation. This is a plot of the fameous data set, Anscombes quartet.
+
 :::
 
-## Fourth slide
+# Round 2: The Taxonomy
 
-::: {.notes}
-fourth notes
-:::
-
-# The Rest of the PhD
-
-## Chapter 2
-## Chapter 3
-## Timeline

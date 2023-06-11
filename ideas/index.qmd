@@ -118,14 +118,21 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Set up quarto slides
 
 #### Sunday
-- [ ] Map out slides
-- [ ] Write speaker notes
-- [ ] Map content for each slide
-- [ ] Put all visualisations in slides
-- [ ] Put all other content in slides
-- [ ] Set up slide themes
+- [x] Figure out quiz theme
+- [x] Write intro to presentation
+- [ ] 3 Motivation Questions + speaker notes
+- [ ] 2 Distribution Questions + speaker notes
+- [ ] 2 Feature Questions + speaker notes
+- [ ] 2 Distribution Questions + speaker notes
 
 #### Monday
+- [ ] 1 Conclusion Question + speaker notes
+- [ ] Serious Section + speaker notes
+- [ ] Reherse Speech
+- [ ] Figure out quiz software
+- [ ] Set up slide themes
+- [ ] Set up quiz for Sophie to give out
+
 #### Tuesday
 
 ## Additional notes (or vis ideas)
