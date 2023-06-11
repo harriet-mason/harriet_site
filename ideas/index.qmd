@@ -120,20 +120,28 @@ I have put my confirmation report here for the time being because I am not sure 
 #### Sunday
 - [x] Figure out quiz theme
 - [x] Write intro to presentation
-- [ ] 3 Motivation Questions + speaker notes
-- [ ] 2 Distribution Questions + speaker notes
-- [ ] 2 Feature Questions + speaker notes
-- [ ] 2 Distribution Questions + speaker notes
+- [x] Map out all quiz questions
+- [ ] Question 1: Anscombe's Quartet
 
 #### Monday
-- [ ] 1 Conclusion Question + speaker notes
-- [ ] Serious Section + speaker notes
-- [ ] Reherse Speech
+- [ ] Question 2: Decisions Under Uncertainty
+- [ ] Question 3: Decisions Under Uncertainty
+- [ ] Question 4: Visualising a Distribution
+- [ ] Question 5: 
+- [ ] Question 6: 
+- [ ] Question 7: 
+- [ ] Question 8:
+- [ ] Serious Section 
+- [ ] Rehearse Speech
+- [ ] FORMAT SLIDES
 - [ ] Figure out quiz software
-- [ ] Set up slide themes
 - [ ] Set up quiz for Sophie to give out
 
 #### Tuesday
+- [ ] Rehearse Speech
+- [ ] Rehearse Speech
+- [ ] Rehearse Speech
+- [ ] Present for Housemates
 
 ## Additional notes (or vis ideas)
 - I couldn't find a citation for “show me the data”. Check again later?

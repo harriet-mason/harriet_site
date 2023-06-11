@@ -5,6 +5,8 @@ author: Harriet Mason
 format: 
   revealjs: 
     theme: solarized
+editor_options: 
+  chunk_output_type: console
 ---
 ## The Structure of This Presentation
 ### Quiz Show
@@ -53,20 +55,204 @@ One of the reasons data visualisation authors dont present uncertainty is becaus
 
 :::
 
-# Round 1: The Current Literature on Visualisation (3 Questions)
+# Questions 1-4: The Current Literature on Visualisation
 
 ## Question 1: Anscombe's Quartet
 
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(tidyverse)
+anscombe_tidy <- tibble(x = c(anscombe$x1, anscombe$x2,
+                              anscombe$x3, anscombe$x4),
+                        y = c(anscombe$y1, anscombe$y2,
+                              anscombe$y3, anscombe$y4),
+                        Plot = c(rep("Plot 1",11), rep("Plot 2",11),
+                                 rep("Plot 3",11), rep("Plot 4",11)))
+anscombe_tidy %>%
+  ggplot(aes(x,y)) +
+  geom_point(aes(fill=Plot), colour="black", 
+             size=3, pch=21, alpha=0.75) +
+  facet_wrap(~Plot) +
+  theme_classic() +
+  theme(aspect.ratio = 1,
+        legend.position = "none") +
+  scale_fill_brewer(type = "qual", palette = 4)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+anscombe_tidy %>%
+  group_by(Plot) %>%
+  summarise(x_mean = mean(x),
+            y_mean = mean(y),
+            x_sd = sd(x),
+            y_sd = sd(y),
+            correlation = cor(x,y))
+```
+
+::: {.notes}
+Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualsiation needs to be done well.
+:::
+
+## Question 1: Anscombe's Quartet
+Three of these visualisations used the data from Anscombe's Quartet, one didn't. Which visualisation is the odd one out? 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+
+# Make Fake Data
+set.seed(1)
+ans_vector <- as.vector(as.matrix(anscombe))
+dupe_anscombe <- tibble(x1 = sample(ans_vector, 11),
+                        x2 = sample(ans_vector, 11),
+                        x3 = sample(ans_vector, 11),
+                        x4 = sample(ans_vector, 11),
+                        y1 = sample(ans_vector, 11),
+                        y2 = sample(ans_vector, 11),
+                        y3 = sample(ans_vector, 11),
+                        y4 = sample(ans_vector, 11))
+
+# Box plot with Anscombe
+p1 <- anscombe %>%
+  pivot_longer(cols=everything(),
+               names_to = "Variable",
+               values_to = "Value") %>%
+  ggplot(aes(x=Variable, y=Value)) +
+  geom_boxplot() +
+  theme_classic() + 
+  ggtitle("a) Plot 1")
+  
+# Scatter plots with mixed up variables
+#p2 <- tibble(x = c(anscombe$x4, anscombe$y2,
+#             anscombe$x2, anscombe$y3),
+#       y = c(anscombe$x1, anscombe$y1,
+#             anscombe$x3, anscombe$y4),
+#       Plot = c(rep("Plot 1",11), rep("Plot 2",11),
+#                rep("Plot 3",11), rep("Plot 4",11))) %>%
+#  ggplot(aes(x,y)) +
+#  geom_point(aes(fill=Plot), colour="black", 
+#             size=3, pch=21, alpha=0.75) +
+#  facet_wrap(~Plot) +
+#  theme_classic() +
+#  theme(aspect.ratio = 1,
+#        legend.position = "none") +
+#  scale_fill_brewer(type = "qual", palette = 4)+
+#  ggtitle("b) Plot 2")
+
+# Bad Bubble Chart
+p2 <- anscombe %>%
+  ggplot(aes(x=x1, y=y1)) +
+  geom_segment(aes(x=x1-0.5*x4,xend=x1+0.5*x4,yend=y1)) +
+  geom_segment(aes(xend=x1, y=y1-0.5*y4, yend=y1+0.5*y4)) +
+  geom_label(aes(size=x2, alpha=y2, colour=x3, label = y3)) +
+  theme_classic() + 
+  theme(aspect.ratio = 1,
+        legend.position = "none") +
+  ggtitle("b) Plot 2")
+
+# Eight Line Plots
+p3 <- anscombe %>%
+  mutate(ID=row_number()) %>%
+  pivot_longer(cols=x1:y4,
+               names_to = "Variable",
+               values_to = "Value")  %>%
+  ggplot(aes(ID, Value, colour=Variable)) +
+  geom_line() +
+  theme_classic() + 
+  ggtitle("c) Plot 3")
+
+# Stacked histogram
+p4 <- dupe_anscombe %>%
+  pivot_longer(cols=everything(),
+               names_to = "Variable",
+               values_to = "Value") %>%
+  ggplot(aes(Value, fill = Variable)) +
+  geom_histogram(binwidth = 1) + 
+  theme_classic() +
+  ggtitle("d) Plot 4")
 
 
+p1
+p2
+p3
+p4
 ```
 
 ::: {.notes}
 
-Lets get started by talking about the importance of visualisation. This is a plot of the fameous data set, Anscombes quartet.
+Now for your first question. We often don't know the best way to visualise a distribution, nor do we know which variables should go togehter. On the slide I have four data visualisations. Three of them were made using the Anscombe's quartet data, one was made with fake data. In the fake data set each variable was a random sample of observations from the original data set, to make sure the values were still somewhat within the same range. Your first question is, which one of the four plots on this page was not made using Anscombe's quartet data?
 
 :::
 
-# Round 2: The Taxonomy
+## Question 1: Anscombe's Quartet
+### Solution
+```{r}
+p4
 
+tibble(x = c(dupe_anscombe$x1, dupe_anscombe$x2,
+             dupe_anscombe$x3, dupe_anscombe$x4),
+       y = c(dupe_anscombe$y1, dupe_anscombe$y2,
+             dupe_anscombe$y3, dupe_anscombe$y4),
+       Plot = c(rep("Plot 1",11), rep("Plot 2",11),
+                rep("Plot 3",11), rep("Plot 4",11)))%>%
+  group_by(Plot) %>%
+  summarise(x_mean = mean(x),
+            y_mean = mean(y),
+            x_sd = sd(x),
+            y_sd = sd(y),
+            correlation = cor(x,y))
+```
+
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=648059aaff94fa54629cd881){preview-link="true"}
+
+::: {.notes}
+The correct answer was plot 4, the stacked histogram. The consultants, on average, picked out the correct plot __% of the time. Lets see this group did by comparison.
+:::
+
+## Question 1: Anscombe's Quartet
+
+::: {.notes}
+The take away from this question is not that you should be able to identify the Anscombe's quartet data no matter how it is presented, but rather that the presentation matters. None of the visualisations shown here identified the interesting features I displayed in the previous slide. These visualisations have the same problem as the numerical summary, because despite being visualisations, they displayed the wrong information. What is rarely discussed about Anscombe's quartet is that we already know the best way to display it to show the important information. Thinking about visualisations this way forces us to ask ourselves what we consider to be the important features of our data, which lead me to my next question.
+:::
+
+## Question 2: Decisions Under Uncertainty
+Is uncertainty important information?
+
+::: {.notes}
+Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. There is
+:::
+
+## Question 3: Decisions Under Certainty
+Is uncertainty important information?
+
+::: {.notes}
+Is uncertainty important information? This isn't a quiz question its rhetorical.
+:::
+
+## Question 4: Visualising a Distribution
+
+::: {.notes}
+:::
+
+# Questions 4-8: The Taxonomy
+
+## Aside: Returning to Question 1
+
+```{r}
+p1 + ggtitle("Incorrect Distribution")
+p3 + ggtitle("Unimportant Features")
+p2 + ggtitle("Poor Hierarchy")
+```
+
+::: {.notes}
+Each of the bad plots given in the first question actually highlighted a facet of the taxonomy I am about to present. The violin plot showed the marginal distribution of each variable, however, the "interesting" information was contained in a handful of bivariate distributions; The line plot highlighted the order the variables appeared in the data set and made that the most predominant feature of the plot, even though it was completely irrelevant; and the label scatter plot had all the information visible, its just that most of it was mapped to almost invisible features of the plot, making them functionally invisible. These three mistakes in visualisation form the three pilars of my information taxonomy.
+:::
+
+## Question __: Plots with Different Information
