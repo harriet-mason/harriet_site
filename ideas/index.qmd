@@ -108,6 +108,15 @@ I have put my confirmation report here for the time being because I am not sure 
   - [x] Chapter 1 give another explanation of coming structure
 - [x] Final read over + spell check
 
+### Additional REPORT ideas
+- I couldn't find a citation for “show me the data”. Check again later?
+- gestalt principles?
+- Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
+- Change spatial example to Australian data from American
+- add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
+- Check circle error bar is accurate
+- Add type 1 and other probabilities into error plot
+
 ## Presentation
 
 ::: {#confirmation_presentation}
@@ -121,7 +130,7 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Figure out quiz theme
 - [x] Write intro to presentation
 - [x] Map out all quiz questions
-- [ ] Question 1: Anscombe's Quartet
+- [x] Question 1: Anscombe's Quartet
 
 #### Monday
 - [ ] Question 2: Decisions Under Uncertainty
@@ -143,14 +152,10 @@ I have put my confirmation report here for the time being because I am not sure 
 - [ ] Rehearse Speech
 - [ ] Present for Housemates
 
-## Additional notes (or vis ideas)
-- I couldn't find a citation for “show me the data”. Check again later?
-- gestalt principles?
-- Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
-- Change spatial example to Australian data from American
-- add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
-- Check circle error bar is accurate
-- Add type 1 and other probabilities into error plot
+## Additional PRESENTATION ideas
+- Add countdown timer for each quiz question
+- Add quiz music for each quiz question
+- Quiz show boarder to each slide
 
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
