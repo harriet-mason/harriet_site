@@ -135,28 +135,30 @@ I have put my confirmation report here for the time being because I am not sure 
 #### Monday
 - [ ] Question 2: Decisions Under Certainty
 - [ ] Question 3: Decisions Under Uncertainty
-- [ ] Basic formatting of slides
+- [ ] Formatting of slides
+- [ ] Draw apples and oranges icon + put on slides
 - [ ] Question 4: Visualising a Distribution
-- [ ] Question 5: 
-- [ ] Question 6: 
-- [ ] Question 7: 
-- [ ] Question 8:
 - [ ] Serious Section 
 
 
 #### Tuesday
+- [ ] Question 5: 
+- [ ] Question 6: 
+- [ ] Question 7: 
+- [ ] Question 8:
 - [ ] Full Read through with edits
 - [ ] Set up quiz for Sophie to give out
 - [ ] Rehearse Speech
 - [ ] Present for Housemates
 
+#### Wednesday
+
 ### Additional PRESENTATION ideas
-- Draw apples and organges and distribution for icon (logo option for slides?)
 - Add countdown timer for each quiz question
-- Add quiz music for each quiz question
-- Quiz show boarder to each slide
-- Add sign posting into slides
 - Print QR code so people can hand it around and join the quiz
+- Add quiz music for each quiz question
+- Quiz show boarder to quiz intro slide
+- Add sign-posting into slides
 - Make references into footnotes
  
 # Idea Dumpster
