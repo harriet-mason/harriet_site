@@ -157,6 +157,7 @@ I have put my confirmation report here for the time being because I am not sure 
 - Add quiz music for each quiz question
 - Quiz show boarder to each slide
 - Add sign posting into slides
+- Print QR code so people can hand it around and join the quiz
 
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.

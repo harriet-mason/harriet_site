@@ -1,6 +1,7 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
 subtitle: "An alternative taxonomy to prevent information inequality in uncertainty visualisations"
+bibliography: references.bib
 author: Harriet Mason
 format: 
   revealjs: 
@@ -95,7 +96,18 @@ anscombe_tidy %>%
 ```
 
 ::: {.notes}
-Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualsiation needs to be done well.
+Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. 
+:::
+
+## Question 1: Anscombe's Quartet
+- Sketching distribution = predictions [@Hullman2018; @Goldstein2014]
+- Interactive graphics = better understanding [@Potter2009; @Ancker2009]
+- Inforgraphics = more accessible [@Ancker2009]
+
+::: {.notes}
+Even something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those measures.  Additionally, since visualisations allow for interactive graphics they provide a more in depth understanding of probability and are more accessible, since infographics can be understood by people with poor numeracy skills. 
+
+Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualsiation has to be done well.
 :::
 
 ## Question 1: Anscombe's Quartet
@@ -226,14 +238,19 @@ The take away from this question is not that you should be able to identify the 
 Is uncertainty important information?
 
 ::: {.notes}
-Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. There is
+Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. When we talk about uncertainty, we usually mean the sampling distribution for some estimate. Generally we think of this feature as secondary to the estimate itself. This comes through in the way we talk about it too. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself.
 :::
 
 ## Question 3: Decisions Under Certainty
-Is uncertainty important information?
 
 ::: {.notes}
-Is uncertainty important information? This isn't a quiz question its rhetorical.
+So, lets see how important the uncertainty information is.
+:::
+
+## Question 3: Decisions Under Certainty
+
+::: {.notes}
+
 :::
 
 ## Question 4: Visualising a Distribution
