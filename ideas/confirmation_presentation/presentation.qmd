@@ -5,13 +5,16 @@ bibliography: references.bib
 author: Harriet Mason
 format: 
   revealjs: 
-    theme: solarized
+    theme: [default, custom.scss]
 editor_options: 
   chunk_output_type: console
 ---
 ## The Structure of This Presentation
-### Quiz Show
-### Normal Presentation
+### Part 1
+- Quiz Show
+
+### Part 2
+- Normal Presentation
 
 ::: {.notes}
 
@@ -20,7 +23,7 @@ This talk will be split into two sections. Half of it will be a quiz show, and t
 :::
 
 ## The Structure of This Presentation
-### Quiz Show
+### Part 1: Quiz Show
 - Motivation
   - The need for uncertainty visualisations
   - The need for a new taxonomy
@@ -34,7 +37,7 @@ The first section will be the work in the first chapter of my PhD. It will be in
 :::
 
 ## The Structure of This Presentation
-### Serious Presentation
+### Part 2: Serious Presentation
 - The Rest of the PhD
   - Chapter 2 & 3
   - Additional work
@@ -56,21 +59,34 @@ One of the reasons data visualisation authors dont present uncertainty is becaus
 
 :::
 
-# Questions 1-4: The Current Literature on Visualisation
+# Questions 1-4: The Current Literature 
 
-## Question 1: Anscombe's Quartet
+# Question 1: Anscombe's Quartet
 
+::: {.notes}
+Our first quiz question will be about the importance of good visualisation.
+:::
+
+## Anscombe's Quartet
+:::: {.columns .v-center-container}
+
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| fig-width: 5
 library(tidyverse)
+
+# make tidy data
 anscombe_tidy <- tibble(x = c(anscombe$x1, anscombe$x2,
                               anscombe$x3, anscombe$x4),
                         y = c(anscombe$y1, anscombe$y2,
                               anscombe$y3, anscombe$y4),
                         Plot = c(rep("Plot 1",11), rep("Plot 2",11),
                                  rep("Plot 3",11), rep("Plot 4",11)))
+
+# plot
 anscombe_tidy %>%
   ggplot(aes(x,y)) +
   geom_point(aes(fill=Plot), colour="black", 
@@ -79,30 +95,52 @@ anscombe_tidy %>%
   theme_classic() +
   theme(aspect.ratio = 1,
         legend.position = "none") +
-  scale_fill_brewer(type = "qual", palette = 4)
+  scale_fill_brewer(type = "qual", palette = 4) 
 ```
+:::
+
+::: {.column width="50%"}
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+
+library(gt)
+# show table
 anscombe_tidy %>%
   group_by(Plot) %>%
   summarise(x_mean = mean(x),
             y_mean = mean(y),
             x_sd = sd(x),
             y_sd = sd(y),
-            correlation = cor(x,y))
+            correlation = cor(x,y))%>%
+  gt(rowname_col = "Plot") %>%
+  tab_header(title = "Anscome's Quartet Summary Statistics")  %>%
+  tab_spanner(label = "Mean",
+              columns = c(x_mean, y_mean)) %>%
+  tab_spanner(label = "Standard Deviation",
+              columns = c(x_sd, y_sd)) %>%
+  cols_label(x_mean = md("**X**"),
+             y_mean = md("**Y**"),
+             x_sd = md("**X**"),
+             y_sd = md("**Y**"),
+             correlation = md("**Correlation**"))
+  
 ```
+
+:::
+
+::::
 
 ::: {.notes}
 Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. 
 :::
 
-## Question 1: Anscombe's Quartet
-- Sketching distribution = predictions [@Hullman2018; @Goldstein2014]
+## Importance of Visualisation
+- Sketching distribution = better predictions [@Hullman2018; @Goldstein2014]
 - Interactive graphics = better understanding [@Potter2009; @Ancker2009]
-- Inforgraphics = more accessible [@Ancker2009]
+- Infographics = more accessible [@Ancker2009]
 
 ::: {.notes}
 Even something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those measures.  Additionally, since visualisations allow for interactive graphics they provide a more in depth understanding of probability and are more accessible, since infographics can be understood by people with poor numeracy skills. 
@@ -110,14 +148,15 @@ Even something as simple as sketching a distribution before recalling statistics
 Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualsiation has to be done well.
 :::
 
-## Question 1: Anscombe's Quartet
-Three of these visualisations used the data from Anscombe's Quartet, one didn't. Which visualisation is the odd one out? 
-
+## Question 1: Spot the Odd One Out
+Which visualisation is the odd one out? 
+:::{.margin 10px}
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| layout-ncol: 2
+#| layout-nrow: 1
+#| fig-height: 4
 
 # Make Fake Data
 set.seed(1)
@@ -131,7 +170,7 @@ dupe_anscombe <- tibble(x1 = sample(ans_vector, 11),
                         y3 = sample(ans_vector, 11),
                         y4 = sample(ans_vector, 11))
 
-# Box plot with Anscombe
+# Box plot
 p1 <- anscombe %>%
   pivot_longer(cols=everything(),
                names_to = "Variable",
@@ -139,24 +178,9 @@ p1 <- anscombe %>%
   ggplot(aes(x=Variable, y=Value)) +
   geom_boxplot() +
   theme_classic() + 
-  ggtitle("a) Plot 1")
-  
-# Scatter plots with mixed up variables
-#p2 <- tibble(x = c(anscombe$x4, anscombe$y2,
-#             anscombe$x2, anscombe$y3),
-#       y = c(anscombe$x1, anscombe$y1,
-#             anscombe$x3, anscombe$y4),
-#       Plot = c(rep("Plot 1",11), rep("Plot 2",11),
-#                rep("Plot 3",11), rep("Plot 4",11))) %>%
-#  ggplot(aes(x,y)) +
-#  geom_point(aes(fill=Plot), colour="black", 
-#             size=3, pch=21, alpha=0.75) +
-#  facet_wrap(~Plot) +
-#  theme_classic() +
-#  theme(aspect.ratio = 1,
-#        legend.position = "none") +
-#  scale_fill_brewer(type = "qual", palette = 4)+
-#  ggtitle("b) Plot 2")
+  ggtitle("a) Plot 1") +
+  theme(aspect.ratio = 1)
+p1
 
 # Bad Bubble Chart
 p2 <- anscombe %>%
@@ -168,7 +192,7 @@ p2 <- anscombe %>%
   theme(aspect.ratio = 1,
         legend.position = "none") +
   ggtitle("b) Plot 2")
-
+p2
 # Eight Line Plots
 p3 <- anscombe %>%
   mutate(ID=row_number()) %>%
@@ -178,7 +202,9 @@ p3 <- anscombe %>%
   ggplot(aes(ID, Value, colour=Variable)) +
   geom_line() +
   theme_classic() + 
-  ggtitle("c) Plot 3")
+  ggtitle("c) Plot 3")+
+  theme(aspect.ratio = 1)
+p3
 
 # Stacked histogram
 p4 <- dupe_anscombe %>%
@@ -188,26 +214,29 @@ p4 <- dupe_anscombe %>%
   ggplot(aes(Value, fill = Variable)) +
   geom_histogram(binwidth = 1) + 
   theme_classic() +
-  ggtitle("d) Plot 4")
-
-
-p1
-p2
-p3
+  ggtitle("d) Plot 4")+
+  theme(aspect.ratio = 1)
 p4
 ```
-
+:::
 ::: {.notes}
 
 Now for your first question. We often don't know the best way to visualise a distribution, nor do we know which variables should go togehter. On the slide I have four data visualisations. Three of them were made using the Anscombe's quartet data, one was made with fake data. In the fake data set each variable was a random sample of observations from the original data set, to make sure the values were still somewhat within the same range. Your first question is, which one of the four plots on this page was not made using Anscombe's quartet data?
 
 :::
 
-## Question 1: Anscombe's Quartet
-### Solution
+## Solution
+
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+
+# Dupe Plot
 p4
 
+# Dupe Statistics
 tibble(x = c(dupe_anscombe$x1, dupe_anscombe$x2,
              dupe_anscombe$x3, dupe_anscombe$x4),
        y = c(dupe_anscombe$y1, dupe_anscombe$y2,
@@ -220,6 +249,17 @@ tibble(x = c(dupe_anscombe$x1, dupe_anscombe$x2,
             x_sd = sd(x),
             y_sd = sd(y),
             correlation = cor(x,y))
+
+# Real plot
+p5 <- anscombe %>%
+  pivot_longer(cols=everything(),
+               names_to = "Variable",
+               values_to = "Value") %>%
+  ggplot(aes(Value, fill = Variable)) +
+  geom_histogram(binwidth = 1) + 
+  theme_classic() +
+  ggtitle("d) Plot 4")
+p5
 ```
 
 [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=648059aaff94fa54629cd881){preview-link="true"}
@@ -228,30 +268,204 @@ tibble(x = c(dupe_anscombe$x1, dupe_anscombe$x2,
 The correct answer was plot 4, the stacked histogram. The consultants, on average, picked out the correct plot __% of the time. Lets see this group did by comparison.
 :::
 
-## Question 1: Anscombe's Quartet
-
+## Bad Visualisations
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+p1
+p2
+p3
+p5
+```
 ::: {.notes}
 The take away from this question is not that you should be able to identify the Anscombe's quartet data no matter how it is presented, but rather that the presentation matters. None of the visualisations shown here identified the interesting features I displayed in the previous slide. These visualisations have the same problem as the numerical summary, because despite being visualisations, they displayed the wrong information. What is rarely discussed about Anscombe's quartet is that we already know the best way to display it to show the important information. Thinking about visualisations this way forces us to ask ourselves what we consider to be the important features of our data, which lead me to my next question.
 :::
 
-## Question 2: Decisions Under Uncertainty
+# Questions 2 & 3: Decisions and Uncertainty
+
+::: {.notes}
+Our second and third quiz questions, will focus on the importance of uncertainty in decision making.
+:::
+
+## Importance of Uncertainty
 Is uncertainty important information?
 
 ::: {.notes}
 Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. When we talk about uncertainty, we usually mean the sampling distribution for some estimate. Generally we think of this feature as secondary to the estimate itself. This comes through in the way we talk about it too. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself.
 :::
 
-## Question 3: Decisions Under Certainty
+## Question 2: Decisions with Certainty
+Scenario: 
+- currently 9pm and you are sitting at home watching TV. Your tram is predicted to arrive at your stop in 9 minutes, and the time to walk to the tram is negligible. The tram will leave as soon as it arrives at its stop. For every minute you spend at home watching TV you gain 2 utility points, for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points. The plot shows 4 leaving time options, which choice will maximise utility.
 
 ::: {.notes}
-So, lets see how important the uncertainty information is.
+Lets work through a fictitious scenario to see how we use uncertainty when we make decisions.
+The utility points should not be considered that deeply, just answer this question by thinking when you would actually leave to get the tram.
 :::
 
-## Question 3: Decisions Under Certainty
+## Question 2: Decisions with Certainty
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+#| message: false
+
+#simulated
+set.seed(1)
+arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(10000, sd=3)
+start <- as.POSIXct("2023-06-12 9:00:00")
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+mins_at_home = as.numeric(leave_times-start)/60
+
+# set up for loop
+utilitymatrix <- matrix(nrow=length(arrival_times),
+                        ncol=length(mins_at_home))
+for(i in seq(length(arrival_times))){
+  mins_at_stop = pmax(as.numeric(arrival_times[i]-leave_times)/60,0)
+  utility = 2*mins_at_home - mins_at_stop
+  utility[mins_at_stop<0.00001] <- -10
+  utilitymatrix[i,] <- utility
+}
+average_utility <- colMeans(utilitymatrix)
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+#| message: false
+
+# Set leave times & colours
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+leave_times <- leave_times[c(3,6,8,10,12)] - 30
+line_cols <- RColorBrewer::brewer.pal(5, "Set1")
+
+# Generate Data
+set.seed(1)
+min_arrival <- as.POSIXct("2023-06-12 8:56:00")
+max_arrival <- as.POSIXct("2023-06-12 9:20:00")
+current_time <- as.POSIXct("2023-06-12 9:00:00")
+arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(50, sd=3)
+tram_times <- tibble(arrival_times = arrival_times)
+estimated <- mean(arrival_times)
+
+# Axis Breaks
+my_breaks <- seq(min_arrival, max_arrival, by = 60) 
+my_labels <- (my_breaks - current_time)/60
+my_labels[!(seq(25) %in% seq(5,25,5))] <- ""
+
+# Make plot
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=0.6, size=1) +
+  geom_label(x=estimated, y=0.6,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=0.55, size=1) +
+  geom_label(x=current_time, y=0.6,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[1], y=0.3, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[2], y=0.3, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[3], y=0.3, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[4], y=0.3, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[5], y=0.3, label= "E",
+             fill = line_cols[5], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+
+```
 
 ::: {.notes}
-
+I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I reccomend you try to answer this question by thinking about when you would actually leave to get the tram.
 :::
+
+
+## Question 3: Decisions with Uncertainty
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Make plot
+tram_times %>%
+  ggplot(aes(x=arrival_times)) +
+  geom_dotplot(method="histodot", fill="grey90", binwidth = 60)+
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=0.6, size=1) +
+  geom_label(x=estimated, y=0.6,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=0.6, size=1) +
+  geom_label(x=current_time, y=0.6,
+             label="9:00pm", fill = "gray", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[1], y=0.3, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[2], y=0.3, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[3], y=0.3, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[4], y=0.3, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[5], y=0.3, label= "E",
+             fill = line_cols[5], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+```
+::: {.notes}
+Now, lets give you a little more information.
+:::
+
+## Solution
 
 ## Question 4: Visualising a Distribution
 

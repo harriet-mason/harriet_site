@@ -1,0 +1,19 @@
+/*-- scss:defaults --*/
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css2?family=Short+Stack&family=Bagel+Fat+One);
+
+// Font Variables
+$font-family-sans-serif: "Short Stack";
+
+// Headings
+$presentation-heading-font: "Bagel Fat One";
+$presentation-heading-color: #fb8072;
+$presentation-heading-line-height: 1.3;
+
+.v-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
