@@ -341,34 +341,36 @@ The take away from this question is not that you should be able to identify the 
 Our second and third quiz questions, will focus on the importance of uncertainty in decision making.
 :::
 
+
 ## On the importance of uncertainty...
-::: {style="text-align: right; margin-top: 10em"}
 ### ...Is uncertainty important information?
-:::
+
 
 ::: {.notes}
 Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. When we talk about uncertainty, we usually mean the sampling distribution for some estimate. Generally we think of this feature as secondary to the estimate itself. This comes through in the way we talk about it too. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself.
 :::
 
-## A Scenario
+
+## A Scenario {.smaller}
 It is currently 9pm and you are sitting at home watching TV. Your tram is predicted to arrive at your stop in 9 minutes, and the time to walk to the tram is negligible. The tram will leave as soon as it arrives at its stop. For every minute you spend at home watching TV you gain 2 utility points, for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points. The plot shows 4 leaving time options, which choice will maximise utility.
 
 ::: {.notes}
-Lets work through a fictitious scenario to see how we use uncertainty when we make decisions.
+Lets work through a fictitious scenario so you can all have some experience working with and without an uncertainty visualisation. After all, the only thing better than seeing my point is literally experiencing it.
 It is currently 9pm and you are sitting at home watching TV. Your tram is predicted to arrive at your stop in 9 minutes, and the time to walk to the tram is negligible. The tram will leave as soon as it arrives at its stop. For every minute you spend at home watching TV you gain 2 utility points, for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points. The plot shows 4 leaving time options, which choice will maximise utility.
 The utility points should not be considered that deeply, just answer this question by thinking when you would actually leave to get the tram.
 :::
 
-## Question 2: Tram Times #1
+## Question 2: Tram Times #1  {.smaller}
+When is the best time to arrive at the tram stop?
 ```{r}
 #| output: false
 
 #simulated
 set.seed(1)
-arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(10000, sd=3)
+arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(100000, sd=3)
 start <- as.POSIXct("2023-06-12 9:00:00")
-leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
-                   as.POSIXct("2023-06-12 9:15:00"),
+leave_times <- seq(as.POSIXct("2023-06-12 8:59:30"),
+                   as.POSIXct("2023-06-12 9:14:30"),
                    by = 60)
 mins_at_home = as.numeric(leave_times-start)/60
 
@@ -385,14 +387,12 @@ average_utility <- colMeans(utilitymatrix)
 ```
 
 ```{r}
-#| output: false
-
 # Set leave times & colours
 leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
                    as.POSIXct("2023-06-12 9:15:00"),
                    by = 60)
-leave_times <- leave_times[c(3,6,8,10,12)] - 30
-line_cols <- RColorBrewer::brewer.pal(5, "Set1")
+leave_times <- leave_times[c(5,6,7,8,9,10)] - 30
+line_cols <- RColorBrewer::brewer.pal(6, "Set1")
 
 # Generate Data
 set.seed(1)
@@ -419,7 +419,7 @@ tram_times %>%
              fill = "black", fontface = "bold",
              colour="white") +
   geom_segment(x=current_time, xend=current_time, colour="grey",
-               y=-1, yend=0.55, size=1) +
+               y=-1, yend=0.6, size=1) +
   geom_label(x=current_time, y=0.6,
              label="9:00pm", fill = "grey", colour="white") +
   geom_segment(x=leave_times[1], xend=leave_times[1],
@@ -442,6 +442,10 @@ tram_times %>%
                colour=line_cols[5], y=-1, yend=0.3, size=1) +
   geom_label(x=leave_times[5], y=0.3, label= "E",
              fill = line_cols[5], colour="white") +
+  geom_segment(x=leave_times[6], xend=leave_times[6],
+               colour=line_cols[6], y=-1, yend=0.3, size=1) +
+  geom_label(x=leave_times[6], y=0.3, label= "F",
+             fill = line_cols[6], colour="black") +
   scale_x_datetime(breaks = my_breaks,
                    labels = my_labels,
                    limits = c(min_arrival, max_arrival)) +
@@ -454,18 +458,98 @@ tram_times %>%
 ```
 
 ::: {.notes}
-I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I reccomend you try to answer this question by thinking about when you would actually leave to get the tram.
+I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I recommend you just take a guess and try to answer this question by thinking about when you would actually arrive at the tram stop, it makes the problem easier.
+:::
+
+## Solution
+The best time to leave is at time D
+
+```{r}
+# answer plot
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=0.6, size=1) +
+  geom_label(x=estimated, y=0.6,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=0.6, size=1) +
+  geom_label(x=current_time, y=0.6,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_label(x=leave_times[4], y=0.31, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.3, size=1) +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+
+```
+
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=6486f074ff94fa54629cf0bb){preview-link="true"}
+
+
+::: {.notes}
+The best time to leave was at time D. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Question 3
-### Decisions with UNcertainty
+### Decisions with Uncertainty
 :::
-
+::: {.notes}
+Now, we are going to do the same thing again, except this time, I'm going to let you see the uncertainty distribution.
+:::
 ## Question 3: Tram Times #2
+When is the best time to arrive at the tram stop?
+```{r}
+#| output: false
+
+#simulated
+set.seed(1)
+arrival_times <- as.POSIXct("2023-06-12 9:02:00") + 60*rexp(1000, rate=1/5)
+start <- as.POSIXct("2023-06-12 9:00:00")
+leave_times <- seq(as.POSIXct("2023-06-12 8:59:30"),
+                   as.POSIXct("2023-06-12 9:14:30"),
+                   by = 60)
+mins_at_home = as.numeric(leave_times-start)/60
+
+# set up for loop
+utilitymatrix <- matrix(nrow=length(arrival_times),
+                        ncol=length(mins_at_home))
+for(i in seq(length(arrival_times))){
+  mins_at_stop = pmax(as.numeric(arrival_times[i]-leave_times)/60,0)
+  utility = 2*mins_at_home - mins_at_stop
+  utility[mins_at_stop<0.00001] <- -10
+  utilitymatrix[i,] <- utility
+}
+average_utility <- colMeans(utilitymatrix)
+```
 
 ```{r}
+# Set leave times & colours
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+leave_times <- leave_times[c(5,6,7,8,9,10)] - 30
+line_cols <- RColorBrewer::brewer.pal(6, "Set1")
 
+# Generate Data
+set.seed(1)
+min_arrival <- as.POSIXct("2023-06-12 8:56:00")
+max_arrival <- as.POSIXct("2023-06-12 9:20:00")
+current_time <- as.POSIXct("2023-06-12 9:00:00")
+arrival_times <- as.POSIXct("2023-06-12 9:02:00") + 60*rexp(50, rate=1/5)
+tram_times <- tibble(arrival_times = arrival_times)
+estimated <- mean(arrival_times)
 # Make plot
 tram_times %>%
   ggplot(aes(x=arrival_times)) +
@@ -511,10 +595,12 @@ tram_times %>%
   labs(x = "Tram Wait Time (in mins)")
 ```
 ::: {.notes}
-Now, lets give you a little more information.
+I'm also going to inform you that I chose a different distribution for this slide so don't try and use the results from the previous slide.
 :::
 
 ## Solution
+
+## The importance of Uncertainty
 
 ## Question 4: Visualising a Distribution
 

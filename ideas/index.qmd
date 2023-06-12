@@ -136,12 +136,14 @@ I have put my confirmation report here for the time being because I am not sure 
 - [ ] Question 2: Decisions Under Certainty
 - [ ] Question 3: Decisions Under Uncertainty
 - [ ] Formatting of slides
-- [ ] Draw apples and oranges icon + put on slides
-- [ ] Question 4: Visualising a Distribution
-- [ ] Serious Section 
+- [ ] Draw apples and oranges icon
 
 
 #### Tuesday
+- [ ] Finish Question 3
+- [ ] Question 4: Visualising a Distribution
+- [ ] Serious Section 
+- [ ] Add icon to slides
 - [ ] Question 5: 
 - [ ] Question 6: 
 - [ ] Question 7: 
