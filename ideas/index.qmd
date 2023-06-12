@@ -145,14 +145,13 @@ I have put my confirmation report here for the time being because I am not sure 
 
 
 #### Tuesday
-- [ ] Set up quiz for Sophie to give out
 - [ ] Full Read through with edits
-- [ ] Rehearse Speech
-- [ ] Rehearse Speech
+- [ ] Set up quiz for Sophie to give out
 - [ ] Rehearse Speech
 - [ ] Present for Housemates
 
 ### Additional PRESENTATION ideas
+- Draw apples and organges and distribution for icon (logo option for slides?)
 - Add countdown timer for each quiz question
 - Add quiz music for each quiz question
 - Quiz show boarder to each slide
