@@ -8,7 +8,6 @@ format:
     theme: [default, custom.scss]
 editor_options: 
   chunk_output_type: console
-margin: 0
 logo: appleorangelogo.jpeg
 ---
 ```{r}
@@ -152,9 +151,9 @@ Lets get started by talking about the importance of visualisation. This is a plo
 :::
 
 ## Importance of Visualisation
-- Sketching distribution = better predictions [@Hullman2018; @Goldstein2014]
-- Interactive graphics = better understanding [@Potter2009; @Ancker2009]
-- Infographics = more accessible [@Ancker2009]
+- Sketching distribution = better predictions ^[@Hullman2018; @Goldstein2014]
+- Interactive graphics = better understanding ^[@Potter2009; @Ancker2009]
+- Infographics = more accessible ^[@Ancker2009]
 
 ::: {.notes}
 Even something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those measures.  Additionally, since visualisations allow for interactive graphics they provide a more in depth understanding of probability and are more accessible, since infographics can be understood by people with poor numeracy skills. 
@@ -345,17 +344,15 @@ Our second and third quiz questions, will focus on the importance of uncertainty
 :::
 
 
-## On the importance of uncertainty...
-
-- Only 1/4  of visualisation authors show uncertainty in 50% or more of their graphics. [@Hullman2020a]
-- Reasons include [@Hullman2020a]:
+## ...Is uncertainty important information?
+- Only 1/4  of visualisation authors show uncertainty in 50% or more of their graphics. ^[@Hullman2020a]
+- Reasons include:
   - overwhelm the audience
   - inability to calculate
   - a lack of information 
   - not wanting to make their data seem questionable
   
 
-### ...Is uncertainty important information?
 
 
 ::: {.notes}
@@ -366,14 +363,55 @@ When we talk about uncertainty, we usually mean the sampling distribution for so
 The next two quiz questions are going to test that hypothesis.
 :::
 
-
-## A Scenario 
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if you missed a notice about the line being down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, but every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
+## A Scenario
 
 ::: {.notes}
-These questions are going to follow a fictitious scenario so you can all have some experience working with and without an uncertainty visualisation. 
+The next two questions are going to follow a fictitious scenario that will give you some practice working with and without an uncertainty visualisation. 
+:::
 
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if you missed a notice about the line being down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, but every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, but every minute you spend at the tram stop waiting, you lose 1 utility point.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene".
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late.
+:::
+
+## A Scenario 
+::: {style="font-size: 80%;"}
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
 :::
 
 ## Question 2: Tram Times #1
@@ -478,7 +516,7 @@ When is the best time to arrive at the tram stop? There are 6 options on the sli
 
 
 ## Solution
-The best time to leave is at time B
+The best time to arrive is at time B
 
 ```{r}
 # answer plot
@@ -575,12 +613,56 @@ If you were wondering, this is how the probability distribution for you trams ar
 :::
 
 ## Another Scenario
-After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarassed for you honestly. PTV apologises for the issues and agrees to put the probability distributions on their tram tracker app. Every PTV employee works day shifts and night shifts and achieves a feat some would say rivals the building of the pyramids. The tram tracker update is ready within 5 days. 
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically.
+:::
 
-Tonight you are going to dinner with your mother. She is much less judgmental than your father but has a habit of causing a scene, which is why your dad didn't invite her to his second wedding. You are taking a tram you haven't caught before but thankfully you have the trusty new tram tracker probability distributions. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly.
+:::
 
-::: {.notes}
-After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarassed for you honestly. Reguardless, PTV profusely apologised and agreed to put the probability distributions on their tram tracker app. Tonight you need to catch a new tram, one that's behaviour is unfarmiliar to you, but thankfully you have the trusty new PTV probability distributions. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app.
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids.
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+
+Tonight you going out to dinner with your father again.
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+
+Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. 
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+
+Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. You are using a tram route you haven't caught before but thankfully the new and improved tram tracker app has uncertainty estimates.
+:::
+
+## Another Scenario
+::: {style="font-size: 80%;"}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+
+Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. You are using a tram route you haven't caught before but thankfully the new and improved tram tracker app has uncertainty estimates. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
 :::
 
 ## Question 3: Tram Times #2
@@ -677,7 +759,7 @@ Same principals as before, you have 30 seconds to make a decision.
 :::
 
 ## Solution
-The best time to leave is at time D
+The best time to arrive is at time D
 
 ```{r}
 # answer plot
@@ -717,19 +799,27 @@ tram_times %>%
 The best time to leave was at time D. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
 :::
 
-## The Importance of Uncertainty
-::: {style="font-size: 90%;"}
-- Some research that the general public cannot understand complicated statistics [@Hoekstra2014; @Bella2005] 
+## Uncertainty = Better Decisions
+- Some research that the general public cannot understand complicated statistics ^[@Hoekstra2014; @Bella2005] 
 - ... presenting uncertainty improves decision making but
-  - experimentally [@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] 
-  - and in practice [@Al-Kassab2014].
-- No uncertainty = unbound expectations [@Savelli2013]
-- Can't replace uncertainty by...
-   - explaining calcuations [@Joslyn2012]
-   - explaining benefits of a reccomendation [@Joslyn2012]
-   - being vague [@Erev_1990; @Olson_1997]
+  - experimentally ^[@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] 
+  - and in practice ^[@Al-Kassab2014].
+- No uncertainty = unbound expectations ^[@Savelli2013]
 
+::: {.notes}
+OK so the point with these two questions is to highlight the importance of showing uncertainty but the benefits of expressing uncertainty is already well known.
+
+While there is some research that the general public cannot understand complicated concepts in statistics across the board, presenting uncertainty information improves decision making both experimentally and in practice.
+
+As a matter of fact, doing what many authors currently do causes decision makers to have completely unbounded expectations on an outcome.
 :::
+
+## Uncertainty = Better Decisions
+- Can't replace uncertainty by...
+   - explaining calcuations ^[@Joslyn2012]
+   - explaining benefits of a reccomendation ^[@Joslyn2012]
+   - being vague ^[@Erev_1990; @Olson_1997]
+   
 ::: {.notes}
 OK so the point with these two questions is to highlight the importance of showing uncertainty but the benefits of expressing uncertainty is already well known.
 
@@ -749,15 +839,20 @@ Also, trying to replace explicit numerical uncertainty with things like explaini
 So I have established the importance of providing a good visualsiation as well as the importance of expressing uncertainty, but what is a good uncertainty visualsiation. I mean what is a visualisation of uncertainty. Why don't you guys try and figure it out.
 :::
 
-## Categories Example {background-iframe="https://clauswilke.com/dataviz/directory-of-visualizations.html"}
+
+## Alternative Taxonomy
+::: {fig-align="center"}
+<iframe width="1200" height="600" src="https://clauswilke.com/dataviz/directory-of-visualizations.html"></iframe>
+:::
 
 ::: {.notes}
 There are quite a few taxonomies or organisation systems for visualisations. Here is an example of one, it is from the Fundamentals of Data Visualization book and it organises visualisations into the 7 categories: amounts, distributions, proportions, x-y relationships, geospatial data, and uncertainty. There are many other organisation methods, but they all suffer from the same problem. They don't think too deeply about the statistics that made these visualisations. You will better understand what I mean if you experience this yourself.
 :::
 
-## Question 4: Categorisation
+## Question 4: Apply the Alternative Taxonomy
+Which of these plots are uncertainty visualisations?
 
-![](6dists.jpeg){}
+![](6dists.jpeg){fig-align="center" width=80%}
 
 :::{ .notes}
 Since we have the category of "uncertainty visualisation" some plots must belong to that group, while others don't. If that was not the case, why even discuss "uncertainty visualisation" as it's own topic. So, your 4th quiz question is "which of these plots are uncertainty visualisations? 
@@ -766,7 +861,8 @@ Since we have the category of "uncertainty visualisation" some plots must belong
 ## Solution
 They all are.
 
-![](6dists.jpeg){}
+
+![](6dists.jpeg){fig-align="center"}
 
 [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64882dc7ff94fa54629cf56a){preview-link="true"}
 
@@ -775,9 +871,9 @@ They all are.
 They all are. All the plots shown in the previous slide are by some paper or another considered an uncertainty visualisation. Is it anything that implies our values are not deterministic? Looking at a scatter plot gives us an idea of mass, something that the eye plot also does. A boxplot doesn't give a good idea of mass but it does highlight several thresholds, something that an error bar does which we do generally consider to be an uncertainty distribution. A bar chart and a choropleth map can both be consider an outcome of a sample similarly but also we can consider uncertainty by changing our colour thresholds or expresisng a probability as an estimate. There is no such thing as an uncertainty visualisation.
 :::
 
-## "Uncertainty Visualisation" doesn't make sense
+## What's an "Uncertainty Visualisation"
 
-![](scribblemess.jpeg){}
+![](scribblemess.jpeg){fig-align="center"}
 
 :::{ .notes}
 If there is no such thing as an uncertainty visualisation, how do we visualise uncertainty? Is it an expression of multiple values, or a threshold, or of a variance? Something that allows us to identify a distribution? A sample of our data or a collection of esitmates?
@@ -785,8 +881,12 @@ If there is no such thing as an uncertainty visualisation, how do we visualise u
 There isn't really an answer for this. Specific visualisations don't *need* to depict certain pieces of information and with combinations of aesthetic features and distributions and dependencies, you can't organise the current collection of plots in any meaningful way. There is no way to find gaps in our current visualisation literature if we don't even know what our current visualisation methods cover. We need to have a better language to discuss the information a plot displays. 
 :::
 
-## #1 Rule for Comparing Visual Features...
-### Plots can only be compared if they contain the same information. ^[@Cleveland1984]
+::: {style="text-align: center; margin-top: 6em"}
+## When comparing visual features, remember...
+. . . 
+
+### ...plots can only be compared if they contain the same information.^[@Cleveland1984]
+:::
 
 ::: {.notes}
 Identifying gaps in the current visualisation methods isn't the only reason we need a taxonomy, there is a second, more meta, reason it's needed. In order to compare plots, they need to contain the same information. Otherwise, we cannot be sure if one plot outperforms the other because of a gap in the information or a difference in the way that information is displayed. Papers that compare plots that have wildly different information are everywhere in the infoviz literature because once you go beyond expressing a single value, what we define as information becomes complicated. A unified language around what information is contained in a plot will allow us to more easily recognise which plots are appropriate to compare.
@@ -803,34 +903,143 @@ So, without further ado, lets dive into the taxonomy.
 
 ## The Three Elements of the Taxonomy
 
-![](3elements.jpeg){}
+![](3elements.jpeg){fig-align="center" width=60%}
 
 ::: {.notes}
 There are three features of a visualisation that we should consider when we want to understand the information it conveys. First, you need to ask yourself what distribution your plot depicts and if it is the best distribution for the questions we want to answer. Second you need to ask what features of that distribution are depicted and if those features convey the information we want. Finally you need to consider the hierarchy we implicitly give to those features, and ask if we are drawing attention to the information we think is important.
 :::
+
+::: {style="text-align: center; margin-top: 6em"}
 ## Questions 5 & 6
 ### The Correct Distribution
-
-::: {.notes}
-Questions 5 and 6 will focus on the first aspect of the taxonomy, the distribution you depict with your visualisation.
 :::
 
-## Question 5: How Often is A larger than B? #1
-- Q5: replicate hullman study (violin plot "is a larger than b)
 
+::: {.notes}
+Questions 5 and 6 will focus on the first aspect of the taxonomy, the distribution that is depicted with a visualisation. 
+:::
+
+## Question 5: Class A vs Class B #1
+:::: {.columns .v-center-container}
+::: {.column width="50%"}
+::: {style="font-size: 80%;"}
+::: {.incremental}
+- Two primary school classes independent height distributions 
+- Obsessed with the spirit of competition
+- Height competition (?)
+  - The winning class gets a pizza party
+  - Pizza party not relevant
+- How often is a student from Class A taller than a student from Class B?
+
+:::
+:::
+:::
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+
+set.seed(1)
+mypal <- c("#66c2a5","#74add1")
+# Make violin plot data
+n <- 100
+classA <- rnorm(n, 135, 20)
+classB <- rnorm(n, 120, 10)
+violin_data <- tibble(height = c(classA, classB), 
+                      class =c(rep("Class A", n), rep("Class B", n)))
+
+# Make violin plot
+violin_data %>%
+  ggplot(aes(x=class, y=height)) + 
+  geom_violin(aes(colour=class, fill=class)) +
+  labs(y="Height (in cm)")+
+  scale_y_continuous(breaks=seq(50,200, 10), limits=c(50,200)) +
+  theme_classic() +
+  scale_colour_manual(values = mypal) +
+  scale_fill_manual(values = mypal) +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=10),
+        legend.position = "none",
+        aspect.ratio=1)  
+```
+:::
+::::
+
+::: {.notes}
+- The plot on the left shows two independent distributions of student heights from two primary school classes, class A and B, that are obsessed with competing with each other. 
+- Most recently they have started competing on heights.
+- The game works like this, two students are randomly selected from each class every day and the taller student wins a point for their class
+- They will play this game for 100 days and
+- The winning class gets a pizza party
+- That isn't relevant to the statistics I'm just trying to paint a beautiful story
+- On how many of the days do we expect class A to win?
+:::
+
+::: {style="text-align: center; margin-top: 6em"}
 ## Solution
+### About 75% of the time!
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64884e3aff94fa54629cf60f){preview-link="true"}
+:::
 
 ## The All Knowing Marginal Distribution
+![](incorrectdistributions.jpeg){fig-align="center"}
 
-![](incorrectdistributions.jpeg){}
+::: {.notes}
+- It wasn't you, that question was inherently hard to answer.
+- I provided you with two marginal distributions but asked a question about a binomial distribution that is related to their joint distribution
+- We do this strange thing in visualisation where we display marginal and disributions of our variables and then expect them to to answer every possible question we could have about our data, regardless of whether or not those distributions are relevant.
+- For statisticians to spend so much time working out which distribution describes which phenomena, it's a little sad to ignore it when generating visualisations
+- This is a really pervasive problem to, it's not uncommon for papers to compare plots that depict two different distributions and then compare them using a question only one of them can actually answer
+- In this case, since the joint distribution actually has the information I am asking about, this question is much easier to answer if I give you the joint distribution
 
--  slide the way we think of distributions in tests vs slides
--  make the distribution that would be used to calculate that statistic be the feature if that's what is important
+## Question 6: Class A vs Class B #2
+:::: {.columns .v-center-container}
+::: {.column width="40%"}
+::: {style="font-size: 80%;"}
+::: {.incremental}
+-
 
-## Question 6: How Often is A larger than B? #2
--  Q6: again (is a larger than b) but with the joint distribution and binomial distribution highlited)
+:::
+:::
+:::
+::: {.column width="60%"}
+```{r}
+#| fig-width: 5
+# Scatter plot data
+scatter_data <- tibble(classA = classA,
+                       classB = classB) %>%
+  mutate(biggerA = ifelse(classA>classB, "Yes", "No"))
 
+# Scatter plot
+scatter_data %>%
+  ggplot(aes(x=classA, y=classB)) +
+  geom_point(aes(colour=biggerA)) +
+  labs(x="Class A Heights (in cm)", 
+       y="Class B Heights (in cm)") +
+  guides(colour=guide_legend(title="Is A>B?")) +
+  scale_x_continuous(breaks=seq(50,200, 10), limits=c(50,200)) +
+  scale_y_continuous(breaks=seq(50,200, 10), limits=c(50,200)) +
+  theme_classic() +
+  theme(aspect.ratio=1) +
+  scale_colour_manual(values = mypal)
+```
+:::
+::::
+
+::: {.notes}
+
+:::
+:::
+
+::: {style="text-align: center; margin-top: 6em"}
 ## Solution
+### About ___ of the time!
+[Results](url){preview-link="true"}
+:::
+
+::: {style="text-align: center; margin-top: 6em"}
+## Questions 7
+### The Best Features
+:::
 
 # Leftover
 - features section
