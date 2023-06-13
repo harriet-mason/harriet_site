@@ -3,14 +3,20 @@
 // Google Fonts
 @import url(https://fonts.googleapis.com/css2?family=Short+Stack&family=Bagel+Fat+One);
 
-// Font Variables
+// Base font
 $font-family-sans-serif: "Short Stack";
+$presentation-font-size-root: 32px;
 
 // Headings
 $presentation-heading-font: "Bagel Fat One";
 $presentation-heading-color: #fa5340;
 $presentation-heading-line-height: 1.3;
 
+h3, h4 {
+  color: #FC913A !important;
+}
+
+// Other stuff
 .v-center-container {
   display: flex !important;
   justify-content: center;
@@ -18,13 +24,9 @@ $presentation-heading-line-height: 1.3;
   height: 90%;
 }
 
-.reveal .slide-logo {
-  height: 100px !important;
-  width: 100px!important;
-  max-width: unset !important;
-  max-height: unset !important;
-}
 
-h3, h4 {
-  color: #FC913A !important;
+.background-iframe {
+  padding: 16px 64px 16px 64px;
+  width: 80%;
+  height: 80%;
 }

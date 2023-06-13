@@ -9,6 +9,7 @@ format:
 editor_options: 
   chunk_output_type: console
 margin: 0
+logo: appleorangelogo.jpeg
 ---
 ```{r}
 #| label: setup
@@ -79,7 +80,7 @@ One of the reasons data visualisation authors dont present uncertainty is becaus
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Question 1
-### Anscombe's Quartet
+### The Importance of Visualisation
 :::
 
 ::: {.notes}
@@ -93,7 +94,7 @@ Our first quiz question will be about the importance of good visualisation.
 ```{r}
 #| fig-width: 5
 library(tidyverse)
-
+mypal <- c("#d53e4f","#F9D423","#66c2a5","#74add1")
 # make tidy data
 anscombe_tidy <- tibble(x = c(anscombe$x1, anscombe$x2,
                               anscombe$x3, anscombe$x4),
@@ -111,7 +112,7 @@ anscombe_tidy %>%
   theme_classic() +
   theme(aspect.ratio = 1,
         legend.position = "none") +
-  scale_fill_brewer(type = "qual", palette = 4) 
+  scale_fill_manual(values = mypal)
 ```
 :::
 
@@ -166,6 +167,8 @@ Now, the importance of visualisation is well established but an implicit underst
 
 ::: {.column width="50%"}
 ```{r}
+mypal <- c("#d53e4f", "#fdae61","#F9D423", "#fee08b",
+           "#66c2a5", "#66bd63", "#3288bd", "#74add1")
 # Make Fake Data
 set.seed(1)
 ans_vector <- as.vector(as.matrix(anscombe))
@@ -187,7 +190,7 @@ p1 <- anscombe %>%
   geom_boxplot() +
   theme_classic() + 
   ggtitle("a) Plot 1") +
-  scale_fill_brewer(type = "qual", palette = 2) + 
+  scale_fill_manual(values = mypal) + 
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
         plot.title = element_text(hjust = 0.5))
@@ -219,9 +222,9 @@ p3 <- anscombe %>%
                names_to = "Variable",
                values_to = "Value")  %>%
   ggplot(aes(ID, Value, colour=Variable)) +
-  geom_line(size=2) +
+  geom_line(size=2, alpha=0.7) +
   theme_classic() + 
-  scale_colour_brewer(type = "qual", palette = 2) +
+  scale_colour_manual(values = mypal) + 
   labs(title = "b) Plot 2", x = "Order in Data Set" )+
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
@@ -236,7 +239,7 @@ p4 <- dupe_anscombe %>%
   ggplot(aes(Value, fill = Variable)) +
   geom_histogram(binwidth = 1) + 
   theme_classic() +
-  scale_fill_brewer(type = "qual", palette = 2) + 
+  scale_fill_manual(values = mypal) + 
   ggtitle("d) Plot 4")+
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
@@ -302,7 +305,7 @@ p5 <- anscombe %>%
   ggplot(aes(Value, fill = Variable)) +
   geom_histogram(binwidth = 1) + 
   theme_classic() +
-  scale_fill_brewer(type = "qual", palette = 2) + 
+  scale_fill_manual(values = mypal) + 
   ggtitle("Real Data")+
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
@@ -320,7 +323,7 @@ p5
 The correct answer was plot 4, the stacked histogram. The consultants, on average, picked out the correct plot __% of the time. Lets see this group did by comparison.
 :::
 
-## Bad Visualisations
+## The Value of a Good Visualisation
 ```{r}
 #| layout-ncol: 2
 p1 + ggtitle("Box Plot")
@@ -333,8 +336,8 @@ The take away from this question is not that you should be able to identify the 
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
-## Question 2
-### Decisions with Certainty
+## Questions 2 & 3
+### Decision Making Under Uncertainty
 :::
 
 ::: {.notes}
@@ -343,34 +346,254 @@ Our second and third quiz questions, will focus on the importance of uncertainty
 
 
 ## On the importance of uncertainty...
+
+- Only 1/4  of visualisation authors show uncertainty in 50% or more of their graphics. [@Hullman2020a]
+- Reasons include [@Hullman2020a]:
+  - overwhelm the audience
+  - inability to calculate
+  - a lack of information 
+  - not wanting to make their data seem questionable
+  
+
 ### ...Is uncertainty important information?
 
 
 ::: {.notes}
-Is uncertainty important information? This isn't a quiz question its rhetorical. It is also an important question. When we talk about uncertainty, we usually mean the sampling distribution for some estimate. Generally we think of this feature as secondary to the estimate itself. This comes through in the way we talk about it too. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself.
+Is uncertainty important information? This isn't a quiz question its rhetorical. The amount we actually visualise uncertainty would lead to believe it isn't. A survey of visualisations authors shows that only a quarter of them included uncertainty in 50% or more of their visualisations. The reasoning provided is things like a fear of overwhelming the audience, an inability to calculate the uncertainty, not having access to the uncertainty information, not wanting people to ask them about their results, etc.
+
+When we talk about uncertainty, we usually mean the sampling distribution for some estimate. There is an underlying belief in all the reasons provided by visualsiation authors that uncertainty is of secondary importance to our estimates. This comes through in the colloquial ways we talk about uncertainty. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself. 
+
+The next two quiz questions are going to test that hypothesis.
 :::
 
 
-## A Scenario {.smaller}
-It is currently 9pm and you are sitting at home watching TV. Your tram is predicted to arrive at your stop in 9 minutes, and the time to walk to the tram is negligible. The tram will leave as soon as it arrives at its stop. For every minute you spend at home watching TV you gain 2 utility points, for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points. The plot shows 4 leaving time options, which choice will maximise utility.
+## A Scenario 
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if you missed a notice about the line being down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, but every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
 
 ::: {.notes}
-Lets work through a fictitious scenario so you can all have some experience working with and without an uncertainty visualisation. After all, the only thing better than seeing my point is literally experiencing it.
-It is currently 9pm and you are sitting at home watching TV. Your tram is predicted to arrive at your stop in 9 minutes, and the time to walk to the tram is negligible. The tram will leave as soon as it arrives at its stop. For every minute you spend at home watching TV you gain 2 utility points, for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points. The plot shows 4 leaving time options, which choice will maximise utility.
-The utility points should not be considered that deeply, just answer this question by thinking when you would actually leave to get the tram.
+These questions are going to follow a fictitious scenario so you can all have some experience working with and without an uncertainty visualisation. 
+
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if you missed a notice about the line being down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, but every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
 :::
 
-## Question 2: Tram Times #1  {.smaller}
+## Question 2: Tram Times #1
 When is the best time to arrive at the tram stop?
 ```{r}
 #| output: false
 
 #simulated
 set.seed(1)
-arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(100000, sd=3)
+arrival_times <- as.POSIXct("2023-06-12 9:04:00") + 60*rexp(10000, rate=1/4)
 start <- as.POSIXct("2023-06-12 9:00:00")
-leave_times <- seq(as.POSIXct("2023-06-12 8:59:30"),
-                   as.POSIXct("2023-06-12 9:14:30"),
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 30)
+mins_at_home = as.numeric(leave_times-start)/60
+
+# set up for loop
+utilitymatrix <- matrix(nrow=length(arrival_times),
+                        ncol=length(mins_at_home))
+for(i in seq(length(arrival_times))){
+  mins_at_stop = pmax(as.numeric(arrival_times[i]-leave_times)/60,0)
+  utility = 2*mins_at_home - mins_at_stop
+  utility[mins_at_stop<0.00001] <- -10
+  utilitymatrix[i,] <- utility
+}
+average_utility <- colMeans(utilitymatrix)
+```
+
+```{r}
+# Set leave times & colours
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+leave_times <- leave_times[c(4,5,6,7,8,9)] - 30
+line_cols <- mypal[-c(4,8)]
+
+# Generate Data
+set.seed(1)
+min_arrival <- as.POSIXct("2023-06-12 8:56:00")
+max_arrival <- as.POSIXct("2023-06-12 9:20:00")
+current_time <- as.POSIXct("2023-06-12 9:00:00")
+arrival_times <- as.POSIXct("2023-06-12 9:04:00") + 60*rexp(50, rate=1/4)
+tram_times <- tibble(arrival_times = arrival_times)
+estimated <- mean(arrival_times)
+
+# Axis Breaks
+my_breaks <- seq(min_arrival, max_arrival, by = 60) 
+my_labels <- (my_breaks - current_time)/60
+my_labels[!(seq(25) %in% seq(5,25,5))] <- ""
+
+# Make plot
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[1], y=0.5, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[3], y=0.5, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[4], y=0.5, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[5], y=0.5, label= "E",
+             fill = line_cols[5], colour="white") +
+  geom_segment(x=leave_times[6], xend=leave_times[6],
+               colour=line_cols[6], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[6], y=0.5, label= "F",
+             fill = line_cols[6], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+```
+
+::: {.notes}
+When is the best time to arrive at the tram stop? There are 6 options on the slide. I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I recommend you just take a guess and try to answer this question by thinking about when you would actually arrive at the tram stop.
+:::
+
+
+## Solution
+The best time to leave is at time B
+
+```{r}
+# answer plot
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:08pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
+             fill = line_cols[2], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+
+```
+
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=6486f0a5ff94fa54629cf0bd){preview-link="true"}
+
+
+::: {.notes}
+The best time to leave was at time B. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
+:::
+
+
+
+## If you were wondering...
+
+```{r}
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  geom_dotplot(method="histodot", fill="grey90", binwidth = 60) +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[1], y=0.5, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[3], y=0.5, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[4], y=0.5, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[5], y=0.5, label= "E",
+             fill = line_cols[5], colour="white") +
+  geom_segment(x=leave_times[6], xend=leave_times[6],
+               colour=line_cols[6], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[6], y=0.5, label= "F",
+             fill = line_cols[6], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+```
+
+::: {.notes}
+If you were wondering, this is how the probability distribution for you trams arrival time looked. Maybe with this information you would have picked differently, maybe not, reguardless, we are moving on.
+:::
+
+## Another Scenario
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarassed for you honestly. PTV apologises for the issues and agrees to put the probability distributions on their tram tracker app. Every PTV employee works day shifts and night shifts and achieves a feat some would say rivals the building of the pyramids. The tram tracker update is ready within 5 days. 
+
+Tonight you are going to dinner with your mother. She is much less judgmental than your father but has a habit of causing a scene, which is why your dad didn't invite her to his second wedding. You are taking a tram you haven't caught before but thankfully you have the trusty new tram tracker probability distributions. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
+
+::: {.notes}
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarassed for you honestly. Reguardless, PTV profusely apologised and agreed to put the probability distributions on their tram tracker app. Tonight you need to catch a new tram, one that's behaviour is unfarmiliar to you, but thankfully you have the trusty new PTV probability distributions. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
+:::
+
+## Question 3: Tram Times #2
+When is the best time to arrive at the tram stop?
+```{r}
+#| output: false
+
+#simulated
+set.seed(1)
+arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(1000, sd=3)
+start <- as.POSIXct("2023-06-12 9:00:00")
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
                    by = 60)
 mins_at_home = as.numeric(leave_times-start)/60
 
@@ -392,7 +615,6 @@ leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
                    as.POSIXct("2023-06-12 9:15:00"),
                    by = 60)
 leave_times <- leave_times[c(5,6,7,8,9,10)] - 30
-line_cols <- RColorBrewer::brewer.pal(6, "Set1")
 
 # Generate Data
 set.seed(1)
@@ -402,50 +624,45 @@ current_time <- as.POSIXct("2023-06-12 9:00:00")
 arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(50, sd=3)
 tram_times <- tibble(arrival_times = arrival_times)
 estimated <- mean(arrival_times)
-
-# Axis Breaks
-my_breaks <- seq(min_arrival, max_arrival, by = 60) 
-my_labels <- (my_breaks - current_time)/60
-my_labels[!(seq(25) %in% seq(5,25,5))] <- ""
-
 # Make plot
 tram_times %>%
-  ggplot(aes(x=arrival_times))  +
+  ggplot(aes(x=arrival_times)) +
+  geom_dotplot(method="histodot", fill="grey90", binwidth = 60)+
   theme_classic() +
   geom_segment(x=estimated, xend=estimated, 
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=estimated, y=0.6,
-             label="9:09pm",
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:08pm",
              fill = "black", fontface = "bold",
              colour="white") +
   geom_segment(x=current_time, xend=current_time, colour="grey",
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=current_time, y=0.6,
-             label="9:00pm", fill = "grey", colour="white") +
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "gray", colour="white") +
   geom_segment(x=leave_times[1], xend=leave_times[1],
-               colour=line_cols[1], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[1], y=0.3, label= "A",
+               colour=line_cols[1], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[1], y=0.5, label= "A",
              fill = line_cols[1], colour="white") +
   geom_segment(x=leave_times[2], xend=leave_times[2],
-               colour=line_cols[2], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[2], y=0.3, label= "B",
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
              fill = line_cols[2], colour="white") +
   geom_segment(x=leave_times[3], xend=leave_times[3],
-               colour=line_cols[3], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[3], y=0.3, label= "C",
+               colour=line_cols[3], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[3], y=0.5, label= "C",
              fill = line_cols[3], colour="white") +
   geom_segment(x=leave_times[4], xend=leave_times[4],
-               colour=line_cols[4], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[4], y=0.3, label= "D",
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[4], y=0.5, label= "D",
              fill = line_cols[4], colour="white") +
   geom_segment(x=leave_times[5], xend=leave_times[5],
-               colour=line_cols[5], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[5], y=0.3, label= "E",
+               colour=line_cols[5], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[5], y=0.5, label= "E",
              fill = line_cols[5], colour="white") +
   geom_segment(x=leave_times[6], xend=leave_times[6],
-               colour=line_cols[6], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[6], y=0.3, label= "F",
-             fill = line_cols[6], colour="black") +
+               colour=line_cols[6], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[6], y=0.5, label= "F",
+             fill = line_cols[6], colour="white") +
   scale_x_datetime(breaks = my_breaks,
                    labels = my_labels,
                    limits = c(min_arrival, max_arrival)) +
@@ -454,11 +671,9 @@ tram_times %>%
         axis.title.y = element_blank(),
         axis.text.y = element_blank()) +
   labs(x = "Tram Wait Time (in mins)")
-
 ```
-
 ::: {.notes}
-I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I recommend you just take a guess and try to answer this question by thinking about when you would actually arrive at the tram stop, it makes the problem easier.
+Same principals as before, you have 30 seconds to make a decision.
 :::
 
 ## Solution
@@ -468,21 +683,22 @@ The best time to leave is at time D
 # answer plot
 tram_times %>%
   ggplot(aes(x=arrival_times))  +
+  geom_dotplot(method="histodot", fill="grey90", binwidth = 60)+
   theme_classic() +
   geom_segment(x=estimated, xend=estimated, 
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=estimated, y=0.6,
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
              label="9:09pm",
              fill = "black", fontface = "bold",
              colour="white") +
   geom_segment(x=current_time, xend=current_time, colour="grey",
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=current_time, y=0.6,
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
              label="9:00pm", fill = "grey", colour="white") +
-  geom_label(x=leave_times[4], y=0.31, label= "D",
+  geom_label(x=leave_times[4], y=0.51, label= "D",
              fill = line_cols[4], colour="white") +
   geom_segment(x=leave_times[4], xend=leave_times[4],
-               colour=line_cols[4], y=-1, yend=0.3, size=1) +
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
   scale_x_datetime(breaks = my_breaks,
                    labels = my_labels,
                    limits = c(min_arrival, max_arrival)) +
@@ -501,127 +717,134 @@ tram_times %>%
 The best time to leave was at time D. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
 :::
 
+## The Importance of Uncertainty
+::: {style="font-size: 90%;"}
+- Some research that the general public cannot understand complicated statistics [@Hoekstra2014; @Bella2005] 
+- ... presenting uncertainty improves decision making but
+  - experimentally [@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] 
+  - and in practice [@Al-Kassab2014].
+- No uncertainty = unbound expectations [@Savelli2013]
+- Can't replace uncertainty by...
+   - explaining calcuations [@Joslyn2012]
+   - explaining benefits of a reccomendation [@Joslyn2012]
+   - being vague [@Erev_1990; @Olson_1997]
+
+:::
+::: {.notes}
+OK so the point with these two questions is to highlight the importance of showing uncertainty but the benefits of expressing uncertainty is already well known.
+
+While there is some research that the general public cannot understand complicated concepts in statistics across the board, presenting uncertainty information improves decision making both experimentally and in practice.
+
+As a matter of fact, doing what many authors currently do causes decision makers to have completely unbounded expectations on an outcome.
+
+Also, trying to replace explicit numerical uncertainty with things like explaining the calculations, or the benefits of your recommendation, or by just being vague. They don't have the same benfits.
+:::
+
 ::: {style="text-align: center; margin-top: 6em"}
-## Question 3
-### Decisions with Uncertainty
+## Question 4 
+### Current Graphics Categories
 :::
+
 ::: {.notes}
-Now, we are going to do the same thing again, except this time, I'm going to let you see the uncertainty distribution.
+So I have established the importance of providing a good visualsiation as well as the importance of expressing uncertainty, but what is a good uncertainty visualsiation. I mean what is a visualisation of uncertainty. Why don't you guys try and figure it out.
 :::
-## Question 3: Tram Times #2
-When is the best time to arrive at the tram stop?
-```{r}
-#| output: false
 
-#simulated
-set.seed(1)
-arrival_times <- as.POSIXct("2023-06-12 9:02:00") + 60*rexp(1000, rate=1/5)
-start <- as.POSIXct("2023-06-12 9:00:00")
-leave_times <- seq(as.POSIXct("2023-06-12 8:59:30"),
-                   as.POSIXct("2023-06-12 9:14:30"),
-                   by = 60)
-mins_at_home = as.numeric(leave_times-start)/60
+## Categories Example {background-iframe="https://clauswilke.com/dataviz/directory-of-visualizations.html"}
 
-# set up for loop
-utilitymatrix <- matrix(nrow=length(arrival_times),
-                        ncol=length(mins_at_home))
-for(i in seq(length(arrival_times))){
-  mins_at_stop = pmax(as.numeric(arrival_times[i]-leave_times)/60,0)
-  utility = 2*mins_at_home - mins_at_stop
-  utility[mins_at_stop<0.00001] <- -10
-  utilitymatrix[i,] <- utility
-}
-average_utility <- colMeans(utilitymatrix)
-```
-
-```{r}
-# Set leave times & colours
-leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
-                   as.POSIXct("2023-06-12 9:15:00"),
-                   by = 60)
-leave_times <- leave_times[c(5,6,7,8,9,10)] - 30
-line_cols <- RColorBrewer::brewer.pal(6, "Set1")
-
-# Generate Data
-set.seed(1)
-min_arrival <- as.POSIXct("2023-06-12 8:56:00")
-max_arrival <- as.POSIXct("2023-06-12 9:20:00")
-current_time <- as.POSIXct("2023-06-12 9:00:00")
-arrival_times <- as.POSIXct("2023-06-12 9:02:00") + 60*rexp(50, rate=1/5)
-tram_times <- tibble(arrival_times = arrival_times)
-estimated <- mean(arrival_times)
-# Make plot
-tram_times %>%
-  ggplot(aes(x=arrival_times)) +
-  geom_dotplot(method="histodot", fill="grey90", binwidth = 60)+
-  theme_classic() +
-  geom_segment(x=estimated, xend=estimated, 
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=estimated, y=0.6,
-             label="9:09pm",
-             fill = "black", fontface = "bold",
-             colour="white") +
-  geom_segment(x=current_time, xend=current_time, colour="grey",
-               y=-1, yend=0.6, size=1) +
-  geom_label(x=current_time, y=0.6,
-             label="9:00pm", fill = "gray", colour="white") +
-  geom_segment(x=leave_times[1], xend=leave_times[1],
-               colour=line_cols[1], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[1], y=0.3, label= "A",
-             fill = line_cols[1], colour="white") +
-  geom_segment(x=leave_times[2], xend=leave_times[2],
-               colour=line_cols[2], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[2], y=0.3, label= "B",
-             fill = line_cols[2], colour="white") +
-  geom_segment(x=leave_times[3], xend=leave_times[3],
-               colour=line_cols[3], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[3], y=0.3, label= "C",
-             fill = line_cols[3], colour="white") +
-  geom_segment(x=leave_times[4], xend=leave_times[4],
-               colour=line_cols[4], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[4], y=0.3, label= "D",
-             fill = line_cols[4], colour="white") +
-  geom_segment(x=leave_times[5], xend=leave_times[5],
-               colour=line_cols[5], y=-1, yend=0.3, size=1) +
-  geom_label(x=leave_times[5], y=0.3, label= "E",
-             fill = line_cols[5], colour="white") +
-  scale_x_datetime(breaks = my_breaks,
-                   labels = my_labels,
-                   limits = c(min_arrival, max_arrival)) +
-  theme(axis.line.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.y = element_blank()) +
-  labs(x = "Tram Wait Time (in mins)")
-```
 ::: {.notes}
-I'm also going to inform you that I chose a different distribution for this slide so don't try and use the results from the previous slide.
+There are quite a few taxonomies or organisation systems for visualisations. Here is an example of one, it is from the Fundamentals of Data Visualization book and it organises visualisations into the 7 categories: amounts, distributions, proportions, x-y relationships, geospatial data, and uncertainty. There are many other organisation methods, but they all suffer from the same problem. They don't think too deeply about the statistics that made these visualisations. You will better understand what I mean if you experience this yourself.
+:::
+
+## Question 4: Categorisation
+
+![](6dists.jpeg){}
+
+:::{ .notes}
+Since we have the category of "uncertainty visualisation" some plots must belong to that group, while others don't. If that was not the case, why even discuss "uncertainty visualisation" as it's own topic. So, your 4th quiz question is "which of these plots are uncertainty visualisations? 
 :::
 
 ## Solution
+They all are.
 
-## The importance of Uncertainty
+![](6dists.jpeg){}
 
-## Question 4: Visualising a Distribution
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64882dc7ff94fa54629cf56a){preview-link="true"}
+
 
 ::: {.notes}
+They all are. All the plots shown in the previous slide are by some paper or another considered an uncertainty visualisation. Is it anything that implies our values are not deterministic? Looking at a scatter plot gives us an idea of mass, something that the eye plot also does. A boxplot doesn't give a good idea of mass but it does highlight several thresholds, something that an error bar does which we do generally consider to be an uncertainty distribution. A bar chart and a choropleth map can both be consider an outcome of a sample similarly but also we can consider uncertainty by changing our colour thresholds or expresisng a probability as an estimate. There is no such thing as an uncertainty visualisation.
+:::
+
+## "Uncertainty Visualisation" doesn't make sense
+
+![](scribblemess.jpeg){}
+
+:::{ .notes}
+If there is no such thing as an uncertainty visualisation, how do we visualise uncertainty? Is it an expression of multiple values, or a threshold, or of a variance? Something that allows us to identify a distribution? A sample of our data or a collection of esitmates?
+
+There isn't really an answer for this. Specific visualisations don't *need* to depict certain pieces of information and with combinations of aesthetic features and distributions and dependencies, you can't organise the current collection of plots in any meaningful way. There is no way to find gaps in our current visualisation literature if we don't even know what our current visualisation methods cover. We need to have a better language to discuss the information a plot displays. 
+:::
+
+## #1 Rule for Comparing Visual Features...
+### Plots can only be compared if they contain the same information. ^[@Cleveland1984]
+
+::: {.notes}
+Identifying gaps in the current visualisation methods isn't the only reason we need a taxonomy, there is a second, more meta, reason it's needed. In order to compare plots, they need to contain the same information. Otherwise, we cannot be sure if one plot outperforms the other because of a gap in the information or a difference in the way that information is displayed. Papers that compare plots that have wildly different information are everywhere in the infoviz literature because once you go beyond expressing a single value, what we define as information becomes complicated. A unified language around what information is contained in a plot will allow us to more easily recognise which plots are appropriate to compare.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
-## The Taxonomy 
+## A Taxonomy for Visualisation Information
 ### (Questions 5 to 8) 
 :::
 
-## Aside: Returning to Question 1
-
-```{r}
-p1 + ggtitle("Incorrect Distribution")
-p3 + ggtitle("Unimportant Features")
-p2 + ggtitle("Poor Hierarchy")
-```
-
-::: {.notes}
-Each of the bad plots given in the first question actually highlighted a facet of the taxonomy I am about to present. The violin plot showed the marginal distribution of each variable, however, the "interesting" information was contained in a handful of bivariate distributions; The line plot highlighted the order the variables appeared in the data set and made that the most predominant feature of the plot, even though it was completely irrelevant; and the label scatter plot had all the information visible, its just that most of it was mapped to almost invisible features of the plot, making them functionally invisible. These three mistakes in visualisation form the three pilars of my information taxonomy.
+:::{ .notes}
+So, without further ado, lets dive into the taxonomy. 
 :::
 
-## Question __: Plots with Different Information
+## The Three Elements of the Taxonomy
+
+![](3elements.jpeg){}
+
+::: {.notes}
+There are three features of a visualisation that we should consider when we want to understand the information it conveys. First, you need to ask yourself what distribution your plot depicts and if it is the best distribution for the questions we want to answer. Second you need to ask what features of that distribution are depicted and if those features convey the information we want. Finally you need to consider the hierarchy we implicitly give to those features, and ask if we are drawing attention to the information we think is important.
+:::
+## Questions 5 & 6
+### The Correct Distribution
+
+::: {.notes}
+Questions 5 and 6 will focus on the first aspect of the taxonomy, the distribution you depict with your visualisation.
+:::
+
+## Question 5: How Often is A larger than B? #1
+- Q5: replicate hullman study (violin plot "is a larger than b)
+
+## Solution
+
+## The All Knowing Marginal Distribution
+
+![](incorrectdistributions.jpeg){}
+
+-  slide the way we think of distributions in tests vs slides
+-  make the distribution that would be used to calculate that statistic be the feature if that's what is important
+
+## Question 6: How Often is A larger than B? #2
+-  Q6: again (is a larger than b) but with the joint distribution and binomial distribution highlited)
+
+## Solution
+
+# Leftover
+- features section
+- mention the four visual features of a graph and that depicting the wrong features is bad
+- Q7: the error bar question (which of these four plots depicts statistical significance)
+- the error bar problem
+- showing the correct distribution isn't enough, you have to identify the correct features of that distribution
+- alternative error depiction (?)
+- hierarchy section
+- Q8: what is the hierarchy of information presented in this plot? (list of features and some rediculous plot)
+- putting it together
+- many advancements in plots have been just applying these concepts
+- that's it for chapter 1 of my thesis, you guys beat the consultants ___ out of ___ times.
+- discussion of chapter 2
+- discussion of chapter 3
+- additional work
+- timeline

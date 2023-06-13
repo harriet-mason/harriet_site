@@ -140,22 +140,25 @@ I have put my confirmation report here for the time being because I am not sure 
 
 
 #### Tuesday
-- [ ] Finish Question 3
-- [ ] Question 4: Visualising a Distribution
+- [x] Finish Question 3
+- [x] Plan out all slides
+- [x] Question 4: Visualising a Distribution
+- [ ] Question 5: A Bad Distribution
+- [ ] Question 6: A Good Distribution
+- [ ] Question 7: The Error Bar Problem
+- [ ] Question 8: A Questionable Hierarchy
+- [ ] Set up quiz for Sophie to give out (on netlify?)
+- [ ] Full Read through with edits
 - [ ] Serious Section 
 - [ ] Add icon to slides
-- [ ] Question 5: 
-- [ ] Question 6: 
-- [ ] Question 7: 
-- [ ] Question 8:
-- [ ] Full Read through with edits
-- [ ] Set up quiz for Sophie to give out
 - [ ] Rehearse Speech
 - [ ] Present for Housemates
 
 #### Wednesday
 
 ### Additional PRESENTATION ideas
+- Swap the two tram tracker distributions
+- Put slides on Netlify in case we have issues.
 - Add countdown timer for each quiz question
 - Print QR code so people can hand it around and join the quiz
 - Add quiz music for each quiz question
