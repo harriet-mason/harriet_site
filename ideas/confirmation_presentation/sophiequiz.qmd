@@ -1,0 +1,430 @@
+---
+title: "Uncertainty Visualisation Quiz"
+date: last-modified
+format: pdf
+editor_options: 
+  chunk_output_type: console
+---
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+
+library(tidyverse)
+```
+
+## Instructions
+- Below are 8 quiz questions.
+- After reading the explanation, you should spend no more than 30 seconds answering the question. Questions 1 and 4 are the only questions that may provide some benefit if you think about them for longer (but it is not reccomended).
+- All questions are multiple choice and you should submit your answers at the flux quiz [here](https://flux.qa/LZWM2X). Click on the "General Stuff" session to show the quiz.
+- Try to answer the questions in order as some questions follow on from the previous one or provide additional information you shouldn't use to answer the question.
+- The flux quiz can also be accessed by typing the URL or scanning QR code below
+
+![](qrcode.png){#fig-features width=60%}
+
+{{< pagebreak >}}
+
+## Question 1: Anscombe's Quartet
+Below is a plot of the famous data set, Anscombe's quartet. All 4 plots have the same mean, correlation and standard deviation, so they appear to beidentical when you use summary statistics to extract interesting information.
+
+```{r}
+library(tidyverse)
+mypal <- c("#d53e4f","#F9D423","#66c2a5","#74add1")
+# make tidy data
+anscombe_tidy <- tibble(x = c(anscombe$x1, anscombe$x2,
+                              anscombe$x3, anscombe$x4),
+                        y = c(anscombe$y1, anscombe$y2,
+                              anscombe$y3, anscombe$y4),
+                        Plot = c(rep("Plot 1",11), rep("Plot 2",11),
+                                 rep("Plot 3",11), rep("Plot 4",11)))
+
+# plot
+anscombe_tidy %>%
+  ggplot(aes(x,y)) +
+  geom_point(aes(fill=Plot), colour="black", 
+             size=3, pch=21, alpha=0.75) +
+  facet_wrap(~Plot) +
+  theme_classic() +
+  theme(aspect.ratio = 1,
+        legend.position = "none") +
+  scale_fill_manual(values = mypal)
+
+library(gt)
+# show table
+anscombe_tidy %>%
+  group_by(Plot) %>%
+  summarise(x_mean = mean(x),
+            y_mean = mean(y),
+            x_sd = sd(x),
+            y_sd = sd(y),
+            correlation = cor(x,y))%>%
+  gt(rowname_col = "Plot") %>%
+  tab_header(title = "Anscome's Quartet Summary Statistics")  %>%
+  tab_spanner(label = "Mean",
+              columns = c(x_mean, y_mean)) %>%
+  tab_spanner(label = "Standard Deviation",
+              columns = c(x_sd, y_sd)) %>%
+  cols_label(x_mean = md("**X**"),
+             y_mean = md("**Y**"),
+             x_sd = md("**X**"),
+             y_sd = md("**Y**"),
+             correlation = md("**Correlation**")) %>%
+  fmt_number(decimals=2)
+  
+```
+
+If we think about Anscombe's quartet as a normal data set with 8 variables (instead of 4 data sets) we can visualise the plots in many other ways. Below are four such data visualisations. Three of them were made using the Anscombe's quartet data, one was made with fake data. In the fake data set each variable was a random sample of observations from the original data set, to make sure the values were still somewhat within the same range. Plot 2 has every variable in the data mapped to an aesthetic. Which of these four plots was not made using the Anscombe's quartet data?
+
+```{r}
+mypal <- c("#d53e4f", "#fdae61","#F9D423", "#fee08b",
+           "#66c2a5", "#66bd63", "#3288bd", "#74add1")
+# Make Fake Data
+set.seed(1)
+ans_vector <- as.vector(as.matrix(anscombe))
+dupe_anscombe <- tibble(x1 = sample(ans_vector, 11),
+                        x2 = sample(ans_vector, 11),
+                        x3 = sample(ans_vector, 11),
+                        x4 = sample(ans_vector, 11),
+                        y1 = sample(ans_vector, 11),
+                        y2 = sample(ans_vector, 11),
+                        y3 = sample(ans_vector, 11),
+                        y4 = sample(ans_vector, 11))
+
+# Box plot
+p1 <- anscombe %>%
+  pivot_longer(cols=everything(),
+               names_to = "Variable",
+               values_to = "Value") %>%
+  ggplot(aes(x=Variable, y=Value, fill=Variable)) +
+  geom_boxplot() +
+  theme_classic() + 
+  ggtitle("a) Plot 1") +
+  scale_fill_manual(values = mypal) +
+  theme(aspect.ratio = 1/2)
+
+# Bad Bubble Chart
+p2 <- anscombe %>%
+  ggplot(aes(x=x1, y=y1)) +
+  geom_segment(aes(x=x1-0.5*x4,xend=x1+0.5*x4,yend=y1)) +
+  geom_segment(aes(xend=x1, y=y1-0.5*y4, yend=y1+0.5*y4)) +
+  geom_label(aes(size=x2, alpha=y2, colour=x3, label = y3)) +
+  theme_classic() + 
+  theme(aspect.ratio = 1/2,
+        legend.position = "none") +
+  ggtitle("b) Plot 2")
+
+# Eight Line Plots
+p3 <- anscombe %>%
+  mutate(ID=row_number()) %>%
+  pivot_longer(cols=x1:y4,
+               names_to = "Variable",
+               values_to = "Value")  %>%
+  ggplot(aes(ID, Value, colour=Variable)) +
+  geom_line(size=2, alpha=0.7) +
+  theme_classic() + 
+  scale_colour_manual(values = mypal) + 
+  labs(title = "c) Plot 3", x = "Order in Data Set" )+
+  theme(aspect.ratio = 1/2)
+
+
+# Stacked histogram
+p4 <- dupe_anscombe %>%
+  pivot_longer(cols=everything(),
+               names_to = "Variable",
+               values_to = "Value") %>%
+  ggplot(aes(Value, fill = Variable)) +
+  geom_histogram(binwidth = 1) + 
+  theme_classic() +
+  scale_fill_manual(values = mypal) + 
+  ggtitle("d) Plot 4")+
+  theme(aspect.ratio = 1/2)
+p1
+p2
+p3
+p4
+```
+
+{{< pagebreak >}}
+
+## Question 2: Tram Times (Part 1)
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
+When is the best time to arrive at the tram stop?
+
+```{r}
+# Set leave times & colours
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+leave_times <- leave_times[c(4,5,6,7,8,9)] - 30
+line_cols <- mypal[-c(4,8)]
+
+# Generate Data
+set.seed(1)
+min_arrival <- as.POSIXct("2023-06-12 8:56:00")
+max_arrival <- as.POSIXct("2023-06-12 9:20:00")
+current_time <- as.POSIXct("2023-06-12 9:00:00")
+arrival_times <- as.POSIXct("2023-06-12 9:04:00") + 60*rexp(50, rate=1/4)
+tram_times <- tibble(arrival_times = arrival_times)
+estimated <- mean(arrival_times)
+
+# Axis Breaks
+my_breaks <- seq(min_arrival, max_arrival, by = 60) 
+my_labels <- (my_breaks - current_time)/60
+my_labels[!(seq(25) %in% seq(5,25,5))] <- ""
+
+# Make plot
+tram_times %>%
+  ggplot(aes(x=arrival_times))  +
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:09pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "grey", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[1], y=0.5, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[3], y=0.5, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[4], y=0.5, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[5], y=0.5, label= "E",
+             fill = line_cols[5], colour="white") +
+  geom_segment(x=leave_times[6], xend=leave_times[6],
+               colour=line_cols[6], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[6], y=0.5, label= "F",
+             fill = line_cols[6], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+```
+
+{{< pagebreak >}}
+
+## Question 3: Tram Times (Part 2)
+Since you last used tram tracker, it has had an update and it now displays the uncertainty associated with a departure time. Each dot represents how often 2% (1 in 50) of all trams with the currently estimated arrival time departed the tram stop at that time. Think of it as a histogram that uses dots instead of bars.
+
+You are using a tram route you haven't caught before so you don't have a reliable knowledge of how early or late this tram typically is without tram tracker. Assume you have the same utility system as the previous question (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram). When is the best time to arrive at the tram stop?
+
+```{r}
+# Set leave times & colours
+leave_times <- seq(as.POSIXct("2023-06-12 9:00:00"),
+                   as.POSIXct("2023-06-12 9:15:00"),
+                   by = 60)
+leave_times <- leave_times[c(5,6,7,8,9,10)] - 30
+
+# Generate Data
+set.seed(1)
+min_arrival <- as.POSIXct("2023-06-12 8:56:00")
+max_arrival <- as.POSIXct("2023-06-12 9:20:00")
+current_time <- as.POSIXct("2023-06-12 9:00:00")
+arrival_times <- as.POSIXct("2023-06-12 9:9:00") + 60*rnorm(50, sd=3)
+tram_times <- tibble(arrival_times = arrival_times)
+estimated <- mean(arrival_times)
+# Make plot
+tram_times %>%
+  ggplot(aes(x=arrival_times)) +
+  geom_dotplot(method="histodot", fill="grey90", binwidth = 60)+
+  theme_classic() +
+  geom_segment(x=estimated, xend=estimated, 
+               y=-1, yend=1, size=1) +
+  geom_label(x=estimated, y=1,
+             label="9:08pm",
+             fill = "black", fontface = "bold",
+             colour="white") +
+  geom_segment(x=current_time, xend=current_time, colour="grey",
+               y=-1, yend=1, size=1) +
+  geom_label(x=current_time, y=1,
+             label="9:00pm", fill = "gray", colour="white") +
+  geom_segment(x=leave_times[1], xend=leave_times[1],
+               colour=line_cols[1], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[1], y=0.5, label= "A",
+             fill = line_cols[1], colour="white") +
+  geom_segment(x=leave_times[2], xend=leave_times[2],
+               colour=line_cols[2], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[2], y=0.5, label= "B",
+             fill = line_cols[2], colour="white") +
+  geom_segment(x=leave_times[3], xend=leave_times[3],
+               colour=line_cols[3], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[3], y=0.5, label= "C",
+             fill = line_cols[3], colour="white") +
+  geom_segment(x=leave_times[4], xend=leave_times[4],
+               colour=line_cols[4], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[4], y=0.5, label= "D",
+             fill = line_cols[4], colour="white") +
+  geom_segment(x=leave_times[5], xend=leave_times[5],
+               colour=line_cols[5], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[5], y=0.5, label= "E",
+             fill = line_cols[5], colour="white") +
+  geom_segment(x=leave_times[6], xend=leave_times[6],
+               colour=line_cols[6], y=-1, yend=0.5, size=1) +
+  geom_label(x=leave_times[6], y=0.5, label= "F",
+             fill = line_cols[6], colour="white") +
+  scale_x_datetime(breaks = my_breaks,
+                   labels = my_labels,
+                   limits = c(min_arrival, max_arrival)) +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank()) +
+  labs(x = "Tram Wait Time (in mins)")
+```
+
+{{< pagebreak >}}
+
+## Question 4: Visualisation Taxonomy
+In your opinion, which of the plots below can (and should) be used to express uncertainty in visualisations? Select all that apply.
+
+![](6dists.jpeg){fig-align="center" width=80%}
+
+{{< pagebreak >}}
+
+## Question 5 Class A vs Class B (Part 1)
+The plot below shows two independent distributions of student heights from primary school classes, A and B. Every day two students are randomly selected from each class and the taller of the two students wins a point for their class. They will play this game for 100 days. On how many of the days do we expect class A to win?
+
+```{r}
+set.seed(1)
+mypal <- c("#66c2a5","#74add1")
+# Make violin plot data
+n <- 100
+classA <- rnorm(n, 135, 20)
+classB <- rnorm(n, 120, 10)
+violin_data <- tibble(height = c(classA, classB), 
+                      class =c(rep("Class A", n), rep("Class B", n)))
+
+# Make violin plot
+violin_data %>%
+  ggplot(aes(x=class, y=height)) + 
+  geom_violin(aes(colour=class, fill=class)) +
+  labs(y="Height (in cm)")+
+  scale_y_continuous(breaks=seq(80,200, 10), limits=c(80,200)) +
+  theme_classic() +
+  scale_colour_manual(values = mypal) +
+  scale_fill_manual(values = mypal) +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=10),
+        legend.position = "none",
+        aspect.ratio=1)  
+```
+
+{{< pagebreak >}}
+ 
+## Question 6: Class A vs Class B (Part 2)
+In one realisation of the game in Question 5, class B loses the heights competition and demands a rematch. One of the students in Class B convinces his older brother and some of his friends from highschool to swap classes with the shortest kids in class B. Class B now has several tall students in their class that are skewing the distribution. results. The plot below depicts the joint distribution of class A and B with colour highlighting the days in which the student selected from class A was taller than the student from class B. In the rematch height competition on how many of the days (out of 100) do we expect class A to win?
+
+```{r}
+#| fig-width: 5
+# Add in tall kids
+set.seed(1)
+classB <- classB[classB > quantile(classB, 0.2)]
+classB <- c(classB, rnorm(0.2*n, 180, 4))
+# Scatter plot data
+scatter_data <- tibble(classA = classA,
+                       classB = classB) %>%
+  mutate(biggerA = ifelse(classA>classB, "Yes", "No"))
+
+# Scatter plot
+scatter_data %>%
+  ggplot(aes(x=classB, y=classA)) +
+  geom_point(aes(colour=biggerA)) +
+  labs(x="Class B Heights (in cm)", 
+       y="Class A Heights (in cm)") +
+  guides(colour=guide_legend(title="Is A>B?")) +
+  scale_x_continuous(breaks=seq(80,200, 10), limits=c(80,200)) +
+  scale_y_continuous(breaks=seq(80,200, 10), limits=c(80,200)) +
+  theme_classic() +
+  theme(aspect.ratio=1) +
+  scale_colour_manual(values = mypal, limits=c("Yes", "No"))
+```
+
+{{< pagebreak >}}
+ 
+## Question 7: Using Error Bars
+In which plot are the two means closest together but still statistically significantly different? *Assume the error bars depict independent confidence intervals*
+
+```{r}
+#| layout-nrow: 1
+#| fig-width: 3
+# error bar 1 data
+error_data1 <- tibble(ymin = c(175, 300), 
+                      ymax = c(425, 500), 
+                      themean = c(300, 400), 
+                      group = c("Group 1", "Group 2"))
+error_data2 <- tibble(ymin = c(175, 360), 
+                      ymax = c(425, 560), 
+                      themean = c(300, 450), 
+                      group = c("Group 1", "Group 2"))
+error_data3 <- tibble(ymin = c(175, 425), 
+                      ymax = c(425, 625), 
+                      themean = c(300, 525), 
+                      group = c("Group 1", "Group 2"))
+error_data4 <- tibble(ymin = c(175, 500), 
+                      ymax = c(425, 700), 
+                      themean = c(300, 600), 
+                      group = c("Group 1", "Group 2"))
+mypal <- c("#d53e4f","#F9D423","#66c2a5","#74add1")
+# Make error bar plot
+p1 <- error_data1 %>%
+  ggplot(aes(x=group)) + 
+  geom_errorbar(aes(ymin=ymin, ymax=ymax), width=0.2,
+                linewidth = 1.5) +
+  labs(y="Fabricated Values",
+       title = "Plot A")+
+  theme_classic() +
+  scale_y_continuous(breaks=seq(150,700, 50),
+                     limits=c(150,700)) +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=10),
+        aspect.ratio=1.5,
+        text=element_text(size=15),
+        plot.title = element_text(hjust = 0.5))
+
+# print plots
+p1 + geom_boxplot(aes(y=themean), colour=mypal[1]) 
+
+pb <- p1 %+% error_data2 + 
+  geom_boxplot(aes(y=themean), colour=mypal[2])+
+  ggtitle("Plot B")
+pb
+
+p1 %+% error_data3 + 
+  geom_boxplot(aes(y=themean), colour=mypal[3])+
+  ggtitle("Plot C")
+
+p1 %+% error_data4 + 
+  geom_boxplot(aes(y=themean), colour=mypal[4])+
+  ggtitle("Plot D")
+```
+
+{{< pagebreak >}}
+ 
+## Question 8: Gut Hierarchy
+Order the features depicted in the graph, **location, estimate, and error** by their importance implied by the map below.
+
+
+![](glyphmap.jpeg){fig-align="center" width=60%}

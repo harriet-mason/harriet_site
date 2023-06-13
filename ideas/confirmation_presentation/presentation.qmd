@@ -1,11 +1,12 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
-subtitle: "An alternative taxonomy to prevent information inequality in uncertainty visualisations"
+subtitle: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 bibliography: references.bib
 author: Harriet Mason
 format: 
   revealjs: 
     theme: [default, custom.scss]
+    slide-number: true
 editor_options: 
   chunk_output_type: console
 logo: appleorangelogo.jpeg
@@ -16,9 +17,7 @@ logo: appleorangelogo.jpeg
 knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
-  message = FALSE,
-  fig.retina = 5,
-  out.width = "100%"
+  message = FALSE
 )
 ```
 
@@ -37,15 +36,15 @@ This talk will be split into two sections. Half of it will be a quiz show, and t
 
 ## The Structure of This Presentation
 ### Part 1: Quiz Show
-- Motivation
+- Motivation (Q1-4)
   - The need for uncertainty visualisations
   - The need for a new taxonomy
-- Chapter 1
-  - Details of the taxonomy 
+- Chapter 1 (Q5-8)
+  - Details of the visual information taxonomy 
 
 ::: {.notes}
 
-The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question.
+The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question. Questions 1 to 4 will be related the current work in uncertainty visualisation and questions 5 to 8 will detail the visual information taxonomy we developed to allow us to better compare plots.
 
 :::
 
@@ -73,13 +72,12 @@ One of the reasons data visualisation authors dont present uncertainty is becaus
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
-## The Current Literature 
-### (Questions 1 to 4) 
+# The Current Literature 
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Question 1
-### The Importance of Visualisation
+### Needing a Good Visualisation
 :::
 
 ::: {.notes}
@@ -150,7 +148,7 @@ anscombe_tidy %>%
 Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. 
 :::
 
-## Importance of Visualisation
+## The Importance of Visualisation
 - Sketching distribution = better predictions ^[@Hullman2018; @Goldstein2014]
 - Interactive graphics = better understanding ^[@Potter2009; @Ancker2009]
 - Infographics = more accessible ^[@Ancker2009]
@@ -160,12 +158,15 @@ Even something as simple as sketching a distribution before recalling statistics
 
 Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualsiation has to be done well.
 :::
-
 ## Question 1: Spot the Odd One Out
-:::: {.columns .v-center-container}
-
-::: {.column width="50%"}
 ```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
+
+```{r}
+#| layout-ncol: 2
 mypal <- c("#d53e4f", "#fdae61","#F9D423", "#fee08b",
            "#66c2a5", "#66bd63", "#3288bd", "#74add1")
 # Make Fake Data
@@ -205,15 +206,8 @@ p2 <- anscombe %>%
         legend.position = "none",
         text=element_text(size=21),
         plot.title = element_text(hjust = 0.5)) +
-  ggtitle("c) Plot 3")
+  ggtitle("b) Plot 2")
 
-p1
-p2
-```
-:::
-
-::: {.column width="50%"}
-```{r}
 # Eight Line Plots
 p3 <- anscombe %>%
   mutate(ID=row_number()) %>%
@@ -224,7 +218,7 @@ p3 <- anscombe %>%
   geom_line(size=2, alpha=0.7) +
   theme_classic() + 
   scale_colour_manual(values = mypal) + 
-  labs(title = "b) Plot 2", x = "Order in Data Set" )+
+  labs(title = "c) Plot 3", x = "Order in Data Set" )+
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
         plot.title = element_text(hjust = 0.5))
@@ -243,13 +237,11 @@ p4 <- dupe_anscombe %>%
   theme(aspect.ratio = 1/2,
         text=element_text(size=21),
         plot.title = element_text(hjust = 0.5))
-
+p1
+p2
 p3
 p4
 ```
-:::
-
-::::
 
 ::: {.notes}
 
@@ -322,7 +314,7 @@ p5
 The correct answer was plot 4, the stacked histogram. The consultants, on average, picked out the correct plot __% of the time. Lets see this group did by comparison.
 :::
 
-## The Value of a Good Visualisation
+## Showing The Right Information
 ```{r}
 #| layout-ncol: 2
 p1 + ggtitle("Box Plot")
@@ -416,6 +408,12 @@ It is currently 9pm and you are sitting at home watching TV. Tram tracker is pre
 
 ## Question 2: Tram Times #1
 When is the best time to arrive at the tram stop?
+```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
+
 ```{r}
 #| output: false
 
@@ -668,6 +666,12 @@ Tonight you going out to dinner with your father again. You begged for another c
 ## Question 3: Tram Times #2
 When is the best time to arrive at the tram stop?
 ```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
+
+```{r}
 #| output: false
 
 #simulated
@@ -852,6 +856,12 @@ There are quite a few taxonomies or organisation systems for visualisations. Her
 ## Question 4: Apply the Alternative Taxonomy
 Which of these plots are uncertainty visualisations?
 
+```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
+
 ![](6dists.jpeg){fig-align="center" width=80%}
 
 :::{ .notes}
@@ -895,8 +905,7 @@ Identifying gaps in the current visualisation methods isn't the only reason we n
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
-## A Taxonomy for Visualisation Information
-### (Questions 5 to 8) 
+# A Taxonomy for Visualisation Information
 :::
 
 :::{ .notes}
@@ -913,7 +922,7 @@ There are three features of a visualisation that we should consider when we want
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Questions 5 & 6
-### The Correct Distribution
+### Distribution
 :::
 
 
@@ -922,6 +931,11 @@ Questions 5 and 6 will focus on the first aspect of the taxonomy, the distributi
 :::
 
 ## Question 5: Class A vs Class B #1
+```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
 :::: {.columns .v-center-container}
 ::: {.column width="50%"}
 ::: {style="font-size: 100%;"}
@@ -998,9 +1012,14 @@ The consultants, on average, got this one right  __% of the time. And you guys b
 :::
 
 ## Question 6: Class A vs Class B #2
+```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em", )
+```
 :::: {.columns .v-center-container}
 ::: {.column width="40%"}
-::: {style="font-size: 100%;"}
+::: {style="font-size: 85%;"}
 ::: {.incremental}
 - Breaking News! Primary school class is full of sore losers
 - and also cheats
@@ -1056,27 +1075,259 @@ scatter_data %>%
 
 :::{.notes}
 - The consultants, on average, got this one right  __% of the time. And you guys by comparison got it right...
-- The distribution 
+- This example highlights the importance of making sure you are depicting the correct distribution
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
-## Questions 7
-### The Best Features
+## Question 7
+### Features
+:::
+
+::: {.notes}
+Now, I was a little dishonest in question 6 because I didn't only change the distribution, I also changed the feature. 
+:::
+
+## The Four Visual Features
+![](distfeatures.jpeg){fig-align="center"}
+
+:::{.notes}
+
+- The visual aspects of a distribution that we typically express in graphics can be organised into four key features. 
+- Each of these features are more adept at answering some questions than others.
+- The first feature is mass which is represents any of the mass functions like the CDF or PDF. Depictions of mass can inform us of the mode, likely values, and whether or not we have an identifiable distribution.
+- Samples are actual or simulated outcomes from our distribution. Our data falls into this category. This feature is useful in answering questions about frequency or probability. 
+- Parameters are the statistics that are related to our distribution. The mean and variance are examples of parameters. Plots that show parameters are quite flexbile since they can depict almost anything, but usually the scope of each plot is limited.
+- The last feature is exchangeability which illustrates whether or not elements from a sequence of random variables in this distribution can be swapped. Rather than wanting to answer questions about exchangeability, it is usually just something we want to highlight in our data, typically by connecting elements or having them touch. 
+- This list is not exhaustive nor is each element entirely distinct. A particular visualisations of a sample may double as a depiction of mass and also highlight something entirely different
+- Now, lets get to our quiz question.
+:::
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. 
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. 
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. 
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. In year 11 the school captain, a person holding a position chosen based on moral character, told me she solved this problem by fabricating her results. 
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. In year 11 the school captain, a person holding a position chosen based on moral character, told me she solved this problem by fabricating her results. I said "that's academic fraud though", and she said "yeah" and that was the end of the conversation. 
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. In year 11 the school captain, a person holding a position chosen based on moral character, told me she solved this problem by fabricating her results. I said "that's academic fraud though", and she said "yeah" and that was the end of the conversation. 
+
+In this hypothetical scenario you are my school captain and you are fabricating your science results.
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. In year 11 the school captain, a person holding a position chosen based on moral character, told me she solved this problem by fabricating her results. I said "that's academic fraud though", and she said "yeah" and that was the end of the conversation. 
+
+In this hypothetical scenario you are my school captain and you are fabricating your science results. You want statistically significant results, but you don't want to make it obvious you fabricated them.
+:::
+
+## A Real Highschool Story 
+::: {style="font-size: 85%;"}
+When I was in high school we had to do very precise scientific experiments with pretty shotty equipment, so it wasn't unusual to get results that were all over the place. Additionally we weren't allowed to use "shotty equiptment" to explain why our results that went against all scientific wisdom. This meant bad luck with your experimental results could result in a terrible grade. In year 11 the school captain, a person holding a position chosen based on moral character, told me she solved this problem by fabricating her results. I said "that's academic fraud though", and she said "yeah" and that was the end of the conversation. 
+
+In this hypothetical scenario you are my school captain and you are fabricating your science results. You want statistically significant results, but you don't want to make it obvious you fabricated them. You only want them to be just statistically significant.
+:::
+
+## Question 7: Using Error Bars
+```{r}
+library(countdown)
+countdown(minutes = 0, seconds = 20, 
+          margin = "0.1em")
+```
+In which plot are the two means closest together but still statistically significantly different?
+```{r}
+#| layout-nrow: 1
+#| fig-width: 3
+# error bar 1 data
+error_data1 <- tibble(ymin = c(175, 300), 
+                      ymax = c(425, 500), 
+                      themean = c(300, 400), 
+                      group = c("Group 1", "Group 2"))
+error_data2 <- tibble(ymin = c(175, 360), 
+                      ymax = c(425, 560), 
+                      themean = c(300, 450), 
+                      group = c("Group 1", "Group 2"))
+error_data3 <- tibble(ymin = c(175, 425), 
+                      ymax = c(425, 625), 
+                      themean = c(300, 525), 
+                      group = c("Group 1", "Group 2"))
+error_data4 <- tibble(ymin = c(175, 500), 
+                      ymax = c(425, 700), 
+                      themean = c(300, 600), 
+                      group = c("Group 1", "Group 2"))
+mypal <- c("#d53e4f","#F9D423","#66c2a5","#74add1")
+# Make error bar plot
+p1 <- error_data1 %>%
+  ggplot(aes(x=group)) + 
+  geom_errorbar(aes(ymin=ymin, ymax=ymax), width=0.2,
+                linewidth = 1.5) +
+  labs(y="Fabricated Values",
+       title = "Plot A")+
+  theme_classic() +
+  scale_y_continuous(breaks=seq(150,700, 50),
+                     limits=c(150,700)) +
+  theme(axis.title.x=element_blank(), 
+        axis.text.x=element_text(size=10),
+        aspect.ratio=1.5,
+        text=element_text(size=15),
+        plot.title = element_text(hjust = 0.5))
+
+# print plots
+p1 + geom_boxplot(aes(y=themean), colour=mypal[1]) 
+
+pb <- p1 %+% error_data2 + 
+  geom_boxplot(aes(y=themean), colour=mypal[2])+
+  ggtitle("Plot B")
+pb
+
+p1 %+% error_data3 + 
+  geom_boxplot(aes(y=themean), colour=mypal[3])+
+  ggtitle("Plot C")
+
+p1 %+% error_data4 + 
+  geom_boxplot(aes(y=themean), colour=mypal[4])+
+  ggtitle("Plot D")
+```
+::: {style="font-size: 70%;"}
+*Assume the error bars depict independent confidence intervals*
+:::
+
+## Solution
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 100%;"}
+::: {.incremental}
+- [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64888b82ff94fa54629cf69f){preview-link="true"}
+- Overlapping Error bars != Insignificance
+- Most people think values are statistically significant until the error bars touch. ^[@Bella2005]
+- The p-value of the two-tailed t-test for Plot C (on the previous slide) is about 0.006 ^[@Schenker2001]
+
+:::
+:::
+:::
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+pb
+```
+:::
+::::
+
+
+::: {.notes}
+- The correct answer is Plot B. The consultants, on average, got this one right  __% of the time. And you guys by comparison got it right...
+- Most people seem to get this one wrong.  
+- While it is true that error bars that do not overlap implies statistical significance, overlapping error bars do not imply the converse. 
+- However most people think two means statistically significantly different right up until the error bars touch.
+- In the case of independent confidence intervals, the p-value of the two-tailed t-test for error bars that just touch is about 0.006.
+- The papers that go on to cite these misunderstandings about error bars discuss the work as though the problems are caused by the error bars themselves.
+- They suggest that error bars should be avoided as a visualisation tool, ignoring the fact that these fundamental misunderstandings in uncertainty will likely follow other visual encodings if we don't understand how to improve it.
+- There are two things we could do to improve this visualisation
+- We could change the distribution so it shown the distribution used for the test of the difference of two means,
+- or we could highlight different parameters
+:::
+
+## Hypothesis Test Visualisation
+```{r}
+# Generate Data
+distA <- tibble(x = rnorm(100, 30, 10),
+                y = rnorm(100, 30, 10))
+# CIRCLE PLOT
+library(ggforce)
+ticks <- seq(0,100, 10)
+tibble(x=50,
+       y=60) %>%
+  ggplot(aes(x,y)) + 
+  geom_circle(aes(x0=x, y0=y, r = 20))+
+  geom_label(label="Null") +
+  geom_point(data=distA, colour=mypal[1]) +
+  geom_label(x=30, y=30, label="True", colour=mypal[1]) +
+  scale_y_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
+  scale_x_continuous(breaks=seq(0,100, 10), limits=c(0,100)) +
+  labs(y = "Random Variable B",
+       x = "Random Variable A")+
+  theme_classic() +
+  theme(aspect.ratio=1)
+```
+
+::: {.notes}
+- For example, here is a visualisation of a hypothesis test where we are testing if the pink distribution is significantly different from the black distribution
+- Let's say we want to visualise the probability of a type 2 error.
+- The number of points (out of 100) from the red distribution that fall in the black circle show that probability
+- to find the type 1 error we would swap the features of the two distributions
+:::
+
+::: {style="text-align: center; margin-top: 6em"}
+## Question 8
+### Hierarchy
+:::
+
+::: {.notes}
+Now we can move on to our third and quiz question and classification
+:::
+
+## Question 8: Gut Hierarchy
+Order the features **location, estimate, and error** by their importance implied by the map below.
+![](glyphmap.jpeg){fig-align="center" width=60%}
+::: {.notes}
+Your final question is, to order the features in this map by their implied importance. You have 20 seconds starting now.
+:::
+
+## Solution
+1) Location
+2) Estimate
+3) Error
+
+[Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=648059aaff94fa54629cd881){preview-link="true"}
+
+## Fin: The Taxonomy of Visual Information
+![](3elements.jpeg){fig-align="center" width=60%}
+
+::: {.notes}
+So that is the taxonomy of visualisation, and the end of the quiz and Chapter 1. Congratulations you guys are ___ smarter than a big 4 consultant. 
+:::
+
+# Future Work
+
+::: {.notes}
+Now, I am going to move on to the more serious section where I discuss future work and its timeline.
+:::
+
+## Chapter 2
+
+::: {.notes}
+:::
+
+## Chapter 3
+
+::: {.notes}
+:::
+
+## Timeline
+
+::: {.notes}
 :::
 
 # Leftover
-- features section
-- mention the four visual features of a graph and that depicting the wrong features is bad
-- Q7: the error bar question (which of these four plots depicts statistical significance)
-- the error bar problem
-- showing the correct distribution isn't enough, you have to identify the correct features of that distribution
-- alternative error depiction (?)
-- hierarchy section
 - Q8: what is the hierarchy of information presented in this plot? (list of features and some rediculous plot)
 - putting it together
 - many advancements in plots have been just applying these concepts
-- that's it for chapter 1 of my thesis, you guys beat the consultants ___ out of ___ times.
-- discussion of chapter 2
-- discussion of chapter 3
-- additional work
-- timeline
