@@ -133,17 +133,18 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Question 1: Anscombe's Quartet
 
 #### Monday
-- [ ] Question 2: Decisions Under Certainty
-- [ ] Question 3: Decisions Under Uncertainty
-- [ ] Formatting of slides
-- [ ] Draw apples and oranges icon
+- [x] Question 2: Decisions Under Certainty
+- [x] Question 3: Decisions Under Uncertainty
+- [x] Formatting of slides
+- [x] Draw apples and oranges icon
 
 
 #### Tuesday
-- [x] Finish Question 3
+- [x] Tidy up Question 3
 - [x] Plan out all slides
 - [x] Question 4: Visualising a Distribution
-- [ ] Question 5: A Bad Distribution
+- [x] Swap the two tram tracker distributions
+- [x] Question 5: A Bad Distribution
 - [ ] Question 6: A Good Distribution
 - [ ] Question 7: The Error Bar Problem
 - [ ] Question 8: A Questionable Hierarchy
@@ -157,10 +158,10 @@ I have put my confirmation report here for the time being because I am not sure 
 #### Wednesday
 
 ### Additional PRESENTATION ideas
-- Swap the two tram tracker distributions
-- Put slides on Netlify in case we have issues.
+- Have tally on board for consultants vs academics
 - Add countdown timer for each quiz question
 - Print QR code so people can hand it around and join the quiz
+- Put slides on Netlify in case we have issues.
 - Add quiz music for each quiz question
 - Quiz show boarder to quiz intro slide
 - Add sign-posting into slides
