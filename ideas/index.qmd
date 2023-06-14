@@ -152,12 +152,15 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Set up quiz for Sophie to give out
 
 #### Wednesday
-- [ ] Serious Section 
-- [ ] Question 8: A Questionable Hierarchy
+- [x] Spell Check
+- [x] Check/fix speaker notes + incremental lists
+- [x] Question 8: A Questionable Hierarchy
+- [x] Serious Section 
+- [ ] Make logo bigger
+- [ ] Full read through and edit
 - [ ] Full Read through and time
 - [ ] Cut to time
 - [ ] Add in consultant responses
-- [ ] Full read through and edit
 - [ ] Spell Check
 - [ ] Print QR code so people can hand it around and join the quiz
 - [ ] Put slides on Netlify in case we have issues.

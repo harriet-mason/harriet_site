@@ -24,6 +24,13 @@ h3, h4 {
   height: 90%;
 }
 
+.reveal .slide-logo {
+  height: 150px !important;
+  width: 225px!important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
 .background-iframe {
   padding: 16px 64px 16px 64px;
   width: 80%;
