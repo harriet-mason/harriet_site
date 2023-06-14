@@ -159,11 +159,9 @@ I have put my confirmation report here for the time being because I am not sure 
 - [x] Make logo bigger
 - [x] Full read through and edit
 - [x] Add in consultant responses
-- [ ] Print QR code so people can hand it around and join the quiz
+- [x] Print QR code so people can hand it around and join the quiz
 - [ ] Full Read through and time
 - [ ] Cut to time
-- [ ] Spell Check
-- [ ] Put slides on Netlify in case we have issues.
 - [ ] Present @4pm
 
 ### Additional PRESENTATION ideas

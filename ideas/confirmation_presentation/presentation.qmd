@@ -1,8 +1,9 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
-subtitle: "Harriet Mason"
+subtitle: "An alternative taxonomy to prevent information inequality in uncertainty visualisations"
 bibliography: references.bib
-author: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
+author: Harriet Mason
+institute: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 format: 
   revealjs: 
     theme: [default, custom.scss]
@@ -44,7 +45,7 @@ This talk will be split into two sections. Half of it will be a quiz show, and t
 
 ::: {.notes}
 
-The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question. Questions 1 to 4 will be related the current work in uncertainty visualisation and questions 5 to 8 will detail the taxonomy of visual information we designed that allows us to better compare plots.
+The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question. Questions 1 to 4 will be related the current work in uncertainty visualisation and questions 5 to 8 will detail the taxonomy of visual information I designed that allows us to better compare plots.
 
 :::
 
@@ -66,7 +67,7 @@ The second section will be an explanation of the work I plan to do for the rest 
 
 ... lets get quizzing. One of my housemates works at EY as a consultant. She has very little statistics knowledge. She *did* take introduction to econometrics several years ago, however she failed the exam. During this presentation you will have to answer 8 multiple choice questions that involve extracting some information from a data visualisation. She and a couple of her team members have completed this quiz. Your goal as a group is to perform better than the average score for the consultants.
 
-There is a QR code with a URL floating around that you can and should use to join in on the quiz. This will be no fun if nobody answers it. Each question will get an explanation and then you will have 20 seconds to answer in the flux quiz.
+The quiz will be no fun if nobody answers it. Each question will get an explanation and then you will have 20 seconds to answer in the flux quiz.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
@@ -396,22 +397,7 @@ It is currently 9pm and you are sitting at home watching TV. Tram tracker is pre
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner.
-:::
-
-## A Scenario 
-::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene".
-:::
-
-## A Scenario 
-::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late.
-:::
-
-## A Scenario 
-::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
 :::
 
 ## Question 2: Tram Times #1
@@ -645,30 +631,17 @@ After you missed your tram last week you called Public Transport Victoria (PTV) 
 
 ## Another Scenario
 ::: {style="font-size: 80%;"}
-After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
+After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days. 
 
-Tonight you going out to dinner with your father again.
+Tonight you are catching a new tram line that is unfamiliar to you.
+
 :::
 
 ## Another Scenario
 ::: {style="font-size: 80%;"}
 After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
 
-Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. 
-:::
-
-## Another Scenario
-::: {style="font-size: 80%;"}
-After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
-
-Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. You are using a tram route you haven't caught before but thankfully the new and improved tram tracker app has uncertainty estimates.
-:::
-
-## Another Scenario
-::: {style="font-size: 80%;"}
-After you missed your tram last week you called Public Transport Victoria (PTV) sobbing hysterically. Their whole office felt a little embarrassed for you honestly. PTV apologised for the issues and agreed to put the probability distributions on their tram tracker app. Every PTV employee worked day shifts and night shifts to achieve a feat some would say rivals the building of the pyramids. The tram tracker update was ready within 5 days.
-
-Tonight you going out to dinner with your father again. You begged for another chance after you turned up to the restaurant last week sobbing and still on the phone with PTV. You are using a tram route you haven't caught before but thankfully the new and improved tram tracker app has uncertainty estimates. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
+Tonight you are catching a new tram line that is unfamiliar to you. Assuming you have the same utility system as last week (+2 points for being at home, -1 point for waiting at the tram stop, -10 points for missing the tram).
 :::
 
 ## Question 3: Tram Times #2
