@@ -1,8 +1,8 @@
 ---
 title: "Plotting Apples, Oranges, and Distributions"
-subtitle: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
+subtitle: "Harriet Mason"
 bibliography: references.bib
-author: Harriet Mason
+author: "Supervisors: Di Cook, Sarah Goodwin, Emi Tanaka, and Ursula Laa"
 format: 
   revealjs: 
     theme: [default, custom.scss]
@@ -44,7 +44,7 @@ This talk will be split into two sections. Half of it will be a quiz show, and t
 
 ::: {.notes}
 
-The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question. Questions 1 to 4 will be related the current work in uncertainty visualisation and questions 5 to 8 will detail the visual taxonomy visual information that allows us to better compare plots.
+The first section will be the work in the first chapter of my PhD. It will be in the form of a quiz show where my research over the past year will be fed to you as explanations or preamble to a quiz question. Questions 1 to 4 will be related the current work in uncertainty visualisation and questions 5 to 8 will detail the taxonomy of visual information we designed that allows us to better compare plots.
 
 :::
 
@@ -52,12 +52,11 @@ The first section will be the work in the first chapter of my PhD. It will be in
 ### Part 2: Serious Presentation
 - The Rest of the PhD
   - Chapter 2 & 3
-  - Additional work
   - Timeline
   
 ::: {.notes}
 
-The second section will be an explanation of the work I plan to do for the rest of my PhD, some comments on additional work I did and a timeline for the next few years. This section will not be a quiz show and will just be a normal presentation. Feel free to interrupt at any point with questions, either about the content itself or clarifying questions for the quiz. So if nobody has any questions about the structure...
+The second section will be an explanation of the work I plan to do for the rest of my PhD, and a timeline for the next few years. This section will not be a quiz show and will just be a normal presentation. Feel free to interrupt at any point with questions, either about the content itself or clarifying questions for the quiz. So if nobody has any questions about the structure...
 
 :::
 
@@ -65,21 +64,23 @@ The second section will be an explanation of the work I plan to do for the rest 
 
 ::: {.notes}
 
-... lets get quizzing. One of my housemates works at EY as a consultant. She has very little statistics knowledge. She *did* take introduction to econometrics several years ago, however she failed the exam. During this presentation you will have to answer 10 multiple choice questions where you extract some information from a data visualisation. Your goal as a group is to perform better than the average score for the consultants.
+... lets get quizzing. One of my housemates works at EY as a consultant. She has very little statistics knowledge. She *did* take introduction to econometrics several years ago, however she failed the exam. During this presentation you will have to answer 8 multiple choice questions that involve extracting some information from a data visualisation. She and a couple of her team members have completed this quiz. Your goal as a group is to perform better than the average score for the consultants.
 
-One of the reasons data visualisation authors don't present uncertainty is because they believe laypeople, not educated in the ways of statistics cannot understand the it. You will all have a chance to see if that bias is correct or not. If a group a academics in statistics can outperform a group of consultants.
-
+There is a QR code with a URL floating around that you can and should use to join in on the quiz. This will be no fun if nobody answers it. Each question will get an explanation and then you will have 20 seconds to answer in the flux quiz.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 # The Current Literature 
+::: {.notes}
+Without further ado, lets jump into the first 4 questions.
+:::
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Question 1
 ### Needing a Good Visualisation
 ::: {.notes}
-Our first quiz question will be about the importance of good visualisation.
+Question 1
 :::
 :::
 
@@ -145,6 +146,8 @@ anscombe_tidy %>%
 
 ::: {.notes}
 Lets get started by talking about the importance of visualisation. This is a plot of the famous data set, Anscombe's quartet. This data set highlights the importance of visualising your data. Since all 4 plots have the same mean, correlation and standard deviation, they appear identical when you use summary statistics to extract interesting information. 
+
+Now, visualisation is not only useful for providing insights.
 :::
 
 ## The Importance of Visualisation
@@ -154,9 +157,11 @@ Lets get started by talking about the importance of visualisation. This is a plo
 - Infographics = more accessible ^[@Ancker2009]
 :::
 ::: {.notes}
-Even something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those measures.  Additionally, since visualisations allow for interactive graphics they provide a more in depth understanding of probability and are more accessible, since infographics can be understood by people with poor numeracy skills. 
+- Something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those Estimates.  
+- Additionally, since visualisations allow for interactive graphics they provide a more in depth understanding of probability 
+- and are more accessible, since infographics can be understood by people with poor numeracy skills. 
 
-Now, the importance of visualisation is well established but an implicit understanding that we bring with illustrations like this, is that the visualisation has to be done well.
+Visualisation is important, but it is only well done visualisations that provide these benefits.
 :::
 ## Question 1: Spot the Odd One Out
 ```{r}
@@ -244,9 +249,8 @@ p4
 ```
 
 ::: {.notes}
-
-Now for your first question. We often don't know the best way to visualise a distribution, nor do we know which variables should go togehter. On the slide I have four data visualisations. Three of them were made using the Anscombe's quartet data, one was made with fake data. In the fake data set each variable was a random sample of observations from the original data set, to make sure the values were still somewhat within the same range. Your first question is, which one of the four plots on this page was not made using Anscombe's quartet data?
-
+And that leads us to our first question. We often don't know the best way to visualise a distribution, nor do we know which variables should go togehter. On this slide I have four data visualisations. Three of them were made using the Anscombe's quartet data, one was made with fake data that was randomly sampled from the real Anscombe's quartet. Which one of the four plots on this page was not made using the real Anscombe's quartet data?
+You have 20 seconds to answer and your time starts now.
 :::
 
 ## Solution
@@ -311,7 +315,7 @@ p5
 :::::
 
 ::: {.notes}
-The correct answer was plot 4, the stacked histogram. The consultants, on average, picked out the correct plot __% of the time. Lets see this group did by comparison.
+The correct answer was plot 4, the stacked histogram. If you look at the distribution of x4 it is easy to see that this plot is not using the same data. The consultants, on average, picked out the correct plot 0% of the time. Lets see this group did by comparison.
 :::
 
 ## Showing The Right Information
@@ -323,14 +327,14 @@ p2 + ggtitle("Bubble Plot (?)")
 p5 + ggtitle("Stacked Bar Chart")
 ```
 ::: {.notes}
-The take away from this question is not that you should be able to identify the Anscombe's quartet data no matter how it is presented, but rather that the presentation matters. None of the visualisations shown here identified the interesting features I displayed in the previous slide. These visualisations have the same problem as the numerical summary, because despite being visualisations, they displayed the wrong information. What is rarely discussed about Anscombe's quartet is that we already know the best way to display it to show the important information. Thinking about visualisations this way forces us to ask ourselves what we consider to be the important features of our data, which lead me to my next question.
+The take away from this question is not that you should be able to identify the Anscombe's quartet data no matter how it is presented, but rather that the presentation matters. None of the visualisations shown here identified the interesting features I displayed in the previous slide. These visualisations have the same problem as the numerical summary, because despite being visualisations, they displayed the wrong information. What is rarely discussed about Anscombe's quartet is that we already know the best way to display it to show the important information.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Questions 2 & 3
 ### Decision Making Under Uncertainty
 ::: {.notes}
-Our second and third quiz questions, will focus on the importance of uncertainty in decision making.
+Which leads us to our next questions
 :::
 :::
 
@@ -346,11 +350,17 @@ Our second and third quiz questions, will focus on the importance of uncertainty
 
 :::
 ::: {.notes}
-Is uncertainty important information? This isn't a quiz question its rhetorical. The amount we actually visualise uncertainty would lead to believe it isn't. A survey of visualisations authors shows that only a quarter of them included uncertainty in 50% or more of their visualisations. The reasoning provided is things like a fear of overwhelming the audience, an inability to calculate the uncertainty, not having access to the uncertainty information, not wanting people to ask them about their results, etc.
+- Is uncertainty important information? This isn't a quiz question its rhetorical. The amount we actually visualise uncertainty would lead to believe it isn't. 
+- A survey of visualisations authors showed that only a quarter of them included uncertainty in 50% or more of their visualisations. 
+- The most common reasons provided were things like 
+- a fear of overwhelming the audience, 
+- an inability to calculate the uncertainty, 
+- not having access to the uncertainty information, 
+- and not wanting people to ask them about their results.
 
-When we talk about uncertainty, we usually mean the sampling distribution for some estimate. There is an underlying belief in all the reasons provided by visualisation authors that uncertainty is of secondary importance to our estimates. This comes through in the colloquial ways we talk about uncertainty. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself. 
+When we talk about uncertainty, we usually mean the sampling distribution for some estimate. There is an underlying belief in all the reasons provided by visualisation authors that uncertainty is of secondary importance to our estimates. This comes through in the colloquial ways we talk about uncertainty too. We call uncertainty the noise and the estimate the signal. It implies that uncertainty is something we should brush away to find some truth, as though the uncertainty information is not of importance by itself. 
 
-The next two quiz questions are going to test that hypothesis.
+The next two quiz questions are going to be about that hypothesis.
 :::
 
 ## A Scenario
@@ -376,32 +386,32 @@ It is currently 9pm and you are sitting at home watching TV. Tram tracker is pre
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop.
 :::
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point.
 :::
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner.
 :::
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene".
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene".
 :::
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late.
 :::
 
 ## A Scenario 
 ::: {style="font-size: 80%;"}
-It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes time to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
+It is currently 9pm and you are sitting at home watching TV. Tram tracker is predicting your tram to arrive at your stop in 8 minutes. You have been catching this tram for a while, so you know it typically arrives a little early, but occasionally you are left waiting at the tram stop for so long you wonder if the line is down. The time it takes to walk to the tram is negligible and the tram will leave as soon as it arrives at its stop. Its freezing cold outside so for every minute you spend at home watching TV you gain 2 utility points, and for every minute you spend at the tram stop waiting, you lose 1 utility point. Tonight you are meeting your dad and his new wife for dinner. The last time you spoke to them you found out they got married and didn't invite you to the wedding because you have a "habit of causing a scene". You want to be the perfect dinner guest to make them eat their words, so you cannot be late. If you miss your tram and have to wait for the next one you will automatically get a total of -10 utility points.
 :::
 
 ## Question 2: Tram Times #1
@@ -507,7 +517,7 @@ tram_times %>%
 ```
 
 ::: {.notes}
-When is the best time to arrive at the tram stop? There are 6 options on the slide. I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I recommend you just take a guess and try to answer this question by thinking about when you would actually arrive at the tram stop.
+When is the best time to arrive at the tram stop? There are 6 options on the slide. I can go back to the previous slide if you want, but the utility points should not be considered that deeply, they mostly exist to highlight that there is a correct answer. I recommend you just take a guess and try to answer this question by thinking about when you would actually arrive at the tram stop. You have 20 seconds and your time starts now.
 :::
 
 
@@ -548,7 +558,7 @@ tram_times %>%
 
 
 ::: {.notes}
-The best time to leave was at time B. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
+The best time to leave was at time B. The consultants, on average, picked the correct time  25% of the time. Lets see how you did.
 :::
 
 
@@ -605,7 +615,7 @@ tram_times %>%
 ```
 
 ::: {.notes}
-If you were wondering, this is how the probability distribution for you trams arrival time looked. Maybe with this information you would have picked differently, maybe not, regardless, we are moving on.
+If you were wondering, this is how the probability distribution for your trams arrival time looked. Maybe with this information you would have picked differently, maybe not, regardless, we are moving on.
 :::
 
 ## Another Scenario
@@ -798,48 +808,55 @@ tram_times %>%
 
 
 ::: {.notes}
-The best time to leave was at time D. The consultants, on average, picked the correct time  __% of the time. Lets see how you did.
+The best time to leave was at time D. The consultants, on average, picked the correct time  75% of the time. Lets see how you did.
 :::
 
 ## Uncertainty = Better Decisions
 ::: {.incremental}
 - Some research that the general public cannot understand complicated statistics ^[@Hoekstra2014; @Bella2005] 
-- ... presenting uncertainty improves decision making but
+- ... presenting uncertainty improves decision making both
   - experimentally ^[@Joslyn2012; @Savelli2013; @Kay2016; @Fernandes2018] 
   - and in practice ^[@Al-Kassab2014].
 - No uncertainty = unbound expectations ^[@Savelli2013]
+
 :::
 ::: {.notes}
-OK so the point with these two questions is to highlight the importance of showing uncertainty but the benefits of expressing uncertainty is already well known.
+So the point with these two questions was to give an illustration in of the importance of showing uncertainty, however the benefits of uncertainty visualisation are already well known in the literature.
 
-While there is some research that the general public cannot understand complicated concepts in statistics across the board, presenting uncertainty information improves decision making both experimentally and in practice.
+- While there is some research that the general public cannot understand complicated concepts in statistics
+- presenting uncertainty information improves decision making 
+- both experimentally 
+- and in practice.
 
-As a matter of fact, doing what many authors currently do causes decision makers to have completely unbounded expectations on an outcome.
+As a matter of fact, doing what many authors currently and expressing 
+
+- no uncertainty causes decision makers to have completely unbounded expectations on an outcome.
 :::
 
 ## Uncertainty = Better Decisions
 ::: {.incremental}
-- Can't replace uncertainty by...
+- Can't avoid visualising uncertainty by...
    - explaining calculations ^[@Joslyn2012]
    - explaining benefits of a recommendation ^[@Joslyn2012]
    - being vague ^[@Erev_1990; @Olson_1997]
 
 :::
 ::: {.notes}
-OK so the point with these two questions is to highlight the importance of showing uncertainty but the benefits of expressing uncertainty is already well known.
+Also, trying to 
 
-While there is some research that the general public cannot understand complicated concepts in statistics across the board, presenting uncertainty information improves decision making both experimentally and in practice.
+- avoid visualing uncertainty by
+- explaining the calculations, 
+- or the benefits of your recommendation, 
+- or by just being vague,
 
-As a matter of fact, doing what many authors currently do causes decision makers to have completely unbounded expectations on an outcome.
-
-Also, trying to replace explicit numerical uncertainty with things like explaining the calculations, or the benefits of your recommendation, or by just being vague. They don't have the same benefits.
+will not result in the same benefits as explicitly quantifying and expressing your uncertainty 
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Question 4 
 ### Current Graphics Categories
 ::: {.notes}
-So I have established the importance of providing a good visualisation as well as the importance of expressing uncertainty, but what is a good uncertainty visualisation. I mean what is a visualisation of uncertainty. Why don't you guys try and figure it out.
+So I have established the importance of providing a good visualisation as well as the importance of expressing uncertainty, but what is a good uncertainty visualisation. I mean what even is a visualisation of uncertainty. 
 :::
 :::
 
@@ -850,7 +867,11 @@ So I have established the importance of providing a good visualisation as well a
 :::
 
 ::: {.notes}
-There are quite a few taxonomies or organisation systems for visualisations. Here is an example of one, it is from the Fundamentals of Data Visualization book and it organises visualisations into the 7 categories: amounts, distributions, proportions, x-y relationships, geospatial data, and uncertainty. There are many other organisation methods, but they all suffer from the same problem. They don't think too deeply about the statistics that made these visualisations. You will better understand what I mean if you experience this yourself.
+There are quite a few taxonomies or organisation systems for visualisations. Here is an example of one, it is from the Fundamentals of Data Visualization book and it organises visualisations into the 7 categories: 
+
+- (See Webpage)
+
+There are many other organisation methods, but they all suffer from the same problem. A lot of the distinctions between plots are quite arbitrary and doesn't meaningfully group the visualisations. They are also quite inflexbile, so we end up with a bunch of different names for what is functionally the same plot used on different data. 
 :::
 
 ## Question 4: Apply the Alternative Taxonomy
@@ -865,7 +886,7 @@ countdown(minutes = 0, seconds = 20,
 ![](6dists.jpeg){fig-align="center" width=80%}
 
 :::{ .notes}
-Since we have the category of "uncertainty visualisation" some plots must belong to that group, while others don't. If that was not the case, why even discuss "uncertainty visualisation" as it's own topic. So, your 4th quiz question is "which of these plots are uncertainty visualisations? 
+Since we have the category of "uncertainty visualisation" some plots must belong to that group, while others don't. If that was not the case, why even discuss "uncertainty visualisation" as it's own topic. So, your 4th quiz question is "which of these plots are uncertainty visualisations? You have 20 seconds and your time starts now.
 :::
 
 ## Solution
@@ -878,9 +899,17 @@ They all are.
 
 
 ::: {.notes}
-They all are. All the plots shown in the previous slide are by some paper or another considered an uncertainty visualisation. Looking at a scatter plot gives us an idea of mass, something that the eye plot also does. A boxplot doesn't give a good idea of mass but it does highlight several thresholds, something that an error bar does which we do generally consider to be an uncertainty distribution. A bar chart and a choropleth map can both be consider an outcome of a sample similarly but also we can consider uncertainty by changing our colour thresholds or expressing a probability as an estimate. There is no such thing as an uncertainty visualisation.
+They all are. All the plots shown in the previous slide are by some paper or another considered an uncertainty visualisation. 
 
-The consultants, on average, picked the all the plots  __% of the time. Lets see how you did.
+- 0% of the consultants picked the all the plots. However a bar chart was the only plot nobody picked. Lets see how you did.
+
+This result makes sense when you really think about it.
+
+- Looking at a scatter plot gives us an idea of mass, but that is something that the eye plot also does. 
+- A boxplot doesn't give a good idea of mass but it does highlight several percentile thresholds, something that error bars do which we generally consider to be an uncertainty distribution. 
+- A bar chart and a choropleth map can both be consided an outcome of a sample just like a scatter plot but also we can consider uncertainty by changing the value the plot express to a probability. 
+
+These plots have more similarities across groups than differences between them. It makes you start to wonder if there is no such thing as an uncertainty visualisation. And that is exactly my point.
 :::
 
 ## What's an "Uncertainty Visualisation"
@@ -888,9 +917,9 @@ The consultants, on average, picked the all the plots  __% of the time. Lets see
 ![](scribblemess.jpeg){fig-align="center"}
 
 :::{ .notes}
-If there is no such thing as an uncertainty visualisation, how do we visualise uncertainty? Is it an expression of multiple values, or a threshold, or of a variance? Something that allows us to identify a distribution? A sample of our data or a collection of estimates?
+If there is no classification of "uncertainty visualisation", how would we visualise uncertainty? Would we provide an expression of multiple possible values, a probability estimate, some feature that would allow us to identify a distribution?
 
-There isn't really an answer for this. Specific visualisations don't *need* to depict certain pieces of information and with combinations of aesthetic features and distributions and dependencies, you can't organise the current collection of plots in any meaningful way. There is no way to find gaps in our current visualisation literature if we don't even know what our current visualisation methods cover. We need to have a better language to discuss the information a plot displays. 
+There isn't really an answer for this. We don't have a good concept of what it even means to visualise a distribution. There is no way to find gaps in our current visualisation literature if we don't even know what that literature covers. We need to have a better language to discuss the information a plot displays. 
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
@@ -900,7 +929,11 @@ There isn't really an answer for this. Specific visualisations don't *need* to d
 ### ...plots can only be compared if they contain the same information.^[@Cleveland1984]
 
 ::: {.notes}
-Identifying gaps in the current visualisation methods isn't the only reason we need a taxonomy, there is a second, more meta, reason it's needed. In order to compare plots, they need to contain the same information. Otherwise, we cannot be sure if one plot outperforms the other because of a gap in the information or a difference in the way that information is displayed. Papers that compare plots that have wildly different information are everywhere in the infoviz literature because once you go beyond expressing a single value, what we define as information becomes complicated. A unified language around what information is contained in a plot will allow us to more easily recognise which plots are appropriate to compare.
+Identifying gaps in the current visualisation methods isn't the only reason we need a taxonomy, there is a second, more meta, reason it's needed. In order to compare plots, 
+
+- they need to contain the same information. 
+
+Otherwise, we cannot be sure if one plot outperforms the other because of a gap in the information or a difference in the way that information is displayed. Papers that compare plots that have wildly different information are everywhere in the infoviz literature because once you go beyond expressing a single value, what we define as information becomes complicated. A unified language around what information is contained in a plot will allow us to more easily recognise which plots are appropriate to compare.
 :::
 :::
 
@@ -908,7 +941,7 @@ Identifying gaps in the current visualisation methods isn't the only reason we n
 # A Taxonomy for Visualisation Information
 
 :::{ .notes}
-So, without further ado, lets dive into the taxonomy. 
+So, without further ado, lets dive into the taxonomy and quiz questions 4 to 8.
 :::
 
 :::
@@ -918,14 +951,18 @@ So, without further ado, lets dive into the taxonomy.
 ![](3elements.jpeg){fig-align="center" width=60%}
 
 ::: {.notes}
-There are three features of a visualisation that we should consider when we want to understand the information it conveys. First, you need to ask yourself what distribution your plot depicts and if it is the best distribution for the questions we want to answer. Second you need to ask what features of that distribution are depicted and if those features convey the information we want. Finally you need to consider the hierarchy we implicitly give to those features, and ask if we are drawing attention to the information we think is important.
+There are three features of a visualisation that we should consider when we want to understand the information it conveys. 
+
+- First, you need to ask yourself what distribution your plot depicts and if it is the best distribution for the questions we want to answer. 
+- Second you need to ask what features of that distribution are depicted and if those features convey the information we want. 
+- Finally you need to consider the hierarchy we implicitly give to those features, and ask if we are drawing attention to the information we think is important.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
 ## Questions 5 & 6
 ### Distribution
 ::: {.notes}
-Questions 5 and 6 will focus on the first aspect of the taxonomy, the distribution that is depicted with a visualisation. 
+Questions 5 and 6 will focus on the first aspect of the taxonomy, the distribution. 
 :::
 :::
 
@@ -980,13 +1017,14 @@ violin_data %>%
 ::::
 
 ::: {.notes}
-- The plot on the right shows two independent distributions of student heights from two primary school classes, class A and B, that are obsessed with competing with each other. 
-- Most recently they have started competing on heights.
-- The game works like this, two students are randomly selected from each class every day and the taller student wins a point for their class
-- They will play this game for 100 days and
+- The plot on the right shows two independent distributions of student heights from two primary school classes, class A and B, that are 
+- obsessed with competing with each other. 
+- Most recently they have started competing on heights. The game works like this, two students are randomly selected from each class every day and the taller student wins a point for their class. They will play this game for 100 days and
 - The winning class gets a pizza party
 - That isn't relevant to the statistics I'm just trying to paint a beautiful story
 - On how many of the days do we expect class A to win?
+
+You have 20 seconds to answer and your time starts now.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
@@ -995,7 +1033,7 @@ violin_data %>%
 [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64884e3aff94fa54629cf60f){preview-link="true"}
 
 :::{.notes}
-The consultants, on average, got this one right  __% of the time. And you guys by comparison got it right...
+The consultants, on average, got this one right  50% of the time. And you guys by comparison got it right...
 :::
 :::
 
@@ -1003,9 +1041,9 @@ The consultants, on average, got this one right  __% of the time. And you guys b
 ![](incorrectdistributions.jpeg){fig-align="center"}
 
 ::: {.notes}
-- It wasn't you, that question was inherently hard to answer.
+- It purposely made the previous question harder to answer than it needed to be
 - I provided you with two marginal distributions but asked a question about a binomial distribution that is related to their joint distribution
-- We do this strange thing in visualisation where we display marginal and distributions of our variables and then expect them to to answer every possible question we could have about our data, regardless of whether or not those distributions are relevant.
+- We do this strange thing in visualisation where we display marginal distributions of our variables and then expect them to to answer every possible question we could have about our data, regardless of whether or not those distributions are relevant.
 - For statisticians to spend so much time working out which distribution describes which phenomena, it's a little sad to ignore it when generating visualisations
 - This is a really pervasive problem to, it's not uncommon for papers to compare plots that depict two different distributions and then compare them using a question only one of them can actually answer
 - In this case, since the joint distribution actually has the information I am asking about, this question is much easier to answer if I give you the joint distribution
@@ -1059,12 +1097,15 @@ scatter_data %>%
 ::::
 
 ::: {.notes}
-- Class B loses the original heights competition and demands a rematch
-- One of the students in Class B somehow convinces his older brother some of his friends to swap classes with the shortest kids in class B 
-- In a shocking turn of events the school also allows this
-- Putting any questions we have about school regulation aside, Class B now has several tall students in their class that are skewing the results
+Class B loses the original heights competition and 
+
+- demands a rematch. One of the students in Class B somehow convinces his older brother, and some of his friends, 
+- to swap classes with the shortest kids in class B. In a shocking turn of events the school also allows this
+- Class B now has several tall students in their class that are skewing the results
 - The plot on the right depicts the joint distribution of class A and B with colour highlighting the Bernoulli distribution of interest
 - In their rematch height competition on how many of the days (out of 100) do we expect class A to win?
+
+You have 20 seconds to answer the question and your time starts now.
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
@@ -1073,7 +1114,7 @@ scatter_data %>%
 [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=64887e73ff94fa54629cf684){preview-link="true"}
 
 :::{.notes}
-- The consultants, on average, got this one right  __% of the time. And you guys by comparison got it right...
+- The consultants, on average, got this one right  75% of the time. And you guys by comparison got it right...
 - This example highlights the importance of making sure you are depicting the correct distribution
 :::
 :::
@@ -1094,11 +1135,12 @@ Now, I was a little dishonest in question 6 because I didn't only change the dis
 
 - The visual aspects of a distribution that we typically express in graphics can be organised into four key features. 
 - Each of these features are more adept at answering some questions than others.
-- The first feature is mass which is represents any of the mass functions like the CDF or PDF. Depictions of mass can inform us of the mode, likely values, and whether or not we have an identifiable distribution.
+- The first feature is mass which represents any of the mass functions like the CDF or PDF. Depictions of mass can inform us of the mode, likely values, and whether or not we have an identifiable distribution.
 - Samples are actual or simulated outcomes from our distribution. Our data falls into this category. This feature is useful in answering questions about frequency or probability. 
 - Parameters are the statistics that are related to our distribution. The mean and variance are examples of parameters. Plots that show parameters are quite flexible since they can depict almost anything, but usually the scope of each plot is limited.
-- The last feature is exchangeability which illustrates whether or not elements from a sequence of random variables in this distribution can be swapped. Rather than wanting to answer questions about exchangeability, it is usually just something we want to highlight in our data, typically by connecting elements or having them touch. 
+- The last feature is exchangeability which illustrates whether or not elements from a sequence of random variables in this distribution can be swapped. Rather than wanting to answer specific questions about exchangeability, it is usually just something we want to highlight in our data, typically by connecting elements or having them touch. 
 - This list is not exhaustive nor is each element entirely distinct. A particular visualisations of a sample may double as a depiction of mass and also highlight something entirely different
+- However, these features do provide a solid basis for assessing the information conveyed by a graphic.
 - Now, lets get to our quiz question.
 :::
 ## A Real High School Story 
@@ -1234,16 +1276,12 @@ pb
 
 
 ::: {.notes}
-- The correct answer is Plot B. The consultants, on average, got this one right  __% of the time. And you guys by comparison got it right...
-- Most people seem to get this one wrong.  
+- The correct answer is Plot B. The consultants, on average, got this one right  25% of the time. This question illustrates an issue I call the error bar problem
 - While it is true that error bars that do not overlap implies statistical significance, overlapping error bars do not imply the converse. 
-- However most people think two means statistically significantly different right up until the error bars touch.
+- However most people think two means are statistically significantly different right up until the error bars touch.
 - In the case of independent confidence intervals, the p-value of the two-tailed t-test for error bars that just touch is about 0.006.
-- The papers that go on to cite these misunderstandings about error bars discuss the work as though the problems are caused by the error bars themselves.
-- They suggest that error bars should be avoided as a visualisation tool, ignoring the fact that these fundamental misunderstandings in uncertainty will likely follow other visual encodings if we don't understand how to improve it.
-- There are two things we could do to improve this visualisation
-- We could change the distribution so it shown the distribution used for the test of the difference of two means,
-- or we could highlight different features that are more relevant to the probability of concern
+
+The papers that go on to cite these misunderstandings about error bars discuss the work as though the problems are caused by the error bars themselves. They suggest that error bars should be avoided as a visualisation tool, ignoring the fact that these fundamental misunderstandings in uncertainty will likely follow other visual encodings if we don't understand how to improve it. There are two things we could do to improve this visualisation. We could change the distribution so depicts the distribution of the hypothesis test in question, or we could highlight different features that are more relevant to the probability of concern
 :::
 
 ## Hypothesis Test Visualisation
@@ -1274,6 +1312,7 @@ tibble(x=50,
 - Let's say we want to visualise the probability of a type 2 error.
 - The number of points (out of 100) from the red distribution that fall in the black circle show that probability
 - to find the type 1 error we would swap the features of the two distributions
+- Thinking about the features that depict the information we want to convey can lead to unique and more versatile visualisations
 :::
 
 ::: {style="text-align: center; margin-top: 6em"}
@@ -1309,7 +1348,7 @@ Your final question is, to order the features in this map by their implied impor
 [Results](https://flux.qa/#/presentations/64805896ff94fa54629cd870/6480588eff94fa54629cd86e?tab=polls&poll=648059aaff94fa54629cd881){preview-link="true"}
 
 ::: {.notes}
-The correct ordering is location, then estimate, then error. The consultant, on average, got this one right  __% of the time. And you guys by comparison got it right...
+The correct ordering is location, then estimate, then error. The consultant, on average, got this one right  50% of the time. And you guys by comparison got it right...
 :::
 
 ## Elementary Tast Hierarchy
@@ -1325,14 +1364,37 @@ The @Cleveland1984 hierarchy:
 
   5) Volume, curvature
 
-  6) Shading, colour saturation
+  6) Colour value, colour saturation
 
 ::: {.notes}
 - The concept of a hierarchy of visual features in a graphic isn't new and has a pretty extensive literature. 
 - This is an established hierarchy of basic visual features. It is not exhaustive nor mutually exclusive, but it does provide a useful rule of thumb in understanding the level of importance we give information in a graph. 
 - This paper is also quite old, so more modern aesthetics such as animation or glyphs aren't not tested. 
-- The reason for this section is just to highlight that it isn't enough to put information on a graph, you need to allow that information to be efficiently extracted.
-- Including information that is so hard to see that it is functionally invisible is the same as not plotting it at all.
+- If we look at the previous map, we can see location is mapped to the position, the  estimate is mapped to the colour value, and the error is mapped to the glyph rotation which does not appear in this hierarchy, but is generally considered to be low on the list.
+
+:::
+
+## Using Heuristics
+::: {.incremental}
+- Take advantage of heuristics
+- Error Mapping ^[@Maceachren2012]
+  - Good: fuzziness, location, and colour value
+  - OK: arrangement, size and transparency
+  - Ugly: saturation, hue, orientation and shape
+- Mapping direction
+  - e.g more fuzzy = higher error
+
+:::
+::: {.notes}
+- Not only should we considered the hierarchy in the information we display, but also the heuristics that connect some pieces of information to specific elementary tasks. 
+- For example, error is best mapped to
+- fuzziness, location, and colour value;
+- arrangement, size and transparency are an OK second choice;
+- but saturation, hue, orientation and shape are unacceptable and have no intuitive connection to uncertainty. 
+- Not only do the graphical elements we map our features to matter, but the direction matters too. 
+- for exmaple, graphical elements that are more fuzzy convey a higher uncertainty. 
+
+Therefore we should not only keep the hierarchy of information in mind when we map features of our distribution, but also take advantage of these intuitive mappings when we can. You can't just to put the right features from the right distribution on a graph, you need to allow that information to be efficiently extracted. Including information that is so hard to see that it is functionally invisible is the same as not plotting it at all.
 :::
 
 ## Pixel Map ^[@lucchesi2021vizumap]
@@ -1342,14 +1404,14 @@ The @Cleveland1984 hierarchy:
 ::: {.notes}
 When you understand the three visual features, you will notice that some newer plots are just plotting a specific feature with a high priority in a distribution where we typically ignore that feature.
 
-This is a pixel map from the Vizumap package which is a visualisation of uncertainty that basically boils down to a choropleth map that swaps the parameter feature out for a sample. 
+This is a pixel map from the Vizumap package which is a visualisation of uncertainty that basically boils down to a choropleth map that swaps the visualisation of a parameter out for a sample. 
 :::
 
 ## Fin: The Taxonomy of Visual Information
 ![](3elements.jpeg){fig-align="center" width=60%}
 
 ::: {.notes}
-So that is the taxonomy of for information in visualisations, and the end of the quiz and Chapter 1. Congratulations you guys are ___ smarter than a big 4 consultant. 
+So that is it for the taxonomy for information in visualisations, and the end of the quiz and Chapter 1. Congratulations you guys are ___ smarter than a big 4 consultant. 
 :::
 
 # Future Work
@@ -1390,7 +1452,19 @@ Now, I am going to move on to the more serious section where I discuss future wo
 
 :::
 
-## Timeline
+## Upcomming Key Dates
+|Date|Description|
+|:-|:---|
+|June 2023| Meeting with AEMO team to map out future monthly meetings over the next year and build up applications of uncertainty visualisations|
+|June 2023|Confirmation milestone|
+|June 2023|Submit poster for IEEE VIS 2023|
+|July 2023| Complete chapter 1|
+|August 2023| Start initial experiments for Chapter 2|
+|December 2023| Attend ASC and present poster on taxonomy|
+|May 2024| Progress review milestone |
+
+
+## Full Timeline
 ::: {style="font-size: 45%;"}
 |Date|Description|
 |:-|:---|
@@ -1413,8 +1487,6 @@ Now, I am going to move on to the more serious section where I discuss future wo
 |October 2025| Attend IEEE VIS 2025 in Vienna |
 |November 2025| Attend UseR! conference to discuss software developed for translation of uncertainty visualisation work (if applicable)|
 |December 2025| Submit Thesis |
-:::
-::: {.notes}
 :::
 
 # End
