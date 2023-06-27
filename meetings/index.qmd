@@ -8,6 +8,40 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 June 29
+#### Update since last week...
+- Submitted IEEE vis paper
+
+
+
+## 2023 June 22
+#### Todo Things
+- IEEE Vis
+  - I haven't done the poster submission yet. I'm going to
+- Confirmation Feedback Adjustments
+  - I think a problem with my confirmation report is that I was responding to a bunch of papers that nobody has read. Organising the papers that compare plots into some kind of data set might help provide context for what I'm saying.
+  - I have done a lot of examples of particular aspects of my idea but one example that captures the whole idea would probably be better
+  - Map presentation questions back to each paper
+  - I think these things would also help me iron out the idea work on it after I finish marking.
+- AEMO meeting on Wednesday (hash out potential examples to help refine)
+- VYT
+- Check cassowaryr paper works with interp
+
+#### Notes
+- Confirmation questions
+  - if you have the taxonomy, do you have an example of where it would help if you didn't have it
+    - From what you have read so far an example where having that taxonomy would help you organise that material
+  - is this a way to make better visualisations or improve/assess visualisations that already exist
+  - Jess said use example from AEMO
+  - not clear what problem I'm solving
+  - lit review might be too broad and too hard to do
+  - Less focus on Jessica Hullman's work
+  - AEMO Example - what do they consider uncertainty, maybe not 5 estimated outcomes
+  - Clean up rational of each question of presentation (innovative format to tackle) refine it
+  - write down why we had each question (directly from papers) map back to each paper
+  - run a wider study and doing it as a study (maybe funding from scholarship/prolifico - crowd sourced user study)
+  - Talk to someone about confirmation report and what it means for writing to be more scientific (talk to person in library or IT faculty or ChatGPT (haha))
+
 ## 2023 June 1
 #### Confirmation
 - Wildly different from when I started. I expected as much which is why I didn't start for so long haha.
