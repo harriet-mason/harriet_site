@@ -12,12 +12,18 @@ listing:
 #### Quick highlights...
 - Submitted IEEE VIS paper
 - Booked an academic writing session with a learning advisers for next Tuesday.
+- Had AEMO meeting with control room operator
+- Started compiling the method information from experimental papers (not available on site yet because I need to clean it up)
+- Started VYT draft
 
 #### Academic writing
 - I read the library resources on academic writing and realised I do in-fact know how to do it, I just don't like writing that way. 
 - Objective and passive voice are easy to implement, but a formal voice is a little more difficult to implement. I think I strugggle to tell the difference between formal writing and boring (dry) writing.
 - Regardless, I did book the meeting with the academic writing person at the library to make sure I can fix it if I need to. 
 
+#### AEMO
+- I think it would be helpful if they had an operations guide or something.
+- A debreif would be good. I was a little lost tbh.
 
 ## 2023 June 22
 #### Todo Things

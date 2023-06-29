@@ -1,0 +1,127 @@
+---
+title: "Visualisation Method Analysis"
+author: "Harriet Mason"
+bibliography: references.bib
+date: last-modified
+---
+This is a summary of a series of comparison tests on graphics and their results
+
+# Quick Paper Summaries
+
+#### Experiment 1 : Visual Encodings of Temporal Uncertainty: A Comparative User Study
+[@Gschwandtnei2016]
+
+- **Context**: Want to test different visual encodings of a temportal interval (specific differences with expression of start/end time)
+- **Plots Compared**: 
+  - There specify two types of temporal uncertainty they want to visualise, both related to an interval
+  - statistical uncertainty (can assume a distribution)
+    - gradient plot
+    - violin plot
+    - accumulated probability 
+  - bounded uncertainty (no assumptions can be made about the probability distribution within an interval)
+    - plot error bars
+    - centered error bars
+    - ambiguation
+- **Questions**:
+  - Task 1: Interpretation
+    - How would you interpret this type of visualization?
+      - Equal probabilities: all starting points in A have the same probability and all end points in B have the same probability
+      - Unequal probabilities: the probability that the interval has already started is least likely at the left border of A and most likely at the right border of A
+      - None of these options.
+  - Task 2: Start and End Time
+    - What is the earliest possible start point of this interval?
+    - What is the latest possible start point of this interval?
+    - What is the earliest possible end point of this interval?
+    - What is the latest possible end point of this interval?
+    - Participants were asked to answer by selecting a date and time by means of a date picker tool
+  - Task 3: Interval Duration 
+    - What is the maximum duration of the interval (in hours)?
+    - What is the minimum duration of the interval (in hours)?
+    - What is the average duration of the interval (in hours)?
+    - Participants were asked to answer by freely picking a numeric value (number of hours).
+  - Task 4: Probabilities (for statistical uncertainty plots)
+    - What is the statistical probability (in %) that the interval has already started at the marked point in time (red line)?
+    - What is the statistical probability (in %) that the interval has already ended at the marked point in time (red line)?
+    - Which of the two marked points in time (red lines) are more likely to fall into the interval?
+    - Task 4a and Task 4b were answered by picking a numeric value between 0 and 100. To answer Task 4c, participants could choose one of three options: 
+      - the earlier point in time is more likely contained in the interval
+      - the later point in time is more likely contained in the interval
+      - both points in time are equally likely contained in the interval.
+  - Task 5: Preferences
+    - What are your personal preferences regarding this type of visualization?
+    - five point Likert scale from ‘I don’t like it’ to ‘I like it’.
+  - All 5 tasks measured completion time and error
+- **Results**:
+  - Task 1
+    - H1: Participants naturally interpret gradient plots, violin plots, and accumulated probability plots to represent statistical uncertainty while they interpret error bars, centered error bars, and ambiguation to represent bounded uncertainty.
+    - Hypothesis partially confirmed, but centered error bars did not clearly sway to either side
+  - Task 2
+    - H2: Error bars, centered error bars, and ambiguation are better suited (in terms of error and time) to represent earliest start, latest start, earliest end, and latest end than gradient plots, violin plots, and accumulated probability plots.
+    - Hypothesis confirmed. Also gradient plots better than accumulated plots and violin plots though
+  - Task 3
+    - H3: Error bars, centered error bars, and ambiguation are better suited (in terms of error and time) to judge minimum and maximum duration of an interval.
+    - Gradient plots score better than expected and do not significantly differ from ambiguation, error bars, and centered error bars. The mean error of gradient plots even makes the second place after error bars and the median error of gradient plots is second best after centered error bars.
+  - Task 4
+    - H4: Gradient plots, violin plots, and accumulated probability plots are better suited (in terms of error and time) than ambiguation and error bars to judge the average duration of an interval.
+    - Hypothesis 4 must be rejected since they score slightly worse in terms of median errors. In addition, centered error bars lead to significantly better error rates than gradient plots (p<0.001), accumulated probability plots (p<0.01), and violin plots (p<0.05). This seems legitimate, given that the mean start time lies in the middle between earliest start and latest start and the same is true for the mean end point for all types of visual encodings. Thus, the interval bar of centered error bars encodes exactly the
+  - Task 5 (Only statistical uncertainty plots)
+    - H5: Gradient plots, violin plots, and accumulated probability plots are equally suited (in terms of error and time) when judging the probability that a marked point in time falls into the represented interval.
+    - Gradient plots have a significantly lower error rate than violin plots (p<0.001) and accumulated probability plots (p<0.01). And again, accumulated probability plots lead to slightly better error rates than violin plots.
+- **Extra Notes on Method**:
+  - 73 participants, students from a bachelor in computer science (14 female), one had to be thrown out because completion time and error rate were empty.
+  - Participants confused on... (two data sets, one where confusion is corrected and one where it is not)
+    - earliest start, latest start, earliest end, and latest end (suggested it is because they had to go through a lot of questions and may have gotten less careful over time)
+    - When answering "What is the statistical probability (in %) that the interval has already ended at the marked point in time (red line)?" many answers gave the estimated probability to which the marked point in time falls into the interval. This is correct when asking for the probability to which the interval has already started at the marked position. However, in case of the probability to which the interval has already ended at the marked position, this answer is the inverted probability of what we were looking for. They believe this is their own mistake so they  so they don't present these results.
+    - When answering "Which of the two marked points in time (red lines) are more likely to fall into the interval?" the results showed very bad scoring for gradient plots which does not go along with the results of the other tasks. 
+- **Harriet's Comments**
+  - ONCE AGAIN, NO WONDER AMBIGUATION AND STUFF WERE BETTER FOR IDENTIFYING START/END TIME SINCE THEY ARE LITERALLY ON THE PLOT AND BLURRED ON THE OTHERS
+  - They almost made this conclusion themselves when they noticed the average interval estimate was best expressed by the centered error bars.
+  - I think it would be helpful if the error said if it was under or over estimated. There are some cases where im guessing a heuristic was at play.
+  - All plots are the same distribution with the same element of the distribution and differences in the feature are on purpose (bounded vs statistical uncertainty) and are mapped to the same elements of the hierarchy.
+  - I feel like all plots convey a level of dependency between the start and end time though. The two distributions of interest are the start and end time, the interval length is sort of a by product of that (through a connection of those two distributions). 
+  - Data generated with a random uniform start time, then a random uniform interval length is added on to get the end time. So they visualised the start and end time but not the interval length. Calculated the mean start time as earliest start + (latest start - earliest start) / 2). For the questions asking about the probability that the interval started or ended at a specific time point (Task 4a and 4b), generated time points in the interval between earliest start and latest start as well as earliest end and latest end. Used the rnorm to draw random time points from a normal distribution and calculated the respective probability values.
+  - Maybe this highlights an issue in identifying what is random and what is deterministic. Like they make comments about the types of interval uncertainties but don't convey that information in the plot. 
+  
+  
+#### Paper 2 
+[Citation]
+
+- **Context**: 
+- **Plots Compared**: 
+- **Questions**:
+- **Results**:
+- **Extra Notes on Method**:
+- **Harriet's Comments**
+
+
+#### Paper __ 
+[Citation]
+
+- **Context**: 
+- **Plots Compared**: 
+- **Questions**:
+- **Results**:
+- **Extra Notes on Method**:
+- **Harriet's Comments**
+
+#### Paper __
+[Citation]
+
+- **Context**: 
+- **Plots Compared**: 
+- **Questions**:
+- **Results**:
+- **Extra Notes on Method**:
+- **Harriet's Comments**
+
+#### Paper __
+[Citation]
+
+- **Context**: 
+- **Plots Compared**: 
+- **Questions**:
+- **Results**:
+- **Extra Notes on Method**:
+- **Harriet's Comments**
+
+# Cleaned up for analysis
