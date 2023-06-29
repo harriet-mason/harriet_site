@@ -25,6 +25,11 @@ listing:
 - I think it would be helpful if they had an operations guide or something.
 - A debreif would be good. I was a little lost tbh.
 
+#### Notes
+- R pacakge weatheroz (didn't work very well)
+- have to pull solar radiation infor from noaar package
+- Sherry expert in pulling weather data, try talking to her
+
 ## 2023 June 22
 #### Todo Things
 - IEEE Vis
