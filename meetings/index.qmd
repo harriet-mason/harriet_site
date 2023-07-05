@@ -8,8 +8,13 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 July 6
+#### This week I have...
+- Am halfway through my VYT submission that is due Monday
+- Had the academic writing meeting and we both agreed that with a proof read for "formality" I can change my writing to be more formal if I need to
+
 ## 2023 June 29
-#### Quick highlights...
+#### This week I have...
 - Submitted IEEE VIS paper
 - Booked an academic writing session with a learning advisers for next Tuesday.
 - Had AEMO meeting with control room operator
