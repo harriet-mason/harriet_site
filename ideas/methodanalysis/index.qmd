@@ -6,7 +6,7 @@ date: last-modified
 ---
 This is a summary of a series of comparison tests on graphics and their results
 
-# Experiemtnal Paper Summaries
+# Experimental Paper Summaries
 
 #### Paper 1 : Visual Encodings of Temporal Uncertainty: A Comparative User Study
 [@Gschwandtnei2016]
@@ -120,10 +120,12 @@ This is a summary of a series of comparison tests on graphics and their results
   - When assessing the articles they have this bit where they are like "we considered Is the relevant information from the uncertainty visualization obtainable through (1) direct reading of encoded values, (2) automatic visual ensemble processing, or (3) shape perception (trends across bars)?. So they acknowledge that directly putting the parameter of interest in the plot is something we should acknowledge???? what??
 
 #### Paper 3:
-[Citation]
+[@Correll2014]
 
-- **Context**: 
-- **Plots Compared**: 
+- **Context**: Want to see how good each plot is at a basic mean and error encoding
+
+- **Plots Compared**: Bar charts (with error bars), boxplots, gradient plots, and violin plots 
+
 - **Questions**:
 - **Results**:
 - **Extra Notes on Method**:

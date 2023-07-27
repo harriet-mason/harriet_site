@@ -8,6 +8,52 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 July 27
+#### BEX6510
+- Unit started this week so I will not be able to do as much research every week
+
+#### AEMO meeting
+- I think it went well
+- Told to check out early 2017 load shedding in two states as a case study as well.
+- Areil also suggested looking at something to do with forecasting in wind turbines, he said he mentioned it to Sarah a couple of months ago and she would know what he was talking about.
+
+#### IEEEVIS Poster
+- I understand the feedback but and not entirely sure how to action some of it 
+  - I don't know how to add in extra uncertainty sources when the limit is so small (and I am not sure if I have read the uncertainty sources they are talking about)
+  -  I couldn't figure out the formatting of the abstract before and I could not work out what I was doing wrong.
+  
+#### Notes
+- important to point to taxonomies and note that expanded on literature review documenting existing work 
+- If you cite one paper and the reader can go to that paper and find others you can get away with only citing that papers (like review papers)
+- start with eye catching element (visible from a distance as a starting point), make it obvious the direction they are supposed to read the poster in
+- think about what kind of discussions you want to have with people, what do you want people to ask you about or comment on and focus poster to hint in that direction. people can come up ask the weirdest things.
+
+## 2023 July 20
+#### VYT
+- I didn't get time to finish the video but I did submit it haha
+- I can show you the version I submitted
+- I want to finish it later so that I have a video I want to send to people, but it is not a priority at the moment
+
+#### AEMO meeting
+- My phone needed to be replaced (it short circuited on Sunday) and a friend from Queensland was visiting yesterday/today so I haven't had a chance to do this yet.
+- Should I show the VYT submission? Could be a useful opportunity to use it haha.
+
+#### Notes
+- Show AEMO related plots (could sketch something)
+- Check with Bonsoo (email) need lectures recorded, and preferably some readable version of the slides or a textbook or something.
+
+## 2023 July 13
+#### This week I have...
+- Literally only worked on my VYT submission but I think it's really good
+  - I only have a little bit of the animation left, then I just need to do the outlines and shading and I'm done.
+  - I want to show you what I have so far and get some feedback
+ 
+#### Notes
+- multivariate before spatial-temporal
+- energy, weather, time, space variables
+- also convey gross vs nice teletubby with colour
+- make frankenstein teletubby cute
+
 ## 2023 July 6
 #### This week I have...
 - Am halfway through my VYT submission that is due Monday
