@@ -8,6 +8,13 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 August 
+#### IEEEVIS Poster
+- The deadlines have been changed a little
+  - The abstract is due August 15
+  - A PDF of the poster is due August 31
+  - The video still says it is due September 22 but it also says "needs to be submitted with the 2-page abstract" so I'm not sure what they want with that one.
+
 ## 2023 July 27
 #### BEX6510
 - Unit started this week so I will not be able to do as much research every week
