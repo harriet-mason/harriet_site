@@ -30,10 +30,16 @@ listing:
   -  I couldn't figure out the formatting of the abstract before and I could not work out what I was doing wrong.
   
 #### Notes
+##### IEEE Vis
 - important to point to taxonomies and note that expanded on literature review documenting existing work 
 - If you cite one paper and the reader can go to that paper and find others you can get away with only citing that papers (like review papers)
 - start with eye catching element (visible from a distance as a starting point), make it obvious the direction they are supposed to read the poster in
 - think about what kind of discussions you want to have with people, what do you want people to ask you about or comment on and focus poster to hint in that direction. people can come up ask the weirdest things.
+- Can provide supplementary material (can have detailled table that shows where you got these details from) & small example in paper and say made review of literatre and more complete in table
+- we reveiwed x number of papers (see supplementary material)
+##### AEMO
+- ask rob "were you working with [christoff burgmire](https://scholar.google.com.au/citations?view_op=list_works&hl=en&hl=en&user=_UG_SgUAAAAJ&sortby=pubdate) about forecasting wind turbines
+- also [link](https://dblp.org/pid/22/3144.html)
 
 ## 2023 July 20
 #### VYT
