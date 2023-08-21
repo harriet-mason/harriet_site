@@ -49,9 +49,9 @@ x <- ac
 y = NULL
 X <- xy.coords(x, y)
 
-system.time(interp::tri.mesh(X))
-system.time(tripack::tri.mesh(X))
-system.time(tRiad::DelTri(a,c))
+#system.time(interp::tri.mesh(X))
+#system.time(tripack::tri.mesh(X))
+#system.time(tRiad::DelTri(a,c))
 ```
 
 For most scatter plots `interp::tri.mesh()` performs a faster Delauney triangulation than `tRiad::Deltri()`. However, this only really noticeable when working with scatter plots that have a large number of points.
@@ -68,8 +68,8 @@ system.time(interp::tri.mesh(x,y))
 x <- runif(5000)
 y <- runif(5000)
 plot(x,y)
-system.time(tRiad::DelTri(x,y))
-system.time(interp::tri.mesh(x,y))
+#system.time(tRiad::DelTri(x,y))
+#system.time(interp::tri.mesh(x,y))
 ```
 
 So, while `interp::tri.mesh()` is usually faster than `tRiad::Deltri()`, the occasional *very long* computation time results in `interp::tri.mesh()`having a much higher variance. This issue occurs occasionally in simulated continuous data.
@@ -113,7 +113,8 @@ timetable %>%
 
 However, this problem occurs much more frequently in real, non-simulated, data sets. The problem in non-simulated data is so pronounced, that `interp::tri.mesh()` often takes longer on average than `tRiad::Deltri()`.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # the functions throws an error without removing duplicates
 # these are just inbetween functions
 prep_interp <- function(x,y){
@@ -192,7 +193,7 @@ system.time(tRiad::DelTri(d,e))
 ```
 
 ```{r, error=TRUE}
-system.time(interp::tri.mesh(X))
+#system.time(interp::tri.mesh(X))
 ```
 
 Additionally, while the faster tRiad triangulation is written in C++, it also has a version of its functions written in R, `triad::del.tri()`. This makes it easier for the R community to contribute and debug the code. From my understanding of interp, the actual Delauney triangulation is computed using the `shull.deltri` function from the C shull library. So tRiad has additional transparency that could prevent issues like this in the future.

@@ -10,7 +10,8 @@ listing:
 # Supervisor Meetings
 ## 2023 August 24
 #### General
-- I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem.
+- I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem (for space)
+- I also moved my old idea posts since they aren't really relevant anymore, all the info is in the confirmation report, and they were taking up space.
 - I am hosting the PhD meeting this week so that has taken up a bit of my time
 
 ## 2023 August 10
