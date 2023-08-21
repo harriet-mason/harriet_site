@@ -1,18 +1,19 @@
 ---
 title: "Research Ideas"
 listing:
-  - id: parts
-    contents: parts
+  - id: posts
+    contents: posts
     type: default
     fields: [image, title, description]
   - id: ideas
     contents: ideadumpster
-  - id: confirmation_report
-    contents: confirmation_report
-  - id: confirmation_presentation
-    contents: confirmation_presentation
 ---
-# Overview of Topic
+# Posts on Topic
+
+::: {#posts}
+:::
+
+# Overview 
 ## The current perspective on visualising uncertainty
 Current research in visualising uncertainty seems to have a focus on designing new options for visualising uncertainty for specific types of data. Typical papers comparing visualisation methods seem to fit into one or both of the follow categories:
 
@@ -40,138 +41,9 @@ This is a long winded overview of the general motivation for the change in persp
 This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. A large problem seems to be a a general inability to quantify and articulate what exactly uncertainty is and a view that it is of secondary imporance to estimates.
 
 
-## The Idea in 5 Parts
-::: {#parts}
-:::
 
-### Part 4: Rules for Communicating Uncertainty
-In this section I go back to papers written on defining uncertainty and reinterpret their conclusions. Rather than ask "Which method of uncertainty visualisation is better (for this data)" I ask "Which method of uncertainty is better for this question". This will give us a set of rules backed by scientific evidence that we can use to decide which uncertainty method is the best at conveying the answer to a specific question. 
 
-### Part 5: Applying this Problem to Energy Data
-Finally, I will go through a data visualisation problem from begining to end to show how this method might be used with a typical question about uncertainty. Starting with defining the uncertainty and stating the assumptions/limitations. Then using the rules of visualising uncertainty to present different visualisations that answer different uncertainty questions about the data.
 
-# Confirmation 
-## Report
-I have put my confirmation report here for the time being because I am not sure where to put it.
-
-::: {#confirmation_report}
-:::
-
-### Todo List
-#### Monday
-- [x] Finish writing Hierarchy section
-- [x] Finish sorting all the miscelaneous notes at the end of the report
-- [x] Organise todo list of remaining tasks
-- [x] Remove second error bar plot
-- [x] Redo features drawing with actual names
-- [x] Add two plot to the motivation
-- [x] Fix formatting of plots (in R stuff)
-- [x] Work out what is stopping PDF from knitting
-- [x] Format timeline into table
-- [x] Read over Motivation - Thesis Overview:
-  - Spell check
-  - Readability check
-  - Add econometrics question to begining
-  - Make uncertainty definition and use more cohesive
-  - Cite AEMO conversation 
-  - Make it clear scholarship is from AEMO and we are already talking to them (in project 2 and 3)
-  - Expand on chapter 3
-  - Rewrite landscape section to make it more cohesive with report
-
-#### Tuesday
-- [x] Spend forever fixing the vizumap error :(
-- [x] Add hypothesis test visualisation
-- [X] Add supervisor list to title section
-- [x] Find lost lineup plot paragraph and add back in
-- [x] Read over Chapter 1 - End:
-  - Rewrite landscape section to match paper
-  - Mathematical expressions for distributions
-  - Make it clear distribuitons can come from an unspecified null
-  - Make it clear that this is a way to assess the information presented in a distribution and connect the ideas in to statistics.
-  - Make sure it is conveyed why this abstraction is better
-  - Redo spell check
-- [x] Cite paper AEMO team sent
-- [x] Fix formatting of plots (except full page problem)
-- [x] Add HOPs plot to example
-
-#### Wednesday
-- [x] Supervisor Comments:
-  - [x] Check for lower case r for R
-  - [x] Move cassowaryr to sections at the end of the report called "additional activity"
-  - [x] Add 3 month break to timeline
-  - [x] Cut fable package section on page 5
-  - [x] Cut chapter 3 discussing of random pacakge
-  - [x] Fix captions to follow structure
-  - [x] Move why section to begining
-  - [x] Reference anscombes quartet in last section because it is contradictory to that motivating questions
-  - [x] Add in "how to read section" that explains the stage of the work being presented and how the report is structured
-  - [x] Chapter 1 give another explanation of coming structure
-- [x] Final read over + spell check
-
-### Additional REPORT ideas
-- I couldn't find a citation for “show me the data”. Check again later?
-- gestalt principles?
-- Check HOPS plot paper and run through how a hops plot is made to make sure I have it right
-- Change spatial example to Australian data from American
-- add parallel co-ordinate plot, line plot, slope graph, parallel sets plot visualisation
-- Check circle error bar is accurate
-- Add type 1 and other probabilities into error plot
-
-## Presentation
-
-::: {#confirmation_presentation}
-:::
-
-### Todo List
-#### Saturday
-- [x] Set up quarto slides
-
-#### Sunday
-- [x] Figure out quiz theme
-- [x] Write intro to presentation
-- [x] Map out all quiz questions
-- [x] Question 1: Anscombe's Quartet
-
-#### Monday
-- [x] Question 2: Decisions Under Certainty
-- [x] Question 3: Decisions Under Uncertainty
-- [x] Formatting of slides
-- [x] Draw apples and oranges icon
-
-#### Tuesday
-- [x] Tidy up Question 3
-- [x] Plan out all slides
-- [x] Question 4: Visualising a Distribution
-- [x] Swap the two tram tracker distributions
-- [x] Add icon to slides
-- [x] Question 5: A Bad Distribution
-- [x] Question 6: A Good Distribution
-- [x] Put in slide numbers
-- [X] Add countdown timer for each quiz question
-- [x] Question 7: The Error Bar Problem
-- [x] Set up quiz for Sophie to give out
-
-#### Wednesday
-- [x] Spell Check
-- [x] Check/fix speaker notes + incremental lists
-- [x] Question 8: A Questionable Hierarchy
-- [x] Serious Section 
-- [x] Make logo bigger
-- [x] Full read through and edit
-- [x] Add in consultant responses
-- [x] Print QR code so people can hand it around and join the quiz
-- [ ] Full Read through and time
-- [ ] Cut to time
-- [ ] Present @4pm
-
-### Additional PRESENTATION ideas
-- Have tally on board for consultants vs academics
-- Add quiz music for each quiz question
-- Quiz show boarder to quiz intro slide
-- Add sign-posting into slides
-- Make references into footnotes
-- change taxonomy to ontology?
- 
 # Idea Dumpster
 This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
 
