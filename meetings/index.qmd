@@ -11,6 +11,7 @@ listing:
 ## 2023 August 24
 #### General
 - I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem.
+- I am hosting the PhD meeting this week so that has taken up a bit of my time
 
 ## 2023 August 10
 #### IEEEVIS Poster
