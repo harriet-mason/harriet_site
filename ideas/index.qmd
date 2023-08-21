@@ -8,7 +8,7 @@ listing:
     contents: ideadumpster
 ---
 # Small Part Ideas
-These posts are not complete versions of my ideas nor are they up to date, they mostly serve as place markers for me to put half formed ideas before I add them to a paper.
+A little blog post/s that is a write up of what I'm currently working on.
 
 ::: {#posts}
 :::
