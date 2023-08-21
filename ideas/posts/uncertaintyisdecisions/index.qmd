@@ -1,8 +1,8 @@
 ---
-title: "Part 3: Uncertainty Needs a Motivation"
+title: "Ignore the Data Type"
 author: "Harriet Mason"
+date: "2023-04-01T00:00:00Z"
 image: feature.jpeg
-description: Part 1 established that a large reason people do not visualise uncertaitny is because of a view that it is of secondary imporance to estimates or other contextual information. Here I discuss methods of visualising uncertainty as an independent area of interest directly related to a hypothesis rather than as a by product of a data type or estimate. I present an example where visualising uncertainty without this framework leads leads to poor visualisations. 
 
 editor: 
   markdown: 
@@ -33,6 +33,9 @@ Looking at this process, at this performance of information sharing, you wonder 
 #### Acadmia stress but this time it's mine
 If you could not tell, that long winded second person narrative was actually about me. I bet you feel surprised by this unexpected information. You may assume this relates to my research (that despite the section above I am still doing) because there are good methods to visualise uncertainty but people are just unaware of them, and that is somewhat true. I did spend the first blog post of this series discussing how the general consensus and attitude towards visualising uncertainty does not align with the literature on the topic. It reminds me of when I was in highschool and told everyone there was no evidence that long term weight loss was possible despite a large number of clinical trials (if you don't believe me, google it) and was essentially treated like a basket case. I actually spent a weekend in a manic state in 2016 and made a stop motion [Youtube video](https://youtu.be/fFuQEKQhBn0) about it, but I digress. The actual link I want to make this week, is that this terrible organisation system for academia and information in general makes it hard to see the forest for the trees, and for broad and somewhat poorly defined topics such as "visualising uncetainty" I feel like I have a concussion from being hit in the face by the branches. 
 -->
+
+Part 1 established that a large reason people do not visualise uncertaitny is because of a view that it is of secondary imporance to estimates or other contextual information. Here I discuss methods of visualising uncertainty as an independent area of interest directly related to a hypothesis rather than as a by product of a data type or estimate. I present an example where visualising uncertainty without this framework leads leads to poor visualisations. 
+
 ### Introduction
 When we talk about visualising uncertainty, the conversation often assumes that the *context* around the uncertainty is the most important factor, while the *hypothesis* related to the uncertainty and the reason we made the plot are considered secondary. Creating new visualisation techniques with this mindset leads to plot designs that are disconnected from the reasons people visualise uncertainty in practice. Here I suggest an alternative philosophy for making uncertainty visualisations by highlighting a few key ideas. First of all, I suggest that the hypothesis tied to an uncertainty estimate is more important than the context. Second I explain why context is considered to be the primary focus and why it shouldn't be. Finally I provide a suggestion on how to make a good plot by considering both the context and hypothesis and combining the best plot for each.
 

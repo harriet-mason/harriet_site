@@ -8,7 +8,11 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2023 August 
+## 2023 August 24
+#### General
+- I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem.
+
+## 2023 August 10
 #### IEEEVIS Poster
 - The deadlines have been changed a little
   - The abstract is due August 15

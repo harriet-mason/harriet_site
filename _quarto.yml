@@ -13,7 +13,7 @@ website:
       - href: meetings/index.qmd
         text: Meeting Notes
       - href: ideas/index.qmd
-        text: PhD Writings
+        text: Small Ideas
       - text: Teaching
         menu:
           - text: ETC3250

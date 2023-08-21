@@ -1,9 +1,8 @@
 ---
-title: "Part 1: Why Don't People Visualise Uncertainty?"
+title: "Why Don't People Visualise Uncertainty?"
 author: "Harriet Mason"
+date: "2023-02-01T00:00:00Z"
 bibliography: references.bib
-description: This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. 
-
 categories:
   - data visualisation
   - statistics
@@ -14,8 +13,8 @@ editor:
   markdown: 
     wrap: 72
 ---
+This section discusses why, despite many viable techniques for visualizing uncertainty and a moral consensus that it is the correct thing to do, most authors still ignore uncertainty in their visualizations. 
 
-<!--
 # The Wombat Conference
 
 Recently I went to a conference with the central topic of visualising
@@ -114,7 +113,6 @@ difficult) but it just highly likely that they are. Below I will go
 though the most common reasons cited for failing to express
 uncertainty, and why they are lacking once you engage in the literature.
 Then you might see what I mean.
--->
 
 # The Excuses (and The Rebuttals)
 
