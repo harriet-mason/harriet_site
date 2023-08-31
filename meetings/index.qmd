@@ -8,6 +8,15 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 August 31
+#### IEEEVIS
+- I have some poster drafts I made in powerpoint (I couldn't figure out canva)
+
+#### AEMO
+- Emailled Christoff group
+- Haven't read Corinna email yet
+
+
 ## 2023 August 24
 #### General
 - I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem (for space)
@@ -32,6 +41,8 @@ listing:
 - This is also why I asked if we could move the meeting to once every two weeks.
 - I'm fine if we have a meeting when you guys have something to discuss (like last week), but a lot of the time having the meeting means I don't do work on Friday because I am mentally exhausted.
 
+### Notes
+- send email to Christoff asking the questions I have about the project
 
 ## 2023 August 10
 #### IEEEVIS Poster
