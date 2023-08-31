@@ -19,6 +19,11 @@ listing:
 #### BEX6510
 - Need to pick a paper for the week 12 assignment.
 
+#### Notes
+- Poster needs to stand on its own (most people won't read the paper)
+- Di has a resource on the best way to strcutre a poster
+- about bex paper: email bonsoo cc di and sarah: use this exercise as a literature review and still discuss the pros and cons of each paper (add background - more beneficial for research progress). Also ask about 10 page summary (for a single paper its a lot and my area has shorter papers). Could also apply product plot paper to another plot.
+
 ## 2023 August 24
 #### General
 - I set up separate Github repos for the confirmation report and the IEEEVIS poster since keeping everything on the website was becoming a problem (for space)
