@@ -16,6 +16,8 @@ listing:
 - Emailled Christoff group
 - Haven't read Corinna email yet
 
+#### BEX6510
+- Need to pick a paper for the week 12 assignment.
 
 ## 2023 August 24
 #### General
@@ -31,7 +33,6 @@ listing:
 - I feel like I want to ask the same thing I wanted to ask the solar forecasting people, which is "what are you using this for". The reason I wanted to talk to someone who actually uses this plot is because there seem to be two aspects to this job 1) monitering and 2) doing stuff when something that they are monitering says it should change. All these projects are providing information on what is being monitered and showing us dashboards with a huge number of plots and data but I sill have no idea what these things are used for. The only thing we have gotten from the solar group is that they need to keep the energy between two thresholds. If it something as simple as "when I think it is above this threshold on this one thing" then I don't see why these decisions need to be made by a human. I am sure they are more complicated than that but I don't know how.
 
 #### BEX6510
-- Need to pick a paper for the week 12 assignment.
 - I have fallen behind in the unit and I need to focus on it for a few weeks so it doesn't get ahead of me. I want to just do the poster and this unit until I'm caught up. 
 - I.e. once the poster is done I might want to skip the meeting until I've caught up.
 
