@@ -8,6 +8,14 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 September 21
+
+#### Interp
+- Does paper and package examples run? Yeah. I wrote up the gist of what has and hasn't changed with the addition of the jitter [here](triad/interpcheck.qmd).
+
+#### Random Question
+- Do you guys know of any papers where the data inference went in the opposite direction? Like statisticians were given the results of several tests and asked to draw the data. It makes me think of police sketches never resembling the person (apparently interveiwing is important).
+
 ## 2023 August 31
 #### IEEEVIS
 - I have some poster drafts I made in powerpoint (I couldn't figure out canva)
@@ -22,7 +30,7 @@ listing:
 #### Notes
 - Poster needs to stand on its own (most people won't read the paper)
 - Di has a resource on the best way to strcutre a poster
-- about bex paper: email bonsoo cc di and sarah: use this exercise as a literature review and still discuss the pros and cons of each paper (add background - more beneficial for research progress). Also ask about 10 page summary (for a single paper its a lot and my area has shorter papers). Could also apply product plot paper to another plot.
+- about BEX paper: email bonsoo cc di and sarah: use this exercise as a literature review and still discuss the pros and cons of each paper (add background - more beneficial for research progress). Also ask about 10 page summary (for a single paper its a lot and my area has shorter papers). Could also apply product plot paper to another plot.
 
 ## 2023 August 24
 #### General
