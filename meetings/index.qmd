@@ -10,11 +10,21 @@ listing:
 # Supervisor Meetings
 ## 2023 September 21
 
+#### Uncertainty Vis
+##### Case Studies
+- I never heard back from those wind guys. 
+- I read the stuff linked in the Corrina email. I think some of the jargon confused but I am keen to hear about the case studies she has.
+
+##### Literature Review
+- I decided it would be easier to just finish the literature review instead of starting something else to add on (like doing the method analysis) since I have all the pieces (a lot of stuff from my confirmation). I can always do the method analysis later, plus I think writing down all the stuff I have read will give a better foundation for additional work. 
+- Plus after watching [this youtube video](https://www.youtube.com/watch?v=_0QMKFzW9fw) I kind of wanted to write a research supported guideline for uncertainty visualisation hahahaha
+- Once the cassowaryr stuff is sorted I'm going to take the relevant parts of the confirmation and build a draft of the literature review.
+
 #### Interp
 - Does paper and package examples run? Yeah. I wrote up the gist of what has and hasn't changed with the addition of the jitter [here](triad/interpcheck.qmd).
 
 #### Random Question
-- Do you guys know of any papers where the data inference went in the opposite direction? Like statisticians were given the results of several tests and asked to draw the data. It makes me think of police sketches never resembling the person (apparently interveiwing is important).
+- Do you guys know of any papers where the data inference went in the opposite direction? Like statisticians were given the results of several tests and asked to draw the data. It makes me think of police sketches never resembling the person (apparently interviewing is important).
 
 ## 2023 August 31
 #### IEEEVIS
