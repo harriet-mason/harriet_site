@@ -8,6 +8,10 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 September 28
+#### Uncertainty Vis
+- Christoph emailed back but I'm not sure how relevant their project will be. Their main uncertainty focus seems to be on computing uncertainty rather than visualising it (which could be its own interesting case study I guess).
+
 ## 2023 September 21
 
 #### Notes
@@ -15,7 +19,7 @@ listing:
 - Email wind guys again.
 - Check other lit review papers for format
 - IEEVIS sunday before energy vis workshop 9am 22nd Oct. Week before another monash specific meeting.
-- Look up eyeballing for statistics papers. Susan Vanderplas stuff, should be able to point to other things that are similar, usually people are given a plot before. 
+- Look up eyeballing for statistics papers. Susan Vanderplas stuff, should be able to point to other things that are similar, usually people are given a plot before.
 
 #### Uncertainty Vis
 ##### Case Studies
