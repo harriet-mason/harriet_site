@@ -134,15 +134,96 @@ title: "BEX6510 Assignment"
 
 ## Variations and Extensions
 ### 7.1 Weighting
+- instead of counts can plot weighted data
+- i.e. redo plots where the data is weighted because of sampling or some other reason
+- weights are also useful to move from number of countries to number of people
 ### 7.2 Continuous Data
+- instead of counts can plot continuous data
+- trivially extended by binning the continuous data to make them discrete
+  - can do bins of equal width OR bins containing an equal number of points
+- extension allows product plots to also describe histograms and spinograms
+  - no gaps are displated between adjacent rectangles when displaying continuous data
+- more theoretical approach is to increase number of bins infintesimally leading to a probability density function
+  - approach can include one continuous variable but two variables need an additional aesthetic such as colour to visualise a 2d joint density.
+  - >=3 continuous variables breaks the product plots framework
+  - if you express the innersmost proportion with colour (instead of area) can describe dimensional stacking (apparently a SPLOM is dimensional stacking)
+  
 ### 7.3 Area not proportional to weight
-### 7.4 Non-disjoint partitions
-### 7.5 Non-rectangular partitions
-## 8 R Package
-## 9 Conclusion
+- relax display constraints
+- to distinguish between zeros, missing values, and very small values
+- zero weight should have zero area but instead set it to be at a minimum perceptable size.
+  - set as a different colour to let the reader know the area=weight rule is violated
+- could also  be useful to restrict max value so you can see other small values
+- could also do other non linear transformations
+  - e.g. Tukey applied the technique to histograms where the y axis has a square root scale
 
+### 7.4 Non-disjoint partitions
+- relax display constraints
+- e.g. cascaded treemaps 
+- makes it easier to see all the levels of the hierarchy and highlights the structure
+  - e.g. each of $f(sex)$, $f(marital, sex)$, and $f(happy|sex, marital)$ get a layer.
+  - hard to tell when something is $f(X|Y)$ or $f(X,Y)$
+
+### 7.5 Non-rectangular partitions
+- relax display constraints
+- pie chart not retangular and does not fall into the framework, but it does relate
+  - it is a hspline draw in polar coodinates with the x-coordinate mapped to angle and the y coordinate mapped to radius
+- Other plots that are product plots drawn in polar coodinates
+  - Wind rose and fourfold displays (1 hbar and 1 vspine)
+    - Nightingales coxcomb is similar but the slices overlap so it violates the disjoint area constraint
+  - Concentric pie chart (1 hspine)
+  - Doughnut plot (1hspine and 1 vspine)
+  - Racetrack plot (1 vbar)
+  - Infoslides (n vbars)
+- research suggests that visualisations in polar coordinates are harder to read that visualisations in cartesian coordinates
+- y-axis must be square root transformed to ensure that counds stay proportional to areas
+  - Fan-lenses and Stasko's radial displays deliberatrely do not do this to emphasise the outer levels.
+- Other non-rectangular graphics
+  - circular treemaps
+  - space-filling curves
+  - voronoi treemaps
+
+## 8 R Package
+- made an R package called productplots
+- two main functions
+  - prodcalc: computes the coordinates of each rectangle
+  - prodplot: displays the rectangles with the ggplot2 package
+- each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
+
+## 9 Conclusion
+- Framework is successful at describing many existing graphics that display tables of counts, proportions and probabilities
+- framework leads to many possibilities as a 4d PMF can be factorised in 5 different ways, with 24 different ways of ordering the variables. Have 5 yeas of displaying a 1d PMF and 1 way of displaying a 2D pmf
+  -  defines a large space of potential plots. Have $24*(5^4+5^2+5^2+5^2+1)=16824$ plots before we consider conditioning
+  - IDK where that number came from
+    - on the function end:
+      - 24 combinations of variables
+      - 5 ways of factorising
+      - 24*5 different factorisations
+      - 5 ways of displaying a 1D PMF
+        - within the factorisations there are (4, 2, 2, 2, 0) 1D PMFs
+      - 1 way of displaying a 2D pmf
+        - within the factorisations there are (0, 1, 1, 1, 2)
+        - it looks like it is done
+          $5*5*5*5$
+          $5*5*1$
+          $5*1*5$
+          $1*5*5$
+          $1*1$
+- Well thought out interactions make it easier to navigate this space & developed a prototype as part of the cranvas suite of interactive grahics
+- also exploring the connection between product plots and log-linear (AKA poisson) models (the statistical models most commonly used for count data)
+  - e.g. looking for straight lines in a mosaic plot corresponds to a formal test of independence between variables
+  - generally we are interested in connections between visualisation and formal statistical tests
+  - also how significant coefficients can help us choose a set of useful plots
+  - given a question can we select appropriate plots? given a plot can we suggest questions it might answer?
+- Product plots need to be extension to display uncertainty
+- Continuous data is incorperated in a simplistic manner.
+  - can it be extended for something like the average shifted histogram or the kernel density estimate
+  
 # Extension of Work
 - Does this work extend to expected values or visualisations of other mathematical process?
 - Could be expanded by looking at which other perceptual tasks are combinations of others
 - extension to continuous case
 - extension on the connection between what questions are best suited for each distribution
+- Can the questions be combined similarly the way we can combine the PMF and the graphics
+- Connections between formal statistical tests and visualisations
+- uncertainty visualisation extensions
