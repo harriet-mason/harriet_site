@@ -15,8 +15,14 @@ listing:
 - I drafted an email response to Corrina
 
 #### BEX6510
+- Am I supposed to discuss the assignment with you at all or not? I am really not sure what the deal with the assignment is.
 - I think I am going to have to pause meetings until after the exam because I am *stressed* about the unit. 
   - Not getting the lecture notes before the semester started was a bad move, but I actually think Bonsoo is making them as we go so I'm not sure if I would have been able to get them before the semester started anyways.
+  
+#### Notes
+- email hadley/check github for the products plots code
+- related package haley jeppson ggmosaic
+- split into data aggreation and geometry mapping
 
 ## 2023 September 21
 
