@@ -3,6 +3,7 @@ title: "BEX6510 Assignment"
 ---
 
 ## Explain how this paper relates to my research
+-
 
 # Summary of Product Plots Paper
 
@@ -223,7 +224,6 @@ title: "BEX6510 Assignment"
 - Does this work extend to expected values or visualisations of other mathematical process?
 - Could be expanded by looking at which other perceptual tasks are combinations of others
 - extension to continuous case
-- extension on the connection between what questions are best suited for each distribution
 - Can the questions be combined similarly the way we can combine the PMF and the graphics
 - Connections between formal statistical tests and visualisations
 - uncertainty visualisation extensions
