@@ -1,12 +1,139 @@
 ---
 title: "BEX6510 Assignment"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Explain how this paper relates to my research
 -
 
 # Summary of Product Plots Paper
+```{r}
+# Load product plots library
+devtools::install_github("hadley/productplots")
+library(productplots)
+library(ggplot2)
 
+# Edit Data
+happy_clean <- happy %>% 
+  na.omit() %>%
+  mutate(age = cut(age,
+                   breaks = seq(10, 90, 10)))
+
+# Fig 2
+# Plot 1
+happy_clean %>%
+  prodplot(~ happy, c("hbar")) + 
+  aes(fill=happy) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) 
+# Plot 2
+happy_clean %>%
+  prodplot(~ happy, c("hspine")) + 
+  aes(fill=happy) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) 
+# Plot 3
+happy_clean %>%
+  prodplot(~ happy, c("tile")) + 
+  aes(fill=happy) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank(),
+        axis.text.x = element_blank()) 
+
+# Fig 3
+# Plot 1
+age_breaks = paste("(", seq(10,80,10), ",", seq(20,90,10), "]", sep="")
+marital_breaks = c("married", "never married", "divorced", "widowed", "separated")
+happy_clean %>%
+  prodplot(~ age + marital, c("fluct")) + 
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  theme(legend.position = "none",
+        aspect.ratio = 5/8) +
+  scale_x_continuous(name ="Age",
+                     breaks=seq(0,0.875,0.125),
+                     labels = age_breaks)+
+  scale_y_continuous(name ="Marital",
+                     breaks=seq(0,0.8,0.2),
+                     labels = marital_breaks)
+
+# Plot 2 **incomplete**
+# cant get missings to appear
+happy_clean %>%
+  prodplot(~ 1 | health + year, c("vspine", "hspine")) +
+  aes(fill=health)
+
+# Fig 4 (table) *not formatted but math correct*
+# looks like they had an odd data cleaning process
+# Joint
+joint <- table(happy$happy, happy$sex)/sum(table(happy$happy, happy$sex))
+joint
+# Conditionals
+# Sex conditional on happy
+sex_cond_happy <- matrix(nrow=3, ncol=2)
+for(i in 1:3){
+  sex_cond_happy[i,] <-joint[i,]/happy_marg[i]
+}
+sex_cond_happy
+# Happy conditional on sex
+happy_cond_sex <- matrix(nrow=3, ncol=2)
+for(i in 1:2){
+  happy_cond_sex[,i] <-joint[,i]/sex_marg[i]
+}
+happy_cond_sex
+# Cond on happy
+# Marginals
+happy_marg <- table(happy$happy)/sum(table(happy$happy))
+sex_marg <- table(happy$sex)/sum(table(happy$sex))
+
+# Fig 5
+
+# Fig 6
+happy2 %>%
+  prodplot(~ health + finrela, 
+         c("fluct")) + 
+  aes(fill=health) +
+  scale_fill_brewer(palette = ,
+                    type = "qual") +
+  theme(aspect.ratio = 1,
+        panel.grid.minor = element_blank())
+
+happy2 %>%
+  prodplot(~ happy | health + finrela, 
+         c("vspine")) + 
+  aes(fill=happy) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(aspect.ratio = 1,
+        panel.grid.minor = element_blank())
+
+prodplot(happy, ~ happy  + finrela + health, 
+         c("vspine", "fluct")) + 
+  aes(fill=happy) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(aspect.ratio = 1,
+        panel.grid.minor = element_blank())
+
+prodplot(happy, ~ happy | finrela + health, 
+         c("vspine", "fluct")) 
+
+prodplot(happy, ~ happy | finrela + health, 
+         c("hspine", "fluct"))
+
+prodplot(happy, ~ happy | sex + health, mosaic("h")) +
+  aes(fill=happy)
+```
 ## 1 Introduction
 - Visualising tables of counts, proportions, and probabilities
 - Framework for visualisations of categorical data
