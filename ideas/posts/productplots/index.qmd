@@ -61,10 +61,9 @@ prodplot(happy_clean, ~ marital + happy,
 # Fig 2
 # Plot 1
 happy_clean %>%
-  prodplot(~ happy, c("hbar")) + 
+  prodplot(~ happy, divider=hbar(offset=0), na.rm=TRUE) + 
   aes(fill=happy) +
-  scale_fill_brewer(palette = 5,
-                    type = "qual") +
+  scale_fill_manual(values=colpal) +
   theme(legend.position = "none",
         aspect.ratio = 1,
         axis.text.y = element_blank()) 
@@ -209,8 +208,8 @@ prodplot(happy_clean, ~ marital + age, c("vspine", "hspine")) +
         axis.text.y = element_blank())
 # plot 2
 # quick
-prodplot(happy_clean, ~ age + marital, c("hbar", "vspine"),
-         levels=1:2, na.rm=FALSE) +
+prodplot(happy_clean, ~ age + marital, c("chbar", "vspine"),
+         levels=1:2, na.rm=TRUE) +
   aes(fill=marital) +
   scale_fill_brewer() +
   theme(legend.position = "none")
@@ -270,7 +269,10 @@ prodplot(happy, ~ happy | finrela + health,
 prodplot(happy_clean, ~ sex + age,
          c("vspine", "hbar"), na.rm = TRUE) +
   aes(fill=sex)
-# no method for weighting plot
+# weighted plot
+prodplot(happy_clean, wtsall ~ sex + age,
+         c("vspine", "hbar"), na.rm = TRUE) +
+  aes(fill=sex)
 
 # Figure 10
 prodplot(happy_clean, ~ happy + age,
@@ -409,6 +411,19 @@ ggplot() +
 
 
 ```
+
+```{r}
+
+#Try with homemade no gap horizontal bar
+chbar <- function(data, bounds, offset = 0.00, max = NULL){hbar(data, bounds, offset, max)}
+
+prodplot(happy_clean, ~ happy + marital,
+         c("chbar", "S"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer()
+
+```
+
 ## 1 Introduction
 - Visualising tables of counts, proportions, and probabilities
 - Framework for visualisations of categorical data
