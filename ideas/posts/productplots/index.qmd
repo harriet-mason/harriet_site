@@ -13,12 +13,50 @@ editor_options:
 devtools::install_github("hadley/productplots")
 library(productplots)
 library(ggplot2)
+library(dplyr)
 
+colpal <- c("#ff864f","#fcf8ba","#83c84e")
+bluepal <- c("#EFF3FF", "#BDD7E7", "#6BAED6", "#3182BD", "#08519C")
+twopal <- c("#ff7f4e", "#42a8d2")
 # Edit Data
 happy_clean <- happy %>% 
-  na.omit() %>%
   mutate(age = cut(age,
                    breaks = seq(10, 90, 10)))
+# Fig 1
+prodplot(happy_clean, ~ happy + marital,
+         c("vspine", "hspine"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer()
+
+prodplot(happy_clean, ~ marital + happy,
+         c("tile", "tile"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer()
+
+prodplot(happy_clean, ~ marital + happy,
+         c("hspine", "vbar"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer()
+
+prodplot(happy_clean, ~ marital + happy,
+         c("hspine", "vbar"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer()
+
+prodplot(happy_clean, ~ marital + happy,
+         c("fluct"), na.rm = TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer() 
+
+prodplot(happy_clean, ~ marital + happy,
+         c("hbar", "vbar"), na.rm = TRUE, levels=1:2) +
+  aes(fill=marital) +
+  scale_fill_manual(values=bluepal) 
+
+prodplot(happy_clean, ~ marital + happy,
+         c("hbar", "hspine"), na.rm = TRUE, levels=1:2) +
+  aes(fill=marital) +
+  scale_fill_manual(values=bluepal)
 
 # Fig 2
 # Plot 1
@@ -52,8 +90,8 @@ happy_clean %>%
 
 # Fig 3
 # Plot 1
-age_breaks = paste("(", seq(10,80,10), ",", seq(20,90,10), "]", sep="")
-marital_breaks = c("married", "never married", "divorced", "widowed", "separated")
+age_breaks = levels(happy_clean$age)
+marital_breaks = levels(happy_clean$marital)
 happy_clean %>%
   prodplot(~ age + marital, c("fluct")) + 
   aes(fill=marital) +
@@ -69,15 +107,20 @@ happy_clean %>%
 
 # Plot 2 **incomplete**
 # cant get missings to appear
-happy_clean %>%
-  prodplot(~ 1 | health + year, c("vspine", "hspine")) +
-  aes(fill=health)
+prodplot(happy, ~ 1 | health + year, c("vspine", "hspine"), na.rm=TRUE) +
+  aes(fill=health) +
+  scale_fill_brewer(palette = 5) +
+  theme(aspect.ratio = 0.5,
+        legend.position="none")
 
 # Fig 4 (table) *not formatted but math correct*
 # looks like they had an odd data cleaning process
 # Joint
 joint <- table(happy$happy, happy$sex)/sum(table(happy$happy, happy$sex))
 joint
+# Marginals
+happy_marg <- table(happy$happy)/sum(table(happy$happy))
+sex_marg <- table(happy$sex)/sum(table(happy$sex))
 # Conditionals
 # Sex conditional on happy
 sex_cond_happy <- matrix(nrow=3, ncol=2)
@@ -91,48 +134,280 @@ for(i in 1:2){
   happy_cond_sex[,i] <-joint[,i]/sex_marg[i]
 }
 happy_cond_sex
-# Cond on happy
-# Marginals
-happy_marg <- table(happy$happy)/sum(table(happy$happy))
-sex_marg <- table(happy$sex)/sum(table(happy$sex))
 
 # Fig 5
+# plot 1
+# a) copy and paste fig 1 plot 2
+# b 
+prodplot(happy_clean, ~ sex | happy, c("vspine", "hspine")) +
+  aes(fill=sex) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) 
+# c
+prodplot(happy_clean, ~ sex + happy, c("vspine", "hspine")) +
+  aes(fill=sex) +
+  scale_fill_brewer(palette = 5,
+                    type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) 
+# plot 2
+# a) copy and paste fig 1 plot 1
+# b) copy and paste fig 2 plot 1b
+# c
+prodplot(happy_clean, ~ sex + happy, c("vspine", "hbar")) +
+  aes(fill=sex) +
+  scale_fill_brewer(palette = 5, type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) 
 
 # Fig 6
-happy2 %>%
-  prodplot(~ health + finrela, 
-         c("fluct")) + 
-  aes(fill=health) +
-  scale_fill_brewer(palette = ,
-                    type = "qual") +
-  theme(aspect.ratio = 1,
-        panel.grid.minor = element_blank())
-
-happy2 %>%
-  prodplot(~ happy | health + finrela, 
-         c("vspine")) + 
+# plot 1
+prodplot(happy_clean, ~ marital, c("hspine")) + 
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank())
+# plot 2
+  # calculate breaks
+x = table(happy$marital)/sum(table(happy$marital))
+y = cumsum(x)
+marital_breaks2 = as.vector(y - 0.5*x)
+  # plot
+prodplot(happy_clean, ~ sex + marital, c("hspine", "hspine")) + 
+  aes(fill=sex) +
+  scale_fill_brewer(palette = 5, type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank()) +
+  scale_x_continuous(name ="Marital",
+                     breaks= marital_breaks2,
+                     labels = marital_breaks)
+# plot 3
+prodplot(happy_clean, ~ happy + sex + marital, 
+         c("vspine", "hspine", "hspine")) + 
   aes(fill=happy) +
-  scale_fill_brewer(palette = 5,
-                    type = "qual") +
-  theme(aspect.ratio = 1,
-        panel.grid.minor = element_blank())
+  scale_fill_brewer(palette = 5, type = "qual") +
+  theme(legend.position = "none",
+        aspect.ratio = 1,
+        axis.text.y = element_blank())+
+  scale_x_continuous(name ="Marital",
+                     breaks= marital_breaks2,
+                     labels = marital_breaks)
 
-prodplot(happy, ~ happy  + finrela + health, 
-         c("vspine", "fluct")) + 
+# Figure 7
+# plot 1
+prodplot(happy_clean, ~ marital + age, c("vspine", "hspine")) +
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  theme(legend.position = "none", aspect.ratio = 1,
+        axis.text.y = element_blank())
+# plot 2
+# quick
+prodplot(happy_clean, ~ age + marital, c("hbar", "vspine"),
+         levels=1:2, na.rm=FALSE) +
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  theme(legend.position = "none")
+
+# long in next chunk
+# should have been
+prodplot(happy_clean, ~ age + marital, c("hspine", "vspine")) +
+  aes(fill=age) +
+  scale_fill_brewer() +
+  theme(legend.position = "none", aspect.ratio = 1,
+        axis.text.y = element_blank()) +
+  scale_y_continuous(name = "Marital",
+                     breaks=seq(0.1,0.9,0.2),
+                     labels = levels(happy_clean$marital))
+
+# Figure 8
+# Plot 1
+prodplot(happy, ~ happy + finrela + health,
+         c("vspine", "fluct"), na.rm = TRUE) + 
   aes(fill=happy) +
-  scale_fill_brewer(palette = 5,
-                    type = "qual") +
-  theme(aspect.ratio = 1,
-        panel.grid.minor = element_blank())
+  scale_fill_manual(values = colpal) +
+  theme(aspect.ratio = 5/4,
+        legend.position = "none") +
+  # The fluct axis breaks should be evenly spaced
+  scale_x_continuous(breaks=seq(0,0.75,0.25),
+                     labels = levels(happy$health))+
+  scale_y_continuous(breaks=seq(0,0.8,0.2),
+                     labels = levels(happy$finrela))
 
-prodplot(happy, ~ happy | finrela + health, 
-         c("vspine", "fluct")) 
+# Plot 2
+prodplot(happy, ~ happy | finrela + health,
+         c("vspine", "fluct"), na.rm = TRUE)  + 
+  aes(fill=happy) +
+  scale_fill_manual(values = colpal) +
+  theme(aspect.ratio = 5/4,
+        legend.position = "none") +
+  # these axis are centered for some reason
+  scale_x_continuous(breaks=seq(0.125,0.875,0.25),
+                     labels = levels(happy$health))+
+  scale_y_continuous(breaks=seq(0.1,0.9,0.2),
+                     labels = levels(happy$finrela))
 
-prodplot(happy, ~ happy | finrela + health, 
-         c("hspine", "fluct"))
+# Plot 3
+prodplot(happy, ~ happy | finrela + health,
+         c("hspine", "fluct"), na.rm = TRUE)  + 
+  aes(fill=happy) +
+  scale_fill_manual(values = colpal) +
+  theme(aspect.ratio = 5/4,
+        legend.position = "none") +
+  # these axis are centered for some reason
+  scale_x_continuous(breaks=seq(0.125,0.875,0.25),
+                     labels = levels(happy$health))+
+  scale_y_continuous(breaks=seq(0.1,0.9,0.2),
+                     labels = levels(happy$finrela))
 
-prodplot(happy, ~ happy | sex + health, mosaic("h")) +
-  aes(fill=happy)
+# Figure 9
+prodplot(happy_clean, ~ sex + age,
+         c("vspine", "hbar"), na.rm = TRUE) +
+  aes(fill=sex)
+# no method for weighting plot
+
+# Figure 10
+prodplot(happy_clean, ~ happy + age,
+         c("vspine", "hbar")) +
+  aes(fill=happy) +
+  scale_fill_manual(values = colpal)
+prodplot(happy_clean, ~ happy + age,
+         c("vspine", "hspine")) +
+  aes(fill=happy) +
+  scale_fill_manual(values = colpal)
+
+# Figure 11
+prodplot(happy_clean, ~ happy + marital + sex , 
+         c("vspine", "hspine", "hspine"), na.rm=TRUE,
+         cascade=0) + 
+  aes(fill=happy) +
+  scale_fill_manual(values =colpal) +
+  theme(legend.position = "none",
+        aspect.ratio = 1)
+
+prodplot(happy_clean, ~ happy + marital + sex , 
+         c("vspine", "hspine", "hspine"), na.rm=TRUE,
+         cascade=0.15, levels=1:3, colour="black", alpha=0.6) + 
+  aes(fill=happy) +
+  scale_fill_manual(values = colpal) +
+  theme_minimal() +
+  theme(legend.position = "none",
+        aspect.ratio = 0.75) 
+
+# Fig 12 (a lot of these are not quite right)
+prodplot(happy, ~ sex + happy , 
+         c("hbar", "hbar"), na.rm=TRUE, levels=1:2) +
+  aes(fill=sex) +
+  # Plot b
+  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
+  # Plot c
+  #coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
+  scale_fill_manual(values = twopal) 
+
+
+prodplot(happy, ~ sex + happy , 
+         c("vspine", "hbar"), na.rm=TRUE, levels=1:2) +
+  aes(fill=sex) +
+  # Plot b
+  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
+  # Plot c
+  #coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
+  scale_fill_manual(values = twopal)
+
+prodplot(happy, ~ sex + happy , 
+         c("hspine", "hspine"), na.rm=TRUE, levels=1:2) +
+  aes(fill=sex) +
+  # Plot b
+  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
+  # Plot c
+  coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
+  scale_fill_manual(values = twopal) 
+
+prodplot(happy, ~ sex + happy , 
+         c("hspine", "hspine"), na.rm=TRUE) +
+  aes(fill=sex) +
+  # Plot b
+  coord_polar(theta = "x") +
+  # Plot c
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = twopal) 
+
+prodplot(happy, ~ sex + happy , 
+         c("vspine", "hspine"), na.rm=TRUE) +
+  aes(fill=sex) +
+  # Plot b
+  coord_polar(theta = "x", start = 0, direction = 1) +
+  # Plot c
+  coord_polar(theta = "y", start = 0, direction = 1) +
+  scale_fill_manual(values = twopal) 
+```
+
+```{r}
+#| eval: false
+# Fig 7 Attempt
+library(dplyr)
+marital_mins <- tibble(marital = levels(happy$marital),
+                       ymin = c(0,as.vector(y)[1:4]))
+age_mins <- tibble(age = levels(happy_clean$age),
+                   xmin = seq(0,0.875,0.125),
+                   xmax = seq(0.125,1,0.125))
+
+# make joint...
+joint <- table(happy_clean$age, happy_clean$marital)/sum(table(happy_clean$happy, happy_clean$sex))
+# ... and marginal distribution
+marital_mar <- table(happy$marital)/sum(table(happy$marital))
+# find value to scale histograms by
+max_joint <- apply(joint,2,max)
+scale <- min(marital_mar/max_joint)
+
+# find positions for age polygon
+positions <- as.data.frame.matrix(joint) %>%
+  rownames_to_column("age") %>%
+  pivot_longer(cols=-age, names_to = "marital")  %>%
+  left_join(marital_mins) %>%
+  left_join(age_mins) %>%
+  mutate(ymax = ymin + value*scale) %>%
+  rownames_to_column("id") %>%
+  select(-value) %>%
+  pivot_longer(cols=c(xmin,xmax), names_to = "xid", values_to = "x") %>%
+  pivot_longer(cols=c(ymin,ymax), names_to = "yid", values_to = "y")
+
+# need to swap rows 3 and 4 of each polygon
+fouth <- seq(from=4, to=length(positions$x), by=4)
+third <- even - 1
+xholder <- positions$x
+yholder <- positions$y
+positions$x[third] <- xholder[fouth]
+positions$x[fouth] <- xholder[third]
+positions$y[third] <- yholder[fouth]
+positions$y[fouth] <- yholder[third]
+
+# marital positions
+big_positions <- tibble(marital = rep(levels(happy$marital), each=4),
+                        y = rep(c(0,rep(as.vector(y)[-5], each=2), 1), each=2),
+                        x = rep(c(0,1,1,0),5))
+
+# Finally make plot
+ggplot() +
+  geom_polygon(data = big_positions, aes(x = x, y = y, fill = marital, group = marital), colour="black") +
+  geom_polygon(data = positions, aes(x = x, y = y, fill = marital, group = id), colour="black")  +
+  scale_fill_brewer() +
+  scale_x_continuous(name = "Age",
+                     breaks= seq(0,0.875,0.125)+0.125*0.5,
+                     labels = levels(happy_clean$age))+
+  scale_y_continuous(name = "Marital",
+                     breaks= marital_breaks2,
+                     labels = levels(happy_clean$marital)) +
+  theme(legend.position = "none",
+        aspect.ratio = 1.25)
+
+
 ```
 ## 1 Introduction
 - Visualising tables of counts, proportions, and probabilities
@@ -346,7 +621,12 @@ prodplot(happy, ~ happy | sex + health, mosaic("h")) +
 - Product plots need to be extension to display uncertainty
 - Continuous data is incorperated in a simplistic manner.
   - can it be extended for something like the average shifted histogram or the kernel density estimate
-  
+
+# Personal notes
+- The distinction between conditional and joint seems to be very blurry and coding the distributions makes this even more confusing
+  - also makes the number of permutations a little odd because it doesn't quite seem to work how they suggest
+- Cant make weighted data plots in their thing
+
 # Extension of Work
 - Does this work extend to expected values or visualisations of other mathematical process?
 - Could be expanded by looking at which other perceptual tasks are combinations of others
