@@ -8,6 +8,22 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 October 12
+#### BEX6510 Assignment
+- Could make the cascade plot interactive (would need to use shiny)
+  - Step 1 would be animation showing each individual one
+    - So long as they slot over each other
+  - to make interactive would need user interface so people can choose what to
+- alternative statistical tests
+- continuous in one direction equvalent plots
+- add in uncertainty (?)
+  - needs to come from statistical base thing
+  - should try simulating from distributions (bernouli, multinomial) will get multiple data sets and can to find a representation of uncertainty
+    - can also calculate theoretical ones (but end up with mainly means and std)
+    - everything needs to add up to be correct according to the product plot things
+    - replotting multiple times (field of those) - eaier than rejigging boundaries and stuff
+  - look at proportion/count plots uncertainty methods (dynamite plots)
+  
 ## 2023 October 5
 #### Uncertainty Vis
 - Christoph emailed back but I'm not sure how relevant their project will be. Their main uncertainty focus seems to be on computing uncertainty rather than visualising it (which could be its own interesting case study I guess).
