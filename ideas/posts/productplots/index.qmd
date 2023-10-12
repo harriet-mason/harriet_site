@@ -662,6 +662,69 @@ prodplot(happy, ~ sex + happy ,
 ```
 
 
+```{r}
+#| eval: false
+# Fig 7 Attempt
+library(dplyr)
+marital_mins <- tibble(marital = levels(happy$marital),
+                       ymin = c(0,as.vector(y)[1:4]))
+age_mins <- tibble(age = levels(happy_clean$age),
+                   xmin = seq(0,0.875,0.125),
+                   xmax = seq(0.125,1,0.125))
+
+# make joint...
+joint <- table(happy_clean$age, happy_clean$marital)/sum(table(happy_clean$happy, happy_clean$sex))
+# ... and marginal distribution
+marital_mar <- table(happy$marital)/sum(table(happy$marital))
+# find value to scale histograms by
+max_joint <- apply(joint,2,max)
+scale <- min(marital_mar/max_joint)
+
+# find positions for age polygon
+positions <- as.data.frame.matrix(joint) %>%
+  rownames_to_column("age") %>%
+  pivot_longer(cols=-age, names_to = "marital")  %>%
+  left_join(marital_mins) %>%
+  left_join(age_mins) %>%
+  mutate(ymax = ymin + value*scale) %>%
+  rownames_to_column("id") %>%
+  select(-value) %>%
+  pivot_longer(cols=c(xmin,xmax), names_to = "xid", values_to = "x") %>%
+  pivot_longer(cols=c(ymin,ymax), names_to = "yid", values_to = "y")
+
+# need to swap rows 3 and 4 of each polygon
+fouth <- seq(from=4, to=length(positions$x), by=4)
+third <- even - 1
+xholder <- positions$x
+yholder <- positions$y
+positions$x[third] <- xholder[fouth]
+positions$x[fouth] <- xholder[third]
+positions$y[third] <- yholder[fouth]
+positions$y[fouth] <- yholder[third]
+
+# marital positions
+big_positions <- tibble(marital = rep(levels(happy$marital), each=4),
+                        y = rep(c(0,rep(as.vector(y)[-5], each=2), 1), each=2),
+                        x = rep(c(0,1,1,0),5))
+
+# Finally make plot
+ggplot() +
+  geom_polygon(data = big_positions, aes(x = x, y = y, fill = marital, group = marital), colour="black") +
+  geom_polygon(data = positions, aes(x = x, y = y, fill = marital, group = id), colour="black")  +
+  scale_fill_brewer() +
+  scale_x_continuous(name = "Age",
+                     breaks= seq(0,0.875,0.125)+0.125*0.5,
+                     labels = levels(happy_clean$age))+
+  scale_y_continuous(name = "Marital",
+                     breaks= marital_breaks2,
+                     labels = levels(happy_clean$marital)) +
+  theme(legend.position = "none",
+        aspect.ratio = 1.25)
+
+
+```
+
+
 
 ## R Code Issue List
 - If I use scale_fill_brewer() instead of scale_fill_manual() I get a clear background instead of the grey background.
