@@ -7,13 +7,14 @@ editor_options:
 ```{r}
 #| label: setup
 #| echo: false
+#| include: false
 
 # Load product plots library
 devtools::install_github("hadley/productplots")
 library(productplots)
 library(tidyverse)
 library(patchwork)
-library(gt)
+library(kableExtra)
 
 colpal <- c("#ff864f","#fcf8ba","#83c84e")
 bluepal <- c("#6BAED6", "#EFF3FF", "#BDD7E7", "#08519C", "#3182BD")
@@ -28,8 +29,11 @@ happy_clean <- happy %>%
 # Set Up "no gaps" primitive functions
 chbar <- function(data, bounds, offset = 0.00, max = NULL){hbar(data, bounds, offset, max)}
 ```
-## Explain how this paper relates to my research
 
+# Paper's Relevance to My Research
+The primary focus of my research is uncertainty visualisation. Uncertainty is seems to be used interchangeably to express the sampling distribution of an estimate and the population distribution of a parameter. Therefore the current work on uncertainty visualisation seems to jump between expressions of a distribution, statistically significant figures, and variance estimates without any justification. The goal of my research is to combine a the existing work on uncertainty visualisation into a well organised framework and then use that framework to identify and fill gaps in our current graphical techniques.
+
+The *Product Plots* paper investigates distribution visualisations in a 
 
 # Summary of Product Plots Paper
 ```{r}
@@ -216,7 +220,10 @@ p1/p2
 ```{r}
 #| label: fig4
 #| echo: false
-#| fig-cap: replication of Figure 4, the 5 distributions of importance
+#| layout-ncol: 2
+#| tbl-cap: "Calculations of all the distributions that could be of use when plotting sex against happy"
+#| tbl-subcap: ["f(happy,sex)", "f(sex) and f(happy)", "f(sex|happy)", "f(happy|sex)"]
+
 
 # Calculate Joint
 joint <- table(happy$happy, happy$sex)/sum(table(happy$happy, happy$sex))
@@ -238,47 +245,43 @@ for(i in 1:2){
 }
 
 # Make Nice Joint Distribution
-t1 <- as.data.frame.matrix(joint) %>% 
-  gt(rownames_to_stub = TRUE) %>%
-  tab_header(title = "f(happy, sex)")%>%
-  fmt_number(decimals = 2)
-
-# Make Nice Conditional Distributions
-t2 <- as.data.frame.matrix(sex_cond_happy) %>% 
-  rename(male = V1, female = V2) %>%
-  mutate(happy = levels(happy_clean$happy)) %>%
-  gt(rowname_col = "happy") %>%
-  tab_header(title = "f(sex|happy)") %>%
-  fmt_number(decimals = 2)
-t3 <- as.data.frame.matrix(happy_cond_sex) %>% 
-  rename(male = V1, female = V2) %>%
-  mutate(happy = levels(happy_clean$happy)) %>%
-  gt(rowname_col = "happy") %>%
-  tab_header(title = "f(happy|sex)") %>%
-  fmt_number(decimals = 2)
+as.data.frame.matrix(joint) %>%
+  mutate(across(everything(), round, 2)) %>%
+  kbl(caption = "f(happy, sex)") %>%
+  kable_classic() %>%
+  kable_styling(full_width = F)
 
 # Make Nice Marginal Distributions
+options(knitr.kable.NA = '')
+tibble(male = c(NA,NA,NA,sex_marg[1]),
+       female = c(NA,NA,NA,sex_marg[2]),
+       total = c(happy_marg, NA)) %>%
+  mutate(rownames = c(levels(happy_clean$happy), " ")) %>%
+  column_to_rownames(var="rownames") %>%
+  mutate(across(everything(), round, 2)) %>%
+  rename(` ` = total) %>%
+  kbl(caption = "f(sex) and f(happy)") %>%
+  kable_classic() %>%
+  kable_styling(full_width = F)
 
-
-t4 <- as.data.frame(happy_marg) %>% 
-  rename(happy=Var1) %>%
-  gt(rowname_col = "happy") %>%
-  tab_options(column_labels.hidden = TRUE) %>%
-  tab_header(title = "f(happy)")%>%
-  fmt_number(decimals = 2)
-
-t5 <- as.data.frame(sex_marg) %>% 
-  rename(happy=Var1) %>%
-  gt(rowname_col = "happy") %>%
-  tab_options(column_labels.hidden = TRUE) %>%
-  tab_header(title = "f(sex)")%>%
-  fmt_number(decimals = 2)
-
-t1
-t2
-t3
-t4
-t5
+# Make Nice Conditional Distributions
+cond_redo <- function(x){
+  x %>%
+    as.data.frame.matrix(x) %>% 
+    rename(male = V1, female = V2) %>%
+    mutate(happy = levels(happy_clean$happy)) %>%
+    column_to_rownames(var="happy") %>%
+    mutate(across(everything(), round, 2))
+}
+cond_redo(sex_cond_happy) %>%
+  kbl(caption = "f(sex|happy)", table.attr = "style='width:30%;'") %>%
+  kable_classic() %>%
+  kable_styling(full_width = FALSE) 
+  
+cond_redo(happy_cond_sex)%>%
+  kbl(caption = "f(happy|sex)")%>%
+  kable_classic() %>%
+  kable_styling(full_width = FALSE)
 ```
 
 - turn data into a PMF
