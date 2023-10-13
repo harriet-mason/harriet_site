@@ -33,9 +33,41 @@ chbar <- function(data, bounds, offset = 0.00, max = NULL){hbar(data, bounds, of
 # Paper's Relevance to My Research
 The primary focus of my research is uncertainty visualisation. Uncertainty is seems to be used interchangeably to express the sampling distribution of an estimate and the population distribution of a parameter. Therefore the current work on uncertainty visualisation seems to jump between expressions of a distribution, statistically significant figures, and variance estimates without any justification. The goal of my research is to combine a the existing work on uncertainty visualisation into a well organised framework and then use that framework to identify and fill gaps in our current graphical techniques.
 
-The *Product Plots* paper investigates distribution visualisations in a 
+The *Product Plots* connects numerous graphical displays to the statistics that generated each plot. This allows for a systematic and mathematically rigorous approach to understanding the information that exists in a visualisation. Understanding this information is the first step in understanding the connections between existing visualisations and constructing a framework that unites them.
 
 # Summary of Product Plots Paper
+## The Main Idea
+The main idea of this paper is deceptively simple. The authors propose a connection between the geometric fact that $Area = Width \times Height$ and the statistical fact that $f(x, y) = f(x|y) \times f(y)$. This is both intuitive and mathematically rigorous considering that the concepts of length, area and probability are all born from measure theory. 
+
+The paper focuses on the discrete case
+
+
+
+
+
+- Visualising tables of counts, proportions, and probabilities
+- Framework for visualisations of categorical data
+- Focuses on  area of charts - area of graphical element is proportional to the underlying count, proportion or probability
+  - also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
+- To illustrate the idea they use the same data from a happiness survey in all examples. 
+  - Discrete: age, year
+  - Categorical: degree, relative financial status, happiness, health, marital status, sex
+  - Continuous: wstall (probability weight)?
+
+## The R package `productplots`
+While the authors leave discussions of the associated R package until the end, I am going to discuss it throughout. My reason for this is two-fold
+  1) The structure of the package is helpful in understanding how the product plot breakdown should work, and
+  2) The plots that are made with the package are used throughout the paper and it is easier to understand how the package works when shown along the visualisations it created
+  
+
+- made an R package called productplots
+- two main functions
+  - prodcalc: computes the coordinates of each rectangle
+  - prodplot: displays the rectangles with the ggplot2 package
+- each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
+
+
+# Notes
 ```{r}
 #| label: fig1
 #| echo: false
@@ -88,19 +120,6 @@ p6 <- prodplot(happy_clean, ~ marital + happy,
 p1 + p2 + p3 + p4 + p5 + p6
 ```
 
-
-## 1 Introduction
-- Visualising tables of counts, proportions, and probabilities
-- Framework for visualisations of categorical data
-- Focuses on  area of charts - area of graphical element is proportional to the underlying count, proportion or probability
-- product plots 
-  - main idea: width x height = area 
-  - and conditional x marginal = joint
-  - also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
-- To illustrate the idea they use the same data from a happiness survey in all examples. 
-  - Discrete: age, year
-  - Categorical: degree, relative financial status, happiness, health, marital status, sex
-  - Continuous: wstall (probability weight)?
 
 ## 2 Related Work
 - Other efforts to develop domain specific languages for visualisation are:
@@ -404,12 +423,6 @@ cond_redo(happy_cond_sex)%>%
   - space-filling curves
   - voronoi treemaps
 
-## 8 R Package
-- made an R package called productplots
-- two main functions
-  - prodcalc: computes the coordinates of each rectangle
-  - prodplot: displays the rectangles with the ggplot2 package
-- each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
 
 ## 9 Conclusion
 - Framework is successful at describing many existing graphics that display tables of counts, proportions and probabilities
@@ -742,3 +755,4 @@ ggplot() +
 - Can the questions be combined similarly the way we can combine the PMF and the graphics
 - Connections between formal statistical tests and visualisations
 - uncertainty visualisation extensions
+- other geometric measures (curvature)
