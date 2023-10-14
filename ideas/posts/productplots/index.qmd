@@ -16,10 +16,9 @@ library(tidyverse)
 library(patchwork)
 library(kableExtra)
 
-colpal <- c("#ff864f","#fcf8ba","#83c84e")
-bluepal <- c("#6BAED6", "#EFF3FF", "#BDD7E7", "#08519C", "#3182BD")
-#bluepal <- c("#EFF3FF", "#BDD7E7", "#6BAED6", "#3182BD", "#08519C")
-twopal <- c("#ff7f4e", "#42a8d2")
+happypal <- c("#ff864f","#fcf8ba","#83c84e")
+maritalpal <- c("#6BAED6", "#EFF3FF", "#BDD7E7", "#08519C", "#3182BD")
+sexpal <- c("#ff7f4e", "#42a8d2")
 
 # Make Version of Data For Histogram Plots
 happy_clean <- happy %>% 
@@ -31,43 +30,40 @@ chbar <- function(data, bounds, offset = 0.00, max = NULL){hbar(data, bounds, of
 ```
 
 # Paper's Relevance to My Research
+
 The primary focus of my research is uncertainty visualisation. Uncertainty is seems to be used interchangeably to express the sampling distribution of an estimate and the population distribution of a parameter. Therefore the current work on uncertainty visualisation seems to jump between expressions of a distribution, statistically significant figures, and variance estimates without any justification. The goal of my research is to combine a the existing work on uncertainty visualisation into a well organised framework and then use that framework to identify and fill gaps in our current graphical techniques.
 
 The *Product Plots* connects numerous graphical displays to the statistics that generated each plot. This allows for a systematic and mathematically rigorous approach to understanding the information that exists in a visualisation. Understanding this information is the first step in understanding the connections between existing visualisations and constructing a framework that unites them.
 
 # Summary of Product Plots Paper
+
 ## The Main Idea
-The main idea of this paper is deceptively simple. The authors propose a connection between the geometric fact that $Area = Width \times Height$ and the statistical fact that $f(x, y) = f(x|y) \times f(y)$. This is both intuitive and mathematically rigorous considering that the concepts of length, area and probability are all born from measure theory. 
+
+The main idea of this paper is deceptively simple. The authors propose a connection between the geometric fact that $Area = Width \times Height$ and the statistical fact that $f(x, y) = f(x|y) \times f(y)$. This is both intuitive and mathematically rigorous considering that the concepts of length, area and probability are all born from measure theory.
 
 The paper focuses on the discrete case
 
-
-
-
-
-- Visualising tables of counts, proportions, and probabilities
-- Framework for visualisations of categorical data
-- Focuses on  area of charts - area of graphical element is proportional to the underlying count, proportion or probability
-  - also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
-- To illustrate the idea they use the same data from a happiness survey in all examples. 
-  - Discrete: age, year
-  - Categorical: degree, relative financial status, happiness, health, marital status, sex
-  - Continuous: wstall (probability weight)?
+-   Visualising tables of counts, proportions, and probabilities
+-   Framework for visualisations of categorical data
+-   Focuses on area of charts - area of graphical element is proportional to the underlying count, proportion or probability
+    -   also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
+-   To illustrate the idea they use the same data from a happiness survey in all examples.
+    -   Discrete: age, year
+    -   Categorical: degree, relative financial status, happiness, health, marital status, sex
+    -   Continuous: wstall (probability weight)?
 
 ## The R package `productplots`
-While the authors leave discussions of the associated R package until the end, I am going to discuss it throughout. My reason for this is two-fold
-  1) The structure of the package is helpful in understanding how the product plot breakdown should work, and
-  2) The plots that are made with the package are used throughout the paper and it is easier to understand how the package works when shown along the visualisations it created
-  
 
-- made an R package called productplots
-- two main functions
-  - prodcalc: computes the coordinates of each rectangle
-  - prodplot: displays the rectangles with the ggplot2 package
-- each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
+While the authors leave discussions of the associated R package until the end, I am going to discuss it throughout. My reason for this is two-fold 1) The structure of the package is helpful in understanding how the product plot breakdown should work, and 2) The plots that are made with the package are used throughout the paper and it is easier to understand how the package works when shown along the visualisations it created
 
+-   made an R package called productplots
+-   two main functions
+    -   prodcalc: computes the coordinates of each rectangle
+    -   prodplot: displays the rectangles with the ggplot2 package
+-   each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
 
 # Notes
+
 ```{r}
 #| label: fig1
 #| echo: false
@@ -108,42 +104,43 @@ p4 <- prodplot(happy_clean, ~ marital + happy,
 p5 <- prodplot(happy_clean, ~ marital + happy,
          c("hbar", "vbar"), na.rm = TRUE, levels=1:2) +
   aes(fill=marital) +
-  scale_fill_manual(values=c(bluepal)) +
+  scale_fill_manual(values=c(maritalpal)) +
   theme_fig1
 
 p6 <- prodplot(happy_clean, ~ marital + happy,
          c("hbar", "hspine"), na.rm = TRUE, levels=1:2) +
   aes(fill=marital) +
-  scale_fill_manual(values=bluepal) +
+  scale_fill_manual(values=maritalpal) +
   theme_fig1
 
 p1 + p2 + p3 + p4 + p5 + p6
 ```
 
-
 ## 2 Related Work
-- Other efforts to develop domain specific languages for visualisation are:
-  - APT [6] and VisQL [7]
-    - *Add notes from these papers*
-    - . This work is similar but carves out a smaller niche.
-    - Compared to these product plots are less expressive but more efficient because the number of primitives (simple elemements) required to describe the smaller domain is smaller (?)
-  - HiVE [8]
-    - *Add notes from this paper*
-  - Polaris [9]
-    - *Add notes from this paper*
-    - essentially a 3D extension of the trellis framework [10,11]
+
+-   Other efforts to develop domain specific languages for visualisation are:
+    -   APT \[6\] and VisQL \[7\]
+        -   *Add notes from these papers*
+        -   . This work is similar but carves out a smaller niche.
+        -   Compared to these product plots are less expressive but more efficient because the number of primitives (simple elemements) required to describe the smaller domain is smaller (?)
+    -   HiVE \[8\]
+        -   *Add notes from this paper*
+    -   Polaris \[9\]
+        -   *Add notes from this paper*
+        -   essentially a 3D extension of the trellis framework \[10,11\]
 
 ## 3 Graphical Primitives
-- area must be proportional to count.
-  - key constraint for area plots
-  - total area is usually constrained
-- partitions must be disjoint.
-  - to be able to see the complete area each rectangle must be not overlapping. 
-- partitions must be rectangular
-  - allows many interesting pecterptual tasks to only require comparing lengths or positions along a common scale 
-  - these are easier than comparing areas
-  - little evidence rectangles are the best shape for comparison [15,16]
-- These constraints give rise to 4 graphical primitives
+
+-   area must be proportional to count.
+    -   key constraint for area plots
+    -   total area is usually constrained
+-   partitions must be disjoint.
+    -   to be able to see the complete area each rectangle must be not overlapping.
+-   partitions must be rectangular
+    -   allows many interesting pecterptual tasks to only require comparing lengths or positions along a common scale
+    -   these are easier than comparing areas
+    -   little evidence rectangles are the best shape for comparison \[15,16\]
+-   These constraints give rise to 4 graphical primitives
 
 ### 3.1 1d primitives
 
@@ -155,45 +152,50 @@ p1 + p2 + p3 + p4 + p5 + p6
 # Common Theme
 themefig2 <- theme(legend.position = "none",
                    aspect.ratio = 1,
-                   axis.text.y = element_blank()) 
+                   axis.text.y = element_blank(),
+                   axis.title.y = element_blank())
 # Plot 1
 p1 <- happy_clean %>%
   prodplot(~ happy, c("hbar"), na.rm=TRUE) + 
   aes(fill=happy) +
-  scale_fill_manual(values=colpal) +
+  scale_fill_manual(values=happypal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
   themefig2
 
 # Plot 2
 p2 <- happy_clean %>%
   prodplot(~ happy, c("hspine"), na.rm=TRUE) + 
   aes(fill=happy) +
-  scale_fill_manual(values=colpal) +
+  scale_fill_manual(values=happypal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
   themefig2
 
 # Plot 3
 p3 <- happy_clean %>%
   prodplot(~ happy, c("tile"), na.rm=TRUE) + 
   aes(fill=happy) +
-  scale_fill_manual(values=colpal) +
+  scale_fill_manual(values=happypal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
   themefig2 +
   theme(axis.text.x = element_blank())
 
 p1 + p2 + p3
 ```
 
-- There are three 1d primitives
-  - bars: height s proportional to value and width is equally divided. Occupy mean(x-max(x)) of the total area *(???)* isnt that the negative of the whitespace?? shouldnt it be mean(X/max(X))
-  - splines: width proportional to value, height occupies full range.
-  - tiles: No restrictions on height and width, just tile the plane with rectangles and try to keep the aspect ratio of each rectangle close to 1. A squarified treemap.
-- Each visualisation has strengths and weaknesses
-  - easy to compare the value associated with bars because comparing position on a common scale
-  - splines and tiles are harder to read but work better reccursively
+-   There are three 1d primitives
+    -   bars: height s proportional to value and width is equally divided. Occupy mean(x-max(x)) of the total area *(???)* isnt that the negative of the whitespace?? shouldnt it be mean(X/max(X))
+    -   splines: width proportional to value, height occupies full range.
+    -   tiles: No restrictions on height and width, just tile the plane with rectangles and try to keep the aspect ratio of each rectangle close to 1. A squarified treemap.
+-   Each visualisation has strengths and weaknesses
+    -   easy to compare the value associated with bars because comparing position on a common scale
+    -   splines and tiles are harder to read but work better reccursively
 
 ### 3.2 2d primitives
-- all 2d primitives are created by combining 1d primitives except for one
-  - fluct: has height and width proportional to the square root of the count and is arranged on a rectangular grid formed by the levels of the two variables. 
-  - allows comparisons both vertically and horizontally
-  - special case occurs when two variables are jointly uniformly distributed, usually as a result of conditioning. useful for identifying missing combinations
+
+-   all 2d primitives are created by combining 1d primitives except for one
+    -   fluct: has height and width proportional to the square root of the count and is arranged on a rectangular grid formed by the levels of the two variables.
+    -   allows comparisons both vertically and horizontally
+    -   special case occurs when two variables are jointly uniformly distributed, usually as a result of conditioning. useful for identifying missing combinations
 
 ```{r}
 #| label: fig3
@@ -232,7 +234,8 @@ p1/p2
 ```
 
 ## 4 Probabulity and Plot Products
-- To construct plots of higher dimensions we need a way to decompose them into 1d and 2d components.
+
+-   To construct plots of higher dimensions we need a way to decompose them into 1d and 2d components.
 
 ### 4.1 Joint distribution are the product of marginals and conditionals
 
@@ -303,193 +306,218 @@ cond_redo(happy_cond_sex)%>%
   kable_styling(full_width = FALSE)
 ```
 
-- turn data into a PMF
-- Variables are happy and sex are shown in several tables. 
-- Joint distribution
-  - Q: what proportion of all people are male and very happy?
-- Conditional distributions
-  - Q: what proportion of males are not too happy?
-- Marginal Distributions
-  - Q: What proportion of respondents were male? What proportion were very happy?
-- Have the equation $f(x|y) = f(x,y)/f(y)$
-  - Therefore given a conditional and a marginal we can find the joint distribution
-  - $f(x,y) = f(x|y)f(y)$
-  - Only the joint distribution contains the full information about the relationship between all variables involved
-  - can get the marginal distribution by integrating/summing the other variable out, i.e. $f(x)=\int_y{f(x,y)}$
-  - These definitions extend to higher dimensions
-    - $f(x,y,z) = f(x,y|z)f(z)$
-    - $f(x,y,z) = f(x|z,y)f(z,y)$
-    - $f(x,y,z) = f(x|y,z)f(y|z)f(z)$
-- Therefore we can build any high dimensional PMF as a product of low-dimensional conditional and marginal PMFs
-- Use low-dimensional primitives as graphical analog of this multiplication
+-   turn data into a PMF
+-   Variables are happy and sex are shown in several tables.
+-   Joint distribution
+    -   Q: what proportion of all people are male and very happy?
+-   Conditional distributions
+    -   Q: what proportion of males are not too happy?
+-   Marginal Distributions
+    -   Q: What proportion of respondents were male? What proportion were very happy?
+-   Have the equation $f(x|y) = f(x,y)/f(y)$
+    -   Therefore given a conditional and a marginal we can find the joint distribution
+    -   $f(x,y) = f(x|y)f(y)$
+    -   Only the joint distribution contains the full information about the relationship between all variables involved
+    -   can get the marginal distribution by integrating/summing the other variable out, i.e. $f(x)=\int_y{f(x,y)}$
+    -   These definitions extend to higher dimensions
+        -   $f(x,y,z) = f(x,y|z)f(z)$
+        -   $f(x,y,z) = f(x|z,y)f(z,y)$
+        -   $f(x,y,z) = f(x|y,z)f(y|z)f(z)$
+-   Therefore we can build any high dimensional PMF as a product of low-dimensional conditional and marginal PMFs
+-   Use low-dimensional primitives as graphical analog of this multiplication
 
 ### 4.2 Area is the product of height and width
-- area is also a product so it can be connected
-  - e.g. 1 mosaic plot: height f(sex|happy) X width = f(happy) = area f(sex, happy)
-  - e.g. 2: stacked bar chart: position f(happy) X proportion f(sex|happy) = length f(sex, happy) ~ area = c*f(happy, sex).
-- Algorithm gives a rough idea of computation
-  - calculate one marginal and i conditional distributions
-  - for each probability in the marginal distribution, 
-    - divide the probabilities (aka the bounds) into i sets of new bounds, one for each level of the categorical variabe. 
-    - if i=1 like in the example we keep the original bounds
-    - for each new bound there is a matching conditional distribution, call the partition function
-    - drop one element from the list of drawing primitives
-- Different partitions reveal different features
-  - Hard to identify if this is because they used splines for both of the first plot but splines and bar for the second plot or because of the different distributions.
-  - $f(marial,age) = f(marital|age)f(age)$ highlights most young people are unmaried
-  - $f(marial,age) = f(age|marital)f(marital)$ highlights few unmarried people over the age of 30
-  - I am also not sure how much I agree with this assessment of what the plots say. I don't disagree with the premise though. I do wonder if that is because both comments are about being unmarried.
-- Conditioning is also a useful tool because it allows us to remove relationships that are known or uninteresting.
-  - Give example of $f(happy, health, financial)$
-  - When show all as raw proportions $f(happy, health, financial)$ = $f(happy| health, financial)f(heath,financial)$ your main take away is that most people are in good health and average financial standing, however it is difficult to see how happiness varies within these conditions
-  - If you condition on health and financial status, comparing happiness across these groups becomes easier because comparing positions along a common scale is an easier perception task.
-  - Depending on the comparison we are most interested in, we can make it easier to compare across different variables
 
-## 5 Existing Plot Types
-1D
-  - Bar chart (hbar)
-  - Column chart (vbar)
-  - Spineplot (spine)
-  - Fluctuation chart (fluct)
-2D
-  - Stacked bar chart (1hbar and 1vspine)
-  - Nested bar chart (2 hbars)
-  - Equal bin size (1 fluct and 1 vspine)
-  - Mosaic plot (alternating hspine vspine)
-  - Double Decker (n-1 hspines and 1 vspine)
-  - Treemap (n spines)
-  - Squarified treemap (n tiles)
-  - Generalised treemaps (any plot ending with a tile)
-  - Trellis graphics (similar but not identical, created by conditioning in tellising variables)
-
-## 6 Display Considerations
-- Hard to label axis
-  - often two variables end up on the same axis so we cant label it.
-  - there are other ways to label the axis other than colour
-    - e.g. text labels used to occupy the space of the region they label
-    - in the interactive setting can have linked brushing from high dimensional to low dimensional plots
-    - some apsect ratios are more aesthetically pleasing, e.g. the square for the fluct. wonder if aspect ratios close to the golden ratio might be more appealing
-    - does not seem to be previous work on aspect ratios and aesthetics although they do seem to affect perception
-    - need more research on aesthetics and usability
-
-## Variations and Extensions
-### 7.1 Weighting
-- instead of counts can plot weighted data
-- i.e. redo plots where the data is weighted because of sampling or some other reason
-- weights are also useful to move from number of countries to number of people
-### 7.2 Continuous Data
-- instead of counts can plot continuous data
-- trivially extended by binning the continuous data to make them discrete
-  - can do bins of equal width OR bins containing an equal number of points
-- extension allows product plots to also describe histograms and spinograms
-  - no gaps are displated between adjacent rectangles when displaying continuous data
-- more theoretical approach is to increase number of bins infintesimally leading to a probability density function
-  - approach can include one continuous variable but two variables need an additional aesthetic such as colour to visualise a 2d joint density.
-  - >=3 continuous variables breaks the product plots framework
-  - if you express the innersmost proportion with colour (instead of area) can describe dimensional stacking (apparently a SPLOM is dimensional stacking)
-  
-### 7.3 Area not proportional to weight
-- relax display constraints
-- to distinguish between zeros, missing values, and very small values
-- zero weight should have zero area but instead set it to be at a minimum perceptable size.
-  - set as a different colour to let the reader know the area=weight rule is violated
-- could also  be useful to restrict max value so you can see other small values
-- could also do other non linear transformations
-  - e.g. Tukey applied the technique to histograms where the y axis has a square root scale
-
-### 7.4 Non-disjoint partitions
-- relax display constraints
-- e.g. cascaded treemaps 
-- makes it easier to see all the levels of the hierarchy and highlights the structure
-  - e.g. each of $f(sex)$, $f(marital, sex)$, and $f(happy|sex, marital)$ get a layer.
-  - hard to tell when something is $f(X|Y)$ or $f(X,Y)$
-
-### 7.5 Non-rectangular partitions
-- relax display constraints
-- pie chart not retangular and does not fall into the framework, but it does relate
-  - it is a hspline draw in polar coodinates with the x-coordinate mapped to angle and the y coordinate mapped to radius
-- Other plots that are product plots drawn in polar coodinates
-  - Wind rose and fourfold displays (1 hbar and 1 vspine)
-    - Nightingales coxcomb is similar but the slices overlap so it violates the disjoint area constraint
-  - Concentric pie chart (1 hspine)
-  - Doughnut plot (1hspine and 1 vspine)
-  - Racetrack plot (1 vbar)
-  - Infoslides (n vbars)
-- research suggests that visualisations in polar coordinates are harder to read that visualisations in cartesian coordinates
-- y-axis must be square root transformed to ensure that counds stay proportional to areas
-  - Fan-lenses and Stasko's radial displays deliberatrely do not do this to emphasise the outer levels.
-- Other non-rectangular graphics
-  - circular treemaps
-  - space-filling curves
-  - voronoi treemaps
-
-
-## 9 Conclusion
-- Framework is successful at describing many existing graphics that display tables of counts, proportions and probabilities
-- framework leads to many possibilities as a 4d PMF can be factorised in 5 different ways, with 24 different ways of ordering the variables. Have 5 yeas of displaying a 1d PMF and 1 way of displaying a 2D pmf
-  -  defines a large space of potential plots. Have $24*(5^4+5^2+5^2+5^2+1)=16824$ plots before we consider conditioning
-  - IDK where that number came from
-    - on the function end:
-      - 24 combinations of variables
-      - 5 ways of factorising
-      - 24*5 different factorisations
-      - 5 ways of displaying a 1D PMF
-        - within the factorisations there are (4, 2, 2, 2, 0) 1D PMFs
-      - 1 way of displaying a 2D pmf
-        - within the factorisations there are (0, 1, 1, 1, 2)
-        - it looks like it is done
-          $5*5*5*5$
-          $5*5*1$
-          $5*1*5$
-          $1*5*5$
-          $1*1$
-- Well thought out interactions make it easier to navigate this space & developed a prototype as part of the cranvas suite of interactive grahics
-- also exploring the connection between product plots and log-linear (AKA poisson) models (the statistical models most commonly used for count data)
-  - e.g. looking for straight lines in a mosaic plot corresponds to a formal test of independence between variables
-  - generally we are interested in connections between visualisation and formal statistical tests
-  - also how significant coefficients can help us choose a set of useful plots
-  - given a question can we select appropriate plots? given a plot can we suggest questions it might answer?
-- Product plots need to be extension to display uncertainty
-- Continuous data is incorperated in a simplistic manner.
-  - can it be extended for something like the average shifted histogram or the kernel density estimate
-
-# Personal notes
-- The distinction between conditional and joint seems to be very blurry and coding the distributions makes this even more confusing
-  - also makes the number of permutations a little odd because it doesn't quite seem to work how they suggest
-- Cant make weighted data plots in their thing
-
-# Unsorted Code
 ```{r}
+#| label: fig5
+#| echo: false
+#| warning: false
+#| layout-nrow: 2
 
 # Fig 5
 # plot 1
 # a) copy and paste fig 1 plot 2
+p1a <- happy_clean %>%
+  prodplot(~ happy, c("hspine"), na.rm=TRUE) + 
+  aes(fill=happy) +
+  scale_fill_manual(values=happypal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
+  themefig2
 # b 
-prodplot(happy_clean, ~ sex | happy, c("vspine", "hspine")) +
+p1b <- prodplot(happy, ~ sex | happy, c("vspine", "hspine"), na.rm=TRUE) +
   aes(fill=sex) +
-  scale_fill_brewer(palette = 5,
-                    type = "qual") +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank()) 
+  scale_fill_manual(values = sexpal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
+  themefig2
 # c
-prodplot(happy_clean, ~ sex + happy, c("vspine", "hspine")) +
+p1c <- prodplot(happy, ~ sex + happy, c("vspine", "hspine"), na.rm=TRUE) +
   aes(fill=sex) +
-  scale_fill_brewer(palette = 5,
-                    type = "qual") +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank()) 
+  scale_fill_manual(values = sexpal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
+  themefig2
+
 # plot 2
 # a) copy and paste fig 1 plot 1
+p2a <- happy_clean %>%
+  prodplot(~ happy, c("hbar"), na.rm=TRUE) + 
+  aes(fill=happy) +
+  scale_fill_manual(values=happypal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
+  themefig2
 # b) copy and paste fig 2 plot 1b
 # c
-prodplot(happy_clean, ~ sex + happy, c("vspine", "hbar")) +
+p2c<- prodplot(happy_clean, ~ sex + happy, 
+               c("vspine", "hbar"), na.rm=TRUE) +
   aes(fill=sex) +
-  scale_fill_brewer(palette = 5, type = "qual") +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank()) 
+  scale_fill_manual(values = sexpal) +
+  scale_y_continuous(breaks=seq(0,1,1/3)) +
+  themefig2
+
+timez <- grid::textGrob("X", just="left")
+equals <- grid::textGrob("=")
+
+# w <- grid::grobWidth(timez)
+#gridExtra::grid.arrange(p1a, timez, p1b, equals, p1c,
+#             widths = grid::unit.c(10*w, w, 10*w, w, 10*w))
+
+#(p1a | timez | p1b | equals | p1c)/
+#(p2a | timez | p1b | equals | p2c)
+
+(p1a | p1b | p1c)/
+(p2a | p1b | p2c)
+```
+
+-   area is also a product so it can be connected
+    -   e.g. 1 mosaic plot: height f(sex\|happy) X width = f(happy) = area f(sex, happy)
+    -   e.g. 2: stacked bar chart: position f(happy) X proportion f(sex\|happy) = length f(sex, happy) \~ area = c\*f(happy, sex).
+-   Algorithm gives a rough idea of computation
+    -   calculate one marginal and i conditional distributions
+    -   for each probability in the marginal distribution,
+        -   divide the probabilities (aka the bounds) into i sets of new bounds, one for each level of the categorical variabe.
+        -   if i=1 like in the example we keep the original bounds
+        -   for each new bound there is a matching conditional distribution, call the partition function
+        -   drop one element from the list of drawing primitives
+-   Different partitions reveal different features
+    -   Hard to identify if this is because they used splines for both of the first plot but splines and bar for the second plot or because of the different distributions.
+    -   $f(marial,age) = f(marital|age)f(age)$ highlights most young people are unmaried
+    -   $f(marial,age) = f(age|marital)f(marital)$ highlights few unmarried people over the age of 30
+    -   I am also not sure how much I agree with this assessment of what the plots say. I don't disagree with the premise though. I do wonder if that is because both comments are about being unmarried.
+-   Conditioning is also a useful tool because it allows us to remove relationships that are known or uninteresting.
+    -   Give example of $f(happy, health, financial)$
+    -   When show all as raw proportions $f(happy, health, financial)$ = $f(happy| health, financial)f(heath,financial)$ your main take away is that most people are in good health and average financial standing, however it is difficult to see how happiness varies within these conditions
+    -   If you condition on health and financial status, comparing happiness across these groups becomes easier because comparing positions along a common scale is an easier perception task.
+    -   Depending on the comparison we are most interested in, we can make it easier to compare across different variables
+
+## 5 Existing Plot Types
+
+1D - Bar chart (hbar) - Column chart (vbar) - Spineplot (spine) - Fluctuation chart (fluct) 2D - Stacked bar chart (1hbar and 1vspine) - Nested bar chart (2 hbars) - Equal bin size (1 fluct and 1 vspine) - Mosaic plot (alternating hspine vspine) - Double Decker (n-1 hspines and 1 vspine) - Treemap (n spines) - Squarified treemap (n tiles) - Generalised treemaps (any plot ending with a tile) - Trellis graphics (similar but not identical, created by conditioning in tellising variables)
+
+## 6 Display Considerations
+
+-   Hard to label axis
+    -   often two variables end up on the same axis so we cant label it.
+    -   there are other ways to label the axis other than colour
+        -   e.g. text labels used to occupy the space of the region they label
+        -   in the interactive setting can have linked brushing from high dimensional to low dimensional plots
+        -   some apsect ratios are more aesthetically pleasing, e.g. the square for the fluct. wonder if aspect ratios close to the golden ratio might be more appealing
+        -   does not seem to be previous work on aspect ratios and aesthetics although they do seem to affect perception
+        -   need more research on aesthetics and usability
+
+## Variations and Extensions
+
+### 7.1 Weighting
+
+-   instead of counts can plot weighted data
+-   i.e. redo plots where the data is weighted because of sampling or some other reason
+-   weights are also useful to move from number of countries to number of people \### 7.2 Continuous Data
+-   instead of counts can plot continuous data
+-   trivially extended by binning the continuous data to make them discrete
+    -   can do bins of equal width OR bins containing an equal number of points
+-   extension allows product plots to also describe histograms and spinograms
+    -   no gaps are displated between adjacent rectangles when displaying continuous data
+-   more theoretical approach is to increase number of bins infintesimally leading to a probability density function
+    -   approach can include one continuous variable but two variables need an additional aesthetic such as colour to visualise a 2d joint density.
+
+    -   
+
+        > =3 continuous variables breaks the product plots framework
+
+    -   if you express the innersmost proportion with colour (instead of area) can describe dimensional stacking (apparently a SPLOM is dimensional stacking)
+
+### 7.3 Area not proportional to weight
+
+-   relax display constraints
+-   to distinguish between zeros, missing values, and very small values
+-   zero weight should have zero area but instead set it to be at a minimum perceptible size.
+    -   set as a different colour to let the reader know the area=weight rule is violated
+-   could also be useful to restrict max value so you can see other small values
+-   could also do other non linear transformations
+    -   e.g. Tukey applied the technique to histograms where the y axis has a square root scale
+
+### 7.4 Non-disjoint partitions
+
+-   relax display constraints
+-   e.g. cascaded treemaps
+-   makes it easier to see all the levels of the hierarchy and highlights the structure
+    -   e.g. each of $f(sex)$, $f(marital, sex)$, and $f(happy|sex, marital)$ get a layer.
+    -   hard to tell when something is $f(X|Y)$ or $f(X,Y)$
+
+### 7.5 Non-rectangular partitions
+
+-   relax display constraints
+-   pie chart not retangular and does not fall into the framework, but it does relate
+    -   it is a hspline draw in polar coodinates with the x-coordinate mapped to angle and the y coordinate mapped to radius
+-   Other plots that are product plots drawn in polar coodinates
+    -   Wind rose and fourfold displays (1 hbar and 1 vspine)
+        -   Nightingales coxcomb is similar but the slices overlap so it violates the disjoint area constraint
+    -   Concentric pie chart (1 hspine)
+    -   Doughnut plot (1hspine and 1 vspine)
+    -   Racetrack plot (1 vbar)
+    -   Infoslides (n vbars)
+-   research suggests that visualisations in polar coordinates are harder to read that visualisations in cartesian coordinates
+-   y-axis must be square root transformed to ensure that counds stay proportional to areas
+    -   Fan-lenses and Stasko's radial displays deliberatrely do not do this to emphasise the outer levels.
+-   Other non-rectangular graphics
+    -   circular treemaps
+    -   space-filling curves
+    -   voronoi treemaps
+
+## 9 Conclusion
+
+-   Framework is successful at describing many existing graphics that display tables of counts, proportions and probabilities
+-   framework leads to many possibilities as a 4d PMF can be factorised in 5 different ways, with 24 different ways of ordering the variables. Have 5 yeas of displaying a 1d PMF and 1 way of displaying a 2D pmf
+    -   defines a large space of potential plots. Have $24*(5^4+5^2+5^2+5^2+1)=16824$ plots before we consider conditioning
+    -   IDK where that number came from
+        -   on the function end:
+            -   24 combinations of variables
+            -   5 ways of factorising
+            -   24\*5 different factorisations
+            -   5 ways of displaying a 1D PMF
+                -   within the factorisations there are (4, 2, 2, 2, 0) 1D PMFs
+            -   1 way of displaying a 2D pmf
+                -   within the factorisations there are (0, 1, 1, 1, 2)
+                -   it looks like it is done $5*5*5*5$ $5*5*1$ $5*1*5$ $1*5*5$ $1*1$
+-   Well thought out interactions make it easier to navigate this space & developed a prototype as part of the cranvas suite of interactive grahics
+-   also exploring the connection between product plots and log-linear (AKA poisson) models (the statistical models most commonly used for count data)
+    -   e.g. looking for straight lines in a mosaic plot corresponds to a formal test of independence between variables
+    -   generally we are interested in connections between visualisation and formal statistical tests
+    -   also how significant coefficients can help us choose a set of useful plots
+    -   given a question can we select appropriate plots? given a plot can we suggest questions it might answer?
+-   Product plots need to be extension to display uncertainty
+-   Continuous data is incorperated in a simplistic manner.
+    -   can it be extended for something like the average shifted histogram or the kernel density estimate
+
+# Personal notes
+
+-   The distinction between conditional and joint seems to be very blurry and coding the distributions makes this even more confusing
+    -   also makes the number of permutations a little odd because it doesn't quite seem to work how they suggest
+-   Cant make weighted data plots in their thing
+
+# Unsorted Code
+
+```{r}
+
+
 
 # Fig 6
 # plot 1
@@ -557,7 +585,7 @@ prodplot(happy_clean, ~ age + marital, c("hspine", "vspine")) +
 prodplot(happy, ~ happy + finrela + health,
          c("vspine", "fluct"), na.rm = TRUE) + 
   aes(fill=happy) +
-  scale_fill_manual(values = colpal) +
+  scale_fill_manual(values = happypal) +
   theme(aspect.ratio = 5/4,
         legend.position = "none") +
   # The fluct axis breaks should be evenly spaced
@@ -570,7 +598,7 @@ prodplot(happy, ~ happy + finrela + health,
 prodplot(happy, ~ happy | finrela + health,
          c("vspine", "fluct"), na.rm = TRUE)  + 
   aes(fill=happy) +
-  scale_fill_manual(values = colpal) +
+  scale_fill_manual(values = happypal) +
   theme(aspect.ratio = 5/4,
         legend.position = "none") +
   # these axis are centered for some reason
@@ -583,7 +611,7 @@ prodplot(happy, ~ happy | finrela + health,
 prodplot(happy, ~ happy | finrela + health,
          c("hspine", "fluct"), na.rm = TRUE)  + 
   aes(fill=happy) +
-  scale_fill_manual(values = colpal) +
+  scale_fill_manual(values = happypal) +
   theme(aspect.ratio = 5/4,
         legend.position = "none") +
   # these axis are centered for some reason
@@ -605,18 +633,18 @@ prodplot(happy_clean, wtsall ~ sex + age,
 prodplot(happy_clean, ~ happy + age,
          c("vspine", "hbar")) +
   aes(fill=happy) +
-  scale_fill_manual(values = colpal)
+  scale_fill_manual(values = happypal)
 prodplot(happy_clean, ~ happy + age,
          c("vspine", "hspine")) +
   aes(fill=happy) +
-  scale_fill_manual(values = colpal)
+  scale_fill_manual(values = happypal)
 
 # Figure 11
 prodplot(happy_clean, ~ happy + marital + sex , 
          c("vspine", "hspine", "hspine"), na.rm=TRUE,
          cascade=0) + 
   aes(fill=happy) +
-  scale_fill_manual(values =colpal) +
+  scale_fill_manual(values =happypal) +
   theme(legend.position = "none",
         aspect.ratio = 1)
 
@@ -624,7 +652,7 @@ prodplot(happy_clean, ~ happy + marital + sex ,
          c("vspine", "hspine", "hspine"), na.rm=TRUE,
          cascade=0.15, levels=1:3, colour="black", alpha=0.6) + 
   aes(fill=happy) +
-  scale_fill_manual(values = colpal) +
+  scale_fill_manual(values = happypal) +
   theme_minimal() +
   theme(legend.position = "none",
         aspect.ratio = 0.75) 
@@ -637,7 +665,7 @@ prodplot(happy, ~ sex + happy ,
   #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
   # Plot c
   #coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = twopal) 
+  scale_fill_manual(values = sexpal) 
 
 
 prodplot(happy, ~ sex + happy , 
@@ -647,7 +675,7 @@ prodplot(happy, ~ sex + happy ,
   #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
   # Plot c
   #coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = twopal)
+  scale_fill_manual(values = sexpal)
 
 prodplot(happy, ~ sex + happy , 
          c("hspine", "hspine"), na.rm=TRUE, levels=1:2) +
@@ -656,7 +684,7 @@ prodplot(happy, ~ sex + happy ,
   #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
   # Plot c
   coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = twopal) 
+  scale_fill_manual(values = sexpal) 
 
 prodplot(happy, ~ sex + happy , 
          c("hspine", "hspine"), na.rm=TRUE) +
@@ -665,7 +693,7 @@ prodplot(happy, ~ sex + happy ,
   coord_polar(theta = "x") +
   # Plot c
   coord_polar(theta = "y") +
-  scale_fill_manual(values = twopal) 
+  scale_fill_manual(values = sexpal) 
 
 prodplot(happy, ~ sex + happy , 
          c("vspine", "hspine"), na.rm=TRUE) +
@@ -674,9 +702,8 @@ prodplot(happy, ~ sex + happy ,
   coord_polar(theta = "x", start = 0, direction = 1) +
   # Plot c
   coord_polar(theta = "y", start = 0, direction = 1) +
-  scale_fill_manual(values = twopal) 
+  scale_fill_manual(values = sexpal) 
 ```
-
 
 ```{r}
 #| eval: false
@@ -740,19 +767,22 @@ ggplot() +
 
 ```
 
-
-
 ## R Code Issue List
-- If I use scale_fill_brewer() instead of scale_fill_manual() I get a clear background instead of the grey background.
-- Axis need to be rescaled and labeled with scale_x_continuous. The ticks are evenly spaced out so they are easy to recalculate and label. Default has weird axis.
-- need to set aspect ratio to #categoriesY/#categoriesX to keep flux plot as squares.
-- Couldnt really get NA values to appear in Figure 3. I don't know how the paper got those gaps.
+
+-   If I use scale_fill_brewer() instead of scale_fill_manual() I get a clear background instead of the grey background.
+-   Axis need to be rescaled and labeled with scale_x_continuous. The ticks are evenly spaced out so they are easy to recalculate and label. Default has weird axis.
+-   need to set aspect ratio to #categoriesY/#categoriesX to keep flux plot as squares.
+-   Couldnt really get NA values to appear in Figure 3. I don't know how the paper got those gaps.
 
 # Extension of Work
-- Does this work extend to expected values or visualisations of other mathematical process?
-- Could be expanded by looking at which other perceptual tasks are combinations of others
-- extension to continuous case
-- Can the questions be combined similarly the way we can combine the PMF and the graphics
-- Connections between formal statistical tests and visualisations
-- uncertainty visualisation extensions
-- other geometric measures (curvature)
+
+-   Does this work extend to expected values or visualisations of other mathematical process?
+-   Could be expanded by looking at which other perceptual tasks are combinations of others
+-   extension to continuous case
+-   Can the questions be combined similarly the way we can combine the PMF and the graphics
+-   Connections between formal statistical tests and visualisations
+-   uncertainty visualisation extensions
+-   other geometric measures (curvature)
+
+# Minor Mistakes
+- Fig 5 has an = sign instead of a multiplication 
