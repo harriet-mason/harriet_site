@@ -38,29 +38,32 @@ The *Product Plots* connects numerous graphical displays to the statistics that 
 # Summary of Product Plots Paper
 
 ## The Main Idea
+The main idea of this paper is deceptively simple. The authors propose a connection between the geometric fact that $Area = Width \times Height$ and the statistical fact that $f(x, y) = f(x|y) \times f(y)$. This is both intuitive and mathematically rigorous considering that the concepts of length, area and probability are all born from measure theory. Not only does the method outlined in the paper leverage the multiplicitave relationship between conditional and marginal distributions to represent a joint distribution, but they also leverage the integration of probability density functions $f(x) = \sum_y f(x,y)$ and its relationship to length $position = \sum length$ to make recursive plots. These two methods can be used to simplify visualisations and allow us to break down high dimensional distributions or combine low dimensional distributions.
 
-The main idea of this paper is deceptively simple. The authors propose a connection between the geometric fact that $Area = Width \times Height$ and the statistical fact that $f(x, y) = f(x|y) \times f(y)$. This is both intuitive and mathematically rigorous considering that the concepts of length, area and probability are all born from measure theory.
+The paper focuses on the discrete case where we are expressing probability mass functions (PMFs) rather than density functions (PDFs). This restriction allows the authors to translate the discrete probabilities of any PMF into disjoint graphical areas that are. While the paper focuses on categorical variables,  it is important to recognise the paper is not introducing a new way to visualise categorical data, but rather discussing how to break plots down into their statistical elements and understand how they impact the final visualisation.
 
-The paper focuses on the discrete case
+Data from a happiness survey is used in every plot in the paper, and that data is available with the package `productplots` and it was used to reproduce the figures in this summary. 
 
--   Visualising tables of counts, proportions, and probabilities
--   Framework for visualisations of categorical data
--   Focuses on area of charts - area of graphical element is proportional to the underlying count, proportion or probability
-    -   also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
--   To illustrate the idea they use the same data from a happiness survey in all examples.
-    -   Discrete: age, year
-    -   Categorical: degree, relative financial status, happiness, health, marital status, sex
-    -   Continuous: wstall (probability weight)?
+**Summary of data**
+
+also have inverse where high dimensional distribution can be factorised into a product of low-dimensional conditional and marginal distributions.
 
 ## The R package `productplots`
 
-While the authors leave discussions of the associated R package until the end, I am going to discuss it throughout. My reason for this is two-fold 1) The structure of the package is helpful in understanding how the product plot breakdown should work, and 2) The plots that are made with the package are used throughout the paper and it is easier to understand how the package works when shown along the visualisations it created
+While the authors leave discussions of the associated R package, `productplots` until the end, I am going to discuss it throughout. My reason for this is two-fold
 
--   made an R package called productplots
--   two main functions
-    -   prodcalc: computes the coordinates of each rectangle
-    -   prodplot: displays the rectangles with the ggplot2 package
--   each graphical primitive is represented by a function (e.g. hspine()) which allows you to write a new function and use the existing calculation and display algorithms
+  1) The structure of the package is helpful in understanding how the product plot breakdown should work, and 
+  2) The plots that are made with the package are used throughout the paper and it is easier to understand how the package works when shown along the visualisations it created
+  
+The main function that the user interacts with to make a product plot and its associated options is `prodplot(data, formula, divider, cascade, scale_max, na.rm, levels)`. Each of the options in the function translates to a different element of the product plot framework. In this summary I will start by discussing the factorization of $f(x,y)$ along with the `data` `formula`, `cascade`, and `levels` arguments. Then I will discuss the graphical primitives of a product plot along with the `divider` and `scale_max` arguments. Finally I will discuss the extensions that can be made to the products plot framework along with its simple implementation due to the graphical primitives being represented by functions (e.g. `hspine()`).
+
+Using the `productplots` framework, every graphic was exactly reproducible (albeit with some difficulties with the code). The paper suggests that the code can be obtained by emailling the authors, however I had no luck on that front, so I had to work out the code that created the graphics by reading the source code of the package. The authors suggest that `prodcalc` is a second main function, however it can safely be ignored when making plots that fit nicely into the product plot framework. 
+
+
+```{r}
+prodplot(happy, ~ happy + finrela + health)
+```
+
 
 # Notes
 
@@ -116,18 +119,6 @@ p6 <- prodplot(happy_clean, ~ marital + happy,
 p1 + p2 + p3 + p4 + p5 + p6
 ```
 
-## 2 Related Work
-
--   Other efforts to develop domain specific languages for visualisation are:
-    -   APT \[6\] and VisQL \[7\]
-        -   *Add notes from these papers*
-        -   . This work is similar but carves out a smaller niche.
-        -   Compared to these product plots are less expressive but more efficient because the number of primitives (simple elemements) required to describe the smaller domain is smaller (?)
-    -   HiVE \[8\]
-        -   *Add notes from this paper*
-    -   Polaris \[9\]
-        -   *Add notes from this paper*
-        -   essentially a 3D extension of the trellis framework \[10,11\]
 
 ## 3 Graphical Primitives
 
