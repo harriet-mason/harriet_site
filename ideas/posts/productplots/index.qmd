@@ -2,6 +2,9 @@
 title: "BEX6510 Assignment"
 editor_options: 
   chunk_output_type: console
+execute:
+  echo: false
+  warning: false
 ---
 
 ```{r}
@@ -28,6 +31,11 @@ happy_clean <- happy %>%
 
 # Set Up "no gaps" primitive functions
 chbar <- function(data, bounds, offset = 0.00, max = NULL){hbar(data, bounds, offset, max)}
+cvspine <- function(data, bounds, offset = 0.00, max = NULL){vspine(data, bounds, offset, max)}
+chspine <- function(data, bounds, offset = 0.00, max = NULL){hspine(data, bounds, offset, max)}
+
+# Calculation of Marigal marginal for Axis Adjustments
+marital_marg = table(happy$marital)/sum(table(happy$marital))
 ```
 
 # Paper's Relevance to My Research
@@ -87,7 +95,7 @@ Each of these visualisations have their own strengths and weaknesses. Bars allow
 themefig2 <- theme(legend.position = "none",
                    aspect.ratio = 1,
                    axis.text.y = element_blank(),
-                   axis.title.y = element_blank())
+                   axis.title = element_blank())
 # Plot 1
 p1 <- happy_clean %>%
   prodplot(~ happy, c("hbar"), na.rm=TRUE) + 
@@ -343,10 +351,8 @@ If you have a single variable, $x$, and its probability is expressed by the cont
 
 # Appendix
 ```{r}
-#|include: false
-#|eval: false
-#|echo: false
-
+#| eval: false
+#| echo: false
 
 library(spelling)
 qmd <- "ideas/posts/productplots/index.qmd"
@@ -365,7 +371,7 @@ if (nrow(check_spelling) > 0) {
 ```{r}
 #| label: fig1
 #| echo: false
-#| fig-cap: "Replication of figure 1 from the paper. The last two plots are made by utilising the level argument."
+#| fig-cap: "Figure 1 from the paper"
 
 # Common theme
 theme_fig1 <- theme(axis.text = element_blank(),
@@ -417,7 +423,7 @@ p1 + p2 + p3 + p4 + p5 + p6
 ```{r}
 #| label: fig3
 #| echo: false
-#| fig-cap: "Recreation of Figure 3 that shows fluct size and NA identification. I was unable to get the NA identification plot to look identical to the one in the paper."
+#| fig-cap: "Figure 3. Shows fluct size and NA identification. I was unable to get the NA identification plot to look identical to the one in the paper."
 
 # Set theme
 themefig3 <- theme(legend.position = "none",
@@ -447,75 +453,14 @@ p2 <- prodplot(happy, ~ 1 | health + year, c("vspine", "hspine"), na.rm=TRUE) +
   themefig3 +
   ggtitle("f(1|age,marital)")
 
-p1/p2
+p1 | p2
 ```
 
-```{r}
-#| fig-cap: Replication of Figure 7
-#| echo: false
-#| fig-cap: "Replication of Figure 7 from the paper. While the first plot appears in my summary, the second does not. I included both here for the sake of completeness. Continuous histograms are particularly difficult using the product plots framework since a new function needs to be defined to allow the bars to touch."
-
-# Figure 7
-# plot 1
-prodplot(happy_clean, ~ marital + age, c("vspine", "hspine")) +
-  aes(fill=marital) +
-  scale_fill_brewer() +
-  theme(legend.position = "none", aspect.ratio = 1,
-        axis.text.y = element_blank())
-# plot 2
-# quick
-prodplot(happy_clean, ~ age + marital, c("chbar", "vspine"),
-         levels=1:2, na.rm=TRUE) +
-  aes(fill=marital) +
-  scale_fill_brewer() +
-  theme(legend.position = "none")
-```
-
-```{r}
-#| echo: false
-#| fig-cap: "Replication of Figure 6."
-
-# Fig 6
-# plot 1
-p1 <- prodplot(happy_clean, ~ marital, c("hspine")) + 
-  aes(fill=marital) +
-  scale_fill_brewer() +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank())
-# plot 2
-  # calculate breaks
-x = table(happy$marital)/sum(table(happy$marital))
-y = cumsum(x)
-marital_breaks2 = as.vector(y - 0.5*x)
-  # plot
-p2 <- prodplot(happy_clean, ~ sex + marital, c("hspine", "hspine")) + 
-  aes(fill=sex) +
-  scale_fill_brewer(palette = 5, type = "qual") +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank()) +
-  scale_x_continuous(name ="Marital",
-                     breaks= marital_breaks2,
-                     labels = levels(happy_clean$marital))
-# plot 3
-p3 <- prodplot(happy_clean, ~ happy + sex + marital, 
-         c("vspine", "hspine", "hspine")) + 
-  aes(fill=happy) +
-  scale_fill_brewer(palette = 5, type = "qual") +
-  theme(legend.position = "none",
-        aspect.ratio = 1,
-        axis.text.y = element_blank())+
-  scale_x_continuous(name ="Marital",
-                     breaks= marital_breaks2,
-                     labels = levels(happy_clean$marital))
-
-p1 + p2 + p3
-```
 
 ```{r}
 #| label: fig5
 #| echo: false
+#| fig-cap: "Figure 5. The graphs are identical but adding the text (with the + and =) warped the plots and I was unable to fix it."
 #| warning: false
 #| layout-nrow: 2
 
@@ -561,6 +506,7 @@ p2c<- prodplot(happy_clean, ~ sex + happy,
 timez <- grid::textGrob("X", just="left")
 equals <- grid::textGrob("=")
 
+# Version of Display that warped the plots
 # w <- grid::grobWidth(timez)
 #gridExtra::grid.arrange(p1a, timez, p1b, equals, p1c,
 #             widths = grid::unit.c(10*w, w, 10*w, w, 10*w))
@@ -573,10 +519,79 @@ equals <- grid::textGrob("=")
 ```
 
 ```{r}
-#| eval: false
-#| fig-cap: Replication of Figure 8
+#| echo: false
+#| fig-cap: "Figure 6 from the paper."
 
-prodplot(happy, ~ happy + finrela + health,
+# Fig 6
+themefig6 <- theme(legend.position = "none",
+                   aspect.ratio = 1,
+                   axis.text.y = element_blank(),
+                   axis.title = element_blank())
+
+# Plot 1
+p1 <- prodplot(happy, ~ marital, c("hspine"), na.rm = T) + 
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  themefig6 +
+  ggtitle("f(marital)")
+
+# Plot 2
+p2 <- prodplot(happy_clean, ~ sex + marital, c("hspine", "hspine"), na.rm=T) + 
+  aes(fill=sex) +
+  scale_fill_manual(values=sexpal) +
+  themefig6 +
+  scale_x_continuous(name ="Marital",
+                     breaks= as.vector(cumsum(marital_marg) - 0.5*marital_marg),
+                     labels = levels(happy_clean$marital)) +
+  ggtitle("f(marital, sex)")
+# plot 3
+p3 <- prodplot(happy_clean, ~ happy + sex + marital, 
+         c("vspine", "hspine", "hspine"), na.rm=T) + 
+  aes(fill=happy) +
+  scale_fill_manual(values = happypal) +
+  themefig6 +
+  scale_x_continuous(name ="Marital",
+                     breaks= as.vector(cumsum(marital_marg) - 0.5*marital_marg),
+                     labels = levels(happy_clean$marital)) +
+  ggtitle("f(hapy, sex, marital) = \n f(hapy |sex, marital)* \n f(marital, sex)")
+
+p1 + p2 + p3
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Figure 7 from the paper. While the first plot appears in my summary, the second does not. I included both here for the sake of completeness. Continuous histograms are particularly difficult using the product plots framework since a new function needs to be defined to allow the bars to touch."
+
+# Figure 7
+# plot 1
+p1 <- prodplot(happy_clean, ~ marital + age, c("vspine", "hspine"),
+               na.rm=T) +
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  scale_y_continuous(breaks= seq(0,1,0.25)) +
+  theme(legend.position = "none", aspect.ratio = 1,
+        axis.text.y = element_blank(),
+        axis.title = element_blank())+
+  labs(title = "f(marital|age) f(age)")
+# plot 2
+# quick
+p2 <- prodplot(happy_clean, ~ age + marital, c("chbar", "vspine"),
+         levels=1:2, na.rm=TRUE) +
+  aes(fill=marital) +
+  scale_fill_brewer() +
+  theme(legend.position = "none",
+        aspect.ratio=6/5,
+        axis.title = element_blank()) +
+  labs(title = "f(age|marital) f(marital)")
+
+p1 + p2
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Figure 8 from the paper. The fluct diagrams are particularly tedious when trying to adjust the axis, but otherwise these figures were easy enough to replicate."
+
+p1 <- prodplot(happy, ~ happy + finrela + health,
          c("vspine", "fluct"), na.rm = TRUE) + 
   aes(fill=happy) +
   scale_fill_manual(values = happypal) +
@@ -586,10 +601,11 @@ prodplot(happy, ~ happy + finrela + health,
   scale_x_continuous(breaks=seq(0,0.75,0.25),
                      labels = levels(happy$health))+
   scale_y_continuous(breaks=seq(0,0.8,0.2),
-                     labels = levels(happy$finrela))
+                     labels = levels(happy$finrela)) +
+  ggtitle("f(hapy, health, finrela) = \n f(hapy |health, finrela)* \n f(health, finrela)")
 
 # Plot 2
-prodplot(happy, ~ happy | finrela + health,
+p2 <- prodplot(happy, ~ happy | finrela + health,
          c("vspine", "fluct"), na.rm = TRUE)  + 
   aes(fill=happy) +
   scale_fill_manual(values = happypal) +
@@ -597,12 +613,13 @@ prodplot(happy, ~ happy | finrela + health,
         legend.position = "none") +
   # these axis are centered for some reason
   scale_x_continuous(breaks=seq(0.125,0.875,0.25),
-                     labels = levels(happy$health))+
+                     labels = levels(happy$health)) +
   scale_y_continuous(breaks=seq(0.1,0.9,0.2),
-                     labels = levels(happy$finrela))
+                     labels = levels(happy$finrela)) +
+  ggtitle("f(hapy|health, finrela))")
 
 # Plot 3
-prodplot(happy, ~ happy | finrela + health,
+p3 <- prodplot(happy, ~ happy | finrela + health,
          c("hspine", "fluct"), na.rm = TRUE)  + 
   aes(fill=happy) +
   scale_fill_manual(values = happypal) +
@@ -612,113 +629,118 @@ prodplot(happy, ~ happy | finrela + health,
   scale_x_continuous(breaks=seq(0.125,0.875,0.25),
                      labels = levels(happy$health))+
   scale_y_continuous(breaks=seq(0.1,0.9,0.2),
-                     labels = levels(happy$finrela))
+                     labels = levels(happy$finrela))+
+  ggtitle("f(hapy|finrela, health))")
 
+p1 + p2 + p3
 ```
 
 ```{r}
-#| eval: false
-#| fig-cap: Replication of Figure 9
+#| echo: false
+#| fig-cap: "Figure 9. Difficulties with this plot were creating a vspine function that removed the gap and identifying how to include weights in the function was difficult."
 
 # Figure 9
-prodplot(happy_clean, ~ sex + age,
-         c("vspine", "hbar"), na.rm = TRUE) +
-  aes(fill=sex)
+p1 <- prodplot(happy_clean, ~ sex + age,
+         c("cvspine", "chbar"), na.rm = TRUE) +
+  aes(fill=sex) +
+  scale_fill_manual(values=sexpal) + 
+  scale_y_continuous(breaks=seq(0,1,0.33)) + 
+  themefig2 + theme(aspect.ratio = 0.75)
 # weighted plot
-prodplot(happy_clean, wtsall ~ sex + age,
-         c("vspine", "hbar"), na.rm = TRUE) +
-  aes(fill=sex)
+p2 <- prodplot(happy_clean, wtsall ~ sex + age,
+         c("cvspine", "chbar"), na.rm = TRUE) +
+  aes(fill=sex) +
+  scale_fill_manual(values=sexpal) + 
+  scale_y_continuous(breaks=seq(0,1,0.33)) + 
+  themefig2 + theme(aspect.ratio = 0.75)
+
+p1 | p2
 ```
 
 ```{r}
-#| eval: false
-#| fig-cap: Replication of Figure 10
+#| echo: false
+#| fig-cap: "Figure 10. Needed to connect continuous bars with the version of the functions that do not have gaps."
 
 # Figure 10
-prodplot(happy_clean, ~ happy + age,
-         c("vspine", "hbar")) +
+p1 <- prodplot(happy_clean, ~ happy + age,
+         c("vspine", "chbar")) +
   aes(fill=happy) +
-  scale_fill_manual(values = happypal)
-prodplot(happy_clean, ~ happy + age,
-         c("vspine", "hspine")) +
-  aes(fill=happy) +
-  scale_fill_manual(values = happypal)
+  scale_fill_manual(values = happypal) + 
+  themefig2 + theme(aspect.ratio = 0.75)
 
+p2 <- prodplot(happy_clean, ~ happy + age,
+         c("vspine", "chspine")) +
+  aes(fill=happy) +
+  scale_fill_manual(values = happypal) +
+  themefig2 + theme(aspect.ratio = 0.75)
+
+p1 | p2
 ```
 
 ```{r}
-#| eval: false
-#| fig-cap: Replication of Figure 11
+#| echo: false
+#| fig-cap: "Figure 11. Working out the cascade function was particularly difficult. The paper seems to adjust the transparency of the levels and have the lower levels filled with white as well, but I was unable to work out how the authors did that."
 
 # Figure 11
-prodplot(happy_clean, ~ happy + marital + sex , 
+p1 <- prodplot(happy_clean, ~ happy + marital + sex , 
          c("vspine", "hspine", "hspine"), na.rm=TRUE,
          cascade=0) + 
   aes(fill=happy) +
   scale_fill_manual(values =happypal) +
-  theme(legend.position = "none",
-        aspect.ratio = 1)
+  theme_fig1 + theme(aspect.ratio = 0.75)
 
-prodplot(happy_clean, ~ happy + marital + sex , 
+p2 <- prodplot(happy_clean, ~ happy + marital + sex , 
          c("vspine", "hspine", "hspine"), na.rm=TRUE,
          cascade=0.15, levels=1:3, colour="black", alpha=0.6) + 
-  aes(fill=happy) +
-  scale_fill_manual(values = happypal) +
-  theme_minimal() +
-  theme(legend.position = "none",
-        aspect.ratio = 0.75)
+  aes(fill= happy) +
+  scale_fill_manual(values = rep("white", 3)) +
+  theme_fig1 + theme(aspect.ratio = 0.75)
 
+p1 | p2
 ```
 
 ```{r}
-#| eval: false
-#| fig-cap: Replication of Figure 12
+#| echo: false
+#| fig-cap: "Figure 12. Some of the polar co-ordinate plots behaved strangely and required me to add in extra scalings or swap the order or male and female in the sex variable, but otherwise this plot was simple to replicate."
 
-# Fig 12 (a lot of these are not quite right)
-prodplot(happy, ~ sex + happy , 
-         c("hbar", "hbar"), na.rm=TRUE, levels=1:2) +
+# Fig 12
+themefig12 <- themefig2 + theme(axis.text = element_blank(), axis.ticks = element_blank())
+# Plot 1
+p1a <- prodplot(happy, ~ sex + happy , 
+         c("chbar", "chbar"), na.rm=TRUE, levels=1:2) +
   aes(fill=sex) +
-  # Plot b
-  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
-  # Plot c
-  coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = sexpal) 
+  scale_fill_manual(values = sexpal) +
+  themefig12
+p1b <- p1a + coord_polar(theta = "x", start = 0, direction = 1, clip = "on")
+p1c <- p1a + coord_polar(theta = "y", start = 0, direction = 1, clip = "on")
 
-
-prodplot(happy, ~ sex + happy , 
-         c("vspine", "hbar"), na.rm=TRUE, levels=1:2) +
+# Plot 2
+p2a <- prodplot(happy, ~ sex + happy , 
+         c("cvspine", "chbar"), na.rm=TRUE, levels=1:2) +
   aes(fill=sex) +
-  # Plot b
-  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
-  # Plot c
-  #coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = sexpal)
+  scale_fill_manual(values = sexpal) +
+  themefig12
+p2b <- p2a + coord_polar(theta = "y", start = 0, direction = 1, clip = "on") 
+p2c <- p2a + coord_polar(theta = "x", start = 0, direction = 1, clip = "on") + scale_y_sqrt() + scale_x_sqrt()
 
-prodplot(happy, ~ sex + happy , 
-         c("hspine", "hspine"), na.rm=TRUE, levels=1:2) +
+# Plot 3
+p3a <- prodplot(happy, ~ sex + happy , 
+         c("chspine", "chspine"), na.rm=TRUE, levels=1:2) +
   aes(fill=sex) +
-  # Plot b
-  #coord_polar(theta = "x", start = 0, direction = 1, clip = "on") +
-  # Plot c
-  coord_polar(theta = "y", start = 0, direction = 1, clip = "on") +
-  scale_fill_manual(values = sexpal) 
+  scale_fill_manual(values = sexpal) +
+  themefig12
+p3b <- p3a + coord_polar(theta = "y", start = 0, direction = 1, clip = "on") + scale_x_sqrt()
+p3c <- p3a + coord_polar(theta = "x", start = 0, direction = 1, clip = "on") + scale_x_sqrt()
 
-prodplot(happy, ~ sex + happy , 
-         c("hspine", "hspine"), na.rm=TRUE) +
-  aes(fill=sex) +
+p4a <- prodplot(happy, ~ sex + happy , 
+         c("cvspine", "chspine"), na.rm=TRUE) +
+  aes(fill=sex)  +
+  scale_fill_manual(values = rev(sexpal)) +
+  themefig12
   # Plot b
-  coord_polar(theta = "x") +
-  # Plot c
-  coord_polar(theta = "y") +
-  scale_fill_manual(values = sexpal) 
+p4b <- p4a + coord_polar(theta = "y", start = 0, direction = 1, clip = "on") + scale_x_sqrt()
+p4c <- p4a + coord_polar(theta = "x", start = 0, direction = 1, clip = "on")+ scale_y_sqrt() + scale_x_sqrt()
 
-prodplot(happy, ~ sex + happy , 
-         c("vspine", "hspine"), na.rm=TRUE) +
-  aes(fill=sex) +
-  # Plot b
-  coord_polar(theta = "x", start = 0, direction = 1) +
-  # Plot c
-  coord_polar(theta = "y", start = 0, direction = 1) +
-  scale_fill_manual(values = sexpal) 
+(p1a|p2a|p3a|p4a)/(p1b|p2b|p3b|p4b)/(p1c|p2c|p3c|p4c)
 
 ```
