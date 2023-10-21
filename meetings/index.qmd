@@ -9,6 +9,13 @@ listing:
 
 # Supervisor Meetings
 ## 2023 October 12
+-   Does this work extend to expected values or visualisations of other mathematical process?
+-   Could be expanded by looking at which other perceptual tasks are combinations of others
+-   extension to continuous case
+-   Can the questions be combined similarly the way we can combine the PMF and the graphics
+-   Connections between formal statistical tests and visualisations
+-   uncertainty visualisation extensions
+-   other geometric measures (curvature)
 #### BEX6510 Assignment
 - Could make the cascade plot interactive (would need to use shiny)
   - Step 1 would be animation showing each individual one
