@@ -8,7 +8,6 @@ execute:
 ---
 
 ```{r}
-#| label: setup
 #| echo: false
 #| include: false
 
@@ -59,12 +58,12 @@ The main idea of this paper is deceptively simple. The authors propose a connect
 
 The paper focuses on the discrete case where we are expressing probability mass functions (PMFs) rather than density functions (PDFs). This restriction allows the authors to translate the discrete probabilities of any PMF into disjoint graphical. The paper is not introducing a new way to visualise categorical data, but rather discussing how to break plots down into their statistical elements and understand how this breakdown can impact the final visualisation.
 
-Data from a happiness survey is used in every plot in the paper, and that data is available with the package `productplots`. This is the same data that was used to replicate the figures in this summary and a description of it is provided in @datasum. The calculated summary of the data provided in the package is identical to that of the paper.
+Data from a happiness survey is used in every plot in the paper, and that data is available with the package `productplots`. This is the same data that was used to replicate the figures in this summary and a description of it is provided in @fig-data. The calculated summary of the data provided in the package is identical to that of the paper.
 
 ```{r}
-#| label: datasum
+#| label: fig-data
 #| echo: false
-#| tbl-cap: "Summary of happy data from productsplot package"
+#| fig-cap: "Summary of happy data from productsplot package"
 
 # Get variables
 Variable <- colnames(happy)[-1]
@@ -125,19 +124,19 @@ In order to define a product plot the authors need to establish some restriction
   2) Partitions must be disjoint so that the complete area of each is visible
   3) Partitions must be rectangular so that the the primary perceptual tasks are comparing lengths or positions along a common scale.
 
-The product plot paper suggests that these restrictions give rise to four graphical primitives that make up the product plots. These four graphical primitives are shown in @fig2.
+The product plot paper suggests that these restrictions give rise to four graphical primitives that make up the product plots. These four graphical primitives are shown in @fig-paper2.
 
 - *Spines*: the width of is proportional to the probability and the height takes up the full range. Spines set each axis to be its own probability function which means each axis must add up to 1 and the total area adds up to 1.
 - *Bars*: height (or position along a common scale) is proportional to value and the width is equally divided. The total area of the chart does not equal a probability of 1, the total area of the bars do. 
 - *Tiles*: area is proportional to value. The axis of this plot don't have meaning, the plot just tiles the 2d plane with rectangles and tries to keep the aspect ratio of each rectangle close to 1. The total area of the chart equals a probability of 1.
 - *Fluct*: area is proportional to the value. A fluct diagram is a collection of squares arranged on a rectangular grid that each have a height and width is proportional to the square root of the probability. The total area of the chart does not equal a probability of 1, the total area of the bars do. 
 
-All 2d primitives (i.e. plots of two varibles $f(x,y)$) are created by combining 1d primitives. The product plots paper suggests that a fluct is a 2d primitive (and needs two data inputs), however it is not clear why this is the case. There does not seem to be anything about the general idea of the fluct (a set of organised areas) that prevents us from using the fluct in same way as a bar chart. While the plot is an area, and therefore 2d, it is only its position that relies on a second axis, and there is no reason it cannot be set to a constant value (as is the case in @fig2). The fluct plot in @fig2 displays the 1d case of that graphical primitive.
+All 2d primitives (i.e. plots of two varibles $f(x,y)$) are created by combining 1d primitives. The product plots paper suggests that a fluct is a 2d primitive (and needs two data inputs), however it is not clear why this is the case. There does not seem to be anything about the general idea of the fluct (a set of organised areas) that prevents us from using the fluct in same way as a bar chart. While the plot is an area, and therefore 2d, it is only its position that relies on a second axis, and there is no reason it cannot be set to a constant value (as is the case in @fig-paper2). The fluct plot in @fig-paper2 displays the 1d case of that graphical primitive.
 
 Each of these visualisations have their own strengths and weaknesses. Bars allow comparisons along a common scale which is the easiest perceptual task. Spines and tiles are harder to read but work better recursively. Flucts allow comparisons both vertically and horizontally (in the 2d case). There is not a catch all rule that allows us to map these graphical primitives to a set hierarchy.
     
 ```{r}
-#| label: fig2
+#| label: fig-paper2
 #| echo: false
 #| fig-cap: "Replication of Figure 2 from the product plot paper. Plot depicting the four graphical primitives: bars, spines, tiles and flucts. Bars map f(x) to position, spines map f(x) to length, and tiles and flucts map f(x) to area."
 
@@ -189,16 +188,16 @@ p1 + p2 + p3 + p4
 The graphical primitive is selected with the `divider` option in the `productsplot`package. The user can specify each the graphical primitive using its name, and the direction it is applied. For example, a vertical or horizontal spine can be implemented with `vspine()` or `hspine()` respectively. The fluct primitive is considered to be 2d so it does not have a direction associated with it (no vertical or horizontal option). The graphical primitives can be input as a function or a character. For example, the bar chart above was made using the code `prodplot(happy, ~ happy, c("hbar"), na.rm=TRUE)`. Using a function allows users of the package to define their own graphical primitive and build on the package. 
 
 ### 2.4 Probability
-Every PMF with two or more variables can be factorized into at least two lower level distributions. The product plots paper illustrates this using the joint distribution of $f(sex,happiness)$. The example provided in the product plots paper can be easily replicated using the `happy` data from the `productplots` package and is shown in @fig4. The distribution, $f(sex,happiness)$ contains more information than the marginal and conditional distributions and the joint distribution can be used to find the two lower level distributions.
+Every PMF with two or more variables can be factorized into at least two lower level distributions. The product plots paper illustrates this using the joint distribution of $f(sex,happiness)$. The example provided in the product plots paper can be easily replicated using the `happy` data from the `productplots` package and is shown in @fig-paper4. The distribution, $f(sex,happiness)$ contains more information than the marginal and conditional distributions and the joint distribution can be used to find the two lower level distributions.
 
 The proportions in the joint distribution are found by counting the number of people that appear in each possible union of $happy \cap sex$. You can use the joint distribution to find the other distributions by using the probability equations $\sum_{y} f(x,y)= f(x)$ and $\frac{f(x,y)}{f(x)} = f(y|x)$. We connect the concept of probability to the graphical primitives through the factorisation of area as $area=length \times width$. 
 
 ```{r}
-#| label: fig4
+#| label: fig-paper4
 #| echo: false
 #| layout-ncol: 2
-#| tbl-cap: "Calculations of all the distributions that could be of use when plotting sex against happy"
-#| tbl-subcap: ["f(happy,sex)", "f(sex) and f(happy)", "f(sex|happy)", "f(happy|sex)"]
+#| fig-cap: "Calculations of all the distributions that could be of use when plotting sex against happy"
+#| fig-subcap: ["f(happy,sex)", "f(sex) and f(happy)", "f(sex|happy)", "f(happy|sex)"]
 
 
 # Calculate Joint
@@ -262,11 +261,11 @@ cond_redo(happy_cond_sex)%>%
 
 Each of these distributions can be used to answer different questions. Joint distributions answer *X and Y* questions (e.g. what proportion of all people are *male and happy*), conditional distributions answer *X given Y* questions (e.g. what proportion of *men people are happy*) and marginal distributions answer *X or Y* questions (e.g. what proportion of *people are male*). Conditional distributions are also useful because they allow us to remove uninteresting relationships.
 
-The paper also suggests that different partitions reveal different features of our data @fig7 provides an example of a plot that has the same graphical primitives but different factorisations. The paper suggests that that $f(marital,age) = f(marital|age)f(age)$ highlights the fact that most young people are unmarried, while $f(marial,age) = f(age|marital)f(marital)$ highlights that there are few unmarried people over the age of 30. Unfortunately this claim is hard to verify in the paper because the plots presented (the specific figure is in the appendix as @fig7alt) differ in both graphical primitives and factorisation. However, even using @fig7, this claim is still difficult to verify because the visual expression of "there are few unmarried people over the age of 30" versus "most young people are unmarried" is hard to identify. The interchangeability of these sentences also does not help.
+The paper also suggests that different partitions reveal different features of our data @fig-paper7alt provides an example of a plot that has the same graphical primitives but different factorisations. The paper suggests that that $f(marital,age) = f(marital|age)f(age)$ highlights the fact that most young people are unmarried, while $f(marial,age) = f(age|marital)f(marital)$ highlights that there are few unmarried people over the age of 30. Unfortunately this claim is hard to verify in the paper because the plots presented (the specific figure is in the appendix as @fig-paper7alt) differ in both graphical primitives and factorisation. However, even using @fig-paper7alt, this claim is still difficult to verify because the visual expression of "there are few unmarried people over the age of 30" versus "most young people are unmarried" is hard to identify. The interchangeability of these sentences also does not help.
 
 ```{r}
 #| echo: false
-#| label: fig7
+#| label: fig-paper7
 #| fig-cap: Comparison of diferent factorisations of f(age,marital).
 #| fig-subcap: ["f(marital|age)f(age)", "f(age|marital)f(marital)"]
 
@@ -290,11 +289,11 @@ p1 + p2
 
 Expressing a distribution in the product plot package is simple, but not explained in the paper, nor in the documentation of the associated package. The `formula` argument should take something in the form of `Weighting ~ Marginal | Conditional`. Where the marginal distribution is always factorised such that `Marginal= x + y` will display a plot factorised as $f(x,y)=f(y)f(x|y)$. For example, the distribution $f(age,marital)=f(marital|age)f(age)$ was produced using the code `prodplot(happy, ~ marital + age, c("vspine", "hspine"))`.
 
-This idea can extend to higher dimensions such as $f(x,y,z)$. Code wise, we would write this as `Marginal = x + y + z` to get the plot $f(x,y,z)=f(y,z)f(x|y,z)$. Then the joint distribution would be automatically further factorised by the package into $f(y,z)= f(z)f(z|y)$. The `level` and `cascade` options help understand how the plot was built up. For example, @figcascade, shows the distribution of $f(happy,marital,sex)$ on the left, and the cascaded levels highlight that the plot was made with the factorisation $f(happy,marital,sex)=f(sex)f(marital|sex)f(happy|marital,sex)$. The cascaded plot is made using the code  `prodplot(happy, ~ happy + marital + sex , c("vspine", "hspine", "hspine"), na.rm=TRUE, cascade=0.15, levels=1:3)`.
+This idea can extend to higher dimensions such as $f(x,y,z)$. Code wise, we would write this as `Marginal = x + y + z` to get the plot $f(x,y,z)=f(y,z)f(x|y,z)$. Then the joint distribution would be automatically further factorised by the package into $f(y,z)= f(z)f(z|y)$. The `level` and `cascade` options help understand how the plot was built up. For example, @fig-cascade, shows the distribution of $f(happy,marital,sex)$ on the left, and the cascaded levels highlight that the plot was made with the factorisation $f(happy,marital,sex)=f(sex)f(marital|sex)f(happy|marital,sex)$. The cascaded plot is made using the code  `prodplot(happy, ~ happy + marital + sex , c("vspine", "hspine", "hspine"), na.rm=TRUE, cascade=0.15, levels=1:3)`.
 
 ```{r}
 #| echo: false
-#| label: figcascade
+#| label: fig-cascade
 #| fig-cap: "Replication of Figure 11 from the paper. Working out the cascade function was particularly difficult. The paper seems to adjust the transparency of the levels and have the lower levels filled with white as well, but I was unable to work out how the authors did that."
 
 # Figure 11
@@ -318,11 +317,11 @@ p1 | p2
 ### 2.5 Existing Plot Types
 It turns out there are a large number of plots that are simply specific cases of the general product plot framework. The vast number of plots that can be constructed using a simple frameworks highlights the importance of developing a strong understanding of the building blocks of plotting and probability before jumping in to developing new plots. 
 
-The connections between the product plot framework and existing plots are shown in @figcharts. There are many charts that can be considered a product of the product plots framework without loosening any restrictions. There are a few others that are related and can be found by relaxing one or more of the restrictions. Plots that are not certainty connects (i.e. it has not be proven) do not have their product plot equivalent listed. It is interesting how many plots that are typically considered distinct are an extension of a simple framework. @polarplots displays some of the existing plots that are polar-coordinate transformations of a product plot. The data cannot be transformed before being put through the product plots functions so the axis need to be changed with the `coord_polar` function.
+The connections between the product plot framework and existing plots are shown in @fig-charts. There are many charts that can be considered a product of the product plots framework without loosening any restrictions. There are a few others that are related and can be found by relaxing one or more of the restrictions. Plots that are not certainty connects (i.e. it has not be proven) do not have their product plot equivalent listed. It is interesting how many plots that are typically considered distinct are an extension of a simple framework. @fig-polarplots displays some of the existing plots that are polar-coordinate transformations of a product plot. The data cannot be transformed before being put through the product plots functions so the axis need to be changed with the `coord_polar` function.
 
 ```{r}
 #| echo: false
-#| label: figcharts
+#| label: fig-charts
 
 # Normal plots
 charts1 <- c("Bar chart/Histogram", "Column chart","Spineplot", "Spinograms", "Fluctuation chart","Stacked bar chart","Nested bar chart", "Equal bin size","Mosaic plot","Double Decker","Treemap","Squarified treemap","Generalised treemaps")
@@ -351,7 +350,7 @@ t2
 
 ```{r}
 #| echo: false
-#| label: polarplots
+#| label: fig-polarplots
 #| fig-cap: "A replication of Figure 12 from the paper. The second and their row show alternative mappings of x and y to r and θ."
 
 # Fig 12
@@ -407,10 +406,10 @@ The fundamental idea of product plots is that a plot of $f(x,y)$ can be expresse
   - $f(x|y) = f(x|y)\times y$ where $n$ is the number of categories in the variable $y$. 
   - $f(x,y)=f(x)f(y|x)$
 
-Three example plots of these factorisations are shown in @figfundamentals and the lengths along the axis can be directly taken from the tables in @fig4. Of course the paper does not make this fundamental breakdown of the single variable distributions explicit, but understanding that every axis is cut into lengths on the basis of some probability mass function (even if it is a constant PMF) makes understanding the process in higher dimensions much easier. @figfundamentals also highlights that the way the factorization connects to the plot is not just by "adding plots together" or "adding a new width" but through axis replacement. 
+Three example plots of these factorisations are shown in @fig-fundamentals and the lengths along the axis can be directly taken from the tables in @fig-paper4. Of course the paper does not make this fundamental breakdown of the single variable distributions explicit, but understanding that every axis is cut into lengths on the basis of some probability mass function (even if it is a constant PMF) makes understanding the process in higher dimensions much easier. @fig-fundamentals also highlights that the way the factorization connects to the plot is not just by "adding plots together" or "adding a new width" but through axis replacement. 
 
 ```{r}
-#| label: figfundamentals
+#| label: fig-fundamentals
 #| echo: false
 #| warning: false
 #| caption: This figure shows the product plot version of f(happy) and f(sex|happy). The axis have been adjusted to highlight the distribution that breaks up the lengths of the axis. The product of these two probability distributions makes an area. You can see that starting in the top left hand corner with the constant product plot, replacing each axis with a different probability distribution builds up to the joint plot of f(sex,happy)
@@ -460,7 +459,7 @@ p3 <- prodplot(happy, ~ sex + happy, na.rm=TRUE) +
 (p0|p1)/(p2|p3)
 ```
 
-The plot that expresses $f(x,y)$ in @figfundamentals can be built upon by collapsing the areas of the 6 groups down to lengths (that still sum to 1) and adding in a a new axis to represent a new variable and we can plot $f(x,y,z) = f(x,y)f(z|x,y)$. The paper does this implicitly and first plot in @figcascade shows the joint distribution of $f(marital,sex)$ constructed this way. The problem with putting the joint distribution $f(marital,sex)= f(sex)f(marital|sex)$ on a single axis, is that we need to expressed $f(sex)$ and $f(marital|sex)$ on the same axis. The ability to embed a new variable in the same axis as an old one has nothing to do with the $area = width \times length$ relationship. The actual process that allows the product plots to extend to higher cases is the relationship $\sum_y f(x,y) = f(x)$. The plot version of this summation translates nicely so that two distributions can be embedded in a single elementary task (i.e. in an area, length or position). They are:
+The plot that expresses $f(x,y)$ in @fig-fundamentals can be built upon by collapsing the areas of the 6 groups down to lengths (that still sum to 1) and adding in a a new axis to represent a new variable and we can plot $f(x,y,z) = f(x,y)f(z|x,y)$. The paper does this implicitly and first plot in @fig-cascade shows the joint distribution of $f(marital,sex)$ constructed this way. The problem with putting the joint distribution $f(marital,sex)= f(sex)f(marital|sex)$ on a single axis, is that we need to expressed $f(sex)$ and $f(marital|sex)$ on the same axis. The ability to embed a new variable in the same axis as an old one has nothing to do with the $area = width \times length$ relationship. The actual process that allows the product plots to extend to higher cases is the relationship $\sum_y f(x,y) = f(x)$. The plot version of this summation translates nicely so that two distributions can be embedded in a single elementary task (i.e. in an area, length or position). They are:
   - $\sum lengths=length$ for the spines case
   - $\sum area = area$ for the fluct and tile case, and
   - $\sum position = position$ for the bar chart case
@@ -468,7 +467,7 @@ The plot that expresses $f(x,y)$ in @figfundamentals can be built upon by collap
 The $area = width \times length$ relationship also cant be applied in the position case (i.e. bar chart) since the area generated by the $area = position \times position$ plot would have overlapping rectangles. This means that you cant combine a vertical bar and a horizontal bar. The fluct and tile have the problem that there is no relationship between $area \times area = ??$ so they can only be combined using the $\sum area = area$ rule and ignore the $area = width \times length$ relation entirely. It actually seems that the only plot that correctly applies the $area = width \times length$ is the 2D case created by a horizontal spine and a vertical spine as it is the only graphical primitive that actually maps to length (and not position or area).
 
 ### 3.2 The Non-Trivial Continuous Case
-The paper shows that the framework can be extended to continuous data arbitrarily through binning. This is certainty correct and shown in @fig7 where age, a numeric variables was expressed through the product plot framework. The authors suggest that we could also adopt the theoretical approach of increasing the number of bins infinitesimally so our probability mass function becomes a probability density function. They also claim that this approach can work for one continuous variable, but once you have two variables an additional aesthetic is needed and at three variables the product plot framework is broken.
+The paper shows that the framework can be extended to continuous data arbitrarily through binning. This is certainty correct and shown in @fig-paper7 where age, a numeric variables was expressed through the product plot framework. The authors suggest that we could also adopt the theoretical approach of increasing the number of bins infinitesimally so our probability mass function becomes a probability density function. They also claim that this approach can work for one continuous variable, but once you have two variables an additional aesthetic is needed and at three variables the product plot framework is broken.
 
 The product plot framework actually seems to break at two continuous variables. The authors propose the question "can the product plot be extended for something like a the kernel density estimate" and the answer is no. The reason is actually quite simple and relates to the fact that the continuous case cannot have multiple distributions embedded on the same axis.
 
@@ -497,7 +496,7 @@ if (nrow(check_spelling) > 0) {
 ```
 
 ```{r}
-#| label: fig1
+#| label: fig-paper1
 #| echo: false
 #| fig-cap: "Figure 1 from the paper"
 #| 
@@ -542,7 +541,7 @@ p1 + p2 + p3 + p4 + p5 + p6
 ```
 
 ```{r}
-#| label: fig3
+#| label: fig-paper3
 #| echo: false
 #| fig-cap: "Figure 3. Shows fluct size and NA identification. I was unable to get the NA identification plot to look identical to the one in the paper."
 
@@ -579,7 +578,7 @@ p2
 ```
 
 ```{r}
-#| label: fig5
+#| label: fig-paper5
 #| echo: false
 #| fig-cap: "Figure 5. The graphs are identical but adding the text (with the + and =) warped the plots and I was unable to fix it."
 #| warning: false
@@ -681,7 +680,7 @@ p1 + p2 + p3
 
 ```{r}
 #| echo: false
-#| label: fig7alt
+#| label: fig-paper7alt
 #| fig-cap: "Figure 7 from the paper. While the first plot appears in my summary, the second does not. I included both here for the sake of completeness. Continuous histograms are particularly difficult using the product plots framework since a new function needs to be defined to allow the bars to touch."
 
 # Figure 7
