@@ -322,6 +322,9 @@ The connections between the product plot framework and existing plots are shown 
 ```{r}
 #| echo: false
 #| label: fig-charts
+#| layout-ncol: 2
+#| fig-cap: A table showing the connection between several plots that are commonly considered to be unique but are acutally a spin off of the product plot framework.
+#| fig-subcap: ["Charts with no violations to the assumptions", "Charts with violations to the assumptions"]
 
 # Normal plots
 charts1 <- c("Bar chart/Histogram", "Column chart","Spineplot", "Spinograms", "Fluctuation chart","Stacked bar chart","Nested bar chart", "Equal bin size","Mosaic plot","Double Decker","Treemap","Squarified treemap","Generalised treemaps")
@@ -330,7 +333,7 @@ t1 <- tibble(Chart = charts1,
              `Product plot` = comparisons1) %>%
   kbl(caption = "Named plots that fit the Product Plot Framework") %>%
   kable_classic() %>%
-  kable_styling()
+  kable_styling(full_width = F)
 
 # Relax restraints
 charts2 <- c("Pie Chart", "Wind rose and fourfold displays", "Concentric pie chart", "Doughnut plot", "Racetrack plot", "Infoslides", "Fan-lenses", "Stasko's radial displays", "Circular treemaps", "Space-filling curves", "Voronoi treemaps","Nightingales coxcomb", "Cascaded treemaps")
@@ -342,7 +345,7 @@ t2 <- tibble(Chart = charts2,
              `Product plot` = comparisons2) %>%
   kbl(caption = "Named plots that fit the Product Plot Framework (with some violation to the constraints)") %>%
   kable_classic() %>%
-  kable_styling()
+  kable_styling(full_width = F)
 
 t1
 t2
@@ -351,7 +354,7 @@ t2
 ```{r}
 #| echo: false
 #| label: fig-polarplots
-#| fig-cap: "A replication of Figure 12 from the paper. The second and their row show alternative mappings of x and y to r and θ."
+#| fig-cap: "A replication of Figure 12 from the paper. The first row of figures depicts a common product plots while the two plots beneath show that same plot with polar co-ordinates. The second and third row only differ in the mapping of x and y to r and θ. Common plots that are usually not associated with a bar chart, such as a pie chart, can be seen among these figures."
 
 # Fig 12
 themefig12 <- themefig2 + theme(axis.text = element_blank(), axis.ticks = element_blank())
@@ -412,7 +415,7 @@ Three example plots of these factorisations are shown in @fig-fundamentals and t
 #| label: fig-fundamentals
 #| echo: false
 #| warning: false
-#| caption: This figure shows the product plot version of f(happy) and f(sex|happy). The axis have been adjusted to highlight the distribution that breaks up the lengths of the axis. The product of these two probability distributions makes an area. You can see that starting in the top left hand corner with the constant product plot, replacing each axis with a different probability distribution builds up to the joint plot of f(sex,happy)
+#| fig-cap: This figure shows the product plot version of f(happy) and f(sex|happy). The axis have been adjusted to highlight the distribution that breaks up the lengths of the axis. The product of these two probability distributions makes an area. You can see that starting in the top left hand corner with the constant product plot, replacing each axis with a different probability distribution builds up to the joint plot of f(sex,happy)
 
 p0 <- prodplot(happy, ~ 1 | happy, na.rm=TRUE, c("hspine")) +
   aes(fill=happy) +
