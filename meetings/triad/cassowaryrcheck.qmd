@@ -1,7 +1,120 @@
 ---
 title: "New Cassowaryr Check"
+execute:
+  eval: false
 ---
+# Set Up
+```{r}
+library(fitzRoy)
+library(dplyr)
+library(interp)
+library(cassowaryr)
+
+# Get data and find scatter plot that is instant and long scatter plot
+aflw <- fetch_player_stats(2020, comp = "AFLW")
+
+aflw_num <- aflw %>%
+  select_if(is.numeric)
+
+AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
+```
 
 ## Issue 1: Duplicates
+Previously I removed duplicates the same way interp did in the tripack function to remove the same duplicates that would cause it to throw an error. I had to institute this duplicate removal after the previous method stopped working with the previous interp update.
+
+```{r}
+# Original Duplicate Removal
+xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
+dupes <- paste(x, y, sep =",")
+xy <- xy[!duplicated(dupes),]
+```
+
+With this new interp update, the scatter plot formed by 
+
+```{r}
+x <- aflw_num$hitouts
+y <- aflw_num$goals
+```
+
+returned a duplicate error at the tri.mesh function. For some reason the completely arbitrary transformation that occurs within the cassowaryr and then trimesh functions removed this error from the tri.mesh function.
+
+```{r}
+x1 <- cassowaryr:::unitize(x)
+y1 <- cassowaryr:::unitize(y)
+xy <- cbind(x1, y1)
+m <- xy.coords(xy)
+dupes <- paste(m$x, m$y, sep =",")
+xy <- xy[!duplicated(dupes),]
+```
+
+However, now the error occurs at the shull function. Again, this is a C library and I can't read it so I can't work out what the issue is. I thought it might be a rounding error that is happening at some point in the function (since the arbitrary xy.coord transformation made a difference), so I changed the duplicate check to:
+
+```{r}
+xrnd <- round(cassowaryr:::unitize(x), digits = 15)
+yrnd <- round(cassowaryr:::unitize(y), digits = 15)
+xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
+dupes <- paste(xrnd, yrnd, sep =",")
+xy <- xy[!duplicated(dupes),]
+```
+
+Which I did on the unitized one because I didn't want the original scale of the data to impact the check for duplicates. This duplicate check was fine EXCEPT that it NOW threw a duplicate error on this scatter plot
+
+```{r}
+x <- aflw_num$handballs
+y <- aflw_num$goals
+```
+
+Which actually passed the ORIGINAL duplicate check. *I have no idea why that would happen*.
+
+I ended up just lowing the number of digits for rounding, so the duplicate check that is currently in the package is:
+```{r}
+xrnd <- round(cassowaryr:::unitize(x), digits = 10)
+yrnd <- round(cassowaryr:::unitize(y), digits = 10)
+xy <- cbind(cassowaryr:::unitize(x), cassowaryr:::unitize(y))
+dupes <- paste(xrnd, yrnd, sep =",")
+xy <- xy[!duplicated(dupes),]
+```
+
+I am not sure how bad of a practice this is but it seems to be the only thing that worked and reduced the duplicate errors.
 
 ## Issue 2: Convex Hull
+After I (kind of) fixed the duplicate issue I ran into another problem. Some of the values for convex are greater than 1, which should be impossible.
+
+```{r}
+AFLW_scags %>%
+  pivot_longer(cols = outlying:dcor) %>%
+  filter(value>1)
+```
+
+If we look closer at this issue...
+
+
+```{r}
+# Issue 2
+AFLW_scags %>%
+  pivot_longer(cols = outlying:dcor) %>%
+  filter(value>1)
+
+# Both return 0
+sc_convex(aflw_num$freesAgainst,aflw_num$contestedPossessions)
+sc_convex(aflw_num$intercepts,aflw_num$rebound50s)
+
+# Draw them
+x <- aflw_num$intercepts
+y <- aflw_num$rebound50s
+draw_alphahull(x,y) #normal
+draw_convexhull(x,y) #YIKES
+
+x <- aflw_num$freesAgainst
+y <- aflw_num$contestedPossessions
+draw_alphahull(x,y) #normal
+draw_convexhull(x,y) #YIKES
+
+# Work out how the convex hull can be smaller than the alphahull
+sc <- scree(x, y)
+chull <- cassowaryr:::gen_conv_hull(sc$del)
+ahull <- cassowaryr:::gen_alpha_hull(sc$del, sc$alpha)
+chull_area <- splancs::areapl(cbind(chull$x, chull$y))
+ahull_area <- alphahull::areaahull(ahull)
+(ahull_area / chull_area)
+```
