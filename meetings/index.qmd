@@ -24,8 +24,8 @@ listing:
 - I was going to work on this following the literature review (which I am working on after the cassowaryr stuff is done)
 
 #### Cassowaryr
-- Presented at Rladies and in trying to get the exaples working I found a series of new errors.
-- Detailled those issues are detailled [here](triad/interpcheck.qmd)
+- Presented at R-ladies and in trying to get the exaples working I found a series of new errors.
+- Detailled those issues are detailled [here](triad/cassowaryrcheck.qmd)
 
 ## 2023 October 12
 #### BEX6510 Assignment + Notes
