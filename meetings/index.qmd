@@ -8,15 +8,27 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2023 November 16
+#### BEX6510 
+- I think I did OK
+- The assignment is [here](https://harriet.quarto.pub/ideas/posts/productplots/) and I could use it as a jumping off point for work further down the line
+
+#### AEMO
+- Email from Michael Dalton on Nov 3rd (I forgot about it until now)
+- Suggested I use their new data analysis as a new point of contact
+
+#### IEEVIS
+- I got some good advice at the poster session
+  - Tamara Munzner gave me some suggestions and a list of relevant papers she thought I should read and thought it looked like it could be really interesting
+  - she also told me to ping her if I couldn't find the papers she mentioned when talking to her
+- I was going to work on this following the literature review (which I am working on after the cassowaryr stuff is done)
+
+#### Cassowaryr
+- Presented at Rladies and in trying to get the exaples working I found a series of new errors.
+- Detailled those issues are detailled [here](triad/interpcheck.qmd)
+
 ## 2023 October 12
--   Does this work extend to expected values or visualisations of other mathematical process?
--   Could be expanded by looking at which other perceptual tasks are combinations of others
--   extension to continuous case
--   Can the questions be combined similarly the way we can combine the PMF and the graphics
--   Connections between formal statistical tests and visualisations
--   uncertainty visualisation extensions
--   other geometric measures (curvature)
-#### BEX6510 Assignment
+#### BEX6510 Assignment + Notes
 - Could make the cascade plot interactive (would need to use shiny)
   - Step 1 would be animation showing each individual one
     - So long as they slot over each other
@@ -30,6 +42,13 @@ listing:
     - everything needs to add up to be correct according to the product plot things
     - replotting multiple times (field of those) - eaier than rejigging boundaries and stuff
   - look at proportion/count plots uncertainty methods (dynamite plots)
+-   Does this work extend to expected values or visualisations of other mathematical process?
+-   Could be expanded by looking at which other perceptual tasks are combinations of others
+-   extension to continuous case
+-   Can the questions be combined similarly the way we can combine the PMF and the graphics
+-   Connections between formal statistical tests and visualisations
+-   uncertainty visualisation extensions
+-   other geometric measures (curvature)
   
 ## 2023 October 5
 #### Uncertainty Vis
