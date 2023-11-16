@@ -6,9 +6,9 @@ execute:
 # Set Up
 ```{r}
 library(fitzRoy)
-library(dplyr)
 library(interp)
 library(cassowaryr)
+library(tidyverse)
 
 # Get data and find scatter plot that is instant and long scatter plot
 aflw <- fetch_player_stats(2020, comp = "AFLW")
@@ -16,7 +16,7 @@ aflw <- fetch_player_stats(2020, comp = "AFLW")
 aflw_num <- aflw %>%
   select_if(is.numeric)
 
-AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
+AFLW_scags <- calc_scags_wide(aflw_num[,c(4:37)])
 ```
 
 ## Issue 1: Duplicates
@@ -78,7 +78,7 @@ xy <- xy[!duplicated(dupes),]
 I am not sure how bad of a practice this is but it seems to be the only thing that worked and reduced the duplicate errors.
 
 ## Issue 2: Convex Hull
-After I (kind of) fixed the duplicate issue I ran into another problem. Some of the values for convex are greater than 1, which should be impossible.
+After I (kind of) fixed the duplicate issue I ran into another problem. Some of the values for convex are greater than 1, which should be impossible. In the AFLW example there are two such scatter plots. 
 
 ```{r}
 AFLW_scags %>%
@@ -86,35 +86,96 @@ AFLW_scags %>%
   filter(value>1)
 ```
 
-If we look closer at this issue...
-
+If we look closer at this issue we can see that running the convex function by itself (not inside the summary function) on can return the large value or a 0.
 
 ```{r}
-# Issue 2
-AFLW_scags %>%
-  pivot_longer(cols = outlying:dcor) %>%
-  filter(value>1)
+sc_convex(aflw_num$tackles,aflw_num$contestedPossessions)
+sc_convex(aflw_num$intercepts,aflw_num$kicks)
+```
 
-# Both return 0
-sc_convex(aflw_num$freesAgainst,aflw_num$contestedPossessions)
-sc_convex(aflw_num$intercepts,aflw_num$rebound50s)
+It should not be too surprising that the sc_convex function can return something different than the calc_scags function since it doesn't perform the outlier check. That being said, it should still not be 0. If the function returns 0 then in this case, failing to remove outliers leaves the alpha hull unable to be calculated.
 
+Additionally if we draw the alphahull and the convexhull of both plots we can see that the convex hull is smaller than the alpha hull (which should be impossible and is the reason the convex value is greater than 1). 
+
+```{r}
 # Draw them
 x <- aflw_num$intercepts
-y <- aflw_num$rebound50s
+y <- aflw_num$kicks
 draw_alphahull(x,y) #normal
 draw_convexhull(x,y) #YIKES
 
-x <- aflw_num$freesAgainst
+x <- aflw_num$tackles
 y <- aflw_num$contestedPossessions
-draw_alphahull(x,y) #normal
+draw_alphahull(x,y) #error
 draw_convexhull(x,y) #YIKES
+```
 
-# Work out how the convex hull can be smaller than the alphahull
+This means there is some issue in the calculation of the convex hull. The convex hull should never be smaller than the alphahull. The alphahull is calculated in the alphahull package and the convexhull is calculated in the interp package so they should use the exact same delauny triangulation. This means the issue is somewhere between when I get the output of the convex hull but before the delauney triangulation.
+
+Also both the issues seem to be on discrete data however some data from the testing file shows it does work on some discrete data. 
+```{r}
+x <- c(0,10,10,10,20,80,90,90,90,100,10,90)
+y <- c(50,60,50,40,50,50,60,50,40,50,100,0)
+draw_convexhull(x,y)
+
+x <- c(0,9,17,22,26,26,0,0,0,0,2)
+y <- c(0,0,0,0,0,2,10,17,23,26,26)
+draw_convexhull(x,y)
+```
+
+And the only error I could replicate with the testing data was the error of being unable to calculate the alpha hull, not the convex hull issue. 
+
+```{r}
+set.seed(1)
+library(extraDistr)
+x <- rdunif(200, 1, 20)
+y <- rdunif(200, 1, 20)
+draw_convexhull(x,y)
+sc_convex(x,y)
+
+x <- rdunif(200, 1, 5)
+y <- runif(200, 1, 10)
+draw_convexhull(x,y)
+sc_convex(x,y)
+```
+
+While some discrete combinations that are not on this list DO have the convex hull problem, it is not true that every discrete/discrete or discrete/continuous variable combination does. It does seem to be true that the plots with an error in the alphahull also have an error in the convex hull, but the converse is not true.
+
+```{r}
+# has problem
+x <- aflw_num$tacklesInside50
+y <- aflw_num$contestedPossessions
+draw_alphahull(x,y) # has error
+draw_convexhull(x,y) # bad convex hull
+sc_convex(x,y) # returns 0
+
+# does not have problem
+x <- aflw_num$inside50s
+y <- aflw_num$scoreInvolvements
+draw_alphahull(x,y)
+sc_convex(x,y)
+```
+Since there doesn't seem to be a simple reason for the error. I am going to go through the code line by line and try to work out where the error is. I am going to do this separately for the convex hull being too small and the alpha hull error.
+
+##### Convex hull too small
+Look at an example where the convex hull is too small but the alpha hull is normal. Since I am skipping outlier removal, this should
+```{r}
+x <- aflw_num$intercepts
+y <- aflw_num$kicks
+
 sc <- scree(x, y)
 chull <- cassowaryr:::gen_conv_hull(sc$del)
-ahull <- cassowaryr:::gen_alpha_hull(sc$del, sc$alpha)
 chull_area <- splancs::areapl(cbind(chull$x, chull$y))
+```
+
+##### Alpha hull not calculated
+Look at an example where the alpha hull throws an error and the convex hull is too small.
+```{r}
+# Example with issue
+x <- aflw_num$tackles
+y <- aflw_num$contestedPossessions
+
+sc <- scree(x, y)
+ahull <- cassowaryr:::gen_alpha_hull(sc$del, sc$alpha)
 ahull_area <- alphahull::areaahull(ahull)
-(ahull_area / chull_area)
 ```
