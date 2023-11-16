@@ -103,11 +103,13 @@ x <- aflw_num$intercepts
 y <- aflw_num$kicks
 draw_alphahull(x,y) #normal
 draw_convexhull(x,y) #YIKES
+draw_mst(x,y)
 
 x <- aflw_num$tackles
 y <- aflw_num$contestedPossessions
 draw_alphahull(x,y) #error
 draw_convexhull(x,y) #YIKES
+draw_mst(x,y)
 ```
 
 This means there is some issue in the calculation of the convex hull. The convex hull should never be smaller than the alphahull. The alphahull is calculated in the alphahull package and the convexhull is calculated in the interp package so they should use the exact same delauny triangulation. This means the issue is somewhere between when I get the output of the convex hull but before the delauney triangulation.

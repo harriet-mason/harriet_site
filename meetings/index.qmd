@@ -27,6 +27,13 @@ listing:
 - Presented at R-ladies and in trying to get the exaples working I found a series of new errors.
 - Detailled those issues are detailled [here](triad/cassowaryrcheck.qmd)
 
+#### Notes
+- make NA as cassowaryr output to make it clear it doesnt make sense (alphahull calculations)
+- just email now
+- think about experiment
+- make fictional scenario to avoid people bringing in bias
+- Ursula more cassowaryr 
+
 ## 2023 October 12
 #### BEX6510 Assignment + Notes
 - Could make the cascade plot interactive (would need to use shiny)
