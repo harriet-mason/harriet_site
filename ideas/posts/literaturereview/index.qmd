@@ -7,6 +7,22 @@ format: pdf
 editor_options: 
   chunk_output_type: console
 ---
+## Common format for papers
+1. Introduction
+2. Notation (if relevant)
+3-5. Details of literature review broken into several sub sections. First usually provides context to the problem and the following sections answer questions that context highlights.
+6. Future Work/ Conclusion
+
+## Possible Format
+1. Introduction
+2. Definitions of Uncertainty
+  - Null Values
+  - Variance
+  - Hypothesis Testing
+  - Distribution
+3. ??? I feel like I need something about the specific sub-area of research. What it focuses on and stuff.
+4. Reccomended Methods
+
 
 ```{r}
 #| echo: false
