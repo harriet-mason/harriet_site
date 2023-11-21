@@ -1,0 +1,67 @@
+---
+title: "Convex Hull Issue"
+---
+Load packages and get issue data
+```{r}
+library(fitzRoy)
+library(cassowaryr)
+library(tidyverse)
+
+# Get data and find scatter plot that is instant and long scatter plot
+aflw <- fetch_player_stats(2020, comp = "AFLW")
+
+aflw_num <- aflw %>%
+  select_if(is.numeric)
+
+# get a case that is broken
+x <- aflw_num$intercepts
+y <- aflw_num$kicks
+```
+
+If we draw some results of the triangulation, we can see that the convex hull is strangely small. The MST and alpha hull are fine (and look how we would expect them to) so the problem does not appear to be the triangulation.
+
+```{r}
+# draw the graph opjects
+draw_alphahull(x,y) 
+draw_mst(x,y)
+draw_convexhull(x,y) 
+```
+
+Before we find the convex hull in our package we scale each variable to sit on the (0,1) range. When we do this, you can see we end up with the convex hull in the above illustration that only contains three points.
+
+```{r}
+xy <- cbind(cassowaryr:::unitize(x),cassowaryr:::unitize(y))
+# and removes duplicates
+dupes <- paste(x, y, sep =",")
+xy <- xy[!duplicated(dupes),]
+# uses the delauney triangulation from alphahull
+del <- alphahull::delvor(xy)
+# and uses the convex hull function from interp
+interp::convex.hull(del$tri.obj)
+```
+
+However, if we find the convex hull *without* scaling the variables beforehand, we seem to get a normal convex hull. I drew the convex hull to double check and it seems OK.
+
+```{r}
+# Repeate steps above without unitize
+xy <- cbind(x,y)
+dupes <- paste(x, y, sep =",")
+xy <- xy[!duplicated(dupes),]
+del <- alphahull::delvor(xy)
+interp::convex.hull(del$tri.obj)
+```
+
+```{r}
+# Draw the convex hull to double check
+chull <- interp::convex.hull(del$tri.obj)
+d <- tibble::tibble(x,y)
+d_ends <- tibble::tibble(x1 = chull$x,
+                 y1 = chull$y,
+                 x2 = chull$x[c(2:length(chull$x),1)],
+                 y2 = chull$y[c(2:length(chull$y),1)])
+
+ggplot() +
+  geom_point(data = d, aes(x, y), colour = "black", alpha = 0.5)+
+  geom_segment(data = d_ends, aes(x=x1, y=y1, xend=x2, yend=y2))
+```
+
