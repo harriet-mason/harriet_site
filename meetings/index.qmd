@@ -10,6 +10,7 @@ listing:
 # Supervisor Meetings
 ## 2023 November ??
 #### Cassowaryr
+- Emailled Albrecht and gave him an link to the issues [here](triad/convexissue.qmd)
 
 #### Uncertainty Lit Review
 
