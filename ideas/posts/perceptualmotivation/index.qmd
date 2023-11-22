@@ -1,0 +1,6 @@
+---
+title: "Perceptual Tasks by Task"
+---
+
+##### The purpose of visualisation
+The purpose of visualistion is insight. If we one cared about the accuracy of a value, a table would a better method of communicating the information [@Cleveland1984]. Data visualisation is commonly utilised as a tool in data exploration, so it is not uncommon for a data analyst to make a plot with only a vague goal and pull out a large number of adjacent observations.

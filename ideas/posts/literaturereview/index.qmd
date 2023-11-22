@@ -66,9 +66,6 @@ tibble(x = c(anscombe$x1, anscombe$x2,
 
 # Unorganised
 
-##### The purpose of visualisation
-The purpose of visualistion is insight. If we one cared about the accuracy of a value, a table would a better method of communicating the information [@Cleveland1984]. Data visualisation is commonly utilised as a tool in data exploration, so it is not uncommon for a data analyst to make a plot with only a vague goal and pull out a large number of adjacent observations.
-
 ##### The benefits of Unvertainty visualisaiton
 Visualisations can provide a more complete picture of a risk than numerical summaries alone. Even something as simple as sketching a distribution before recalling statistics or making predictions can greatly increase the accuracy of those measures [@Hullman2018; @Goldstein2014]. While there is some evidence that confidence intervals provided in text form only are less likely to be misinterpreted than graphics [@Savelli2013], text is insufficient to express more complicated aspects of a distribution, such as mass. Expressing uncertainty verbally decreases the perceived reliability and trustworthiness of the source [@VanderBles2020]. Any confusion caused by expressing uncertainty as a visualisation could also be due to a lack of exposure, since @Kay2016 found people repeatedly exposed to the same uncertainty visualisations quickly get better at making judgements. Additionally, visualisation allow for interactive graphics that provide a more in depth understanding of probability [@Potter2009; @Ancker2009] and infographics that make uncertainty more accessible for people with poor numeracy skills [@Ancker2009]. 
 **application in energy**
