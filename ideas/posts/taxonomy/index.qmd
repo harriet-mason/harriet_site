@@ -1,0 +1,134 @@
+---
+title: "Taxonomy Placeholder"
+---
+# Distributions
+
+## Distinction between uncertainty vs normal visualisation is not good
+Additionally, other taxonomies often identify uncertainty visualisations as a distinct category, however the rules that define what actually *is* an uncertainty visualisation are murky at best. 
+Almost every estimate or piece of data is assumed to come from some random process or distribution. Having a visualisation category explicitly for "uncertainty" seems antithetical to the field. Despite this, graphics are categorised according to rules that would seem almost imaginary from a statistical point of view. This results in a *large* number of visualisations that have different names but are functionally identical in what they communicate. A parallel co-ordinate plot, a line plot, a slope graph, and a parallel sets plot are all the same when you break them down into their components. These visualisation are only seen as distinct because of the data focused way we view visualisation. This is not a concrete basis for a visualisation framework considering the ways in which we adjust data using the tidy data framework make it obvious that the distinction between variable and observation is flexible depending on how we want to use the data. 
+
+#### Error bar thing
+A study done by @Bella2005 asked participants to adjust two error bars until the means were "just" statistically significantly different, and most people adjusted the error bars until they were just touching. In the case of independent confidence intervals, the p-value of the two-tailed t-test for error bars that just touch is about 0.006 [@Schenker2001]. @Bella2005 also found that few people could incorporate changing information about independence that arises from repeated measure design and most participants were ignorant to the fact that error bars are used for both confidence intervals and standard error bars, two wildly different indicators of precision. 
+
+#### Distribution considerations
+Thinking about how to visualise specific distributions is not alien to this specific framework. @Wickham2011 discussed how different displays of product plots result in depictions of different marginal, conditional, and joint distributions of data. Their work also did not require any assumptions on the distributions. The line-up protocol is an application on this idea and considers each visualisation to be a single outcome of some larger distribution [@Buja2009; @Wickham2010; @Chowdhury; @Hofmann2012]. By generating a sample of visualisations from a hypothetical distribution, visualisation authors can check if perceived patterns are real or merely the result of chance.
+
+# Psychology
+
+#### Spatial dependent when not relevant problem
+Visualisations that correct for this, such as hex maps, do so by colouring and plotting hexagonal tiles that each represent a portion of the dependent parameter (e.g. the population in the case of election results) [@Kobakian]. This means an irrelevant feature, such as land size, is not depicted as important in the map but the location dependency is maintained. Trying to highlight the uncertainty associated with these estimates makes the process even more difficult.
+
+#### Spatial uncertainty WRT the taxonomy
+The four plots depicted in @fig-maps are merely some suggested solutions for a particular case of uncertainty visualisation. They are great when we want to highlight the error associated with a particular estimate, or visualise a sample, but if we need an idea of a more complicated feature of the distribution (such as mass) they are not so useful. What is interesting about this spatial uncertainty example is the implicit hierarchy we put on the error and the estimate. @fig-bivariate set the estimate and error at the same level of importance; @fig-glyph established the estimate to be of higher importance than the error; and @fig-pixel and @fig-exceed both visualised a feature that combined the error and estimate (by expressing a sample and a parameter that combined the error and estimate respectively) placing both at the same level of importance. What may have been less obvious is that all four plots place spatial information at the highest level of importance. If the only thing you want from your plot is a sense of estimates with respect to their position in space, these plots work well, but sometimes other pieces of information are more important. By always assuming features such as the spatial context are always the most important aspect of a plot, we kneecap research and don't consider the wide array of ways we can express complicated concepts such as exchangeability and location.
+
+#### Spatial uncertainty with visumap
+There are four proposed methods of visualising spatial uncertainty that can be made with the `Vizumap` R package [@lucchesi2021vizumap]. 
+@fig-bivariate depicts a bivariate map which uses a bivariate colour palette that is created by blending two single hue colour palettes. One colour represents the variable of interest while the other represents the sampling error of that variable. There are two immediate problems with this method. First of all, uncertainty is being expressed with hue and saturation which @Maceachren2012 found to be the worst aesthetics to map to uncertainty to as they don't have an intuitive interpretation. Value has a natural connection to uncertainty (lighter values equate to higher uncertainty and darker values equate to more certainty) so it is a much more appropriate choice. While the `Vizumap` data does depict areas of light and darkness, they are largely irrelevant to the uncertainty measure causing our heuristics to lead us to the incorrect conclusions. The Value-Suppressing Uncertainty Palettes (VSUP) shown in @fig-vsup maps estimates to the hue and error to the value thereby creating a more intuitive plot [@Correll2018]. Additionally, at high levels of uncertainty VSUP only has one output colour, which prevents viewers from decrypting any particular value and also avoids enforcing a binary encoding of significance [@Correll2018]. Unfortunately VSUP are not easy to combine with packages like `Vizumap` which leaves it still somewhat difficult to express this encoding in practice, however the combination of a bivariate map with VSUP has shown to improve decisions in the face of uncertainty [@Correll2018]. 
+
+@fig-pixel depicts a pixel map. Pixel maps are similar to HOPs since they present a sample of possible values for the estimate, rather than a single value and an associated uncertainty. Currently the effectiveness of a pixel map is yet to be shown in any experiments, and it may turn out to be a poor encoding of uncertainty information, however it is a promising visualisation. Unfortunately, mapping a distribution of colours to numerical values is currently required to extract any numerical estimates from the plot which is a relatively difficult mental task. Therefore the pixel map might be more effective if values were written explicitly on top of the pixels. The pixel map is also quite computationally expensive and hard to interpret when the relevant geographical areas are small relative to a large map, so it is best used on simpler smaller geographical areas.
+
+@fig-exceed is a exceedance probability map that shows the probability of the estimate being over a certain value. This plot was developed specifically for decision making so it is a simple visualisation of a single parameter [@Kuhnert2018]. An exceedance probability map map is actually very similar to a choropleth map, but instead of expressing an estimate, it shows a probability. Therefore this plot is only able to express probability through a change in information rather than an improvement in visualisation techniques.
+
+@fig-glyph is a glyph map that uses colour of a glyph to express an estimate and the rotation of the glyph to express uncertainty. Orientation has no intuitive link to uncertainty and should be avoided at all costs [@Maceachren2012]. Additionally, by mapping the estimate and its error to distinctly different features, this plot makes it easier to ignore the uncertainty associated with an estimate.
+
+```{r}
+#| eval: false
+#| echo: false
+data(us_data)
+data(us_geo)
+# Data stuff
+us_data <- us_data %>% mutate(Estimate = pov_rate,
+                              Error = pov_moe)
+poverty <- read.uv(data = us_data, estimate = "Estimate", error = "Error")
+
+# Bivariate plot
+# make pal 
+customBivPal3 <- build_palette(name = "usr", colrange = list(colour = c("chartreuse4", "darkblue"), difC = c(3, 4)))
+customBivPal1 <- build_palette(name = "usr", colrange = list(colour = c("tan2", "lightskyblue"), difC = c(1, 1)))
+# Make map
+usBivMap <- build_bmap(data = poverty, geoData = us_geo, id = "GEO_ID", terciles = TRUE, , palette = customBivPal3)
+# make key
+usBivKey <- build_bkey(data = poverty, palette = customBivPal3, terciles = TRUE)
+# attach key (+ visualise)
+attach_key(usBivMap, usBivKey) 
+ggsave("ideas/confirmation/bivariatemap.jpeg", width = 10, height = 5)
+
+# Pixel Map
+us_data$GEO.id2 <- as.numeric(us_data$GEO.id2)
+ca_data <- subset(us_data, us_data$GEO.id2 > 6000 & us_data$GEO.id2 < 7000)
+ca_data <- read.uv(data = ca_data, estimate = "Estimate", error = "Error")
+row.names(ca_data) <- seq(1, nrow(ca_data), 1)
+ca_geo <- subset(us_geo, us_geo@data$STATE == "06")
+pix <- pixelate(ca_geo, id = "region")
+df <- data.frame(region = sapply(slot(ca_geo, "polygons"), function(x) slot(x, "ID")), name = unique(ca_geo@data$GEO_ID))
+ca_data$region <- df[match(ca_data$GEO_ID, df$name), 1]
+ca_data$region <- as.character(ca_data$region)
+unifPixMap <- build_pmap(data = ca_data, distribution = "uniform", pixelGeo = pix, id = "region", border = ca_geo)
+view(unifPixMap)
+ggsave("ideas/confirmation/pixelmap.jpeg", width = 7, height = 7)
+
+# Glyph Map
+co_geo <- subset(us_geo, us_geo@data$STATE == "08")
+us_data$GEO.id2 <- as.numeric(us_data$GEO.id2)
+co_data <- subset(us_data, us_data$GEO.id2 > 8000 & us_data$GEO.id2 < 9000)
+co_data <- read.uv(data = co_data, estimate = "Estimate", error = "Error")
+usGlyphMap <- build_gmap(data = co_data, geoData = co_geo, id = "GEO_ID", size = 80, glyph = "icone", border = "county")
+usGlyphKey <- build_gkey(data = co_data, glyph = "icone")
+attach_key(usGlyphMap, usGlyphKey)
+ggsave("ideas/confirmation/glyphmap.jpeg", width = 7, height = 5)
+
+# Exceedance probability map
+poverty <- read.uv(data = us_data, estimate = "pov_rate", error = "pov_moe")
+quantile(us_data$pov_rate)
+pd <- quote({ pexp(q, rate, lower.tail = FALSE) })
+args <- quote({ list(rate = 1/estimate) })
+pdflist <- list(dist = pd, args = args, th = 30)
+usExcMap <- build_emap(data = poverty, pdflist = pdflist, geoData = us_geo, id = "GEO_ID", key_label = "Pr[Estimate > 30]")
+view(usExcMap)
+ggsave("ideas/confirmation/exceedmap.jpeg", width = 10, height = 5)
+```
+
+
+::: {#fig-maps layout="[[59,-2, 39], [59,-2, 39]]" layout-valign="bottom"}
+
+![Bivariate Map](bivariatemap.jpeg){#fig-bivariate}
+
+![Pixel map](pixelmap.jpeg){#fig-pixel}
+
+![Exceedance probability map](exceedmap.jpeg){#fig-exceed}
+
+![Glyph Map](glyphmap.jpeg){#fig-glyph}
+
+Four spatial uncertainty visualisations that can be made using the `Vizumap` package. Each plots depicts a map with a combination of estimate and error expressed using (a) a bivariate colour palette, (b) a sample of outcomes, (c) a statistic that uses both the error and estimate in its calculation, and (d) using colour value for the estimate and rotation for the uncertainty. The pixel chart (b) gives a good sense of uncertainty, the exceedance probability map (c) is easy to read, and the bivariate map (a) and glyph map (d) are hard to interpret because the estimate and the uncertainty are not well integrated with each other.
+:::
+
+
+![An example of the Value-Suppressing Uncertainty Palette designed by @Correll2018. The change in hue shows a change in the estimated value, while the change in value highlights a change in uncertainty. The estimates merge together as the uncertainty increases to prevent viewers identifying insignificant differences between values.](vsup.png){#fig-vsup width=35%}
+
+
+
+
+#### Perceptual task hierarchy
+A hierarchy of elementary perception tasks is not a new idea in visualisation. @Cleveland1984 found a natural ordering of 10 elementary perception tasks in term of how accurately participants could extract information that was mapped to that feature. The hierarchy established was:
+
+1) Position along a common scale
+
+2) Positions along non-aligned scales
+
+3) Length, direction (slope), angle (starting from the same origin)
+
+4) Area
+
+5) Volume, curvature
+
+6) Shading, colour saturation
+
+While @Cleveland1984 notes that these tasks are not exhaustive nor mutually exclusive, and accuracy is not the only metric that should decide if a graphic is worthwhile, this hierarchy does provide a useful rule of thumb in understanding the importance of information in a graph. This paper is also quite old, so more modern aesthetics such as time (for an animation) or obscure aesthetics such as rotation (which was used in the glyph map) are not tested. 
+
+It is also important to keep in mind that just because information is in a graphic, that does not mean it will be "seen". The phenomena of inattentional blindness shows that there is no perception without attention and it is powerful enough that participants can fail to be aware of random objects appearing on a screen or a gorilla walking through a basketball game [@simons1999gorillas; @mack2003inattentional]. Therefore if information is mapped to graphical elements that are so low on hierarchy they can be ignored, they might as well not be there at all. The people who don't plot uncertainty because they think its unimportant and the people who relegate uncertainty to the lowest ranking aesthetic on the list are both saying the same thing, "I think the uncertainty is unimportant". Including uncertainty is worth very little if no attention is left to see it. This does not mean we cannot put a *large* amount of information in a graphic. Glyph maps can be used to depict the multi-dimensional information in spatial-temporal data by mapping line plots to map locations, but we still need to decide what information is important. The map can either present trends in the global or local variance depending on whether or not the line plot is scaled globally or locally [@Wickham2012], however smaller details are almost impossible to convey. No matter how much information we try and put in a plot, there will always be only a handful of key takeaways.
+
+##### How Much info to show
+The final consideration when deciding what information to depict is whether or not additional information will clutter the graph. Our visualisation should aim to show enough information to solve a task while avoiding irrelevant distracting information [@kosslyn2006graph]. While including additional features can increase the accuracy of some conclusions, it can also bias or discount others. Including mean estimates on depictions of mass can cause people to discount the uncertainty information and use the difference between means as a proxy for the probability distribution [@Kale2021]. 
+
+##### Conclusion of taxonomy
+In the introduction, when I displayed the power of visualisation using Anscombe, I implied that visualisations have a miraculous power to tell us what is important about our data. That is not entirely true. While Anscombe's quartet shows the importance of using visualisation to find hidden details, it also highlights the importance of a visualisation author who knows how to express what is important. If I provided a visualisation of Anscombe's quartet but used a different combinations of variables, presented an expression of mass, or provided a series of error bar plots (which would have all been identical), the interesting features of the data would have remained hidden. We are often not so lucky to already *know* the best way to visualise our data, so having rules that allow us to understand *what* we are visualising is the first step in finding that "best perspective". 
