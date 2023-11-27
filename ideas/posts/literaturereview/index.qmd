@@ -21,9 +21,12 @@ editor_options:
   - Variance
   - Hypothesis Testing
   - Distribution
-3. ??? I feel like I need something about the specific sub-area of research. What it focuses on and stuff.
-4. Reccomended Methods
-  - methods organised into perceptual tasks? 
+3. Visualisation in the context of uncertainty communication
+  - Basically I want a brief section highlighting the importance of visualisation and discussing it in relation to other forms of uncertainty communication.
+  - especially considering some uncertainty visualisation papers discuss using just a text based method to communicate uncerainty
+4. Specific Section on Uncertainty Visualisation
+  - There is also two kinds of papers, those that compare elements of a plot (like mapping uncertainty to an aesthetic) and those that compare some expression of a distribution (like a scatter plot compared to a box plot).
+5. Future work/Conclusion
 
 
 ```{r}

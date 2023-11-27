@@ -10,9 +10,19 @@ listing:
 # Supervisor Meetings
 ## 2023 November ??
 #### Cassowaryr
-- Emailled Albrecht and gave him an link to the issues [here](triad/convexissue.qmd)
+- Emailled (when site is up and running) Albrecht and gave him an link to the issues [here](triad/convexissue.qmd)
 
 #### Uncertainty Lit Review
+- I am still trying to get the draft of this done within the month of November
+- I culled down and organised the sections of the confirmation report, and read over
+- There are several sections that need to be "beefed up" a little, (such as what is considered to be uncertainty in the literature) so I am currently taking notes from the papers I have half read to transfer to the literature review.
+- Once I have the notes I'll probably move over and finish the poster for ASC and then move back to this
+- I want to have the draft done before I go to the conference
+
+#### Poster
+- I have made notes on what it needs to cover based on my abstract but have not started the design since I was going to adapt the literature review.
+- I didnt add you guys to the original submission by mistake, can I add everyone as co-authors on the poster and lightning talk slide or is it too late for that since you aren't in the program?
+- Cynthia said she would print it when she is in Sydney
 
 ## 2023 November 16
 #### BEX6510 
