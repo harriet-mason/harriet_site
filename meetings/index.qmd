@@ -9,8 +9,11 @@ listing:
 
 # Supervisor Meetings
 ## 2023 November ??
+#### Meeting
+- Still need to organise how frequent each meeting is.
+
 #### Cassowaryr
-- Emailled (when site is up and running) Albrecht and gave him an link to the issues [here](triad/convexissue.qmd)
+- Will email Albrecht when the site is back up and running since I wrote up the issue as a page on the website like last time. It is not urgent enough for me to move it somewhere else, but If the website bug isn't fixed before I go to ASC I'll just rewrite it as a bug on the cassowaryr github and email him before I leave.
 
 #### Uncertainty Lit Review
 - I am still trying to get the draft of this done within the month of November
