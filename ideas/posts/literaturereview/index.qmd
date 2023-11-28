@@ -26,6 +26,7 @@ editor_options:
   - especially considering some uncertainty visualisation papers discuss using just a text based method to communicate uncerainty
 4. Specific Section on Uncertainty Visualisation
   - There is also two kinds of papers, those that compare elements of a plot (like mapping uncertainty to an aesthetic) and those that compare some expression of a distribution (like a scatter plot compared to a box plot).
+  - try to map back to david speigleholder paper i.e. uncertainty means lots of different things
 5. Future work/Conclusion
 
 

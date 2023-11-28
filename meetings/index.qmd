@@ -27,6 +27,9 @@ listing:
 - I didnt add you guys to the original submission by mistake, can I add everyone as co-authors on the poster and lightning talk slide or is it too late for that since you aren't in the program?
 - Cynthia said she would print it when she is in Sydney
 
+#### Notes
+- try using chull package instead for convex hull
+
 ## 2023 November 16
 #### BEX6510 
 - I think I did OK
