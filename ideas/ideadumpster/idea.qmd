@@ -5,6 +5,19 @@ editor: source
 
 This section is not designed to be read (so please don't read it). Every now and then I have an idea and I don't really have somewhere to put it. It might be good or bad or pointless but I don't want to throw it out. So I just write it down here and might come back to it later, or might throw it out later if it is stupid. 
 
+## Perceptual Experiment thoughts
+- Bar chart vs line chart, comparison vs trend (exchangeability) compare plots to their *inexchangeable* alternative?
+- Can we generate benchmark tests for abstract plot aesthetics such as animation and interactivity.
+- Ideas for goal based perceptual tasks
+  - Extract value
+  - Which is bigger
+  - Correlation (easily found with shape)
+  - Odd one out
+- Also a question of what it is, you are comparing
+  - An estimate
+  - Uncertainty
+  - Are they even different?
+
 ## Random notes that have not had much thought
 - Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
 - interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
