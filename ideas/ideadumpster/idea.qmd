@@ -17,6 +17,14 @@ This section is not designed to be read (so please don't read it). Every now and
   - An estimate
   - Uncertainty
   - Are they even different?
+- Can you work out what people see when the see a plot quickly and what they see when they look at it for longer?
+  - if the take aways are different
+  - if they can be split of shape and stuff
+  - give a really short time limit to force someone to do the short glace at the plot and then a longer time limit
+- People flipping information time issue vs errors (plots in A B order but question is B>A)
+  - For a short task people remember to flip it back so it is just an extra step tha takes longer
+  - For longer tasks, people have starting point amnesia and are more likely to make a mistake
+    - Like how I forget my ATM card and keep getting scammed
 
 ## Random notes that have not had much thought
 - Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
