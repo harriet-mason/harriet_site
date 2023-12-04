@@ -25,8 +25,19 @@ This section is not designed to be read (so please don't read it). Every now and
   - For a short task people remember to flip it back so it is just an extra step tha takes longer
   - For longer tasks, people have starting point amnesia and are more likely to make a mistake
     - Like how I forget my ATM card and keep getting scammed
+- is it actually bad to map multiple aesthetics to a single variable (e.g. colour and x axis to gdp or something). Does it hurt interpretation in any way?
+  - seems to be frowned upon if X is continuous, but encouraged if X is a discrete variable, as if the colour chage highlights meta information about a variable
+  - If uncertainty is meta information, its main thing should be to hedge the signal 
+    - If I look at a map and a signal is plotted, the VSUP should prevent me from drawing conclusions that are not there.
+- Experiment of Uncertainty as meta info
+    - I feel like if uncertainty is meta-information it should be applied to the same axis (blur if it is a visual image, position if the varable is mapped to precision, your goal should be to prevent undue signal coming through - think of what actual noise does in a visualisation)
+    - I wonder if there are tests that ask users to identify a pattern and perceive of uncertainty as a single joint factor with the signal 
+    - These tests would also need to link each visual method to an uncertinty aspect
+    - But for a different question (e.g. bands instead of error bars) you would still be able to answer the question. So the motivation is still the dominant factor.
 
 ## Random notes that have not had much thought
+- It is actually kind of odd how little the distinction between meta information and variable is spoken about.
+  - time and space also have this interesting quality of "I can physically be there". We are mapping data to a plan on which we, the reader, exist. Even if we consider exchangeability and continuity, that is something that only time and spatial data technically have. Data is being mapped to the space I live in, I am not trying to imagine myself in the space of the data.
 - Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
 - interesting that we give confidence intervals as 95%. Every way we talk about uncertainty is directly related to hypothesis testing which is a very non-intuitive way of thinking about uncertainty. What if we did epistemic and aleatory confidence intervals. This may be a stupid idea when I read it later, not at midnight.
 - From the Role of Uncertainty "We can see that trust it is highest when the user is either aware of no uncertainties or mistakenly believes there are no uncertainties". This makes me suspect that people are trusted more when they don't display uncertainty BECAUSE the audience has assumed there is none.  If you don't display uncertainy, I think it is assumed there is none. maybe we could test this by making people aware of uncertainty and not and seeing if their reaction to to the plot when there is no uncertainty displayed mimics their beliefs when they know for certainty there is no uncertainty. Like get them to do a decision making task or something. It makes me think about the cognative test I had to do where uncertainty existed but was not made explicitly clear to me.

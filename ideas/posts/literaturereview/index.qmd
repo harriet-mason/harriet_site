@@ -24,6 +24,7 @@ editor_options:
 3. Visualisation in the context of uncertainty communication
   - Basically I want a brief section highlighting the importance of visualisation and discussing it in relation to other forms of uncertainty communication.
   - especially considering some uncertainty visualisation papers discuss using just a text based method to communicate uncerainty
+  - I think it is also important to highlight if uncertainty is meta information or if it is a variable in of itself. Meta information (such as contiunity, exhangeability, etc) are usually set to specific visual features (e.g. VSUP clearly sees uncertainty as meta information)
 4. Specific Section on Uncertainty Visualisation
   - There is also two kinds of papers, those that compare elements of a plot (like mapping uncertainty to an aesthetic) and those that compare some expression of a distribution (like a scatter plot compared to a box plot).
   - try to map back to david speigleholder paper i.e. uncertainty means lots of different things
