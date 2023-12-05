@@ -17,19 +17,28 @@ editor_options:
 ##### Usual Format for this paper
 1. Introduction
 2. Definitions of Uncertainty
-  - Null Values
-  - Variance
-  - Hypothesis Testing
-  - Distribution
+  - The more taxonomies I read the more convinced I am the "defining uncertainty" is the best one. Not only is it the most complete, but it also identifies WHY some uncertainties are difficult to visualise (specifically which part of the taxonomy) and suggests HOW you can best communicate these uncertainties.
+    - A lot of other papers just make a comment like "oh some of these are hard to communicate" but that paper actually goes into detail instead of hand waving the problem away.
+    - It also explains why the uncertainty visualisation literature focuses on a specific subset of uncertainty cases.
+  - Examples
+    - Null Values
+    - Variance
+    - Hypothesis Testing
+    - Distribution
+  - Combining uncertainty is also a reccurring theme in these papers
 3. Visualisation in the context of uncertainty communication
   - Basically I want a brief section highlighting the importance of visualisation and discussing it in relation to other forms of uncertainty communication.
   - especially considering some uncertainty visualisation papers discuss using just a text based method to communicate uncerainty
-  - I think it is also important to highlight if uncertainty is meta information or if it is a variable in of itself. Meta information (such as contiunity, exhangeability, etc) are usually set to specific visual features (e.g. VSUP clearly sees uncertainty as meta information)
 4. Specific Section on Uncertainty Visualisation
   - There is also two kinds of papers, those that compare elements of a plot (like mapping uncertainty to an aesthetic) and those that compare some expression of a distribution (like a scatter plot compared to a box plot).
   - try to map back to david speigleholder paper i.e. uncertainty means lots of different things
 5. Future work/Conclusion
 
+# Random thoughts
+- I think it is also important to highlight if uncertainty is meta information or if it is a variable in of itself. Meta information (such as contiunity, exhangeability, etc) are usually set to specific visual features (e.g. VSUP clearly sees uncertainty as meta information)
+- A lot of work that evaluates uncertainty visualisations checks to see if the mean can be gathered from a visualisation, but if we view uncertainty as meta-information, then with a high uncertainty we wouldn't want the mean to be visible
+  - Also an example of why the motivation matters for these things. If you don't know "WHY" someone is using a visualisation for uncertainty and just pick the "best" one, you are going to get a visualisation that does a poor job of its task.
+  - put uncertainty in the context of other meta-data of variables
 
 ```{r}
 #| echo: false

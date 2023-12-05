@@ -36,6 +36,13 @@ This section is not designed to be read (so please don't read it). Every now and
     - But for a different question (e.g. bands instead of error bars) you would still be able to answer the question. So the motivation is still the dominant factor.
 
 ## Random notes that have not had much thought
+- I wonder if assumption > sample (outcomes) > PDF > point can be seen as a precision of uncertainty and therefore carry with it a subconscious implication of precision, in the same way we communicate meta information about other variables.
+- I wonder how you convey meta-uncertainty in animation
+  - Then is uncertainty meta information with meta information? Yikes.
+  - subconsciously communicate this with N outcomes 0= very uncertain about uncertainty, infinite = very certain about uncertainty
+- As a plot becomes more complicated the perceptual tasks become more difficult to untangle. E.g. the hurricane uncertainty was "technically" mapped correctly but immediately looking at it, I made the same mistake as lay people (partially because I don't know if storms increase in size, and partially because I would assume it is a visualisation to tell me if i need to evacuate or not (my risk) and I dont care where the eye of the storm is, I can where is going to be HIT by the storm)
+- I wonder how often academics cite two papers for a claim that have the same root source? It would be especially common if we are alowed to cite literature reviews for stuff
+  - I wonder if you can make software that would check for that, like a branching tree of what cited what for which claim.
 - It is actually kind of odd how little the distinction between meta information and variable is spoken about.
   - time and space also have this interesting quality of "I can physically be there". We are mapping data to a plan on which we, the reader, exist. Even if we consider exchangeability and continuity, that is something that only time and spatial data technically have. Data is being mapped to the space I live in, I am not trying to imagine myself in the space of the data.
 - Error examples: Measurement errors, Sampling error, Events outside the sample, Black Swan Events (pandemic)
