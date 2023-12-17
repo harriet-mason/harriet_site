@@ -13,6 +13,8 @@ This section is not designed to be read (so please don't read it). Every now and
   - Which is bigger
   - Correlation (easily found with shape)
   - Odd one out
+- Might need a second experiment specifically for shape identification? like scatter plots? Need to think about what different questions look like in different plots and how we pull that information out.
+  - There is also an issue with increasing the number of observations. Like a scatter plot is a large number of observations look at the shape kind of thing. Shape identification doesn't really make sense with a small number of observations.
 - Also a question of what it is, you are comparing
   - An estimate
   - Uncertainty
@@ -35,7 +37,8 @@ This section is not designed to be read (so please don't read it). Every now and
     - These tests would also need to link each visual method to an uncertinty aspect
     - But for a different question (e.g. bands instead of error bars) you would still be able to answer the question. So the motivation is still the dominant factor.
 
-## Random notes that have not had much thought
+## Random notes that have not had much thought\
+- It is insane how disconnected the concept of "information" in statistical visualisations is from sufficient statistics.
 - I wonder if assumption > sample (outcomes) > PDF > point can be seen as a precision of uncertainty and therefore carry with it a subconscious implication of precision, in the same way we communicate meta information about other variables.
 - I wonder how you convey meta-uncertainty in animation
   - Then is uncertainty meta information with meta information? Yikes.
