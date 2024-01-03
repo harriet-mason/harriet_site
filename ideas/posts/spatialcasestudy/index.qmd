@@ -1,0 +1,46 @@
+---
+title: "Spatial Uncertainty Case Studies"
+author: "Harriet Mason"
+---
+
+# Uncertainty Visualisation Rules
+While I have an idea of how you would visualise uncertaity, it is largely motivation and uncertainty source specific. I am only looking at the case where uncertainty exists to supress the signal from the plot. Even within this, the exact visualisation depends on the motivation. The main motivation for this method is the simple idea: **If you want to include uncertainty in a visualisation for the purpose of signal supression, you must express uncertainty within the same variable the signal is expressed in**. Our goal is to have the uncertainty interpreted *with* the signal, not as a secondary thought. In most cases of uncertainty visualisation, uncertainty mapped as a second variable (e.g. the first graphical element maps a measurement and the second maps the uncertainty) which leads to issues when the signal and the uncertainty do not align. 
+
+# Map Data
+# ABS area codes
+```{r}
+library(sf)
+areacodes <- c("GCCSA", "MB", "SA1", "SA2", "SA3","SA4", "STE")
+filenames <- paste(here::here(),
+                   "ideas/posts/spatialcasestudy/statisticalareas/",
+                   areacodes,
+                   "_2021_AUST_GDA2020.shp", 
+                   sep="")
+?read_sf
+nc = st_read(system.file("shape/nc.shp", package="sf"))
+summary(nc)
+```
+# Street View
+```{r}
+
+```
+
+
+# Numbat Data: Missings
+```{r}
+library(tidytuesdayR)
+holder <- tt_load("2023-03-07")
+numbats <- holder$numbats
+```
+
+```{r}
+library(ggplot2)
+numbats |>
+  ggplot(aes(x=decimalLatitude, y=decimalLongitude)) +
+  geom_point(alpha=0.3)
+```
+
+```{r}
+library(ggmap)
+states <- map_data("state")
+```
