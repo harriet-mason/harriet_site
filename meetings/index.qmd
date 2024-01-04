@@ -9,16 +9,19 @@ listing:
 
 # Supervisor Meetings
 ## 2024 January 4
+#### Meeting comments
+- mid year deadline for projection pursuit paper (july 1st deadline for submitting a draft)
+  - scagnostics 
+  - new student for math bit
+
 #### Experiment
-- Can I add Susan as a supervisor?
+- Can I add Susan as a supervisor? Might be too many people.
 - I want to test a specific case of uncertainty visualisation, but I have several small hypothesis in what I think would make a good visualisation
   - Visualisation goal is signal suppression instead of signal (most papers are on uncertainty as signal, i.e. "how likely is this outcome")
   - Embed uncertainty within the same variable that it exists in when possible to maintain source (geography people care about it)
   - Mass vs Sample for simulation vs estimated/assumed (since a mass is just a sample as n->inf)
   - Resolution (e.g. box plot vs density) is for macro vs micro trends, akin to bin width in a histogram. 
 - I started looking at an example to show how this would work (in spatial case study post) but then I remembered I should finish the literature review
-  - Haven't asked Emi for meeting times yet for same reason
-
 
 #### Uncertainty Lit Review
 - Sections are organised, I am going through and writing the draft. I am hoping it will be ready for a check next week.
