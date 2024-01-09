@@ -10,6 +10,16 @@ listing:
 # Supervisor Meetings
 ## 2024 January 9
 #### Meeting comments
+- where could my work (or someone elses) from a mathematical perspective make some inroads that would fix this problem (dont have to give a fix)
+- what would be a practical consideration, 
+- what would be the statistical aspects (
+  - including assumptions we are asking people to make in order to make a judgement) 
+  - why it makes sense to assume the storm is constant size and intensity for the cone paper, 
+- what would be the mathematical elements of the uncertainty (cone gives sense that outside the cone you are safe) 
+  - what should people know in preparation for a storm 
+  - what would I like to know? i.e. what is the chance it is going to hit me, if i wait an hour where is the storm going to be and will I still have time to evacuate)
+- papers on uncertainty do a poor job of displaying uncertainty themselves (what were the measurements taken how was standard error calculated)
+
 #### Uncertainty Lit Review
 - I have skipped straight to the experiment section.
 - Had notes for all the experiments but I have had to go back in and summarise them in terms of the specific information i need for the lit review.
