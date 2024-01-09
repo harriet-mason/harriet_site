@@ -14,12 +14,13 @@ listing:
 - I have skipped straight to the experiment section.
 - Had notes for all the experiments but I have had to go back in and summarise them in terms of the specific information i need for the lit review.
   - The list of items I am summarising for each paper (so that I can also quantify some of these things) is in the literature review
-  - There are a couple of other papers that have also done similar uncertainty literature reviews and I want to avoid retredding their steps.
 - I am not sure I want to avoid the papers that are "bad" because they aren't technically "bad" they are more confused and that is part of the point. 
-  - The problem with these ones is that they are difficult to summarise down into the lit review framework. Working out how they diverge and why is becoming time consuming. I am thinking I should just cut my losses with some papers for now. I'm worried that will add a bias towards statistics paper into the lit review though.
-  - They all have a deeper problem which comes from the uncertainty definition problem which isn't their fault but does need to be addressed
-- I want to go through one of the cone of uncertainty papers that I have categorised according to the lit review and talk about how to discuss it in a nice way
-  - Some parts are easy (especially issues that overlap with a lot of papers) but issues in assumptions (that are quite common in the papers but dont follow a consistent pattern) are harder.
+  - The parts that are a yes/no in the summary list are easy, the general confusion and conflicting assumptions/ground truths are not as easy to capture
+  - Also when there are a LOT fo conflicting assumptions even the easy parts of the paper become difficult to summarise down. 
+  - Working out how they diverge and why is becoming time consuming. I am thinking I should just cut my losses with some papers for now. I'm worried that will add a bias towards statistics paper into the lit review though.
+  - I feel like this is stemming from the deeper problem which comes from the uncertainty definition problem which isn't their fault but does need to be addressed. Like if the people writing the papers who are experts are struggling to untangle uncertainty I don't know why we expect the participants to get it right.
+- I want to go through one of the papers that I have categorized according to the lit review (cont of uncertainty paper) and talk about how to discuss it in a nice way
+  - Some parts are easy (especially issues that overlap with a lot of papers) but issues in assumptions (that are quite common in the papers but don't follow a consistent pattern) are harder.
 
 ## 2024 January 4
 #### Meeting comments
