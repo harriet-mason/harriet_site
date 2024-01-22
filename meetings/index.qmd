@@ -8,6 +8,48 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 January 23
+#### Lit Review
+##### Groups
+- Paper groups:
+  - Plot comparisons, Perceptual tasks, Heuristic Checks, Trust Assessment, Meta Papers on the experiment design, Exploration/think aloud, Can people get X from a plot?
+
+- I am not 100% sure on how to integrate the groups that aren't plot comparisons
+  - Plot experiemnts: does this pdf visualisation do better than this pdf visaulisation
+  - Perceptual tasks: Do people associate this visual aesthetic with uncertainty? (these experiments apply to a specific sub-area of uncertainty visualisation where the uncertainty is integrated in the aesthetic used to visualise the signal variable)
+  - Heuristic checks: do people have this bias when looking at this plot?
+  - Trust assessments: Do people trust our results more with this uncertainty visualisation? (The weird asusmption that trust should be treated as independent from the trustworthiness of the information is wild)
+  - Meta papers: Uncertainty visualisation experiments should actually be done like this.
+  - Exploration: Look at this visualisaiton for this purpose, tell us what you are looking at and why.
+  - Can people get X: Draw/look at this uncertainty viusalisation, what is the mean of this distribution?
+
+- Some papers combine multiple of these types but these seem to be the broad categories. All my comments do not apply to every type of paper so I am not 100% sure how to compile them.
+
+##### Task hierarchy
+- Basically my logic is:
+  - Most uncertainty papers visualise uncertainty as a PDF and directly ask questions about the "probablity of event x"
+  - This is treating uncertainty as a signal not as a noise. In this case, there is no reason to treat uncertainty as any different from another variable. Therefore, if you apply the logic of established results from visual inference (not specific to uncertaitny) the results of a lot of these papers are self evident. 
+  - The papers I have read seem to have results that align with this theory but I need a way to show it that is more than just "vibes" which is what I currently have.
+
+- I want to use a kind of hierarchy but it is hard to find one. This is what I was trying to do with the taxonomy of visual informatio I presented at last years confirmation. I wanted to show that any visual statistic can be related to the mathematical statistic, and then you can show with maths the statistics you have in a visualisation and how difficult they are to pull out. The product plots paper made a similar point which is why I was interesting in trying to use it. Basically a significant statistics thing for visualisation. While that might have worked, I can't use that in the literature review because it isn't a published paper, so I need something that is citable. 
+- Frankly from what I have done so far, it looks like people will do whatever "elementary task" is closest to what you are asking for by default. If you ask them to make an effort they will do an elementary task + a heuristic at most. If the heuristic is bad or is doing too much leg work, the responses are bad. This is also something I can't use but it is currently how I am organsing the information.
+- I have an example of this in the excel spreadsheet. I also want to go through what I am tracking and why to see if there is anything that might be a waste of time.
+
+- The hierarchy options I have at the moment are:
+  - [Susans graphic](https://srvanderplas.github.io/Presentations/2023-12-ASC/#/testing) which is more about testing methods and also I don't know if it is published anywhere.
+  - I could try doing something that is more qualitative where I discuss how cognitively difficult something would be based on the best practices from [this paper](https://www.annualreviews.org/doi/10.1146/annurev-statistics-031219-041252)
+  - [This paper](https://journals.sagepub.com/doi/10.1177/09637214211009512) talks about different ways we get information out of a graphic but they don't really talk about which is easier or anything. The author themselves says it would be useful to know the relative power of these visual tools.
+  - [This paper](https://pubmed.ncbi.nlm.nih.gov/21292539/) is kind of relevant when looking at sample visualisations, but this has a similar problem to the one above where it is more of a discussion of the visual systems rather than a direct comparison of how difficult some tasks are.
+
+- If I can show THIS is true, the my greater point of "If you want to treat uncertainty as a signal you can look to other visualisation research, if you want to treat uncertainty as a noise there is very little in terms of discussion or established methods" which is the background for the experiment I want to do.
+  - I actually think the lineup protocol or open ended questions are the only ways you could really ask about noise. It kind of feels like trying to catch a breath in a jar or something.
+  
+##### Range of Papers
+- Up to now I have basically been exclusively looking at papers that have they keywords "uncertainty visualisation" or something similar. Should I also expand my search/considerations to:
+  - Papers that talk about visualising distributions/densities or probabilies specifically (since this is what the uncertainty visualisation papers as basically doing anyways)
+  - Papers that talk about visualization of missing values
+  - Other things that can introduce uncertainty as stated in my definition of uncertianty that dont explicity use the key word "uncertainty"
+
 ## 2024 January 9
 #### Meeting comments
 - where could my work (or someone elses) from a mathematical perspective make some inroads that would fix this problem (dont have to give a fix)
