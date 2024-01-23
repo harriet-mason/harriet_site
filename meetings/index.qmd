@@ -25,8 +25,8 @@ listing:
 - Extra notes
   - In the future work, discuss the possibility of mapping uncertainty work to the hierarchies established is drawing graphics
 - Todo's
- - Write summary for each section (i.e. paper groups) and mark parts to come back to with finer details.
- - Find good examples of uncertainty visualisation and explain why they are good 
+  - Write summary for each section (i.e. paper groups) and mark parts to come back to with finer details.
+  - Find good examples of uncertainty visualisation and explain why they are good 
     - (the trust papers highlight the noise signal thing too)
 
 ##### Groups
