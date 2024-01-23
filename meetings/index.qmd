@@ -10,9 +10,28 @@ listing:
 # Supervisor Meetings
 ## 2024 January 23
 #### Lit Review
+##### Meeting Notes
+- Groups
+  - Bundle the other categories together and mention other considerations
+- Task Hierarchy
+  - consider arguing that you are thinking about it with respect to the taxonomy
+  - Look into Q methodology process
+  - Recording too many details for each paper will make it become too complicated. Try to keep it simple.
+- Range of papers
+  - Don't expand the range of the paper by too much
+  - Do include papers that talk about visualisation of confidence intervals or density/distribution visualisations
+  - Try not to get too fine grained on the critique particularly, keep open mind when writing the first parts,
+  - Nod to other papers that are included according to the definition (such as missing value visualisations) but don't do a full literature review on them
+- Extra notes
+  - In the future work, discuss the possibility of mapping uncertainty work to the hierarchies established is drawing graphics
+- Todo's
+ - Write summary for each section (i.e. paper groups) and mark parts to come back to with finer details.
+ - Find good examples of uncertainty visualisation and explain why they are good 
+    - (the trust papers highlight the noise signal thing too)
+
 ##### Groups
 - Paper groups:
-  - Plot comparisons, Perceptual tasks, Heuristic Checks, Trust Assessment, Meta Papers on the experiment design, Exploration/think aloud, Can people get X from a plot?
+  - Plot comparisons, Perceptual tasks, Heuristic Checks, Trust Assessment, Meta Papers on the experiment design, Qualatative analysis, Can people get X from a plot?
 
 - I am not 100% sure on how to integrate the groups that aren't plot comparisons
   - Plot experiemnts: does this pdf visualisation do better than this pdf visaulisation
@@ -20,7 +39,7 @@ listing:
   - Heuristic checks: do people have this bias when looking at this plot?
   - Trust assessments: Do people trust our results more with this uncertainty visualisation? (The weird asusmption that trust should be treated as independent from the trustworthiness of the information is wild)
   - Meta papers: Uncertainty visualisation experiments should actually be done like this.
-  - Exploration: Look at this visualisaiton for this purpose, tell us what you are looking at and why.
+  - Qualatative analysis: Look at this visualisaiton for this purpose, tell us what you are looking at and why.
   - Can people get X: Draw/look at this uncertainty viusalisation, what is the mean of this distribution?
 
 - Some papers combine multiple of these types but these seem to be the broad categories. All my comments do not apply to every type of paper so I am not 100% sure how to compile them.
