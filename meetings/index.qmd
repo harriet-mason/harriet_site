@@ -10,6 +10,29 @@ listing:
 # Supervisor Meetings
 ## 2024 January 23
 #### Lit Review
+- I have basically just been doing the draft write up Di suggested without the technicalities now that all my note are in order. 
+- Sections that have been done so far are checked off below (untouched for unfinished parts are unchecked):
+  - [ ] Introduction
+  - [x] Defining Uncertainty
+    - [x] Colloquial Definitions
+    - [x] Taxonomies of Uncertainty
+    - [x] Taxonomies of Visual Uncertainty
+  - [ ] General Attitudes Towards Uncertainty
+  - [ ] Literature Summary
+    - [ ] Similar Work 
+    - [ ] Types of papers
+      - [ ] Plot Comparison Experiments
+        - [ ] Incomparable Plots (mathematically different)
+      - [ ] Other Uncertainty Experiments (Perceptual Tasks, Heuristic Checks, Trust Assessment, Qualitative analysis, Other experiments)
+    - [ ] Issues in the Literature
+      - [ ] Noise vs Signal
+      - [ ] Considerations for the Sources of Uncertainty
+      - [ ] Inclusion of Secondary information
+  - [ ] Great Examples
+  - [ ] Future Work
+
+## 2024 January 23
+#### Lit Review
 ##### Meeting Notes
 - Groups
   - Bundle the other categories together and mention other considerations
