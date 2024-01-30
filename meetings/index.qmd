@@ -15,6 +15,7 @@ listing:
 - Define in terms of grammar of graphics (like DNA)
 - Define plots (mostly great plots) also in terms of signal and noise (and uncertainty taxonomy)
 - Check cassowaryr code fix email
+- Send sections to read to slack when they are done (for Sarah)
 
 #### Lit Review
 - I have basically just been doing the draft write up Di suggested without the technicalities now that all my note are in order. 
