@@ -9,6 +9,38 @@ listing:
 
 # Supervisor Meetings
 ## 2024 January 23
+### Notes
+
+### Lit Review
+#### Work summary, questions, comments, and edits
+- I added images to the definition section, I have marked the general attitudes section as done but it does need images to be added
+- I also added in a paragraph about why there is not mathematical definition of uncertainty, as well as a section explaining *why* we should consider uncertainty this way instead of the way we typically consider it (similar to the stuff I said to Sarah last week)
+- I read up on the grammar of graphics, and I realized my confirmation was kinda me trying to do this but for uncertainty visualisation (whoops)
+  - The grammar of graphics doesn't quite seem to capture some differences in uncertainty visualisation that seem to be of importance. I think I will convert the stuff I was trying to say in my confirmation into a grammar of graphics framework so it actually makes sense.
+  - I think my problem with a lot of the uncertainty visualisation stuff is that they all use the same data and axis scales, but every other aspect (the statistics,the elements, the coordinates, everything) is a complete free for all. 
+
+#### Progress
+  - [ ] Introduction
+  - [x] Defining Uncertainty
+    - [x] Colloquial Definitions
+    - [x] Taxonomies of Uncertainty
+    - [x] Taxonomies of Visual Uncertainty
+  - [x] General Attitudes Towards Uncertainty
+  - [ ] Literature Summary
+    - [ ] Similar Work 
+    - [ ] Types of papers
+      - [ ] Plot Comparison Experiments
+        - [ ] Incomparable Plots (mathematically different)
+      - [ ] Other Uncertainty Experiments (Perceptual Tasks, Heuristic Checks, Trust Assessment, Qualitative analysis, Other experiments)
+    - [ ] Issues in the Literature
+      - [ ] Noise vs Signal
+      - [ ] Considerations for the Sources of Uncertainty
+      - [ ] Inclusion of Secondary information
+  - [ ] Great Examples
+  - [ ] Future Work
+
+
+## 2024 January 23
 #### Notes
 - Add figures from papers you are summarising (also for the taxonomies if they have a visualisation of it)
   - make the paper less dense (it is mostly words)
