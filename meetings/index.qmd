@@ -10,6 +10,10 @@ listing:
 # Supervisor Meetings
 ## 2024 January 23
 ### Notes
+- add typology of uncertainty table to stuff
+- consider doing a clustering of the abstracts to see common threads using [tidytext](https://www.tidytextmining.com/) instead of manually organising them
+- cake sprinkles were confusing to Sarah so make it uniform
+- Sarah had a student do a summary and draw boxes (get link for paper)
 
 ### Lit Review
 #### Work summary, questions, comments, and edits
