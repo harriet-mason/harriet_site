@@ -8,7 +8,68 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2024 January 23
+## 2024 February 13
+### Paper Boxes
+I don't think you guys understand the size of some of the tasks you ask me to do. Mathematical definitions of uncertainty is a complicated topic, the paper that gave the taxonomy *is its own paper with 2600 citations*. To give an even more specific, mathematical definition, would be its own paper and it would be a *very* complicated paper.
+The chapters I have in mind are:
+  1) Literatrue Review: Spell out problems and show how prevelant they are
+  2) Define Uncertainty: Provide a formal mathematical definition of uncertainty
+  3) Define Uncertainty Visualisation: Using the maths definition of uncertainty we can then insert it into the grammar of graphics framework
+  4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions.
+
+![Paper Bins explained](images/paperbins.jpeg)
+
+I think you think I need the projection pursuit stuff because you can only see a small part of the work I have done. I have done a very large amount of work on the other topics that you think are part of the literature review but should be papers in of themsevles.
+
+![Why you think I need the projection persuit](images/thesisidea.jpg)
+
+To me the projection pursuit stuff will take *longer* to iron out than what I have and it will derail my current work. I am better off finishing the work I am on until I get sick of it and *then* swapping to any remaining cassowaryr work. I feel like you are stressed because you think my current work is not far along but I have been working on it a lot. 
+
+![The timeline for me writing something up](images/WORKFLOW.jpg)
+Since the comments you make are typically about visualisations, captions and needing to add images, I need to be able to get the papers to *that stage* otherwise showing it will force me to jump around this workflow. If I jump around this workflow I will become derailled and never finish a single paper. Last week talking about defining uncertainty send me back to *that work* even though I know it is a separate paper, and I ended up spending the week on that *when I need to finish the literature review*. 
+
+
+### What I need in terms of supervision
+- I need a longer lead. 
+  - When I worked on the blog I was given a long lead
+  - When I did my coursework I was given a long lead
+  - Before my confirmation I was given a long lead to write up whatever I wanted and get feedback once it was somewhat done
+  - During my honours thesis I was given a short lead BUT for that project our boxes were perfectly aligned
+- What does a longer lead look like
+  - I can meet if I have SPECIFIC questions. 
+    - It gives you a clear idea on what I am seeking feedback on and what I need you to read
+  - No more "check-in" meetings 
+    - These have derailed what I am doing 100% of the time.
+    - We spend the meeting talking about things I did not need feedback on because it was just a throwaway comment or something I had not gotten to yet
+    - The lack of a specific section makes you think *everything* is on topic, which is is not, and you end up sending me somewhere that is irrelevant to the work I am currently doing.
+    - *your* working style works for you, I need to be able to do *my* working style. I need something similar to how the blogs were written which was very hands off with check a check in *when I have something to discuss*. If you saw some of the blogs in their early versions before they were ready to be read you would have absolutely hated them and told me to abandon the posts. Just because something is written down that *does not mean it should be read by anyone except me*
+
+I am not being given the space to build up an idea enough. I usually build an idea out in the way my brain works and then translate it so that you can see the entire image *from your perpsective*. Right now my ideas appear to be a single point from your perspective, I need you to allow me to build in into something you can *see*
+
+![Difference In ideas](images/difthink.jpg)
+
+- Cynthia thinks similarly to me, she has a longer lead, and it is working for her
+  - She has found being given permission to go off and work on her ideas and peruse them to be beneficial.
+  - I need this in order to get anything done
+  
+
+- What is helpful advice
+  - If you feel that my selection of papers is not broad enough, suggest to me some new papers
+  - If you have a paper or textbook or blog post or anything that you think I could read that could offer clarity, I am open to advice
+  - A good counter-example or logical issue that is clearly shows a mistake in my logic. "This is not true" is not that.
+  - Helpful advice on more efficient or thorough ways to collect or display evidence
+
+I know this may seem daunting and a way to waste time, but I managed to do all the course work and my undergraduate working *my way*. I need the flexibility to do that to be able to write a thesis. Constantly trying to write things to explain them to you guys, not write things to explain the idea, is what has taken up the most of my time with little pay off. I need to be given the time and trust to work on these concepts.
+
+### Supervision and Authorship
+I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I like Emi and Ursula as people, but a lot of the time I was explaining thing I think they were confused and stressed that they felt like they had nothing to offer.
+
+### Evidence for the Literature Review
+- Tabling up the papers and collecting them as data, will allow me to show that the comments I am making about these papers are perverse and not just a once off.
+- I can change the plot collection to the grammar of graphics, but I need to finish reading the book to proper understand and apply it. 
+- I cannot do a formal definition of uncertainty so we will need to work with what already exists.
+
+## 2024 February 6
 ### Notes
 - add typology of uncertainty table to stuff
 - consider doing a clustering of the abstracts to see common threads using [tidytext](https://www.tidytextmining.com/) instead of manually organising them
@@ -44,7 +105,7 @@ listing:
   - [ ] Future Work
 
 
-## 2024 January 23
+## 2024 January 30
 #### Notes
 - Add figures from papers you are summarising (also for the taxonomies if they have a visualisation of it)
   - make the paper less dense (it is mostly words)
