@@ -12,11 +12,15 @@ listing:
 ### Paper Boxes
 I don't think you guys understand the size of some of the tasks you ask me to do. Mathematical definitions of uncertainty is a complicated topic, the paper that gave the taxonomy *is its own paper with 2600 citations*. To give an even more specific, mathematical definition, would be its own paper and it would be a *very* complicated paper.
 The chapters I have in mind are:
-  1) Literatrue Review: Spell out problems and show how prevelant they are
-  2) Define Uncertainty: Provide a formal mathematical definition of uncertainty
-  3) Define Uncertainty Visualisation: Using the maths definition of uncertainty we can then insert it into the grammar of graphics framework
-  4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions.
 
+  1) Literatrue Review: Spell out problems and show how prevelant they are
+  
+  2) Define Uncertainty: Provide a formal mathematical definition of uncertainty
+  
+  3) Define Uncertainty Visualisation: Using the maths definition of uncertainty we can then insert it into the grammar of graphics framework
+  
+  4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions.
+  
 ![Paper Bins explained](images/paperbins.jpeg)
 
 I think you think I need the projection pursuit stuff because you can only see a small part of the work I have done. I have done a very large amount of work on the other topics that you think are part of the literature review but should be papers in of themsevles.
@@ -35,8 +39,10 @@ Since the comments you make are typically about visualisations, captions and nee
   - When I did my coursework I was given a long lead
   - Before my confirmation I was given a long lead to write up whatever I wanted and get feedback once it was somewhat done
   - During my honours thesis I was given a short lead BUT for that project our boxes were perfectly aligned
-- What does a longer lead look like
+- What does a longer lead look like?
   - I can meet if I have SPECIFIC questions. 
+    - I have a specific question every 1-2 weeks, at most stages of the process but **never** during a word vomit. Meeting during a word vomit will derail me.
+    - I don't always need feed back. If I don't want feedback yet, I won't be willing to take it on and the meeting will do more harm than good.
     - It gives you a clear idea on what I am seeking feedback on and what I need you to read
   - No more "check-in" meetings 
     - These have derailed what I am doing 100% of the time.
@@ -62,7 +68,7 @@ I am not being given the space to build up an idea enough. I usually build an id
 I know this may seem daunting and a way to waste time, but I managed to do all the course work and my undergraduate working *my way*. I need the flexibility to do that to be able to write a thesis. Constantly trying to write things to explain them to you guys, not write things to explain the idea, is what has taken up the most of my time with little pay off. I need to be given the time and trust to work on these concepts.
 
 ### Supervision and Authorship
-I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I like Emi and Ursula as people, but a lot of the time I was explaining thing I think they were confused and stressed that they felt like they had nothing to offer.
+I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I like Emi and Ursula and I do like working with them and talking to them, but when I was explaining an idea in my thesis, they were often confused and tried to scramble for feedback.
 
 ### Evidence for the Literature Review
 - Tabling up the papers and collecting them as data, will allow me to show that the comments I am making about these papers are perverse and not just a once off.
