@@ -9,66 +9,47 @@ listing:
 
 # Supervisor Meetings
 ## 2024 February 13
+I am not discussing any work this week, instead I want to have a conversation about the big picture of the thesis and the meetings. I have one question, but that is mostly for after we talk about the other stuff.
+
 ### Paper Boxes
-I don't think you guys understand the size of some of the tasks you ask me to do. Mathematical definitions of uncertainty is a complicated topic, the paper that gave the taxonomy *is its own paper with 2600 citations*. To give an even more specific, mathematical definition, would be its own paper and it would be a *very* complicated paper.
-The chapters I have in mind are:
+I think it would be a good chance to spend a meeting discussing the broad overview of my thesis so we can all be on the same page and you guys know what my goals are for each seciton. The chapters I have in mind are:
 
   1) Literatrue Review: Spell out problems and show how prevelant they are
   
-  2) Define Uncertainty: Provide a formal mathematical definition of uncertainty
+  2) Define Uncertainty: Provide a formal mathematical definition of uncertainty. A mathematical definitions of uncertainty that is consistent across all levels of the data analysis pipeline would be quite compliated. I do have something in mind but it is not in a position where it should be shown, *and* I need to finish the literature review first. I know this is a paper in of itself because the "defining uncertainty" paper that decribed the taxonomy *is its own paper* and it doesnt seem to be considered lacking in substance since it has like over 2000 citations. Therefore, to give an even more specific mathematical definition would be its own paper. 
   
-  3) Define Uncertainty Visualisation: Using the maths definition of uncertainty we can then insert it into the grammar of graphics framework
+  3) Define Uncertainty Visualisation: Using the maths definition of uncertainty we can then insert it into the grammar of graphics framework to have an actual definition for uncertainty visualisations that can be used to compare them and understand exactly what we are visualising.
   
-  4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions.
+  4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions. This would be for a spatial/temporal context.
   
 ![Paper Bins explained](images/paperbins.jpeg)
 
-I think you think I need the projection pursuit stuff because you can only see a small part of the work I have done. I have done a very large amount of work on the other topics that you think are part of the literature review but should be papers in of themsevles.
+I think you think I need the projection pursuit stuff because you can only see a small part of the work I have done. I have done a very large amount of work on the other topics that you think are part of the literature review but should be papers in of themsevles. 
 
 ![Why you think I need the projection persuit](images/thesisidea.jpg)
 
-To me the projection pursuit stuff will take *longer* to iron out than what I have and it will derail my current work. I am better off finishing the work I am on until I get sick of it and *then* swapping to any remaining cassowaryr work. I feel like you are stressed because you think my current work is not far along but I have been working on it a lot. 
+While I want to finish the honours cassowaryr paper, I want to finish these ideas in the thesis before I do the projection pursuit. To me the projection pursuit stuff will take *longer* to iron out than what I have and I feel like I am getting traction in the uncertainty visualisation work and I don't want to lose it. I feel like you are stressed because you think my current work is not far along but I actually have a pretty good idea of most of the chapters. I think the confirmation had a small amount of all the topics, but none of them were developed enough to be their own competent ideas. 
 
 ![The timeline for me writing something up](images/WORKFLOW.jpg)
-Since the comments you make are typically about visualisations, captions and needing to add images, I need to be able to get the papers to *that stage* otherwise showing it will force me to jump around this workflow. If I jump around this workflow I will become derailled and never finish a single paper. Last week talking about defining uncertainty send me back to *that work* even though I know it is a separate paper, and I ended up spending the week on that *when I need to finish the literature review*. 
 
+Since the comments I get in my thesis meetings are about adding images and other things that I haven't gotten to yet, trying to fulfill those requests forces me to jump around my workflow and throws me off my track. Additionally, when I get comment about defining uncertainty mathematically or looking at the grammar of graphics (which is *is* helpful advice for the defining uncertainty and the uncertaitny visualisation papers) I end up going down those rabbit holes and I end up in a constant state of reading related work and collecting ideas rather than writing anything.
+
+Constantly jumping around the papers and the workflow has been helpful in terms of seeing the bigger picture, but I feel like it has left me unable to finsh any *single* piece of work and because I can't finish any single piece of work I can't show you guys the shape of it. Last week talking about defining uncertainty send me back to the mathematical definition of uncertainty paper, even though I know it is a separate paper, and I ended up spending the week on that and did zero work on the literature review. I can feel my attention shifting to the defining uncertainty paper but that paper is far from completed and if I go there now I will have *nothing* finish before my confirmation. When I enter a state of hyperfocus on a paper its better to just let me ride that out and I feel like the meetings
 
 ### What I need in terms of supervision
-- I need a longer lead. 
-  - When I worked on the blog I was given a long lead
-  - When I did my coursework I was given a long lead
-  - Before my confirmation I was given a long lead to write up whatever I wanted and get feedback once it was somewhat done
-  - During my honours thesis I was given a short lead BUT for that project our boxes were perfectly aligned
-- What does a longer lead look like?
-  - I can meet if I have SPECIFIC questions. 
-    - I have a specific question every 1-2 weeks, at most stages of the process but **never** during a word vomit. Meeting during a word vomit will derail me.
-    - I don't always need feed back. If I don't want feedback yet, I won't be willing to take it on and the meeting will do more harm than good.
-    - It gives you a clear idea on what I am seeking feedback on and what I need you to read
-  - No more "check-in" meetings 
-    - These have derailed what I am doing 100% of the time.
-    - We spend the meeting talking about things I did not need feedback on because it was just a throwaway comment or something I had not gotten to yet
-    - The lack of a specific section makes you think *everything* is on topic, which is is not, and you end up sending me somewhere that is irrelevant to the work I am currently doing.
-    - *your* working style works for you, I need to be able to do *my* working style. I need something similar to how the blogs were written which was very hands off with check a check in *when I have something to discuss*. If you saw some of the blogs in their early versions before they were ready to be read you would have absolutely hated them and told me to abandon the posts. Just because something is written down that *does not mean it should be read by anyone except me*
+I want to make it clear that I am not saying you guys have given me bad advice, It's just that I have a habit of getting distracted and I am trying to prevent that. I have been trying to work within your parameters for the entire duration of the PhD, and I know after last year you felt like you were working within my parameters, but not letting me change the meeting frequency, not always allowing me to cancel meetings when I have nothing to discuss, and suggesting I keep projection pursuit in my thesis has given me the creeping sensation of feeling powerless in the work I can do. This means I need to have the freedom and you need to trust me enough to pursue something to a point where I think it is ready to be shown to you and recieve comments that I am ready for.
 
-I am not being given the space to build up an idea enough. I usually build an idea out in the way my brain works and then translate it so that you can see the entire image *from your perpsective*. Right now my ideas appear to be a single point from your perspective, I need you to allow me to build in into something you can *see*
+- I need to be able to work when I need to work and get meeting feedback when I need it. I know my own work style which is why I suggested less frequent meetings last year, but now I am saying I *need* it if I am going to finish any of these papers.
+- I want to meet if I have SPECIFIC questions. No more "check-in" meetings. Similar to Emi and Ursula but we have a weekly meeting that I can cancel (with however much notice you guys want) if I don't have any points of discussion for that week. 
+- It gives you a clear idea on what I am seeking feedback on and what I need you to read so you don't have to try and keep up to date on a huge mess of work.
+- I don't work well with check in meetings. Showing work that *I* am not happy with means I spend the week tryingt to prepare to defend what I have done because I am aware it doesnt look like its in a shape yet, and instead of working on the paper I end up spending the week preparing for the meeting.
+- I need something similar to how the blogs were written which was very hands off with check a check in when I have something to discuss. 
+- I can tell that you don't agree with some of the things I am saying in thesis, or dont quite understand what I am trying to get at, but I want the chance to flesh out my point of view so that it is something you can see the big picture of when you look at it from your persepctive. Then your feedback will be easier to place in terms of the entire picture and I will have an easier time implementing it.
 
 ![Difference In ideas](images/difthink.jpg)
 
-- Cynthia thinks similarly to me, she has a longer lead, and it is working for her
-  - She has found being given permission to go off and work on her ideas and peruse them to be beneficial.
-  - I need this in order to get anything done
-  
-
-- What is helpful advice
-  - If you feel that my selection of papers is not broad enough, suggest to me some new papers
-  - If you have a paper or textbook or blog post or anything that you think I could read that could offer clarity, I am open to advice
-  - A good counter-example or logical issue that is clearly shows a mistake in my logic. "This is not true" is not that.
-  - Helpful advice on more efficient or thorough ways to collect or display evidence
-
-I know this may seem daunting and a way to waste time, but I managed to do all the course work and my undergraduate working *my way*. I need the flexibility to do that to be able to write a thesis. Constantly trying to write things to explain them to you guys, not write things to explain the idea, is what has taken up the most of my time with little pay off. I need to be given the time and trust to work on these concepts.
-
 ### Supervision and Authorship
-I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I like Emi and Ursula and I do like working with them and talking to them, but when I was explaining an idea in my thesis, they were often confused and tried to scramble for feedback.
+I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I like working with and talking to Emi and Ursula, but when I was explaining an idea in my thesis, they were often confused and tried to scramble for feedback. The reason I wanted Susan to join the team was because she seemed to understand the way I thought about visualisation and was able to communicate issues back to me in a way I understood.
 
 ### Evidence for the Literature Review
 - Tabling up the papers and collecting them as data, will allow me to show that the comments I am making about these papers are perverse and not just a once off.
