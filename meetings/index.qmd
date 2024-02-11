@@ -22,7 +22,7 @@ I think it would be a good chance to discuss the broad overview of my thesis so 
   
   4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions. This would be for a spatial/temporal context.
   
-![Paper Bins explained](images/paperbins.jpeg)
+![Paper Bins explained](images/paperbins.jpg)
 
 I have done a very large amount of work on the other topics that seem like they are part of the literature review, but should actually be papers in of themselves. The literature review would be far too long if I included all these things. I think with these sections I have enough for a full thesis. My understanding is that you think you think I need the projection pursuit stuff in my thesis becuse I only have a literature review and maybe an experiment, I think this might be because I haven't fully outlined my plan and you can only see a small part of the work I have done.
 
