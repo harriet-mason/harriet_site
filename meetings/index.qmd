@@ -34,15 +34,16 @@ While I want to finish the honours cassowaryr paper, I want to finish these idea
 
 Ideally my progress review will be the literature review and the completed mathematical definition of uncertainty. Finishing these two topics before the progress review is getting difficult because of the meetings. I want to make it clear I *am* getting very good advice from you, but that is exactly the problem. The advice is good which makes me want to immediately jump to that section of my workflow or to that paper. I struggle a lot to forcibly shift myself back to a main task once I have swapped which means I am leaving everything half finished and using a lot of energy to try and get back on topic. At this rate I wont be able to finish any single section before my progress review.
 
-### What I need in terms of supervision
-I have a habit of getting distracted and I am trying to prevent that. 
-- I need to be able to work *without meetings* until that section of the workflow is finished or until I have a specific question that I know won't throw me off topic.
-- I can get general advice when I am between workflow sections when being sent down a rabbit hole won't leave a huge section of work unfinished.
-- I will be better able to organise your feedback and implement it faster this way. 
-- This also means I cant have "check-in" meetings. If I dont have a specific question I will cancel the meeting for that week. I collect my questions as I go so I can give you as much notice for a cancelled meeting as you need.
-- This will also give you a clear idea on what I am seeking feedback on and what I need you to read so you don't have to try and keep up to date on a huge mess of work.
+### Meetings
+I have a habit of getting distracted and I am trying to prevent that.  
 
-### Supervision
+- The meetings have been fine, I just want to make one small change.  
+- I want to meet when I have specific questions (which usually happens every 1-2 weeks anyways) and avoid having "check-in" meetings.   
+- If I don't have a specific question I will cancel the meeting for that week. I collect my questions as I go so I can give you as much notice for a cancelled meeting as you need.   
+- This will also prevent me from going down rabbit holes because I got good advice that I want to investigate.  
+- This will also give you a clear idea on what I am seeking feedback on which would make it easier for me to implement and also you don't have to try and keep up to date on a huge mess of work (I can ask you to read specific sections)
+
+### Supervision Team
 I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I am happy to keep everyone for the time being if we want to reassess after the literature review is done. I like working with and talking to Emi and Ursula, but when I was explaining an idea in my thesis, they were often confused and tried to scramble for feedback because it was outside their area or way of thinking. 
 
 Additionally I think the supervision team has four people that think about visualisation and uncertainty very differently to me and we are struggling with translation between our perspectives. I don't think either way of thinking is wrong, but sometimes I struggle to understand your feedback or how it fits into what I am talking about. Part of the reason I wanted Susan to join the team was because she seemed to understand both perspectives and talking to her helped me translate previous feedback you guys had given me into something I understood and could implement. 
