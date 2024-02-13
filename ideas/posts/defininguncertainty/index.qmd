@@ -100,3 +100,7 @@ cat("::: {layout-ncol=2}\n",
 - to have variance you need to vary *something*. Like you need new samples or different models or soemthing. Without something that varies, you dont have variance.
 - if your model is biased it is stable with respect to resampling, BUT new predictions jump around it. If your model has variance it is unstable with respect to new samples, but then how does it react to new models?
 - n-CV, LOOCV, test/training, etc all have thier own bias and variance because it is taking the goal estimate *up* a level.
+- Descriptive does no inference, exploratoy/unspervised has a functional form and wants to *find* predictors and responses, prediction/estimation wants to perform inference to find a true unknown value (prediction because it hasn't happened and estimation because we cannot know. Although we are pretty good at predicting celestial bodies because we can see the entire length which I think is interesting).
+- Variance and uncertainty are not synonymous. Uncertainty can be described with variance, but variance is a metric that is estimated with certainty
+- I wonder if the way machine learning boundaries are fractals is related to this concept or can be understood with this concept. Like there is randomness
+- Something ahout a linear model being contained within a neural network because a neural network can *be* a linear model if it is true with enough data. Therefore we can view the linear model as a *subset* of a neural network in a way. I wonder if we can do this for every type of model.

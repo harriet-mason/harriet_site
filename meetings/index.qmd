@@ -9,9 +9,14 @@ listing:
 
 # Supervisor Meetings
 ## 2024 February 13
-This week I want to have a conversation about the big picture of the thesis. I also have a couple of changes I want to make to meetings.
+### Notes
+- Not responsible for doing a data analysis, am responsible to make sure I am covering the field fairly
+- Check other papers to see how they collected evidence and see what is acceptable from them
+- Ideally papers that lay out the landscape of a particular area (not all the papers in that journal are doing that so make sure to check)
 
 ### Paper Boxes
+This week I want to have a conversation about the big picture of the thesis. I also have a couple of changes I want to make to meetings.
+
 I think it would be a good chance to discuss the broad overview of my thesis so we can all be on the same page and you guys know what my goals are for each section. The chapters I have in mind are:
 
   1) Literature Review: Spell out problems and show how prevalent they are by quantifying how common issues are across a variety of papers and diciplines.
@@ -24,18 +29,16 @@ I think it would be a good chance to discuss the broad overview of my thesis so 
   
 ![Paper Bins explained](images/paperbins.jpg)
 
-I have done a very large amount of work on the other topics that seem like they are part of the literature review, but should actually be papers in of themselves. The literature review would be far too long if I included all these things. I think with these sections I have enough for a full thesis. My understanding is that you think you think I need the projection pursuit stuff in my thesis becuse I only have a literature review and maybe an experiment, I think this might be because I haven't fully outlined my plan and you can only see a small part of the work I have done.
+I have done a very large amount of work on the other topics that seem like they are part of the literature review, but should actually be papers in of themselves. The literature review would be far too long if I included all these things. I think with these sections I have enough for a full thesis. 
 
-![Why you think I need the projection persuit](images/thesisidea.jpg)
-
-While I want to finish the honours cassowaryr paper, I want to finish these ideas in the thesis before I do the projection pursuit. I am happy to finish the honours paper after the literature reivew but the projection pursuit stuff will take months to organise, fix, and write up and in my mind if far further from completion than the uncertainty in the grammar of graphics, and the uncertainty definition work. I think the confirmation had a small amount of all the topics, but none of them were developed enough to be their own competent ideas, over the past several months this has changed.
+I think the confirmation had a small amount of all the topics, but none of them were developed enough to be their own competent ideas, over the past several months this has changed.
 
 ![The timeline for me writing something up](images/WORKFLOW.jpg)
 
-Ideally my progress review will be the literature review and the completed mathematical definition of uncertainty. Finishing these two topics before the progress review is getting difficult because of the meetings. I want to make it clear I *am* getting very good advice from you, but that is exactly the problem. The advice is good which makes me want to immediately jump to that section of my workflow or to that paper. I struggle a lot to forcibly shift myself back to a main task once I have swapped which means I am leaving everything half finished and using a lot of energy to try and get back on topic. At this rate I wont be able to finish any single section before my progress review.
+Ideally my progress review will be the literature review and the completed mathematical definition of uncertainty. 
 
 ### Meetings
-I have a habit of getting distracted and I am trying to prevent that.  
+I *am* getting very good advice from you guys, but that is exactly the problem. The advice is good which makes me want to immediately jump to that section of my workflow or to that paper. I struggle a lot to forcibly shift myself back to a main task once I have swapped which means I am leaving everything half finished and using a lot of energy to try and get back on topic. I have a habit of getting distracted and I am trying to prevent that.  
 
 - The meetings have been fine, I just want to make one small change.  
 - I want to meet when I have specific questions (which usually happens every 1-2 weeks anyways) and avoid having "check-in" meetings.   
@@ -44,16 +47,15 @@ I have a habit of getting distracted and I am trying to prevent that.
 - This will also give you a clear idea on what I am seeking feedback on which would make it easier for me to implement and also you don't have to try and keep up to date on a huge mess of work (I can ask you to read specific sections)
 
 ### Supervision Team
-I think the supervision team needs to be smaller, especially now that I know exactly what I want to write. If the things Emi and Ursula have the expertise to contribute to is not in the thesis, I am not sure it would be respectful to their time to keep them on the team. I am happy to keep everyone for the time being if we want to reassess after the literature review is done. I like working with and talking to Emi and Ursula, but when I was explaining an idea in my thesis, they were often confused and tried to scramble for feedback because it was outside their area or way of thinking. 
-
-Additionally I think the supervision team has four people that think about visualisation and uncertainty very differently to me and we are struggling with translation between our perspectives. I don't think either way of thinking is wrong, but sometimes I struggle to understand your feedback or how it fits into what I am talking about. Part of the reason I wanted Susan to join the team was because she seemed to understand both perspectives and talking to her helped me translate previous feedback you guys had given me into something I understood and could implement. 
+I think the supervision team has four people that think about visualisation and uncertainty very differently to me and we are struggling with translation between our perspectives. I don't think either way of thinking is wrong, but sometimes I struggle to understand your feedback or how it fits into what I am talking about. I think including Susan in some of our conversations would be helpful because she seemed to understand both perspectives and talking to her helped me translate previous feedback you guys had given me into something I understood and could implement. 
 
 ![Difference In ideas](images/difthink.jpg)
 
 ### Evidence for the Literature Review
+- Not totally sure what counts as "evidence"
 - Tabling up the papers and collecting them as data, will allow me to show that the comments I am making about these papers are perverse and not just a once off.
+- Seems like this might take a long time
 - I can change the plot collection to the grammar of graphics, but I need to finish reading the book to proper understand and apply it. 
-- I cannot do a formal definition of uncertainty so we will need to work with what already exists.
 
 ## 2024 February 6
 ### Notes
