@@ -104,3 +104,18 @@ cat("::: {layout-ncol=2}\n",
 - Variance and uncertainty are not synonymous. Uncertainty can be described with variance, but variance is a metric that is estimated with certainty
 - I wonder if the way machine learning boundaries are fractals is related to this concept or can be understood with this concept. Like there is randomness
 - Something ahout a linear model being contained within a neural network because a neural network can *be* a linear model if it is true with enough data. Therefore we can view the linear model as a *subset* of a neural network in a way. I wonder if we can do this for every type of model.
+- Is a sampling distribution signal supression or new information? I think it depends on the signal. Like if you are talking about outcomes from a population, you should 
+- In order to visualise something, it needs to be able to be expressed mathematically, so uncertainty *at every level of* needs to be expressed mathematically or have a way to be expressed mathematically. I also need to show how it can be calculated. We need to try and do this for all levels from sampling to feature engineering to modelling to communication.
+- There are a lot of distinctions in data quality and stuff because it is meta-information, but meta information *is* data because it needs to be considered in the signal supression.
+- Think of Di's LDA paper. The first paper did an exploratory analysis and found a signal which they mentioned in the paper. THE next paper had a comment about how that signal was not significant and tested it using the randomised data and regenerating the 
+- OK I have rethought the classes of statistics and I think they are:
+  1) descriptive/exploratory/unsupervised: no uncertainty
+  2) estimation/causal: Trying to estimate an unobservable latent value
+  3) prediction/forecasting: Trying to predict a non-existent value that is yet be observed (i.e. even if your model is perfectly correct it could still be wrong) - celestial bodies are forecasting but its super correct.
+- There are measures for uncertainty within levels (sometimes), but not across levels. Like there are probably metrics for the uncertainty caused by data *at that level*. Before it is converted to something else. I wonder if they follow this guideline. Actually I dont think those are uncertainty metrics, I think those are just like variance, without inference there is nothing to be uncertain about.
+- You cant optimise more than one metric
+
+### Titles
+- Defining Uncertainty
+- Turn what was Qualitative to something Quantitative: Transforming Uncertainty with a Mathematical Definition
+- Uncertainty through the data pipeline
