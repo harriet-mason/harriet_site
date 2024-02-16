@@ -3,6 +3,13 @@ title: "Defining Uncertainty"
 author: "Harriet Mason"
 editor: visual
 ---
+## Goal/Questions
+### Main Goals
+- Mathematical definition of uncertainty that places all terms typically associated with uncertainty
+- Provides a way to calculate and give a mathematical expression of uncertainty. Need mathematical expressions that are consistent across the data analysis pipeline to visualise it.
+
+### Sub Questions
+
 
 ## Why this is its own paper
 I have thought more about the idea of defining uncertainty mathematically and I actually *DO* think it is possible. I want the record to show the reason I *did not* do this earlier is that *nobody* in the uncertainty literature has defined uncertainty mathematically, and I thought I was supposed to highlight problems in the literature review, not solve them. I have had an idea of how to formalise uncertainty after seeing Xiao-li Meng's work, but an uncertainty formalisation would solve *several* open questions he has postulated in previous papers, and would be so new it would need to be a paper in of itself, not as a sub-section in a literature review. A mathematical definition would be *completely* new and *very complicated*, and I think its difficulty is pretty clear by the fact that *nobody* and *I really mean nobody*, not spiegelhatter or wilkinson or mceachren or any statistician working in this space, has provided an overarching mathematical definition. This is work that would take a long time (and it is the reason I started reading philosophy books because I was actually trying to do this) and even if I did do it, it *should not* be in this paper. I think it might be possible based on the reading I have been doing over the past year to try and formalise this work, *but it is not a quick thing that can just be added to this paper*. The reason I wanted to do a summary of the papers using the larger taxonomy of uncertainty was because it is encompasing of all the taxonomies, and it allows me to show  that there are *no* formal rules to the uncertainty that is used in uncertainty communication and visualisation. Here I am trying to make the point that the lack of a formal definition or of mathematical considerations *has created problems in the literature*. To clearly and mathematically define uncertainty will *be solving this problem*. Something I was told *not to do* because this is a literature review. If a mathematical definition that we are all happy with *needs* to be in this paper, then there is a reasonable chance this paper will never be finished.
@@ -113,7 +120,21 @@ cat("::: {layout-ncol=2}\n",
   2) estimation/causal: Trying to estimate an unobservable latent value
   3) prediction/forecasting: Trying to predict a non-existent value that is yet be observed (i.e. even if your model is perfectly correct it could still be wrong) - celestial bodies are forecasting but its super correct.
 - There are measures for uncertainty within levels (sometimes), but not across levels. Like there are probably metrics for the uncertainty caused by data *at that level*. Before it is converted to something else. I wonder if they follow this guideline. Actually I dont think those are uncertainty metrics, I think those are just like variance, without inference there is nothing to be uncertain about.
-- You cant optimise more than one metric
+- You cant optimise more than one metric 
+- Sampling distribution is like taking a step forwards, (extra information? It does require additional assumptions or resampling for bootstrap), and showing the data is like taking a step back. When do you want to show each one? Both hedge information about an average, but the types of question about the average are different.
+- Showing data shows the sample size, but I wonder if that is always a good thing.
+- If you have a maximum variance model, is the amount of testing error your *actual* testing error if you removed all bias? 
+- Will need to read some stuff on information theory entropy
+  - I dont really care about the "surprising" aspect of it though.
+- "weighted uncertainty" from paper titled "Visual Exploration of Uncertainty in Remote-sensing Classification"
+- Methods to calculate and combine uncertainty from textbook titled "Uncertainty-Based Information: Elements of Generalized Information Theory"
+- I feel like aggregation across multiple data sets to a common level is similar to the significant figures in physics thing
+- if uncertainty information improves decision making, uncertainty was not provided to the correct resolution for the viewer (e.g. the uncertainty communication tasks "no choice, binary choice, choice from multiple options, coming up with your own solution")
+- I think we should think in terms of giving this information to a machine. If at the end a binary decision is made or something, conceptualising what we had off to a machine that has to make that choice will be easier. If we think about people and think "it depends what the person wants" we will maintain open ended questions. The person will have to make a decision, so for our framework it shouldn't matter if the final decision is made by a person or a computer (in a new level) because thinking about the deicsion being made by a person will allow us to keep the information in a variance state without a response. 
+- I also think that if something is true for how we communicate it to them, it is probably true lower down. Like if the distinction between variance and min/max matter to a person making a decision, it will probably matter in a model too (or some equivalent thing for that level).
+- The question has a resolution too. The observations have a resolution (if i ask "how did you get to school", a multiple choice forces a low level resolution, but a free response gives a complicated level of resolution.)
+- one mans trash is another mans treasure lol
+- error vs imprecision (i feel like the distinction is the same as the countable vs incountable maths stuff)
 
 ### Titles
 - Defining Uncertainty
