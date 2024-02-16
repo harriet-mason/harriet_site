@@ -2,12 +2,6 @@
 title: "Website for Content"
 callout-icon: false
 callout-appearance: "simple"
-resources:
-    - ThesisAnimation.mp4
 ---
 
 This is a simple website where I can upload private work that still needs to be shared. Things such as meeting notes, teaching notes, and PhD writing exist here.
-
-This video is a summary of my thesis:
-
-{{< video ThesisAnimation.mp4 >}}
