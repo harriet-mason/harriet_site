@@ -1,8 +1,11 @@
 ---
 title: "Defining Uncertainty"
 author: "Harriet Mason"
-editor: visual
 ---
+
+>"Science is built up of facts, as a house is built of stones; but an accumulation of facts is no more a science than a heap of stones is a house."
+- Henri Poincaré (1905)
+
 ## Goal/Questions
 ### Main Goals
 - Mathematical definition of uncertainty that places all terms typically associated with uncertainty
