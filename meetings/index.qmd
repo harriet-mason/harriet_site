@@ -8,6 +8,27 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 February 27
+### Notes
+- ...
+
+### Uncertainty Literature Review
+
+##### Update
+![Paper Bins explained](images/27febprogress.jpeg)
+
+  
+- I have now finished the word vomit. I am now going back through the paper and adding citations and moving paragraphs around so it is cohesive (and cutting long winded paragraphs where I am rambling that should be one sentence). 
+- I think it should be readable (to a point where the feedback you guys give is something I wasn't already planning on fixing myself) once it is at the end of this timeline.  
+
+##### Questions
+- The overlap between the "general" problems in uncertainty visualisation and the visualisation specific ones is quite large. I was thinking of keeping the earlier sections quite brief and moving a large part of those sections to the literature review section. 
+  - As it is now, I basically start getting going with a point, and then I have to stop to move onto the next section. I feel like its a bit jerky with how it reads.  
+  - With this, I am now not sure how much of the "background" to include in the introduction. Maybe this is a question for when the draft is done.  
+- Each citation for the point I am trying to make is long winded (show an example) where I am explaining what the author was trying to do but also why it makes the mistake I am discussing. I am not doing a full data analysis, but I want to give the sensation that these issues I'm discussing are *everywhere*. I am not quite sure how much information I need to give for context in each example. 
+  - I was thinking of having examples in the appendix too, so that I can have a few in the body text, but if readers want more they want. I really want to give the sense of how overwhelming and widespread the things I'm talking about are.  
+
+
 ## 2024 February 13
 ### Notes
 - Not responsible for doing a data analysis, am responsible to make sure I am covering the field fairly
