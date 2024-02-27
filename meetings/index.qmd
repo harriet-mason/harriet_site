@@ -10,7 +10,37 @@ listing:
 # Supervisor Meetings
 
 ## 2024 February 28 (with Susan)
-  
+
+#### Notes
+
+#### Literature Review Main Ideas
+
+- Uncertainty does not have a strict definition
+  - It needs a mathematical definition
+  - There is widespread misunderstanding within the literature as to what uncertaitny actually is and create nonsensical visualisations (because how something has uncertainty in the visualisation case is unclear)
+  - Uncertainty should be defined in terms of inference and how steps along the analysis pipeline influence (each step creates bias or variance)
+
+- The class of "uncertainty visualisation" is not defined 
+  - This is likely a run on problem from the definition problem
+  - The uncertainty visualisation literature is impossible to organise and there is no attempt to design field wide visualisation rules (noted by several other)
+  - Experiments compare visualisations with vastly different mathematical information as though they are equivalent, and when the mathematical information is the same the visualisations differ according to perceptual task. Because of this, the results of many uncertainty visualistion experiments are self evident. If you organise the visualisations according to the statistics and aesthetics they use to convey information, the results of the papers are easily predicted by using established concepts such as the perceptual hierarchy. 
+
+- Authors do not know what makes uncertainty visualisation interesting
+  - Again, this is an extension of the previous two points
+  - Most author justify uncertainty visualisation as its own field, separate from normal visualisation, citing the psychological nature of uncertainty and/or the dimensionality problem
+  - This is also disconnected from the motivation behind uncertainty visualisation, since authors quote that they should visualise uncertainty because failing to do so is tantamount to fraud 
+  - This means uncertainty is not special because it is an extension of the dimensionality problem or for psychological reasons, but because it is supposed to supress signal
+  - The current uncertainty literature is repeating information visualisation experiments because by directly asking participants to report a value (such as a variance or a probability) turns those values into the signal of the visualisation
+  - This means you cannot measure the effectiveness of noise by directly asking about it
+
+- Noise is hard to measure
+  - Need a way to measure noise for evaluation studies
+  - Current methods to capture uncertainty without resorting to value extraction are: trust/confidence in visualisation, decision making metrics, and vague questions that imply the participant needs to somehow combine uncertainty and signal. Each of these measurement methods have huge drawbacks or are based on invalid assumptions.
+  - Alternative options to try and measure noise are things like barely noticiable differences, i.e. showing participants plots with decreasing noise and and identifying when they are able to identify the signal. This is similar in concept to the lineup stuff.
+  - Visualisation is a particularly difficult a visualisation can convey several signals at once, and often the most popular visualisations are the most versatile (e.g. a scatter plot ). 
+  - The choice of ground truth is also hard (specifically for visualisation) because there is no clear rules for exactly when a signal should become noticeable in a plot. Patrick's PhD work shows that human perception does not perfectly line up with standard statistical tests.
+  - I have an idea of a solution for the other problems, not so much this one lol.
+
   
 ## 2024 February 27
 ### Notes
