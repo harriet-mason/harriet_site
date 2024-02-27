@@ -8,9 +8,17 @@ listing:
 ---
 
 # Supervisor Meetings
+
+## 2024 February 28 (with Susan)
+  
+  
 ## 2024 February 27
 ### Notes
-- ...
+- Give Susan copy of paper, and explain general idea and flow
+  - want to refine paper in its current state to get it to a final version.
+- min max for decision making (relevant information)
+- redo all visualisations in own style referring to the original visual that inspired it.
+- read data pipeline things and make own data pipeline visualisation (where uncertainty comes in at each step)
 
 ### Uncertainty Literature Review
 
