@@ -14,12 +14,7 @@ website:
         text: Meeting Notes
       - href: ideas/index.qmd
         text: Small Ideas
-      - text: Teaching
-        menu:
-          - text: ETC3250
-            href: teaching/ETC3250.qmd
-          - text: ETC3580
-            href: teaching/ETC3580.qmd
+
         
 
 format:
