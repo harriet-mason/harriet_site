@@ -8,6 +8,27 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 March 12
+#### Current Stage
+- Still working on the rewrite to make it readable. I have had a few suggestions from Susan that I am also incorperating. 
+- I have about half of the paper left to do. 
+- After this stage, I would be happy for you guys to read it so I can get your thoughts. Although if you feel really strongly about anything below (in the next stages section) being included you can also wait for that.
+
+#### Questions
+- I am not sure how to include a history of uncertainty visualisation in the introduction.
+
+#### Next Stages
+The next steps for the paper are:
+
+1) There are several sections marked with a (*Cite Gap #*), which represents something I have a citation for but I will need to go and find it. After the rewrite is done, I am going to fill in these cite gaps.
+
+2) Update the images to be my own r-coded images.
+
+3) Go back to some papers I didn't get to (or have been sent by you guys e.g. the missing values visualisation paper) and read + include that information. I will just be adding these into the existing structure so it shouldn't take as long as organising the original papers.
+
+4) Add in intended & clean up existing hand drawn images
+
+5) Final checks
 
 ## 2024 February 28 (with Susan)
 
