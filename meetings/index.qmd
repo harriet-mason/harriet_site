@@ -9,6 +9,10 @@ listing:
 
 # Supervisor Meetings
 ## 2024 March 12
+#### Notes
+- Put some reasons we care about uncertainty in introduction
+- Decision making: make sure you mention that there is a wider purpose to it
+
 #### Current Stage
 - Still working on the rewrite to make it readable. I have had a few suggestions from Susan that I am also incorperating. 
 - I have about half of the paper left to do. 
