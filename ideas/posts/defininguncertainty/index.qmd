@@ -88,6 +88,8 @@ cat("::: {layout-ncol=2}\n",
 ```
 
 ## Random notes that may or may not be relevant
+- Thinking about that thing where you want a validation set that is your final error. There is a relationship between the value of your data and what you use it for. Like low level is EDA, higher is assumption check, final level is using it for regularisaton.
+- imputing missing values is literally doing a model. How does a misaligned model at a lower level affect higher level. It is an assumption but also data.
 - I am not sure if an assumption should be considered a layer *lock* or an influx of artificial data (or both because *they* are actually the same thing)
 - Uncertainty only exists in the face of inference, so descriptive statistics has no uncertainty. Since it's goal is to describe things *as they are*, they cannot be wrong since they are a statement of fact. The average of the sample *is* the mean and that is that.
 - In this same vein, I don't think unsupervised learning or exploratory visualisation (which under this framework are the same thing) have uncertainty either. Their goal is to bring forward as much information as possible and I'm not sure how you can have uncertainty if there is no goal (or nothing to be uncertain about)
