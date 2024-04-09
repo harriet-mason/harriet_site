@@ -8,6 +8,18 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 April 9
+#### Notes
+
+#### Discussion Topics
+- Literature review draft
+  - Fixing up figures
+  - Data pipeline for grammar of graphics section
+- Susan said I should be aware of some unpublished work Heike has been working on, specifically she said:
+  - "Email Heike and ask if she has any draft papers about her work with NORC and testing graphics in the general population. She'll know what you're talking about."
+  - Is this email OK? I feel weird cold emailing people.
+- I entered 3MT (I have already written the talk so its not a time issue) just thought I should mention it.
+
 ## 2024 March 12
 #### Notes
 - Put some reasons we care about uncertainty in introduction
