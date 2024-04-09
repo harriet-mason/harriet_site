@@ -10,6 +10,13 @@ listing:
 # Supervisor Meetings
 ## 2024 April 9
 #### Notes
+- Come up with mini proposals for future thesis topics to discuss at next meeting
+  - Think about how you might tackle it
+- Figures
+  - Definition taxonomy citation gap
+  - Think about a diagram that would help understand the information in the paragraph
+  - Sequence of diagrams through the whole paper that tell the story of the paper
+- Email about milestone
 
 #### Discussion Topics
 - Literature review draft
