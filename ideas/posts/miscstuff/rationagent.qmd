@@ -1,0 +1,23 @@
+---
+title: "Defining how a Rational agent should deal with uncertainty"
+---
+# Questions
+- What is the actual definition of a rational agent?
+
+
+# Quick notes
+- How should a rational agent incorperate uncertainty?
+- Counting cards math paper joke about how it pays \$16/h with a variance of $10000/h or something
+- Current cases dont make sense with a rational agent
+  - Case 1: they should completely ignore it or only use it to maximise profit
+    - If average is \$1 higher with a variance of \$10000 then you should go with the $1 higher one
+    - That doesnt feel intuitively correct
+    - Would be correct for Jeff Bezos is the gamble was realtively small
+  - Case 2: Include it in the rational agents optimisation function
+    - e.g. minimise uncertainty from set A, then maximise profit (minimise uncertainty)
+    - It doesn't make intuitive sense why a rational agent would have a two step 
+    - this aligns more closely with the irrational choices of humans. When faced with something complicated we use a set of short sighted heuristics to make a deicison, we do not consider long term costs/benefits and run on effects
+    - You can only optimise one function so doing a two step function where you optimise two different things is just badly defining the *actual* function you are optimising.
+- Most of the dealings with ration agents and uncertainty hand wave it away, without trying to define how a rational agent should manage it.
+  - Including a risk aversion parameter is one of those things. How much risk aversion should a rational agent have?
+- Since you can only optimise one function, all alternative functions that incorperate uncertainty are just a mix of
