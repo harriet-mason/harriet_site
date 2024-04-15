@@ -10,6 +10,12 @@ listing:
 # Supervisor Meetings
 ## 2024 April 9
 #### Notes
+
+#### Future Research Ideas
+- I wrote down a couple of ideas [here](misc_files/futureideas.qmd)
+
+## 2024 April 9
+#### Notes
 - Come up with mini proposals for future thesis topics to discuss at next meeting
   - Think about how you might tackle it
 - Figures
@@ -95,7 +101,7 @@ The next steps for the paper are:
 ### Uncertainty Literature Review
 
 ##### Update
-![Paper Bins explained](images/27febprogress.jpeg)
+![Paper Bins explained](misc_files/27febprogress.jpeg)
 
   
 - I have now finished the word vomit. I am now going back through the paper and adding citations and moving paragraphs around so it is cohesive (and cutting long winded paragraphs where I am rambling that should be one sentence). 
@@ -128,13 +134,13 @@ I think it would be a good chance to discuss the broad overview of my thesis so 
   
   4) Experimental Signal Suppression: Discuss ways to test noise as noise rather than testing noise as signal, using the formalised uncertainty definitions. This would be for a spatial/temporal context.
   
-![Paper Bins explained](images/paperbins.jpg)
+![Paper Bins explained](misc_files/paperbins.jpg)
 
 I have done a very large amount of work on the other topics that seem like they are part of the literature review, but should actually be papers in of themselves. The literature review would be far too long if I included all these things. I think with these sections I have enough for a full thesis. 
 
 I think the confirmation had a small amount of all the topics, but none of them were developed enough to be their own competent ideas, over the past several months this has changed.
 
-![The timeline for me writing something up](images/WORKFLOW.jpg)
+![The timeline for me writing something up](misc_files/WORKFLOW.jpg)
 
 Ideally my progress review will be the literature review and the completed mathematical definition of uncertainty. 
 
@@ -150,7 +156,7 @@ I *am* getting very good advice from you guys, but that is exactly the problem. 
 ### Supervision Team
 I think the supervision team has four people that think about visualisation and uncertainty very differently to me and we are struggling with translation between our perspectives. I don't think either way of thinking is wrong, but sometimes I struggle to understand your feedback or how it fits into what I am talking about. I think including Susan in some of our conversations would be helpful because she seemed to understand both perspectives and talking to her helped me translate previous feedback you guys had given me into something I understood and could implement. 
 
-![Difference In ideas](images/difthink.jpg)
+![Difference In ideas](misc_files/difthink.jpg)
 
 ### Evidence for the Literature Review
 - Not totally sure what counts as "evidence"
