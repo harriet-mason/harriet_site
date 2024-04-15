@@ -47,7 +47,7 @@ author: "Harriet Mason"
 
 ## Signal supression experiment
 - Spend a lot of the literature review discussing how uncertainty visualisations should focus on signal suppression, not extracting particular values or decision making experiments.
-
+- I feel like this needs to be done in conjunction with another experiment with a different goal, because it is more a methodological change than a specific idea for an experiment.
 
 ## Short Ideas
 - Connect sufficient statistics to grammar of graphics. If we have a statistic we want to draw inference on, it has a sufficient statistic. Many visualisations use 
