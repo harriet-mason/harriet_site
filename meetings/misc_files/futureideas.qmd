@@ -5,6 +5,7 @@ author: "Harriet Mason"
 
 ## Sample vs Mass as N increases in size
 ![Main idea behind sample and mass visualisation comparison](samplesizemass1.jpeg)
+
 #### What is in the current literature (i.e. notes that could have a citation if needed)
 - Many papers treat expressing a distribution as a sample vs as a mass as distinct methods of displaying a distribution
 - There are also papers that show that looking at a sample is better than looking at a density and attribute that difference to the "countability" of a sample
