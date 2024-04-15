@@ -36,6 +36,7 @@ author: "Harriet Mason"
 - This test would need to be limited to visual expressions that minimise the number of other changes to the grammar of graphics between the plots. Although this is difficult because the grammar of graphics assumes we are starting with a set sample. As n approaches infinity, some plots that are distinct in the grammar of graphics and visually distinct at smaller sample sizes collapse into the same plot as n approaches infinity. This makes sense because this is what we would expect mathematically, but it does create a problem with using the grammar of graphics. Two entirely different plots might collapse into the same plot visually, and two plots that are almost identical in the grammar of graphics will display completely different plots as n approaches infinity. 
   - e.g. as sample size increases there is a risk of overplotting. How overplotting is managed could also have an effect on this sample size thing. E.g. if you increase transparency, randomly jitter the points, organise them. This is something else that could be a variable, or it might just have to be kept constant, in which case we would need to line make sure the mass depiction is that sample size depiction (using that overplotting management method) as n approaches infinity.
   - Do we want to compare different visualisations that only have minor changes in the grammar of graphics, or do we want to compare visualisations that collapse into the same graphic?
+  - I kinda feel like mapping which visualisations collapse into each other as a sample size increases could almost be a paper in of itself
 
 ![Example of plots that are different according to the grammar of graphics, and look different at finite samples, but collapse into the same visualisation as n approaches infinity](samplesizemass2.jpeg)
 
@@ -44,11 +45,33 @@ author: "Harriet Mason"
 - I am not sure what measurements to use. I have made the point that uncertainty visualisation should focus on signal suppression, but masses (and samples) are displayed for reasons other than signal suppression (i.e. they are not always "uncertainty" visualisations). Therefore I am not sure if we should measure the 
 - There are concepts related to displaying densities that overlap with sample side, i.e. smoothing functions for densities and bin widths for histograms. If you compare a sample to an estimated density, it is likely the smoothing function will interfere with results in some way and also might need to be considered as a variable. Alternatively, the relationship between binning functions and sample size might also be testable in some way.
 
+## Signal supression experiment
+- Evaluating the plots on how well people can extract the average when the variance is low would be replicating existing work, evaluating plots on how much people *struggle* to extract the average when variance is high is the new work.
+- Uncertainty visualisations should focus on signal suppression, not extracting particular values or decision making experiments.
+- I feel like this needs to be done in conjunction with another experiment with a different goal, because it is more a methodological change than a specific idea for an experiment.
+- A simple method would be to redo the perceptual task experiments but instead of showing a single value, you show a distribution.
+  - Instead of identifying the perceptual task that best allows viewers to express uncertainty, we would be trying to match a perceptual task to something that suppresses that aesthetics signal
+  - Looking for visualisation methods that suppress signal when the variance is high and allow you to extract signal when the variance is low. Similar concept to the value suppressing uncertainty palette.
+
+![Main idea behind percpeptual task signal supression experiment](signalsupress1.jpeg)  
+- The problem with these simple experiments is that the task is so simple, there isn't a "signal" for someone to pull out of the visualisation. The task is simply value extraction. This means we can ask "what is the average of X" reducing the problem to a value extraction task
+- Additionally, being able to suppress a single value extraction is not the main goal. This should extend questions about  combinations of distributions if this is a viable method of expressing uncertainty. 
+
+![More complicated task example for signal supression experiment](signalsupress2.jpeg)  
+
+- Similar to the previous perceptual task, these tasks are so small that you kind of need to ask question. When you ask if the trend is increasing or if A is greater than B, we are asking a deterministic question about a random variable. This is not advisable so the simple versions of the experiment don't seem to be doable...
+- What is more interesting is if visualizing noise on individual variables extends to plot level signal suppression, we might just have to test this.
+- Since we cannot ask a deterministic question about a random variable since they depend on a probabiltiy, we could instead display uncertainty and ask open ended questions and how visualisation method and variance affect signal suppression (i.e. whether or not the participants notice the relationship).
+
+![Example plots of open ended questions. We can see what signal the plot supresses based on what the viewer reports as a noticiable signal](signalsupress3.jpeg)  
+
+- This would test if signal suppression applied to individual values extends to plot level signal suppression. This would mean that uncertainty for things like resampling (but not model choice) can be expressed in a visualisation for EDA.
+
 ## Using Visual Integrability to Map Uncertainty
 
-## Signal supression experiment
-- Spend a lot of the literature review discussing how uncertainty visualisations should focus on signal suppression, not extracting particular values or decision making experiments.
-- I feel like this needs to be done in conjunction with another experiment with a different goal, because it is more a methodological change than a specific idea for an experiment.
+- It is also unclear if uncertainty
+- This is similar to the perceptual task one but for more complicated signals like finding spatial autocorrelation in a map.
+
 
 ## Short Ideas
 - Connect sufficient statistics to grammar of graphics. If we have a statistic we want to draw inference on, it has a sufficient statistic. Many visualisations use 
