@@ -11,7 +11,8 @@ listing:
 ## 2024 April 9
 #### Notes
 
-#### Future Research Ideas
+#### Discussion topics
+- The [ASMI summer school](https://ws.amsi.org.au/) is on mathematical uncertainty under decision making (2 weeks in Queensland). It looks useful. What is the procedure for going to something like this?
 - I wrote down a couple of ideas [here](misc_files/futureideas.qmd)
 
 ## 2024 April 9

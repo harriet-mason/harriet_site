@@ -6,7 +6,7 @@ author: "Harriet Mason"
 ## Sample vs Mass as N increases in size
 ![Main idea behind sample and mass visualisation comparison](samplesizemass1.jpeg)
 
-#### What is in the current literature (i.e. notes that could have a citation if needed)
+### What is in the current literature (i.e. notes that could have a citation if needed)
 - Many papers treat expressing a distribution as a sample vs as a mass as distinct methods of displaying a distribution
 - There are also papers that show that looking at a sample is better than looking at a density and attribute that difference to the "countability" of a sample
   - This is also the logic many authors use for displaying a quantile dot plot
@@ -15,7 +15,7 @@ author: "Harriet Mason"
 - Mathematically, the closer the sample size gets to infinity, the closer the statistics you draw from your sample are the true mass. 
 - As sample size increases, people do not edit their underlying beliefs according to Bayesian reasoning (i.e. you cannot use bayes rule to mathematically calculate a persons change in reasoning by looking at a plot), so there is reason to suspect the effects of sample size on an visualisation of a distribution will not follow the mathematical sample size effect.
 
-#### What I want to test (could do one or a handful of these)
+### What I want to test (could do one or a handful of these)
 - While this sample vs density effect has been identified multiple times in multiple different plots, there seems to be little research into how sample size interacts with that.
 - If there is a difference between peoples ability to read information from a mass or from a sample, we would expect that difference to decrease as the sample size gets larger 
 - If there is a relationship between sample size and plot readability mass, it should exist in *all* aesthetics we can map a sample to. The fps shows it exists in an animation, but it would be interesting to see if the effect changes if the aesthetic the sample is plotted on changes (e.g. colour hue, position, frames of an animation, lengths, directions, ect). This would be limited by ability to show samples of some aesthetics (like volume, shading, area, etc)
@@ -32,7 +32,7 @@ author: "Harriet Mason"
   - As the sample size increases, it might get to a point where the viewer just stops counting entirely, in which case we would see a drop off in accuracy in each participant.
   - If the participants are using a heuristic for the sample size calculations instead of counting, the sample size and time to answer relationship would not be as noticeable.
 
-#### Side comments
+### Side comments
 - This test would need to be limited to visual expressions that minimise the number of other changes to the grammar of graphics between the plots. Although this is difficult because the grammar of graphics assumes we are starting with a set sample. As n approaches infinity, some plots that are distinct in the grammar of graphics and visually distinct at smaller sample sizes collapse into the same plot as n approaches infinity. This makes sense because this is what we would expect mathematically, but it does create a problem with using the grammar of graphics. Two entirely different plots might collapse into the same plot visually, and two plots that are almost identical in the grammar of graphics will display completely different plots as n approaches infinity. 
   - e.g. as sample size increases there is a risk of overplotting. How overplotting is managed could also have an effect on this sample size thing. E.g. if you increase transparency, randomly jitter the points, organise them. This is something else that could be a variable, or it might just have to be kept constant, in which case we would need to line make sure the mass depiction is that sample size depiction (using that overplotting management method) as n approaches infinity.
   - Do we want to compare different visualisations that only have minor changes in the grammar of graphics, or do we want to compare visualisations that collapse into the same graphic?
@@ -46,7 +46,7 @@ author: "Harriet Mason"
 - There are concepts related to displaying densities that overlap with sample side, i.e. smoothing functions for densities and bin widths for histograms. If you compare a sample to an estimated density, it is likely the smoothing function will interfere with results in some way and also might need to be considered as a variable. Alternatively, the relationship between binning functions and sample size might also be testable in some way.
 
 ## Signal supression experiment
-#### Perceptual task
+### Perceptual task
 ![Main idea behind percpeptual task signal supression experiment](signalsupress1.jpeg) 
 
 - Evaluating the plots on how well people can extract the average when the variance is low would be replicating existing work, evaluating plots on how much people *struggle* to extract the average when variance is high is the new work.
@@ -58,13 +58,13 @@ author: "Harriet Mason"
 - The problem with these simple experiments is that the task is so simple, there isn't a "signal" for someone to pull out of the visualisation. The task is simply value extraction. This means we can ask "what is the average of X" reducing the problem to a value extraction task
 - Additionally, being able to suppress a single value extraction is not the main goal. This should extend questions about  combinations of distributions if this is a viable method of expressing uncertainty. 
 
-#### Group comparisons
+### Group comparisons
 
 ![More complicated task example for signal supression experiment](signalsupress2.jpeg)  
 
 - Similar to the previous perceptual task, these tasks are so small that you kind of need to ask question. When you ask if the trend is increasing or if A is greater than B, we are asking a deterministic question about a random variable. This is not advisable so the simple versions of the experiment don't seem to be doable...
 
-#### Plot level signal supression
+### Plot level signal supression
 
 ![Example plots of open ended questions. We can see what signal the plot supresses based on what the viewer reports as a noticiable signal](signalsupress3.jpeg)  
 
@@ -72,9 +72,26 @@ author: "Harriet Mason"
 - Since we cannot ask a deterministic question about a random variable since they depend on a probability, we could instead display uncertainty and ask open ended questions and how visualisation method and variance affect signal suppression (i.e. whether or not the participants notice the relationship).
 - This would test if signal suppression applied to individual values extends to plot level signal suppression. This would mean that uncertainty for things like resampling (but not model choice) can be expressed in a visualisation for EDA.
 
-## Using Visual Integrability to Map Uncertainty
-
-- It is also unclear if uncertainty
+## Colour (Hue, Value & Saturation) Integrability for Map Uncertainty
+![Main idea behind visually integrable vs seperable idea. The VSUP wants people to be able to extract signal and uncertainty serparetly, which prevents uncertainty from being fully integrated into the signal. The sample depiction doesn't encourage extracting any individual values, but instead encourages plot level signal, and thus works as an effective signal supressor.](coloursupress1.jpeg) 
+- For uncertainty to work as a "signal" supressor in a plot, it needs to be integrated into the signal.
+  - There have been some findings that indicate viewers of an uncertainty visualisation will ignore the uncertainty information if possible. Particiants opt to use signal heuristics (such as distance between the means) to answer questions. 
+  -  This is a product of uncertainty information that is not integrated with the signal. A well made uncertainty graphic should now allow for uncertainty to simply be ignored.
+- Signal supression in a map should reduce the ease with which we can identify something like spatial autocorrelation.
+  - Want to look at existing methods and see how well they do this.
+- There have been several maps developed that have the goal of displaying uncertainty, but not all of them were designed to suppress signal. All of these palettes have been tested on how well viewers can exctract single values. They should be tested on how well they supress signal.
+- The methods currently used to display uncertainty on a map typically work by adjusting the the palette. There are two ways this is done:
+  - (1) Combine signal and noise statistically to get a statistic that represents both and display that metric on the map
+    - Bayesian surprise map = Bayesian surprise metric
+    - Probability exceedance map = probability of exceeding a particular value
+  - (2) Map signal to colour hue, and uncertainty to colour value (or any other combination of colours) and use a 2D colour palette
+    - Bivariate map = signal as colour hue and uncertainty as colour palette.
+      - A pallete with 3 levels of uncertainty and 4 levels of signal gives the appearance of 12 independent groups rather than 4 groups with 3 levels of uncertainty. 
+    - VSUP = same as bivariate (but with separate supression)
+      - A pallete with 3 levels of uncertainty and 4 levels of signal gives the sensation of 8 distinct groups when looking at the palette on a map.
+- When we consider these methods through the lense of signal supression, it becomes evident they will probably fall short. Method (1) explicitly combines the signal and the noise to generate a new signal and so won't be useful signal supression on the original variable. Method (2) plots uncertainty and signal in a way that is not necessarily visually integrable, so it might not work as signal supression.
+- VSUP *might* work as signal supression. If my idea of signal supression is correct (that uncertainty needs to be embedded within the same aesthetic as the signal for it to work) then that would mean colour hue and saturation/value are visually integrable. This is not that far fetched.
+- Ultimately I think a sample will always be the best way to visualise uncertainty because it embeds the noise within the same axis as the signal. The signal cannot be read without reading the noise.
 - This is similar to the perceptual task one but for more complicated signals like finding spatial autocorrelation in a map.
 
 
@@ -82,3 +99,4 @@ author: "Harriet Mason"
 - Connect sufficient statistics to grammar of graphics. If we have a statistic we want to draw inference on, it has a sufficient statistic. Many visualisations use 
 - I feel like a mass distribution implies uncertainty that was calculated using assumptions, while a sample distribution implies uncertainty that was calculated using resampling methods
 - Could be fun to ask people vague questions, and because they are not sure what we want, see if they always respond using the simplest perceptual task. (e.g. "best estimate" and they just read position)
+- ggplot extension that lets you plot any value as a sample with a signal estimate, variance, and sample size.
