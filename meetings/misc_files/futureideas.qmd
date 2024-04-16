@@ -74,6 +74,7 @@ author: "Harriet Mason"
 
 ## Colour (Hue, Value & Saturation) Integrability for Map Uncertainty
 ![Main idea behind visually integrable vs seperable idea. The VSUP wants people to be able to extract signal and uncertainty serparetly, which prevents uncertainty from being fully integrated into the signal. The sample depiction doesn't encourage extracting any individual values, but instead encourages plot level signal, and thus works as an effective signal supressor.](coloursupress1.jpeg) 
+
 - For uncertainty to work as a "signal" supressor in a plot, it needs to be integrated into the signal.
   - There have been some findings that indicate viewers of an uncertainty visualisation will ignore the uncertainty information if possible. Particiants opt to use signal heuristics (such as distance between the means) to answer questions. 
   -  This is a product of uncertainty information that is not integrated with the signal. A well made uncertainty graphic should now allow for uncertainty to simply be ignored.
@@ -89,6 +90,9 @@ author: "Harriet Mason"
       - A pallete with 3 levels of uncertainty and 4 levels of signal gives the appearance of 12 independent groups rather than 4 groups with 3 levels of uncertainty. 
     - VSUP = same as bivariate (but with separate supression)
       - A pallete with 3 levels of uncertainty and 4 levels of signal gives the sensation of 8 distinct groups when looking at the palette on a map.
+      
+![Illustration of how different methods of map visualisation integrate uncertainty. Mapping a single variable makes it easy to identify spatial dependence, however 2D palettes have only been tested on value extraction and it is unclear if they can be used for higher level tasks like identifying spatial dependence. ](coloursupress2.jpeg) 
+      
 - When we consider these methods through the lense of signal supression, it becomes evident they will probably fall short. Method (1) explicitly combines the signal and the noise to generate a new signal and so won't be useful signal supression on the original variable. Method (2) plots uncertainty and signal in a way that is not necessarily visually integrable, so it might not work as signal supression.
 - VSUP *might* work as signal supression. If my idea of signal supression is correct (that uncertainty needs to be embedded within the same aesthetic as the signal for it to work) then that would mean colour hue and saturation/value are visually integrable. This is not that far fetched.
 - Ultimately I think a sample will always be the best way to visualise uncertainty because it embeds the noise within the same axis as the signal. The signal cannot be read without reading the noise.
