@@ -8,6 +8,33 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 April 23
+#### Notes
+- Grammar of grpahics pipeline
+  - add population that generates "true" visualisation (two separate things)
+  - in theory passes through the same pipeline therefore dont need all the assumptuons (messy) like two pipelines
+  - change descriptive statistic to observed statistic
+- Extract vs Decision
+  - vague acutally is quantitative mispecified question
+  - decision = quantitative precise decision
+  - too busy and too much detail - want to put in visual if its going to save from reading two pages
+  - why not worthwhile
+    - summarising a handful of experiments, some of which are not well done. Should be written in the paper, but may not need a whole figure
+    - Suggests different levels of uncertainty that can be confounded
+    - don't get bogged down, ask "is this the most important thing to empahasis?" deserves a paragraph or a few sentences
+- Hypothesis test vis
+  - sherry time series
+    - bootstrapped entire time series not individual statistics therefore confidence interval can be done for invidivual values
+    - null plot would be hard to do and for entire plot
+    - pointwise can remove trend (bootstrapped)
+    - if test, would be different if visualised in one way or another
+    - does it break it in one place or everywhere, control factor for an experiment
+    - choose plots that let you 
+
+#### Discussion topics
+- Added hand drawn images
+
+
 ## 2024 April 16
 #### Notes
 - What type of uncertainty is not displayed in the plot
