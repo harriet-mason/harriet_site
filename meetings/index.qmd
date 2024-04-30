@@ -8,6 +8,23 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 April 30
+#### Notes
+- Map visualisation
+  - might be going to far out, paper is already pretty long
+- EDA vs Communication
+  - Eda is that we dont know what we are looking for, communication is that we do, visualisation does not make that distinction clear.
+- Grammar of graphcis
+  - Only working in finite spaces
+  - Main difference is knowing the underlying distribution vs not
+- Map Visualisaitons
+  - rmapshaper thin the maps before using them to decrease the resolution
+  - maps are huge because made for cartogophers
+  - better off picking something that has been used for the pixel maps, such as the california area
+  - can get directly from R, maps has US counties data, can directly get California (and hope its up to date)
+  - already thinned 
+  - would have to look at maps package to figure out how to extract the data
+  
 ## 2024 April 23
 #### Notes
 - Grammar of grpahics pipeline
