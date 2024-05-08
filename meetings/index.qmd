@@ -8,6 +8,20 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 May 9
+#### Discussion topics
+- Current task
+  - I have been going back through the paper and cutting it down very agressively 
+- Next tasks
+  - After this I am going to finish fixing up the images (I still have some in my drawings that have not been added in, or figures that I haven't fixed up from previous meetings)
+  - After that I'm going to Fixing up formatting issues
+  - After that I'm writing up the plan for topics 2 and 3
+- Most of my figures are actually in the "great examples" section. To better disperse the figures throughout the paper, I could have the great examples littered throughout?
+- 2nd topic working out map uncertainty details, 3rd topic experiment
+  - Trying to get maps on the same scale was a nightmare and it didn't even work. There visualisation methods are poorly defined so its hard to work out how you should translate between them
+  - Already have notes for the experiment written up, just need to add to them.
+- Bump on letter for AMSI
+
 ## 2024 April 30
 #### Notes
 - Map visualisation
