@@ -14,6 +14,7 @@ listing:
 - Map adjustments
   - white outline on palette
   - signal and uncertainty axis
+  - Comment on why we can still see the signal in the bivariate map method
 
 #### Discussion topics
 - Current task
