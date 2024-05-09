@@ -9,6 +9,12 @@ listing:
 
 # Supervisor Meetings
 ## 2024 May 9
+#### Notes
+- Draft of report by Friday
+- Map adjustments
+  - white outline on palette
+  - signal and uncertainty axis
+
 #### Discussion topics
 - Current task
   - I have been going back through the paper and cutting it down very agressively 
