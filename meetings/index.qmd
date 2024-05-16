@@ -8,6 +8,19 @@ listing:
 ---
 
 # Supervisor Meetings
+
+## 2024 May 16
+#### Notes
+- want to get feedback from commitee on whether the scope of the overview is sufficient/complete
+  - are there any holes
+  - need to explain what is in the paper suscinctly so comittee can get an idea of what is in it so they can provide feedback
+- also want to get feedback on whether the next steps make sense to work on
+  - so also need to explain them 
+  - why they are interesting to do in particular
+- example of the iowa map is good to go into detail in the presentation to explain why the next two chapters are needed
+  - keep conceptual framework that it doenst matter what you have none of them can handle this very well
+- posit conf sign up for this year online (free) and last years talks are on youtube
+
 ## 2024 May 9
 #### Notes
 - Draft of report by Friday
