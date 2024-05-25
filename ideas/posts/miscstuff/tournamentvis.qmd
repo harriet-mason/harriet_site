@@ -1,0 +1,24 @@
+---
+title: "Visualisation of Tournament Results"
+author: "Harriet Mason"
+---
+
+Aren't really any good tournament visualisations. Want one that shows:
+- The results of a partially completed round robin tournament
+- Current league standing (maybe that is the order)
+- Who each team has played (so I can see if the top team has just played a bunch of easy teams or if they are actually good)
+- Which games were wins, losses or draws
+- How much of a win or loss the game was
+
+Ideas
+- Graph visualisations?
+- Paralell-coord plot in ordering but you can go accross teams
+- Green for a win, red for a loss? But it would depend on the team then... maybe if the higher team won its green and if the lower team won it's red?
+- Maybe each team has its own win/lose colour?
+- Seen some as a table, like a correlation table? That could work. Colour then matches to if the team on the left won or lost (and it would be mirrored so it wouldnt matter). Could order by how much they won by.
+- Maybe do diagonal triangles because each team plays each other twice
+
+Todo
+- Would need to write my current league data into R so I can use it
+- when finished, send the blog post to Gameday so they can update their website.
+- screenshot gameday table so It can be compared with my table that shows who has played who
