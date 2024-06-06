@@ -8,6 +8,26 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 June 7
+#### Notes
+
+#### Discussion topics
+- Have to do 3MT thing (I forgot about it tbh)
+- Suggestions from milestone pannel (and other attendees)
+  - Chapter 1 Suggestions
+    1) Need to make it clear that viewing uncertainty visualisation through the lens of signal supression is the main idea of the paper
+      - Currently it is introduced halfway through the paper. 
+      - Rest of paper should also be directly related to that main idea
+    2) Need to make some specific elements clearer
+      - Advantages/disadvantages of approaching uncertainty visualisation from the signal supression perspective
+      - Make it clearer when signal should and should not be supressed and *why* we may or may not want to supress signal in specific circumstances
+    3) I'm not exactly sure what was meant by "How might the existing contributions in the literature on uncertainty visualisation be better
+organised, to separate out the different types or aspects of uncertainty?". Do you guys know or should I ask?
+  - Chapter 2 Suggestions
+    1) Make it clear what functionality would be added to ggplot
+      - What are the inputs/outputs
+      - How is it different to existing ggplot tools
+    2) Make it clear the situations where this ggplot extension/wrapper would be useful
 
 ## 2024 May 16
 #### Notes
