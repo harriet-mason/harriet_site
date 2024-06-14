@@ -10,9 +10,26 @@ listing:
 # Supervisor Meetings
 ## 2024 June 7
 #### Notes
-
+- Can rethink signal supression with rescaling
+  - e.g. use 1 as a benchmark and values lower than 1 you sharpen the image (or more concentrated colour) and the higher than 1 matches what we are currently doing
+  - similar vein adjusting way we visualise estimate based on uncertainty
+- Cast study: cancer atlas changing the way they visualise uncertainty from transparency to removing it (and having the option to use it as a different variable)
+  - prevent combination of two variables (although maybe not anymore)
+  - Turning on and off transparency layer (interactive element consideration)
+- Signal supression hard to colourlind people 
+  - Mutes colours towards similar hard to distinguish colours
+- Racial dot map could make a nice natural comparison point
+  - using other principals that let you combine the amount of colour
+- could have section to talk about other areas of interest
+  - bits that are relevant uncertainty vis but not main idea but still might need to be included
+- People seem to be uncomfortable with the concept of "signal-supression"
+  - We are not trying to supress singal, but rather provide more information so that you dont draw erroneous signal and are more certain about the signal you do draw
+  - Like with chat-GPT how it needs to give you an answer no matter what (even if it has no idea what it is doing), this communication method is trying to prevent that type of message
+  - Maybe calling it something else would be better. I think signal supression gives the idea that we are hiding information, but actually what we are trying to do is design visualisations such that when you *include* the uncertainty information signals that actually arent there are supressed.
+  
 #### Discussion topics
-- Have to do 3MT thing (I forgot about it tbh)
+- Have to do 3MT thing
+- AMSI talk
 - Suggestions from milestone pannel (and other attendees)
   - Chapter 1 Suggestions
     1) Need to make it clear that viewing uncertainty visualisation through the lens of signal supression is the main idea of the paper
