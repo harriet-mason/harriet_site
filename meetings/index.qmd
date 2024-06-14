@@ -8,7 +8,7 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2024 June 7
+## 2024 June 14 
 #### Notes
 - Can rethink signal supression with rescaling
   - e.g. use 1 as a benchmark and values lower than 1 you sharpen the image (or more concentrated colour) and the higher than 1 matches what we are currently doing
@@ -28,9 +28,9 @@ listing:
   - Maybe calling it something else would be better. I think signal supression gives the idea that we are hiding information, but actually what we are trying to do is design visualisations such that when you *include* the uncertainty information signals that actually arent there are supressed.
   
 #### Discussion topics
-- Have to do 3MT thing
-- AMSI talk
-- Suggestions from milestone pannel (and other attendees)
+- 3MT next week. Slide is made and speech is written.
+- AMSI talk follow new structure of presentation. Going to use it as a baseline for restructuring the paper.
+- Suggestions from milestone panel (and other attendees)
   - Chapter 1 Suggestions
     1) Need to make it clear that viewing uncertainty visualisation through the lens of signal supression is the main idea of the paper
       - Currently it is introduced halfway through the paper. 
