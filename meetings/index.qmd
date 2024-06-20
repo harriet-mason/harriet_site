@@ -8,6 +8,34 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 June 21
+#### Notes
+
+#### Discussion topics
+- Did 3MT, I hate that competition haha.
+
+- Signal-supression paper stuff
+  - Update
+    - I have tried to restructure the paper so that it is focused on the signal-suppression idea
+    - Previously I felt comfortable calling it a review because it did review the literature but slowly arrived at the signal suppression conclusion
+    - Now it is more of an argument for a different approach to uncertainty visualisation
+      - The literature review sections
+        1) set the scene for why the different approach is novel, and
+        2) provide examples of conflicting literature that disappears when we view uncertainty visualisation through this lense
+  - Questions
+    - I am not sure how early I should introduce the concept of "signal-suppression". 
+    - Should I re-title the paper?
+    - I am not sure if the three main points go together, the paper basically goes
+      1) Why is uncertainty special? (goes through motivations of the subfield existing at all)
+      2) What is an uncertainty visualisation? (discuss definitions of uncertainty, definitions of uncertainty visualisation, and why uncertainty visualisation doesnt work with my definition and EDA? It's kinda messy and the direction of this section isn't clear)
+      3) How do you evaluate uncertainty visualisations? (talks about how to measure signal-supression instead of signal)
+      
+
+- Should I change the term "signal-suppression"?
+  - I don't think it is sending the vibe I want
+  - I called it signal-supression because if you dont include uncertainty information, both valid and invalid signals would be clear. The only signal that a good signal-supression plot should hide is statistically *invalid* signals.
+  - I think signal supression gives the idea that we are hiding information, but actually what we are trying to do is design visualisations such that when you *include* the uncertainty information signals that actually arent there are supressed. We are only supressing erroneous signal
+
 ## 2024 June 14 
 #### Notes
 - Can rethink signal supression with rescaling
