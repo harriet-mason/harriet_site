@@ -1,21 +1,13 @@
 ---
-title: "Research Ideas"
+title: "Half finished blog posts"
 listing:
   - id: posts
     contents: posts
     sort: "date desc"
-  - id: ideas
-    contents: ideadumpster
 ---
-# Small Part Ideas
-A little blog post/s that is a write up of what I'm currently working on.
+
+Random half finished blog posts that would go on my public site after completion
 
 ::: {#posts}
 :::
 
-
-# Idea Dumpster
-This is just the file that holds the ideas I had that may or may not be terrible. Not for anyone to read ever.
-
-::: {#ideas}
-:::
