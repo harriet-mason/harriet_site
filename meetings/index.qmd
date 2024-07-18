@@ -8,6 +8,62 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 July 19
+### Notes
+
+### Discussion topics
+#### Signal Supression Paper
+- Got a lot of interest in the idea from people at the summer school, I think they were interested in it
+- What do I do with it when its done?
+  - I am 100% finishing it before the next meeting (so we can start discussing the package). 
+      - I am just going to work over the weekend to finish if its not done by today. It is not going to bleed into next week.
+  - What do I do with it when it is done?
+  - How does authorship work? (i.e. whose name do I put on the paper)
+- I have a lot of work that is more "theoretical" (i.e. no experiment or software associated with it), and I've seen a lot of this kind of theoretical stuff in IEEE. Therefore it doesn't necessarily have to be considered a "literature review" and I think I'll try submitting to IEEE if Annual Reviews rejects it.
+  - e.g. I think the signal suppression paper is similer to [this paper](https://ieeexplore.ieee.org/abstract/document/1626178?casa_token=vO_VMcgDIIwAAAAA:hqDzh8H9yxav2_boprgZSZBsub3RFK5EoKMSQUvTrSPBJDLiRo4m4pUbshHtDNFa_3QhaehPeLQ) and even though its a short paper I've seen plenty of longer papers that also fit the bill
+  - No cost to submitting somewhere. If its rejected I get feedback (which is good) and if its accepted I have a paper (which is also good). 
+    
+#### cassowaryr (mostly for Di)
+- Monday next week I'm going to check the Cassowaryr package runs the paper without issue
+  - If it runs without issue I will submit the new version to CRAN and we can submit the R-journal paper
+  - If it doesn't run I will probably split next week 50/50 
+
+#### ggplot extension
+- My current plan is to go through the existing uncertainty vis packages and work out where the gaps are
+  - There are quite a few, i.e. ggdist, several bivariate packages, 
+  - They all take in different inputs, most of them don't interact with ggplot, they consider uncertainty visualisation its own independent plot and are not looking at "adjusting" an existing plot such that it shows uncertainty
+
+- I want the end result of the package to be a "supression" version of existing ggplot2 geoms
+  - e.g. `ggplot(data) + geom_sf_sup(aes(fill = estimate, fill_unc = variance), method="pixel")`
+    - this code would replace each estimate value with a sample from a $N(estimate, variance)$ distribution
+    - Makes it easy replace existing code with an uncertainty version
+    - This method also allows us to expand the concept into different types of plots later (since every plot technically could have an "uncertainty" counterpart but some of them would be a complete mess)
+    
+- I am also planning to to look at the limitations of using things like VSUP, what would be required, etc. The ggplot method I am thinking about is viewing each estimate in isolation, I am not sure how weird combination methods would work.
+
+#### AEMO control room operator meeting
+- This week I had a 3h Meeting with an AEMO control room operator where she went through her job, what she wants out of it
+- She does not want uncertainty plots, I actually agree that they will not help her at all. 
+- The people that manage uncertainty (handbook writers, forecasters, etc) do not make decisions. They only use the uncertainty to determine thresholds that maxmise stabilist. The people that make decisions only see thresholds and do not engage with uncertainty as all.
+- the operator was adamant that she does not want *even more* information. A lot of her job is knowing proceedures. As a matter of fact, the closer we can get her work environment to the rational agent model (i.e. only informing her when thresholds are hit with attetion drawing colour coded notifications) the happier she said she would be. 
+
+- This is actually how a rational agent (which we should assume AEMO wants to be) *should* manage uncertainty.
+- I used to have a whole section in the annual reviews paper that I took out and pasted togehter as its own paper. (I am not suggesting this as a new paper, I'm saying I already wrote it out as it was a direct follow up from my confirmation/annual reviews work)
+  - **Main idea of the paper**: If there is any scenario where the utility function of the agent is known, then there is a decision that optimises that utility, and there should never be a plot. Uncertainty visualisations are only necessary for decision making tasks where:
+    1) the agent making the decision is using a utility function that is unknown to 
+    2) the agent who has the information and is making the plot. 
+  This premise is built on pretty straightforward logic from the definition of a rational agent. A rational agent, by definition, is maximizing a utility function (the uncertainty on that utility function has no effect on the rational agent unless it creates bias in their decision and means their decisions are not optimal). A rational agent is simply a mathematical process, so there is no need for a plot. 
+- For example, AEMO does not care about unpredictable weather affecting their demand estimates in isolation. There is no reason for AEMO to care about that as demand is not the function they are trying to optimise. AEMO is trying to minimise the probability of a blackout (this is a simple example, the operator told me about some stability function they do). Therefore, AEMO only cares about how the increase volatility in demand affects the probability of a blackout. So AEMO uses that variance as an input to decide the threshold as which the operator would need to start doing something (like shedding energy or something). The operator does not care what caused the change in the threshold, they only care about what the threshold is. The forecasters do not care about the uncertainty for its own sake, only in so far as it affects the probability of a blackout. If the operator was given discretion for action (with an uncertainty visualisation) and the optimization function is known (which AEMO does know) then we would reach an inoptimum solution. 
+
+- I actually think this paper would be more useful to AEMO than another of the other stuff I have done. It explains why the best approach to improve stability is to reduce the noise in the cognitive process of the operator. Giving the operator uncertainty displays would result in decisions that are not optimal. 
+    - It is highly relevant to their business practice and aligns well with the "wish list" of the operator which includes things like: 
+      - If there are planned line maintenance, so they are going to be down, put them in the system so I am not alerted to them
+      - colour coded traffic light system for screening key indices that relfect the health of the entire system
+      - linking between software ("I should be able to right click on the power grid having the issue and open up the respective location in the market management software. Instead I have to look at its code and go find it in this long list, set the date, etc)
+
+
+
+
 ## 2024 June 21
 #### Notes
 
