@@ -10,6 +10,17 @@ listing:
 # Supervisor Meetings
 ## 2024 July 19
 ### Notes
+- everyone on author list unless they say "no" (so check before submitting)
+- instead of IEEE, harvard reviews (check places jessica hullman has published) for length
+- ursula about to go on vacation
+- Sherry wants to practice c code (huize.zhang@austin.utexas.edu)
+- want package
+  - have capability to set the scale
+  - might not always be scaling down to supress, if you change scale of variance, 
+    - good example in patricks thesis (if highest value is higher than the greatest amount it shows nothing)
+  - think about signal supression in the other way
+    - look at some diverging scales and sequential scales
+  - VSUP can think about interactive element (how would this look if the scale was different, and change supression range/colourpalette range)
 
 ### Discussion topics
 #### Signal Supression Paper
