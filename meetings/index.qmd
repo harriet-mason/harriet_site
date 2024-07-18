@@ -13,7 +13,7 @@ listing:
 
 ### Discussion topics
 #### Signal Supression Paper
-- Got a lot of interest in the idea from people at the summer school, I think they were interested in it
+- Have any of you guys had to make a custom legend before? (I think I could work it out but asking might shorten the time it takes significantly)
 - What do I do with it when its done?
   - I am 100% finishing it before the next meeting (so we can start discussing the package). 
       - I am just going to work over the weekend to finish if its not done by today. It is not going to bleed into next week.
