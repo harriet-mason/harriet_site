@@ -8,6 +8,20 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 July 26
+### Notes
+### Discussion Topics
+- Did not finish paper last weekend :(
+  - Not for a lack of effort, I had more trouble with the palettes than anticipated, but they are ALL good now.
+  - I was thinking of just staying up all night to finish it (I really want to be done) but decided I should sleep
+
+- How different is transparency to colour value?
+  - Manipulating colour value in R did not make it more white, but like more intense?
+  - Instead I made a plot that manipulated Transparency
+  - Not sure if this change is OK
+  
+- Sarah, plz accept the repository colaberation invite
+
 ## 2024 July 19
 ### Notes
 - everyone on author list unless they say "no" (so check before submitting)
