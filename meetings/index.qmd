@@ -8,6 +8,45 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 Aug 8
+### Notes
+
+### Discussion Topics
+#### Lit Review / Package
+
+![ggplot extension outputs with their required minimum level of information inputs](misc_files/gginputoutput.jpg)
+Have a few questions about this section
+- I was adding the data explanation section in the background (as Di suggested) and am not sure which level of data I should be working with
+    - I originally just generated the spatial data for illustrative purposes, so I didn't think too much about the analysis process
+    - Current state of the data is the estimate & variance level (I had to assume a distribution for the pixel map)
+  
+- Part of the problem with the existing packages *is* the fact that they all take different inputs so I can't entirely ignore the fact they should all take different data (theoretically)
+- Options are
+  - Just explain the data as it is (estimate and sampling variance)
+  - Start at original data and walk through the process (this might lengthen the paper and its already probably too long)
+
+- Also, is there even an equivalent spatial trend test if you have an estimate and a sampling distribution?
+  - I mention it as a potential comparison for evaluation studies
+  - Does anyone know any good spatial statistics resources I could skim to find an example of this?
+  - Otherwise I can just use each median as a data point but I'm not sure how legitimate that is.
+
+- Additional comment: I feel like a lot of papers get muddled when they use a mean as the estimate, because it is unclear if the variance is the sample variance or estimated population variance. I think I might change our estimate to the median and keep the distribution as the sampling distribution
+  - Realistically, there is no reason to have the mean and the population variance, I'm not sure how you could get that without having the original data (in which case you should just show the original data)
+  - Sampling distributions make more sense, and using the median makes it clear we are using a sampling distribution
+
+#### Todos
+- Lit Review
+  - Data stuff mentioned today
+    - Fix up data
+    - Write up data intro in paper
+    - Adjust palettes depending on changes to data
+  - Final spell check/read over/format
+  - Add/move some figures depending on how sparse the paper looks
+  
+- Package
+  - Read ggplot paper because IDK how to do a ggplot extension
+  - Map out space of existing packages (establish that this extension *is* something new)
+
 ## 2024 July 26
 ### Notes
 ### Discussion Topics
