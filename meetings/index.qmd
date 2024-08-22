@@ -14,9 +14,10 @@ listing:
 #### Lit Review
 - Ready to be read
 - I am going to stop working on it and wait until you guys have read it and have some suggestions
-  - I am going to work on the package and cassowaryr stuff until then
+  - I would honestly prefer a long list of fixes or suggested changes I can work through (you guys are also free to edit the paper)
+  - If you have made a suggestion in the past and notice the change hasn't been made, please make the suggestion again, I might have forgotten to add it in
 - There are some small changes I think it needs (like adding some additional figures) but I think it would be better to see which parts you guys think need extra explanation/context, rather than spending time adding them in myself.
-
+- I am going to work on the package and cassowaryr stuff until you guys have read the paper.
 
 ## 2024 August 8
 ### Discussion Topics
