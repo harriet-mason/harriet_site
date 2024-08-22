@@ -8,9 +8,17 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2024 Aug 8
+## 2024 August 23
 ### Notes
+### Discussion Topics
+#### Lit Review
+- Ready to be read
+- I am going to stop working on it and wait until you guys have read it and have some suggestions
+  - I am going to work on the package and cassowaryr stuff until then
+- There are some small changes I think it needs (like adding some additional figures) but I think it would be better to see which parts you guys think need extra explanation/context, rather than spending time adding them in myself.
 
+
+## 2024 August 8
 ### Discussion Topics
 #### Lit Review / Package
 
