@@ -8,6 +8,23 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 August 30
+### ggsuppress
+- Input should be original data frame
+  - Data needs lat and long (want to be able to glue it into a sf)
+- Want to have a stat as well as a geom
+  - Stat should have capacity to compute for different representations
+  - e.g. mean and st dev for add summary, hexbin, hist has binning
+  - inconvinient to do outside dplyr
+- Generate data for the package
+  - Ask Kate for climate data
+  - energy data
+  - different simulated data sets with patterns we might need
+    - should highlight the strengths and weaknesses of each approach
+- Don't call it ggsuppress
+  - want something more positive to encourage people to use it
+
+
 ## 2024 August 23
 ### Notes
 ### Discussion Topics
