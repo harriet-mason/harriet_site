@@ -7,7 +7,25 @@ listing:
     sort: "title desc"
 ---
 
-# Supervisor Meetings
+# Supervisor Meetings  
+## 2024 September 13  
+### Notes  
+
+### Package structure
+- Have kind of come up with the structure of how I am going to try and do this
+- Have a couple of questions (highlighted in yellow)
+
+![ggsupress structure with ggplot grammar](misc_files/ggstructure.jpg)
+
+### Package Name
+- I don't have anything
+- I think I have gotten used to calling it `ggsupress` so anything else feels weird
+  - Considered `gghedge` but it might make people think of gardening
+  - also considered `gguncert` but that feels basic and will probably get confused with `ggdist`
+
+### ToDos
+- Setup githup for package and start actually coding it
+
 ## 2024 August 30
 ### ggsuppress
 - Input should be original data frame
