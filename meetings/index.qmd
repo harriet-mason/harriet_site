@@ -9,8 +9,44 @@ listing:
 
 # Supervisor Meetings  
 ## 2024 September 13  
-### Notes  
+### Notes 
+- Consider where to submit 
+- Might be too chatty for Annual Reviews
+  - The Journal Of Statistical Science
+    - Is length of paper appropriate for the journal
+    - if looks like its ok send to Susan coleage
+  - Wylie reviews
+    - manager is coleage and very passionate about graphics (sort of PhD student of Di)
+- Want to keep chatty nature
 
+- Paper notes
+  - should have more interesting structure that isnt a target shape
+  - e.g. IA shape (e.g. something special about Iowa)
+  - Corn sweat (https://mesonet.agron.iastate.edu/onsite/features/cat.php?day=2022-07-11)
+  
+- Package
+  - not coord, use scale (more appropriate for colour)
+  - Look at colour sales (scale_colour_continuous) has option to transform the colour palette on the fly
+  - regular gridding vs jittering (subdivide vs position)
+    - which one you want to use can depend (might need both as possible option)
+  - pixel map irregular shapes
+    - n or size inconsistent
+    - how to even grid irregular shape
+    - can shift to using hex-gridding
+    - irregular shapes cause confusion (is shape or data?)
+    - hexagons regular shaped
+    - irregular shape causes people to think its sub areas (or dot density map)
+      - might be able to use standard point process for regular/irregular gridding (https://kevintshoemaker.github.io/NRES-746/sppm.html)
+
+- Package Names
+  - Susan name suggestion
+    - thorny devil
+  - Sarah Suggestions
+    - Bustard
+    - Nabarlek
+    - Gobbleguts
+    - Plains-wanderer
+  
 ### Package structure
 - Have kind of come up with the structure of how I am going to try and do this
 - Have a couple of questions (highlighted in yellow)
