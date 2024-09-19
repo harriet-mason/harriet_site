@@ -10,6 +10,8 @@ listing:
 # Supervisor Meetings  
 ## 2024 September 20 
 ### Notes 
+- Make hex sticker for ggdibbler 
+- Pixelmap make issue on github repo
 
 ### Agenda
 - Currently working through Susan's feedback (I am 75% of the way through - up to comment 9/12)
