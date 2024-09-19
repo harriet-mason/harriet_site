@@ -12,6 +12,7 @@ listing:
 ### Notes 
 - Make hex sticker for ggdibbler 
 - Pixelmap make issue on github repo
+- Wiley reviews found [here](https://wires.onlinelibrary.wiley.com/journal/19390068)
 
 ### Agenda
 - Currently working through Susan's feedback (I am 75% of the way through - up to comment 9/12)
