@@ -9,8 +9,23 @@ listing:
 
 # Supervisor Meetings  
 ## 2024 September 20 
+### Notes 
+
+### Agenda
+- Currently working through Susan's feedback (I am 75% of the way through - up to comment 9/12)
+
 - Page Length for The Journal of Statistical Science
   - I couldn't find a max page length in the details, but some I saw some papers that were quite long, one was 36 pages (from 2014). More recent issues had max length of 24 pages (also formatting is different)
+
+- The paper isn't knitting due to an error from Visumap
+  - Cynthia also got this error when she tried to knit my progress review slides
+  - I updated all my packages before I submit the Cassowaryr paper so I suspect that is what caused it
+  - Since it is due to a package update I can either:
+    - Revert my package back to when this did not throw an error
+      - Can you specify package versions for a quarto document?
+    - Make the package pixel map a high priorty and just use my version instead
+
+- I ended up using dibbler to name the package (ggdibbler)
 
 ## 2024 September 13  
 ### Notes 
