@@ -7,7 +7,26 @@ listing:
     sort: "title desc"
 ---
 
-# Supervisor Meetings  
+# Supervisor Meetings
+## 2024 October 9
+
+### Notes 
+
+### Agenda
+- I don't have much to talk about (I figured we should have a check in though)
+- Finished all the suggested changes
+  - Just waiting on hearing back from Emi (I asked some clarifications about her suggested edits)
+  - Should I add a non-map vis?
+    - Not sure if Susan suggested because I asked for figure suggestions or because they are needed
+    - I have a couple figures in mind that I could add, but I'm worried about length
+- Notable changes made to review
+  - Acknowledgement section
+  - Rewrote a small handful of sections (mostly based on Susan's feedback)
+  - Changed pattern in map
+  - Fixed pixel map colour scale issue
+  - Grammatical/spelling
+  - Other small changes
+
 ## 2024 September 20 
 ### Notes 
 - Make hex sticker for ggdibbler 
