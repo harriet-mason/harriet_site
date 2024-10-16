@@ -11,7 +11,29 @@ listing:
 ## 2024 October16
 
 ### Notes 
+Feedback: 
+Define uncertainty visualisation in the introduction of the paper.
+- give heads up to say we say “uncertainty visualisation” but there is no consensus on what it means, you will see that later
+- 3rd paragraph - have in quotes 2nd time, move to 1st time
+- maybe between figure 1 sentance and “despite the new terminology” + temper this using the new sentance
 
+Feedback: 
+Foreshadow signal suppression and uncertainty-as-signal in the intro. 
+- fix the sentence I added
+- can be too alluding rather than saying what you mean
+- replace “highlight this power” with something like “these data sets show a case where visual statistics summarises something the summary statisitcs do not”
+- try to avoid using “additionally blah blah blah” (take out all sentance actially)
+- might be important to have the words signal suppression in the introduction 
+- change first paragraph in introduction - make sure to use the terms signal and noise specifically
+
+Feedback: 
+This paper is largely confined to static visualisation. Perhaps there needs to be a discussion on the prospects of interactive + animated vis to project uncertainty.
+- make it clear for the reader that these are additional tools in the toolbox
+- just like layering colour and symbol we can also layer in 
+- somewhere earlier on, make it clear that this is something concrete within the scope
+
+- change acknowledgement to "the first author"
+- fix way authors are written (add affiliation)
 ### Agenda
 - I don't have much to talk about (I figured we should have a check in though)
   - The apartment thing has taken up a bunch of time over the past few weeks because we found another place we want to put an offer in for
