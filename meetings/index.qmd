@@ -12,6 +12,19 @@ listing:
 ## 2024 November 6
 
 ### Notes 
+- keep control of work for as long as possible
+- type of data comes up a lot in survey
+  - might already be some mechanism for handling this
+  - thomas lumley works with survey data stuff
+  - US census, census R package
+    - differential privacy stuff
+- Use S7
+- Don't directly depend on distributional
+  - extend in different ways (joint distributions)
+  - have protective dibble layer
+- Keep index for bootstrapped samples and just keep list of IDs that go with that sample
+  - similar to split in machine learning
+  - does keep joint distribution
 
 ### Update
 - Figured out basic data frame structure
