@@ -8,7 +8,32 @@ listing:
 ---
 
 # Supervisor Meetings
-## 2024 October16
+
+## 2024 November 6
+
+### Notes 
+
+### Update
+- Figured out basic data frame structure
+- Made toy data set to develop functions
+- Started on pixel map function
+
+### Questions
+- S3 or S7?
+  - IDK the difference
+  - Not sure if it will be easier to use the distribuion objects defined in distributional, or to make a dibble object or something
+  - Was thinking of having alternatives for each mapping aesthetic. i.e. you write the normal `geom_sf()` but if the object is distributional, it does the ggdibler version
+- Using distributional for object structure
+  - Not sure if I need to add mean/variance object in (its the only one that is missing from current methods)
+    - Currently just ignoring it, not sure how well it would work
+    - Can ask Mitch if he wants to add it. 
+    - If Mitch doesn't want to add it, I can just add it to ggdibbler myself if needed
+        - Although it might be more suitable in dist than ggdibbler
+- The distribution objects already have their own class. 
+- Just to check, does bootstrapping maintain joint distribution considerations (like impossible combinations and stuff)? 
+  - I feel like it does but I thougt I should check. 
+
+## 2024 October 16
 
 ### Notes 
 Final Paper Fixes
