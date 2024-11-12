@@ -8,6 +8,28 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 November 13
+
+### Notes
+
+### Questions
+
+![](misc_files/mapoutputs.jpeg)
+
+- Binning packages
+  - I started looking at this myself and then decided you guys would probably have a specific package you think I should use
+  - Hexbin for hexagonal binning
+  - Can you do that inside of SF objects?
+  - I literally couldn't find anything on rectangular binning, I'm either thinking that's not a thing, or I don't know what it's name is
+    - I know you can do it in ggplot so its definitely a thing
+  - Would cut off bins at the end of the area be a problem?
+
+- I feel like grid of points might have the same problem the pixel maps does
+
+- Making mass 
+  - Should I do mass similar to pixelate? 
+  - alternatively, is there a binning thing I can do that would have a contour plot shape?
+  - Like actually make the plot using the same binning, but have *heaps* of bins and sort the data before hand?
 
 ## 2024 November 6
 
