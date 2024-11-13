@@ -11,6 +11,34 @@ listing:
 ## 2024 November 13
 
 ### Notes
+- Hexbin for hexagons
+- statbin2d for rectangular binning
+- create bins and do an intersection operation
+  - generate regular shape and then clip
+- can go from bins to sf but not other way around
+- Jayani quollr has hexbinning
+  - Had to start from scratch because not enough flexibility
+  - might be easier to work from
+  - can be used for both rect and hex
+- Mass might be too hard
+- Also want animation
+  - 95th to 5th percentile on each cell
+  - gradual colour change
+  - smooth
+  - some areas change faster than others = less reliable
+  
+- should be able to estimate the size of the points for the grid
+  - do on global scale
+  - plot 0 to 1 
+  - point size related to sample size that you are using
+  - ggplot not based on plot size, something universal
+    - changes based on how you are looking at it
+    
+- Remember palette will change perception
+  - colour palette can dampen or emphasise variability
+  
+- Put paper on archive
+  - check with emi and sarah
 
 ### Questions
 
