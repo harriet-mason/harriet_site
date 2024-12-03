@@ -62,7 +62,11 @@ listing:
   - I was thinking of "uncer-supressing" where I mix both colours either side of the median with the median. Could also  "over-supress" i.e. suppress 3 into 1 but that feels like it would be lopsided. 
     - Currently I just have it set up to throw an error if the suppression function gets an odd number of colours
 
-
+- Troubleshooting palette function
+  - Want to add function that maps your palette (and by extension the transformation between layers) in the colour space (e.g. rgb, hsv, etc). 
+  - I think it would be useful to help people troubleshoot issues with the palette.
+  - Does that already exist, if yes, what is it called?
+  
     
   
 ### Notes
