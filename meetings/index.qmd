@@ -8,6 +8,65 @@ listing:
 ---
 
 # Supervisor Meetings
+
+## 2024 December 4
+
+### Updates
+
+- Almost done with palette stuff
+  - Still ironing out the different functions, will do documentation and write tests once the functions are more stable (I keep having to break them up into smaller functions)
+- I have very low iron again (its been pretty low for a couple of months)
+  - I feel like its because of mould exposure but there isnt evidence of that so idk what keeps causing it
+  - Trouble focusing (not as bad as it was at the start of the PhD though thank god)
+  - Am still working on stuff, its just been a bit slow (and will probably continue to be a bit slow for another month until my iron levels go back to normal)
+    - (have actually been picking up a bit in the last couple of weeks)
+  
+### Questions
+
+- No. of options
+  - Honestly I'm a little overwhelmed by the number of choices in all the functions/changes. Am dealing with it in two main ways
+    1. I am focusing on just being able to make the ARSA maps in the package and coding the functions to do them myself
+    2. Any time I run into a "oh boy there are an infinite number of valid ways you could do this" problem, I allow a function as an input.
+      - e.g. I am including the other suppression methods from the Matthew Kay paper because I want to include them in the experiment, but there is also the option to include your own suppression function. 
+  - Do you guys have any specific options/functionality in the palettes that I should make sure to include
+    
+
+- Colour mixing changes
+  - ages ago you guys suggested I remake the saturation/mixing functions using `colourspace`
+  - if you mix colours on polar co-ordinate, can throw some weird outputs. 
+    - the colourspace version throws a warning if you mix in HSV/HCL
+      - “convex combination of colors in polar coordinates (polarLUV) may not be appropriate”
+    - my function used in the ASRA package just corrects by making sure its always taking the shortest path (and doing the intutive colour mix)
+    - I have both in the package for the time being
+  - currently mixing on rgb space
+  - I cannot see any obvious difference between mixing in RBG and HSV
+  - Does this raise any obvious flags to you guys? (since you know more about colour)
+    - If not I'll just leave as is for the time being.
+
+
+- VSUP paper does not technically specify uncertainty is mapped to saturation (I properly re-read the paper)
+  - VSUP paper says it does a combination of lightness/saturation but it could theoretically be anything
+    - e.g. value mapped to red, uncertainty mapped to blue
+    - I am considering allowing for these approaches, but probably not now (since I feel like it would be too much from the start)
+      - But also I am not 100% sure what methods I *should* include because the version I put in the ASRA is quite ad hoc
+  - The current method allows you to use any palette as your starting palette, so the colours for "no uncertainty" all have wildly different hue/saturation/brightness which makes the changes as uncertainty increases inconsistent for each colour.
+    - I consider this to be fine to like... normal plotting. It makes the package easier to implement into an exitsting workflow but I think it might be less fine for an experiment.
+    - was thinking I could also have the base palette have hue change in value and set the saturation/value to be constant, and then we only change colour
+  
+
+- No. Layers, and No. colour bins
+  - The tree suppression is limited relative to other suppression approaches as it:
+      1. Can only be as deep as log2(n) where n is the number of colors in the original bin (each time you suppress you half the number of colours)
+        - I was thinking of setting the default depth of the palette to this for *all* suppression methods (keeps them consistent)
+      2. Only has clear instructions when the number of colours is a power of 2, otherwise you get an odd number of colours with no clear way to deal with them
+  - I was thinking of "uncer-supressing" where I mix both colours either side of the median with the median. Could also  "over-supress" i.e. suppress 3 into 1 but that feels like it would be lopsided. 
+    - Currently I just have it set up to throw an error if the suppression function gets an odd number of colours
+
+
+    
+  
+### Notes
+
 ## 2024 November 13
 
 ### Notes
