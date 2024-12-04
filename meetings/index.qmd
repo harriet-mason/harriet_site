@@ -70,6 +70,18 @@ listing:
     
   
 ### Notes
+- Keep functions in lower case
+- use case_when, rather than if and else if
+  - single one, can handle failures better
+- currently doing reductions on absolute scale, can make them relative for each colour
+  - might be worthwhile to flag to the user (warning/error) that the selected palette has a different range of saturation/lightness which might affect the perceived uncertainty
+- make note of things we want to test as we go (might be usefull)
+- for most of the colours, there is a distiller that will automatically interpolate between items in a palette. distiller approach could get palette of right size
+  - for original palette: allows to use own palette but gives right number of colours
+  - flag it for the user
+- `colourspace` has a lot of functions, look into it
+  - need both hex colours returned and also plotting them as matrix (legend) 
+- make toy dataset (simulated) that starts at the raw data and goes through the entire process.
 
 ## 2024 November 13
 
