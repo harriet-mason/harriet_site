@@ -9,6 +9,21 @@ listing:
 
 # Supervisor Meetings
 
+## 2024 December 11
+### Notes
+- Not just software paper but also methodology paper, JCGS
+  - R journal paper JSS (software journals) vs JCGS paper (methodology paper with some software elements)
+- Time depends on how thorough documentation is
+- Draw main diagram (tidy) to explain ggplot
+- Should have inst folder where you put your temporary test code
+  - ignored, for extras, standard name for it
+  - useful for other people to see / for developer
+  - so when working on package it is always a package
+  - can always do checks/build
+- Hexsticker (folder) goes in inst as well, hexsticker.png goes in man (if not there already)
+- Do devtools check/install regularly
+- Document as you go to, helps thinking around it
+
 ## 2024 December 4
 
 ### Updates
@@ -70,6 +85,11 @@ listing:
     
   
 ### Notes
+- Read literature on colour mixing
+  - Charlotte Wickham (munsell)
+  - Achim Zeileis
+  - Danielle Albers Szafir 
+    - tracing non-linear path along colour space and interpolating along that
 - Keep functions in lower case
 - use case_when, rather than if and else if
   - single one, can handle failures better
