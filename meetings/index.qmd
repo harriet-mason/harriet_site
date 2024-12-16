@@ -8,7 +8,36 @@ listing:
 ---
 
 # Supervisor Meetings
+## 2024 December 18
+### Questions
+- Need a realistic timeline for PhD
+  - I was still thinking of having chapters
+    - Chapter 2 software 
+    - Chapter 3 experiment
+    - Honestly I would be fine with only 2 chapters since the first chapter is so long, but I don't know if other people would be fine with that lol
+  - I think both of these chapters are feasible, but I dont know if I'm being delusional because I
+    - Writing the entire package and paper for cassowaryr took a year as 1/4 of my course work load
+      - So I figure 3 months is fine to finish the package and paper?
+        - Honestly, if I still had the same work hours that I did when I was doing the review paper I would be done. I have had so much life stuff happen in the past couple of months I haven't been able to work much.
+    - I haven't done an experiment so I have no idea how long they take.
+      - What are the steps involved and how long should each step take
 
+- Internship at AEMO
+  - Yay/nay?
+    - Would need to fit it into the timeline if yay
+  - Details
+    - I cannot take leave to do a research internship and I must be actively enrolled (not sure if this is for all internships or just ones you get through monash??)
+    - It needs to be a minimum of 3 months (60 hours) to count
+    - Internship work is supposed to be actively integrated into the PhD
+      - So I think its supposed to form part of a chapter
+  - I think I would prefer to do it, but I am worried that
+    - 1) I am too close to the end of the degree
+      - Website says "You should also be making good progress in your research and be confident that taking on the internship will not impact your research and/or course progression."
+    - 2) It will be risky to commit to 3 months of work at AEMO if it turns out I can't integrate the work there into the PhD (or it derails the current plan or something)
+    
+- Side note about employment
+  - How soon is too soon to start applying for jobs? (uni melb lecturer job)
+  
 ## 2024 December 11
 ### Notes
 - Not just software paper but also methodology paper, JCGS
