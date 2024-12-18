@@ -9,6 +9,31 @@ listing:
 
 # Supervisor Meetings
 ## 2024 December 18
+### Notes
+- Hard part is to get right data
+- lineup can be finnicky
+- Direct questions seem to be relatively straight forward
+- Time line depends on how simple you make the study 
+  - also needs to be generalisable
+- Possible
+  - use at least 1 real and 1 simulated
+  - use raw data, fit spatial model, and then draw from spatial model to get dataset that is consistent with the model you are using so it doesnt have weird artifacts
+  - can show data is consistent with however you want to model thing but you can also show that it works with real data too
+  - can do randomised block design
+  - streamline questions as much as possible for default minimum we expect them to answer
+  - "at what value do you think X is", "what is the ratio of x and y", also give comment box
+- Basic timeline
+  - organising the two data sets and graphics: specific data set isn't as important as it showing the things you want to show
+    - census tracked data - publish uncertainty estimates along with the data
+  - week to make shiny app
+    - qualtrix: survey app but ability to do special stuff with data goes way down
+  - week for pilot testing
+  - week for revise
+  - data collection less than 3 days
+  - about a month all up for everything
+
+
+
 ### Questions
 - Need a realistic timeline for PhD
   - I was still thinking of having chapters
